@@ -15,6 +15,12 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "R7.Webmaster.Addins.Passwor
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "R7.Webmaster.Addins.TextCleaner", "R7.Webmaster.Addins.TextCleaner\R7.Webmaster.Addins.TextCleaner.csproj", "{972BDB06-45FC-4E3F-9FE5-59A98CE97554}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{667888CF-FD7D-4EFF-A26B-ECC2805CF77F}"
+	ProjectSection(SolutionItems) = preProject
+		LICENSE.md = LICENSE.md
+		README.md = README.md
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x86 = Debug|x86
@@ -49,6 +55,8 @@ Global
 		{F9781FD0-502A-44A0-AB9B-05748B5506FC}.Debug|x86.Build.0 = Debug|x86
 		{F9781FD0-502A-44A0-AB9B-05748B5506FC}.Release|x86.ActiveCfg = Release|x86
 		{F9781FD0-502A-44A0-AB9B-05748B5506FC}.Release|x86.Build.0 = Release|x86
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
 	EndGlobalSection
 	GlobalSection(MonoDevelopProperties) = preSolution
 		StartupItem = R7.Webmaster\R7.Webmaster.csproj
