@@ -1,0 +1,56 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "R7.Webmaster", "R7.Webmaster\R7.Webmaster.csproj", "{B82793C6-D632-42C5-B91B-0216AB0F61C6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "R7.Webmaster.Addins.Root", "R7.Webmaster.Addins.Root\R7.Webmaster.Addins.Root.csproj", "{9E9C53C7-15ED-4703-ACE1-0BC67280096A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "R7.Webmaster.Addins.CaseChanger", "R7.Webmaster.Addins.CaseChanger\R7.Webmaster.Addins.CaseChanger.csproj", "{7305D0C3-77E4-4B8F-9C1D-5DA63921619D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "R7.Webmaster.Core", "R7.Webmaster.Core\R7.Webmaster.Core.csproj", "{EB897CA8-4CC5-4EEF-8B39-F16364387661}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "R7.Webmaster.Addins.RatioCalculator", "R7.Webmaster.Addins.RatioCalculator\R7.Webmaster.Addins.RatioCalculator.csproj", "{570E67AC-BFF3-443D-AC49-4F357791DD97}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "R7.Webmaster.Addins.PasswordGenerator", "R7.Webmaster.Addins.PasswordGenerator\R7.Webmaster.Addins.PasswordGenerator.csproj", "{F9781FD0-502A-44A0-AB9B-05748B5506FC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "R7.Webmaster.Addins.TextCleaner", "R7.Webmaster.Addins.TextCleaner\R7.Webmaster.Addins.TextCleaner.csproj", "{972BDB06-45FC-4E3F-9FE5-59A98CE97554}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x86 = Debug|x86
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{570E67AC-BFF3-443D-AC49-4F357791DD97}.Debug|x86.ActiveCfg = Debug|x86
+		{570E67AC-BFF3-443D-AC49-4F357791DD97}.Debug|x86.Build.0 = Debug|x86
+		{570E67AC-BFF3-443D-AC49-4F357791DD97}.Release|x86.ActiveCfg = Release|x86
+		{570E67AC-BFF3-443D-AC49-4F357791DD97}.Release|x86.Build.0 = Release|x86
+		{7305D0C3-77E4-4B8F-9C1D-5DA63921619D}.Debug|x86.ActiveCfg = Debug|x86
+		{7305D0C3-77E4-4B8F-9C1D-5DA63921619D}.Debug|x86.Build.0 = Debug|x86
+		{7305D0C3-77E4-4B8F-9C1D-5DA63921619D}.Release|x86.ActiveCfg = Release|x86
+		{7305D0C3-77E4-4B8F-9C1D-5DA63921619D}.Release|x86.Build.0 = Release|x86
+		{972BDB06-45FC-4E3F-9FE5-59A98CE97554}.Debug|x86.ActiveCfg = Debug|x86
+		{972BDB06-45FC-4E3F-9FE5-59A98CE97554}.Debug|x86.Build.0 = Debug|x86
+		{972BDB06-45FC-4E3F-9FE5-59A98CE97554}.Release|x86.ActiveCfg = Release|x86
+		{972BDB06-45FC-4E3F-9FE5-59A98CE97554}.Release|x86.Build.0 = Release|x86
+		{9E9C53C7-15ED-4703-ACE1-0BC67280096A}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{9E9C53C7-15ED-4703-ACE1-0BC67280096A}.Debug|x86.Build.0 = Debug|Any CPU
+		{9E9C53C7-15ED-4703-ACE1-0BC67280096A}.Release|x86.ActiveCfg = Release|Any CPU
+		{9E9C53C7-15ED-4703-ACE1-0BC67280096A}.Release|x86.Build.0 = Release|Any CPU
+		{B82793C6-D632-42C5-B91B-0216AB0F61C6}.Debug|x86.ActiveCfg = Debug|x86
+		{B82793C6-D632-42C5-B91B-0216AB0F61C6}.Debug|x86.Build.0 = Debug|x86
+		{B82793C6-D632-42C5-B91B-0216AB0F61C6}.Release|x86.ActiveCfg = Release|x86
+		{B82793C6-D632-42C5-B91B-0216AB0F61C6}.Release|x86.Build.0 = Release|x86
+		{EB897CA8-4CC5-4EEF-8B39-F16364387661}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{EB897CA8-4CC5-4EEF-8B39-F16364387661}.Debug|x86.Build.0 = Debug|Any CPU
+		{EB897CA8-4CC5-4EEF-8B39-F16364387661}.Release|x86.ActiveCfg = Release|Any CPU
+		{EB897CA8-4CC5-4EEF-8B39-F16364387661}.Release|x86.Build.0 = Release|Any CPU
+		{F9781FD0-502A-44A0-AB9B-05748B5506FC}.Debug|x86.ActiveCfg = Debug|x86
+		{F9781FD0-502A-44A0-AB9B-05748B5506FC}.Debug|x86.Build.0 = Debug|x86
+		{F9781FD0-502A-44A0-AB9B-05748B5506FC}.Release|x86.ActiveCfg = Release|x86
+		{F9781FD0-502A-44A0-AB9B-05748B5506FC}.Release|x86.Build.0 = Release|x86
+	EndGlobalSection
+	GlobalSection(MonoDevelopProperties) = preSolution
+		StartupItem = R7.Webmaster\R7.Webmaster.csproj
+	EndGlobalSection
+EndGlobal

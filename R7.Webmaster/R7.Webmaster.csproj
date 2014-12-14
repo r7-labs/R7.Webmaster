@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProjectGuid>{B82793C6-D632-42C5-B91B-0216AB0F61C6}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>R7.Webmaster</RootNamespace>
+    <AssemblyName>R7.Webmaster</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug</OutputPath>
+    <DefineConstants>DEBUG;</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ConsolePause>false</ConsolePause>
+    <PlatformTarget>x86</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <DebugType>full</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release</OutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ConsolePause>false</ConsolePause>
+    <PlatformTarget>x86</PlatformTarget>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="gtk-sharp, Version=2.12.0.0, Culture=neutral, PublicKeyToken=35e10195dab3c99f">
+      <SpecificVersion>False</SpecificVersion>
+      <Package>gtk-sharp-2.0</Package>
+    </Reference>
+    <Reference Include="gdk-sharp, Version=2.12.0.0, Culture=neutral, PublicKeyToken=35e10195dab3c99f">
+      <SpecificVersion>False</SpecificVersion>
+      <Package>gtk-sharp-2.0</Package>
+    </Reference>
+    <Reference Include="glib-sharp, Version=2.12.0.0, Culture=neutral, PublicKeyToken=35e10195dab3c99f">
+      <SpecificVersion>False</SpecificVersion>
+      <Package>glib-sharp-2.0</Package>
+    </Reference>
+    <Reference Include="glade-sharp, Version=2.12.0.0, Culture=neutral, PublicKeyToken=35e10195dab3c99f">
+      <SpecificVersion>False</SpecificVersion>
+      <Package>glade-sharp-2.0</Package>
+    </Reference>
+    <Reference Include="pango-sharp, Version=2.12.0.0, Culture=neutral, PublicKeyToken=35e10195dab3c99f">
+      <SpecificVersion>False</SpecificVersion>
+      <Package>gtk-sharp-2.0</Package>
+    </Reference>
+    <Reference Include="atk-sharp, Version=2.12.0.0, Culture=neutral, PublicKeyToken=35e10195dab3c99f">
+      <SpecificVersion>False</SpecificVersion>
+      <Package>gtk-sharp-2.0</Package>
+    </Reference>
+    <Reference Include="Mono.Posix" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="gtk-gui\gui.stetic">
+      <LogicalName>gui.stetic</LogicalName>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="gtk-gui\generated.cs" />
+    <Compile Include="MainWindow.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="gtk-gui\R7.Webmaster.MainWindow.cs" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <ItemGroup>
+    <ProjectReference Include="..\R7.Webmaster.Addins.Root\R7.Webmaster.Addins.Root.csproj">
+      <Project>{9E9C53C7-15ED-4703-ACE1-0BC67280096A}</Project>
+      <Name>R7.Webmaster.Addins.Root</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\R7.Webmaster.Addins.CaseChanger\R7.Webmaster.Addins.CaseChanger.csproj">
+      <Project>{7305D0C3-77E4-4B8F-9C1D-5DA63921619D}</Project>
+      <Name>R7.Webmaster.Addins.CaseChanger</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\R7.Webmaster.Addins.RatioCalculator\R7.Webmaster.Addins.RatioCalculator.csproj">
+      <Project>{570E67AC-BFF3-443D-AC49-4F357791DD97}</Project>
+      <Name>R7.Webmaster.Addins.RatioCalculator</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\R7.Webmaster.Addins.PasswordGenerator\R7.Webmaster.Addins.PasswordGenerator.csproj">
+      <Project>{F9781FD0-502A-44A0-AB9B-05748B5506FC}</Project>
+      <Name>R7.Webmaster.Addins.PasswordGenerator</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\R7.Webmaster.Addins.TextCleaner\R7.Webmaster.Addins.TextCleaner.csproj">
+      <Project>{972BDB06-45FC-4E3F-9FE5-59A98CE97554}</Project>
+      <Name>R7.Webmaster.Addins.TextCleaner</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+</Project>
