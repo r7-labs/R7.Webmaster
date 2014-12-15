@@ -9,6 +9,8 @@
     <widget-library name="../../R7.Webmaster.Addins.Root/bin/Debug/R7.Webmaster.Addins.Root.dll" />
     <widget-library name="../../R7.Webmaster.Addins.CaseChanger/bin/Debug/R7.Webmaster.Addins.CaseChanger.dll" />
     <widget-library name="../../R7.Webmaster.Addins.RatioCalculator/bin/Debug/R7.Webmaster.Addins.RatioCalculator.dll" />
+    <widget-library name="../../R7.Webmaster.Addins.PasswordGenerator/bin/Debug/R7.Webmaster.Addins.PasswordGenerator.dll" />
+    <widget-library name="../../R7.Webmaster.Addins.TextCleaner/bin/Debug/R7.Webmaster.Addins.TextCleaner.dll" />
     <widget-library name="../bin/Debug/R7.Webmaster.exe" internal="true" />
   </import>
   <widget class="Gtk.Window" id="R7.Webmaster.MainWindow" design-size="400 300">
@@ -26,6 +28,7 @@
     </action-group>
     <property name="MemberName" />
     <property name="Title" translatable="yes">R7.Webmaster</property>
+    <property name="Icon">resource:R7.Webmaster.icons.webmaster_128.png</property>
     <property name="WindowPosition">CenterOnParent</property>
     <signal name="DeleteEvent" handler="OnDeleteEvent" />
     <child>

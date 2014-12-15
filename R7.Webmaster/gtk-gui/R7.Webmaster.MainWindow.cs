@@ -36,6 +36,7 @@ namespace R7.Webmaster
 			this.AddAccelGroup (this.UIManager.AccelGroup);
 			this.Name = "R7.Webmaster.MainWindow";
 			this.Title = global::Mono.Unix.Catalog.GetString ("R7.Webmaster");
+			this.Icon = global::Gdk.Pixbuf.LoadFromResource ("R7.Webmaster.icons.webmaster_128.png");
 			this.WindowPosition = ((global::Gtk.WindowPosition)(4));
 			// Container child R7.Webmaster.MainWindow.Gtk.Container+ContainerChild
 			this.vbox1 = new global::Gtk.VBox ();

@@ -62,6 +62,8 @@
     <EmbeddedResource Include="gtk-gui\gui.stetic">
       <LogicalName>gui.stetic</LogicalName>
     </EmbeddedResource>
+    <EmbeddedResource Include="icons\webmaster_512.png" />
+    <EmbeddedResource Include="icons\webmaster_128.png" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="gtk-gui\generated.cs" />
@@ -95,5 +97,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <None Include="icons\webmaster.svg" />
   </ItemGroup>
 </Project>
