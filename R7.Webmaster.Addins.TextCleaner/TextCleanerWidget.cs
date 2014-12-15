@@ -168,7 +168,7 @@ namespace R7.Webmaster.Addins.TextCleaner
 
 		protected void OnActionProcessActivated (object sender, EventArgs e)
 		{
-			TextCleanParams param = new TextCleanParams ()
+			TextCleanerParams param = new TextCleanerParams ()
 			{
 				TableCSSClass = entryTableClass.Text,
 				TableWidth = spinTableWidth.ValueAsInt,
@@ -204,7 +204,7 @@ namespace R7.Webmaster.Addins.TextCleaner
 			*/
 
 			txvResult.Buffer.Text = Model.TextClean (txvSource.Buffer.Text,
-				new TextCleanParams {
+				new TextCleanerParams {
 					HtmlIn = Model.IsHtml (txvSource.Buffer.Text),
 					HtmlOut = true,
 					EmNames = checkEmNames.Active 
@@ -212,7 +212,7 @@ namespace R7.Webmaster.Addins.TextCleaner
 			);
 					
 			textviewText.Buffer.Text = Model.TextClean (txvSource.Buffer.Text,
-				new TextCleanParams {
+				new TextCleanerParams {
 					HtmlIn = Model.IsHtml (txvSource.Buffer.Text),
 					HtmlOut = false,
 					EmNames = checkEmNames.Active 

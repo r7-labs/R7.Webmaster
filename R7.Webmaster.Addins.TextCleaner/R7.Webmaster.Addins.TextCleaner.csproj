@@ -79,6 +79,8 @@
     <Compile Include="ITextCleanerView.cs" />
     <Compile Include="TextCleanerCommands\RegexCommands.cs" />
     <Compile Include="TextCleanerCommands\StringCommands.cs" />
+    <Compile Include="TextCleanerCommands\TextCleanerProcessing.cs" />
+    <Compile Include="TextCleanerCommands\DefaultProcessing.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
