@@ -41,22 +41,6 @@
         <property name="StockId">gtk-media-play</property>
         <signal name="Activated" handler="OnActionProcessActivated" />
       </action>
-      <action id="actionPaste">
-        <property name="Type">Action</property>
-        <property name="IsImportant">True</property>
-        <property name="Label" translatable="yes">_Paste</property>
-        <property name="ShortLabel" translatable="yes">_Paste</property>
-        <property name="StockId">gtk-paste</property>
-        <signal name="Activated" handler="OnActionPasteActivated" />
-      </action>
-      <action id="actionPasteHTML">
-        <property name="Type">Action</property>
-        <property name="IsImportant">True</property>
-        <property name="Label" translatable="yes">_Paste HTML</property>
-        <property name="ShortLabel" translatable="yes">_Paste HTML</property>
-        <property name="StockId">gtk-paste</property>
-        <signal name="Activated" handler="OnActionPasteHTMLActivated" />
-      </action>
       <action id="actionCopy">
         <property name="Type">Action</property>
         <property name="IsImportant">True</property>
@@ -72,20 +56,6 @@
         <property name="ShortLabel" translatable="yes">_Copy Markup</property>
         <property name="StockId">gtk-copy</property>
         <signal name="Activated" handler="OnActionCopyMarkupActivated" />
-      </action>
-      <action id="actionPrevSource">
-        <property name="Type">Action</property>
-        <property name="Label" translatable="yes">Prev Source</property>
-        <property name="ShortLabel" translatable="yes">Prev</property>
-        <property name="StockId">gtk-undo</property>
-        <signal name="Activated" handler="OnActionPrevSourceActivated" />
-      </action>
-      <action id="actionNextSource">
-        <property name="Type">Action</property>
-        <property name="Label" translatable="yes">Next Source</property>
-        <property name="ShortLabel" translatable="yes">Next Source</property>
-        <property name="StockId">gtk-redo</property>
-        <signal name="Activated" handler="OnActionNextSourceActivated" />
       </action>
     </action-group>
     <property name="MemberName" />
@@ -103,103 +73,67 @@
                 <property name="MemberName" />
                 <property name="Spacing">6</property>
                 <child>
-                  <widget class="Gtk.ScrolledWindow" id="GtkScrolledWindow">
+                  <widget class="Gtk.Notebook" id="notebook1">
                     <property name="MemberName" />
-                    <property name="ShadowType">EtchedIn</property>
-                    <property name="BorderWidth">6</property>
+                    <property name="CanFocus">True</property>
+                    <property name="CurrentPage">0</property>
+                    <property name="TabPos">Bottom</property>
                     <child>
-                      <widget class="Gtk.TextView" id="txvSource">
+                      <widget class="Gtk.ScrolledWindow" id="GtkScrolledWindow1">
                         <property name="MemberName" />
-                        <property name="CanFocus">True</property>
-                        <property name="ShowScrollbars">True</property>
-                        <property name="Text" translatable="yes" />
-                        <property name="WrapMode">WordChar</property>
+                        <property name="ShadowType">In</property>
+                        <child>
+                          <widget class="Gtk.TextView" id="txvResult">
+                            <property name="MemberName" />
+                            <property name="HeightRequest">100</property>
+                            <property name="CanFocus">True</property>
+                            <property name="ShowScrollbars">True</property>
+                            <property name="Text" translatable="yes" />
+                            <property name="WrapMode">WordChar</property>
+                          </widget>
+                        </child>
                       </widget>
+                    </child>
+                    <child>
+                      <widget class="Gtk.Label" id="label3">
+                        <property name="MemberName" />
+                        <property name="LabelProp" translatable="yes">Markup</property>
+                      </widget>
+                      <packing>
+                        <property name="type">tab</property>
+                      </packing>
+                    </child>
+                    <child>
+                      <widget class="Gtk.ScrolledWindow" id="GtkScrolledWindow2">
+                        <property name="MemberName" />
+                        <property name="ShadowType">In</property>
+                        <child>
+                          <widget class="Gtk.TextView" id="textviewText">
+                            <property name="MemberName" />
+                            <property name="CanFocus">True</property>
+                            <property name="ShowScrollbars">True</property>
+                            <property name="Text" translatable="yes" />
+                            <property name="WrapMode">WordChar</property>
+                          </widget>
+                        </child>
+                      </widget>
+                      <packing>
+                        <property name="Position">1</property>
+                      </packing>
+                    </child>
+                    <child>
+                      <widget class="Gtk.Label" id="label2">
+                        <property name="MemberName" />
+                        <property name="LabelProp" translatable="yes">Plain text</property>
+                      </widget>
+                      <packing>
+                        <property name="type">tab</property>
+                      </packing>
                     </child>
                   </widget>
                   <packing>
                     <property name="Position">0</property>
                     <property name="AutoSize">True</property>
-                  </packing>
-                </child>
-                <child>
-                  <widget class="Gtk.Expander" id="expander1">
-                    <property name="MemberName" />
-                    <property name="CanFocus">True</property>
-                    <child>
-                      <widget class="Gtk.Notebook" id="notebook1">
-                        <property name="MemberName" />
-                        <property name="CanFocus">True</property>
-                        <property name="CurrentPage">0</property>
-                        <child>
-                          <widget class="Gtk.ScrolledWindow" id="GtkScrolledWindow1">
-                            <property name="MemberName" />
-                            <property name="ShadowType">In</property>
-                            <child>
-                              <widget class="Gtk.TextView" id="txvResult">
-                                <property name="MemberName" />
-                                <property name="HeightRequest">100</property>
-                                <property name="CanFocus">True</property>
-                                <property name="ShowScrollbars">True</property>
-                                <property name="Text" translatable="yes" />
-                                <property name="WrapMode">WordChar</property>
-                              </widget>
-                            </child>
-                          </widget>
-                        </child>
-                        <child>
-                          <widget class="Gtk.Label" id="label3">
-                            <property name="MemberName" />
-                            <property name="LabelProp" translatable="yes">Markup</property>
-                          </widget>
-                          <packing>
-                            <property name="type">tab</property>
-                          </packing>
-                        </child>
-                        <child>
-                          <widget class="Gtk.ScrolledWindow" id="GtkScrolledWindow2">
-                            <property name="MemberName" />
-                            <property name="ShadowType">In</property>
-                            <child>
-                              <widget class="Gtk.TextView" id="textviewText">
-                                <property name="MemberName" />
-                                <property name="CanFocus">True</property>
-                                <property name="ShowScrollbars">True</property>
-                                <property name="Text" translatable="yes" />
-                                <property name="WrapMode">WordChar</property>
-                              </widget>
-                            </child>
-                          </widget>
-                          <packing>
-                            <property name="Position">1</property>
-                          </packing>
-                        </child>
-                        <child>
-                          <widget class="Gtk.Label" id="label2">
-                            <property name="MemberName" />
-                            <property name="LabelProp" translatable="yes">Plain text</property>
-                          </widget>
-                          <packing>
-                            <property name="type">tab</property>
-                          </packing>
-                        </child>
-                      </widget>
-                    </child>
-                    <child>
-                      <widget class="Gtk.Label" id="GtkLabel20">
-                        <property name="MemberName" />
-                        <property name="LabelProp" translatable="yes">Results:</property>
-                        <property name="UseUnderline">True</property>
-                      </widget>
-                      <packing>
-                        <property name="type">label_item</property>
-                      </packing>
-                    </child>
-                  </widget>
-                  <packing>
-                    <property name="Position">1</property>
-                    <property name="AutoSize">False</property>
-                    <property name="Expand">False</property>
                   </packing>
                 </child>
               </widget>
@@ -390,7 +324,6 @@ mm</property>
                                     <property name="MemberName" />
                                     <property name="CanFocus">True</property>
                                     <property name="Label" translatable="yes">XML/HTML</property>
-                                    <property name="Active">True</property>
                                     <property name="DrawIndicator">True</property>
                                     <property name="HasLabel">True</property>
                                     <property name="UseUnderline">True</property>

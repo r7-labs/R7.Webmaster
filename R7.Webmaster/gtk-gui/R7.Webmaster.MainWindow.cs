@@ -10,6 +10,8 @@ namespace R7.Webmaster
 		
 		private global::Gtk.Action actionMenu;
 		
+		private global::Gtk.Action actionPaste;
+		
 		private global::Gtk.VBox vbox1;
 		
 		private global::Gtk.HBox hbox1;
@@ -32,6 +34,10 @@ namespace R7.Webmaster
 			w1.Add (this.undoAction, null);
 			this.actionMenu = new global::Gtk.Action ("actionMenu", null, null, "gtk-execute");
 			w1.Add (this.actionMenu, null);
+			this.actionPaste = new global::Gtk.Action ("actionPaste", global::Mono.Unix.Catalog.GetString ("_Paste"), null, "gtk-paste");
+			this.actionPaste.IsImportant = true;
+			this.actionPaste.ShortLabel = global::Mono.Unix.Catalog.GetString ("_Paste");
+			w1.Add (this.actionPaste, null);
 			this.UIManager.InsertActionGroup (w1, 0);
 			this.AddAccelGroup (this.UIManager.AccelGroup);
 			this.Name = "R7.Webmaster.MainWindow";
@@ -95,6 +101,7 @@ namespace R7.Webmaster
 			this.toolbar2.Hide ();
 			this.Show ();
 			this.DeleteEvent += new global::Gtk.DeleteEventHandler (this.OnDeleteEvent);
+			this.actionPaste.Activated += new global::System.EventHandler (this.OnActionPasteActivated);
 		}
 	}
 }

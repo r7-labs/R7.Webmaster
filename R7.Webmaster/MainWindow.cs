@@ -24,6 +24,7 @@ using System.Collections.Generic;
 using GtkSourceView;
 using R7.Webmaster.Addins.Root;
 using System.Runtime.Remoting.Channels;
+using R7.Webmaster.Core;
 
 namespace R7.Webmaster
 {
@@ -128,14 +129,9 @@ namespace R7.Webmaster
 
 		protected void OnActionPasteActivated (object sender, EventArgs e)
 		{
-			throw new NotImplementedException ();
+			InputTextWidget.Buffer.Text = Clipboard.Text;
 		}
 
-		protected void OnActionProcessActivated (object sender, EventArgs e)
-		{
-			throw new NotImplementedException ();
-		}
-	
 		protected void OnNotebook1SwitchPage (object o, Gtk.SwitchPageArgs args)
 		{
 			Console.WriteLine (args.PageNum);
@@ -155,6 +151,16 @@ namespace R7.Webmaster
 				toolbar1.Remove (toolbar1.GetNthItem (0));
 			}
 
+			// starting insert position
+			var pos = 0;
+		
+			// add common ITextInputWidgetAddin actions
+			if (widget is ITextInputWidgetAddin)
+			{
+				toolbar1.Insert ((Gtk.ToolItem) actionPaste.CreateToolItem (), pos++);
+				toolbar1.Insert (new Gtk.SeparatorToolItem (), pos++);
+			}
+		
 			// fill out toolbar
 			foreach (var action in widget.Actions)
 			{
@@ -163,7 +169,7 @@ namespace R7.Webmaster
 					new Gtk.SeparatorToolItem ();
 
 				// insert toolitem to the right
-				toolbar1.Insert (toolitem, toolbar1.NItems);
+				toolbar1.Insert (toolitem, pos++);
 			}
 
 			// show all changes

@@ -97,6 +97,10 @@
       <Project>{972BDB06-45FC-4E3F-9FE5-59A98CE97554}</Project>
       <Name>R7.Webmaster.Addins.TextCleaner</Name>
     </ProjectReference>
+    <ProjectReference Include="..\R7.Webmaster.Core\R7.Webmaster.Core.csproj">
+      <Project>{EB897CA8-4CC5-4EEF-8B39-F16364387661}</Project>
+      <Name>R7.Webmaster.Core</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

@@ -6,12 +6,13 @@
   </configuration>
   <import>
     <widget-library name="glade-sharp, Version=2.12.0.0, Culture=neutral, PublicKeyToken=35e10195dab3c99f" />
+    <widget-library name="gtksourceview2-sharp, Version=2.0.0.0, Culture=neutral, PublicKeyToken=35e10195dab3c99f" />
     <widget-library name="../../R7.Webmaster.Addins.Root/bin/Debug/R7.Webmaster.Addins.Root.dll" />
     <widget-library name="../../R7.Webmaster.Addins.CaseChanger/bin/Debug/R7.Webmaster.Addins.CaseChanger.dll" />
     <widget-library name="../../R7.Webmaster.Addins.RatioCalculator/bin/Debug/R7.Webmaster.Addins.RatioCalculator.dll" />
     <widget-library name="../../R7.Webmaster.Addins.PasswordGenerator/bin/Debug/R7.Webmaster.Addins.PasswordGenerator.dll" />
     <widget-library name="../../R7.Webmaster.Addins.TextCleaner/bin/Debug/R7.Webmaster.Addins.TextCleaner.dll" />
-    <widget-library name="gtksourceview2-sharp, Version=2.0.0.0, Culture=neutral, PublicKeyToken=35e10195dab3c99f" />
+    <widget-library name="../../R7.Webmaster.Core/bin/Debug/R7.Webmaster.Core.dll" />
     <widget-library name="../bin/Debug/R7.Webmaster.exe" internal="true" />
   </import>
   <widget class="Gtk.Window" id="R7.Webmaster.MainWindow" design-size="400 300">
@@ -25,6 +26,14 @@
         <property name="Type">Action</property>
         <property name="Label" translatable="yes" />
         <property name="StockId">gtk-execute</property>
+      </action>
+      <action id="actionPaste">
+        <property name="Type">Action</property>
+        <property name="IsImportant">True</property>
+        <property name="Label" translatable="yes">_Paste</property>
+        <property name="ShortLabel" translatable="yes">_Paste</property>
+        <property name="StockId">gtk-paste</property>
+        <signal name="Activated" handler="OnActionPasteActivated" />
       </action>
     </action-group>
     <property name="MemberName" />
@@ -44,7 +53,7 @@
               <widget class="Gtk.Toolbar" id="toolbar1">
                 <property name="MemberName" />
                 <property name="ShowArrow">False</property>
-                <node name="__gtksharp_81_Stetic_Editor_ActionToolbar" type="Toolbar" />
+                <node name="toolbar1" type="Toolbar" />
               </widget>
               <packing>
                 <property name="Position">0</property>
@@ -56,7 +65,7 @@
                 <property name="MemberName" />
                 <property name="Visible">False</property>
                 <property name="ShowArrow">False</property>
-                <node name="__gtksharp_94_Stetic_Editor_ActionToolbar" type="Toolbar">
+                <node name="toolbar2" type="Toolbar">
                   <node type="Toolitem" action="actionMenu" />
                 </node>
               </widget>

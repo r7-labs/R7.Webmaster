@@ -36,7 +36,7 @@ namespace R7.Webmaster.Addins.TextCleaner
 
 		public Gtk.Widget Instance { get { return this; } }
 
-		public Gtk.Widget FocusWidget { get { return txvSource; } }
+		public Gtk.Widget FocusWidget { get { return notebook1; } }
 
 		public string Label { get { return "Text Cleaner"; } }
 
@@ -49,15 +49,15 @@ namespace R7.Webmaster.Addins.TextCleaner
 		{
 			get 
 			{
-				return new List<Gtk.Action> () { actionProcess, null, actionPaste, actionPasteHTML, null, 
-					actionPrevSource, actionNextSource, null, actionCopy, actionCopyMarkup };
+				return new List<Gtk.Action> () { actionProcess, null, actionCopy, actionCopyMarkup };
 			}
 		}
 
 		#endregion
 
-		Stack<string> PrevSources;
-		Stack<string> NextSources;
+		// TODO: Implement in the host application
+		// Stack<string> PrevSources;
+		// Stack<string> NextSources;
 		 
 		protected void CopyResults ()
 		{
@@ -79,18 +79,14 @@ namespace R7.Webmaster.Addins.TextCleaner
 
 			this.Model = new TextCleanerModel ();
 
-			//OnInputTextChanged += OnSourceChanged;
-
-			PrevSources = new Stack<string> ();
-			PrevSources.Push (string.Empty); // preview
-			PrevSources.Push (txvSource.Buffer.Text); // current
-			NextSources = new Stack<string> ();
-
-			// txvSource.Buffer.Changed += OnSourceChanged;
+			// TODO: Implement in the host application
+			// PrevSources = new Stack<string> ();
+			// PrevSources.Push (string.Empty); // preview
+			// PrevSources.Push (txvSource.Buffer.Text); // current
+			// NextSources = new Stack<string> ();
 
 			Pango.FontDescription font = Pango.FontDescription.FromString ("Monospace");
 			txvResult.ModifyFont (font);
-			txvSource.ModifyFont (font);
 			textviewText.ModifyFont (font);
 
 			DefaultState ();
@@ -167,8 +163,9 @@ namespace R7.Webmaster.Addins.TextCleaner
 
 			hboxAutoCopyFormat.Sensitive = chkAutoCopy.Active;
 
-			actionPrevSource.Sensitive = PrevSources.Count > 2;
-			actionNextSource.Sensitive = NextSources.Count > 0;
+			// TODO: Implement in the host application
+			// actionPrevSource.Sensitive = PrevSources.Count > 2;
+			// actionNextSource.Sensitive = NextSources.Count > 0;
 
 			// make copy buttons active, if there are something to copy
 			actionCopyMarkup.Sensitive = !string.IsNullOrWhiteSpace (txvResult.Buffer.Text);
@@ -237,6 +234,9 @@ namespace R7.Webmaster.Addins.TextCleaner
 			ProcessState ();
 		}
 
+
+		// TODO: Implement in the host application
+		/* 
 		protected void OnActionPasteActivated (object sender, EventArgs e)
 		{
 			txvSource.Buffer.Text = Clipboard.Text;
@@ -267,6 +267,7 @@ namespace R7.Webmaster.Addins.TextCleaner
 			//else
 			//	Console.WriteLine ("No selection"); 
 		}
+		*/
 
 		protected void OnActionCopyActivated (object sender, EventArgs e)
 		{
@@ -278,6 +279,8 @@ namespace R7.Webmaster.Addins.TextCleaner
 			Clipboard.Text = txvResult.Buffer.Text;
 		}
 
+		// TODO: Implement in the host application
+		/*
 		protected void OnActionNextSourceActivated (object sender, EventArgs e)
 		{
 			txvSource.Buffer.Changed -= OnSourceChanged;
@@ -296,7 +299,7 @@ namespace R7.Webmaster.Addins.TextCleaner
 			txvSource.Buffer.Changed += OnSourceChanged;
 
 			ProcessState ();
-		}
+		}*/
 	}
 }
 

@@ -48,7 +48,7 @@ namespace R7.Webmaster.Addins.CaseChanger
 
 		public Gtk.Widget Instance { get { return this; } }
 
-		public Gtk.Widget FocusWidget { get { return entrySource; } }
+		public Gtk.Widget FocusWidget { get { return entryResult1; } }
 
 		public string Label { get { return "Case Changer"; } }
 
@@ -61,7 +61,7 @@ namespace R7.Webmaster.Addins.CaseChanger
 		{
 			get 
 			{
-				return new List<Gtk.Action>() { actionProcess, null, actionPaste }; 
+				return new List<Gtk.Action>() { actionProcess }; 
 			}
 		}
 
@@ -70,6 +70,8 @@ namespace R7.Webmaster.Addins.CaseChanger
 		protected void OnInputTextChangedInternal (object sender, EventArgs e)
 		{
 			InputText = ((Gtk.TextView) sender).Buffer.Text;
+
+			Process ();
 		}
 
 		protected string InputText;
@@ -109,11 +111,14 @@ namespace R7.Webmaster.Addins.CaseChanger
 			Process ();
 		}
 
+		// TODO: Implement in the host application
+		/* 
 		protected void OnActionPasteActivated (object sender, EventArgs e)
 		{
 			entrySource.Text = Clipboard.Text;
 			Process ();
 		}
+		*/
 
 		protected void OnButtonCopy1Clicked (object sender, EventArgs e)
 		{
@@ -140,10 +145,11 @@ namespace R7.Webmaster.Addins.CaseChanger
 			Clipboard.Text = entryResult5.Text;
 		}
 
+		/*
 		protected void OnEntrySourceChanged (object sender, EventArgs e)
 		{
 			Process ();
-		}
+		}*/
 	}
 }
 

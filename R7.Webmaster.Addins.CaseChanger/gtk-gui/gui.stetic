@@ -20,14 +20,6 @@
         <property name="StockId">gtk-media-play</property>
         <signal name="Activated" handler="OnActionProcessActivated" />
       </action>
-      <action id="actionPaste">
-        <property name="Type">Action</property>
-        <property name="IsImportant">True</property>
-        <property name="Label" translatable="yes">_Paste</property>
-        <property name="ShortLabel" translatable="yes">_Paste</property>
-        <property name="StockId">gtk-paste</property>
-        <signal name="Activated" handler="OnActionPasteActivated" />
-      </action>
     </action-group>
     <property name="MemberName" />
     <property name="Visible">False</property>
@@ -38,7 +30,7 @@
         <child>
           <widget class="Gtk.Table" id="table1">
             <property name="MemberName" />
-            <property name="NRows">7</property>
+            <property name="NRows">6</property>
             <property name="NColumns">4</property>
             <property name="RowSpacing">6</property>
             <property name="ColumnSpacing">6</property>
@@ -51,11 +43,10 @@
                 <property name="Icon">stock:gtk-copy Menu</property>
                 <property name="Label" translatable="yes">Copy</property>
                 <property name="UseUnderline">True</property>
-                <signal name="Clicked" handler="OnButtonCopy1Clicked" />
               </widget>
               <packing>
-                <property name="TopAttach">2</property>
-                <property name="BottomAttach">3</property>
+                <property name="TopAttach">1</property>
+                <property name="BottomAttach">2</property>
                 <property name="LeftAttach">3</property>
                 <property name="RightAttach">4</property>
                 <property name="AutoSize">True</property>
@@ -77,11 +68,10 @@
                 <property name="Icon">stock:gtk-copy Menu</property>
                 <property name="Label" translatable="yes">Copy</property>
                 <property name="UseUnderline">True</property>
-                <signal name="Clicked" handler="OnButtonCopy2Clicked" />
               </widget>
               <packing>
-                <property name="TopAttach">3</property>
-                <property name="BottomAttach">4</property>
+                <property name="TopAttach">2</property>
+                <property name="BottomAttach">3</property>
                 <property name="LeftAttach">3</property>
                 <property name="RightAttach">4</property>
                 <property name="AutoSize">True</property>
@@ -103,11 +93,10 @@
                 <property name="Icon">stock:gtk-copy Menu</property>
                 <property name="Label" translatable="yes">Copy</property>
                 <property name="UseUnderline">True</property>
-                <signal name="Clicked" handler="OnButtonCopy3Clicked" />
               </widget>
               <packing>
-                <property name="TopAttach">4</property>
-                <property name="BottomAttach">5</property>
+                <property name="TopAttach">3</property>
+                <property name="BottomAttach">4</property>
                 <property name="LeftAttach">3</property>
                 <property name="RightAttach">4</property>
                 <property name="AutoSize">True</property>
@@ -129,11 +118,10 @@
                 <property name="Icon">stock:gtk-copy Menu</property>
                 <property name="Label" translatable="yes">Copy</property>
                 <property name="UseUnderline">True</property>
-                <signal name="Clicked" handler="OnButtonCopy4Clicked" />
               </widget>
               <packing>
-                <property name="TopAttach">5</property>
-                <property name="BottomAttach">6</property>
+                <property name="TopAttach">4</property>
+                <property name="BottomAttach">5</property>
                 <property name="LeftAttach">3</property>
                 <property name="RightAttach">4</property>
                 <property name="AutoSize">True</property>
@@ -155,11 +143,10 @@
                 <property name="Icon">stock:gtk-copy Menu</property>
                 <property name="Label" translatable="yes">Copy</property>
                 <property name="UseUnderline">True</property>
-                <signal name="Clicked" handler="OnButtonCopy5Clicked" />
               </widget>
               <packing>
-                <property name="TopAttach">6</property>
-                <property name="BottomAttach">7</property>
+                <property name="TopAttach">5</property>
+                <property name="BottomAttach">6</property>
                 <property name="LeftAttach">3</property>
                 <property name="RightAttach">4</property>
                 <property name="AutoSize">True</property>
@@ -181,8 +168,8 @@
                 <property name="InvisibleChar">●</property>
               </widget>
               <packing>
-                <property name="TopAttach">2</property>
-                <property name="BottomAttach">3</property>
+                <property name="TopAttach">1</property>
+                <property name="BottomAttach">2</property>
                 <property name="LeftAttach">1</property>
                 <property name="RightAttach">2</property>
                 <property name="AutoSize">True</property>
@@ -203,8 +190,8 @@
                 <property name="InvisibleChar">●</property>
               </widget>
               <packing>
-                <property name="TopAttach">3</property>
-                <property name="BottomAttach">4</property>
+                <property name="TopAttach">2</property>
+                <property name="BottomAttach">3</property>
                 <property name="LeftAttach">1</property>
                 <property name="RightAttach">2</property>
                 <property name="AutoSize">True</property>
@@ -225,8 +212,8 @@
                 <property name="InvisibleChar">●</property>
               </widget>
               <packing>
-                <property name="TopAttach">4</property>
-                <property name="BottomAttach">5</property>
+                <property name="TopAttach">3</property>
+                <property name="BottomAttach">4</property>
                 <property name="LeftAttach">1</property>
                 <property name="RightAttach">2</property>
                 <property name="AutoSize">True</property>
@@ -247,8 +234,8 @@
                 <property name="InvisibleChar">●</property>
               </widget>
               <packing>
-                <property name="TopAttach">5</property>
-                <property name="BottomAttach">6</property>
+                <property name="TopAttach">4</property>
+                <property name="BottomAttach">5</property>
                 <property name="LeftAttach">1</property>
                 <property name="RightAttach">2</property>
                 <property name="AutoSize">True</property>
@@ -269,8 +256,8 @@
                 <property name="InvisibleChar">●</property>
               </widget>
               <packing>
-                <property name="TopAttach">6</property>
-                <property name="BottomAttach">7</property>
+                <property name="TopAttach">5</property>
+                <property name="BottomAttach">6</property>
                 <property name="LeftAttach">1</property>
                 <property name="RightAttach">2</property>
                 <property name="AutoSize">True</property>
@@ -284,33 +271,10 @@
               </packing>
             </child>
             <child>
-              <widget class="Gtk.Entry" id="entrySource">
-                <property name="MemberName" />
-                <property name="CanFocus">True</property>
-                <property name="IsEditable">True</property>
-                <property name="InvisibleChar">●</property>
-                <signal name="Changed" handler="OnEntrySourceChanged" />
-              </widget>
-              <packing>
-                <property name="RightAttach">4</property>
-                <property name="AutoSize">True</property>
-                <property name="XOptions">Fill</property>
-                <property name="YOptions">Fill</property>
-                <property name="XExpand">False</property>
-                <property name="XFill">True</property>
-                <property name="XShrink">False</property>
-                <property name="YExpand">False</property>
-                <property name="YFill">True</property>
-                <property name="YShrink">False</property>
-              </packing>
-            </child>
-            <child>
               <widget class="Gtk.HSeparator" id="hseparator1">
                 <property name="MemberName" />
               </widget>
               <packing>
-                <property name="TopAttach">1</property>
-                <property name="BottomAttach">2</property>
                 <property name="RightAttach">4</property>
                 <property name="AutoSize">True</property>
                 <property name="YOptions">Fill</property>
@@ -329,8 +293,8 @@
                 <property name="LabelProp" translatable="yes">All Caps:</property>
               </widget>
               <packing>
-                <property name="TopAttach">2</property>
-                <property name="BottomAttach">3</property>
+                <property name="TopAttach">1</property>
+                <property name="BottomAttach">2</property>
                 <property name="AutoSize">True</property>
                 <property name="XOptions">Fill</property>
                 <property name="YOptions">Fill</property>
@@ -349,8 +313,8 @@
                 <property name="LabelProp" translatable="yes">All Stroke:</property>
               </widget>
               <packing>
-                <property name="TopAttach">3</property>
-                <property name="BottomAttach">4</property>
+                <property name="TopAttach">2</property>
+                <property name="BottomAttach">3</property>
                 <property name="AutoSize">True</property>
                 <property name="XOptions">Fill</property>
                 <property name="YOptions">Fill</property>
@@ -369,8 +333,8 @@
                 <property name="LabelProp" translatable="yes">Inverted Case:</property>
               </widget>
               <packing>
-                <property name="TopAttach">4</property>
-                <property name="BottomAttach">5</property>
+                <property name="TopAttach">3</property>
+                <property name="BottomAttach">4</property>
                 <property name="AutoSize">True</property>
                 <property name="XOptions">Fill</property>
                 <property name="YOptions">Fill</property>
@@ -389,8 +353,8 @@
                 <property name="LabelProp" translatable="yes">Sentence Case:</property>
               </widget>
               <packing>
-                <property name="TopAttach">5</property>
-                <property name="BottomAttach">6</property>
+                <property name="TopAttach">4</property>
+                <property name="BottomAttach">5</property>
                 <property name="AutoSize">True</property>
                 <property name="XOptions">Fill</property>
                 <property name="YOptions">Fill</property>
@@ -409,8 +373,8 @@
                 <property name="LabelProp" translatable="yes">Words with Caps:</property>
               </widget>
               <packing>
-                <property name="TopAttach">6</property>
-                <property name="BottomAttach">7</property>
+                <property name="TopAttach">5</property>
+                <property name="BottomAttach">6</property>
                 <property name="AutoSize">True</property>
                 <property name="XOptions">Fill</property>
                 <property name="YOptions">Fill</property>
@@ -436,8 +400,8 @@
                 </child>
               </widget>
               <packing>
-                <property name="TopAttach">2</property>
-                <property name="BottomAttach">3</property>
+                <property name="TopAttach">1</property>
+                <property name="BottomAttach">2</property>
                 <property name="LeftAttach">2</property>
                 <property name="RightAttach">3</property>
                 <property name="AutoSize">False</property>
@@ -465,6 +429,35 @@
                 </child>
               </widget>
               <packing>
+                <property name="TopAttach">2</property>
+                <property name="BottomAttach">3</property>
+                <property name="LeftAttach">2</property>
+                <property name="RightAttach">3</property>
+                <property name="AutoSize">False</property>
+                <property name="XOptions">0</property>
+                <property name="YOptions">Fill</property>
+                <property name="XExpand">False</property>
+                <property name="XFill">False</property>
+                <property name="XShrink">False</property>
+                <property name="YExpand">False</property>
+                <property name="YFill">True</property>
+                <property name="YShrink">False</property>
+              </packing>
+            </child>
+            <child>
+              <widget class="Gtk.RadioButton" id="radiobutton3">
+                <property name="MemberName" />
+                <property name="CanFocus">True</property>
+                <property name="Label" translatable="yes" />
+                <property name="DrawIndicator">True</property>
+                <property name="HasLabel">False</property>
+                <property name="UseUnderline">True</property>
+                <property name="Group">group1</property>
+                <child>
+                  <placeholder />
+                </child>
+              </widget>
+              <packing>
                 <property name="TopAttach">3</property>
                 <property name="BottomAttach">4</property>
                 <property name="LeftAttach">2</property>
@@ -481,7 +474,7 @@
               </packing>
             </child>
             <child>
-              <widget class="Gtk.RadioButton" id="radiobutton3">
+              <widget class="Gtk.RadioButton" id="radiobutton4">
                 <property name="MemberName" />
                 <property name="CanFocus">True</property>
                 <property name="Label" translatable="yes" />
@@ -510,7 +503,7 @@
               </packing>
             </child>
             <child>
-              <widget class="Gtk.RadioButton" id="radiobutton4">
+              <widget class="Gtk.RadioButton" id="radiobutton5">
                 <property name="MemberName" />
                 <property name="CanFocus">True</property>
                 <property name="Label" translatable="yes" />
@@ -525,35 +518,6 @@
               <packing>
                 <property name="TopAttach">5</property>
                 <property name="BottomAttach">6</property>
-                <property name="LeftAttach">2</property>
-                <property name="RightAttach">3</property>
-                <property name="AutoSize">False</property>
-                <property name="XOptions">0</property>
-                <property name="YOptions">Fill</property>
-                <property name="XExpand">False</property>
-                <property name="XFill">False</property>
-                <property name="XShrink">False</property>
-                <property name="YExpand">False</property>
-                <property name="YFill">True</property>
-                <property name="YShrink">False</property>
-              </packing>
-            </child>
-            <child>
-              <widget class="Gtk.RadioButton" id="radiobutton5">
-                <property name="MemberName" />
-                <property name="CanFocus">True</property>
-                <property name="Label" translatable="yes" />
-                <property name="DrawIndicator">True</property>
-                <property name="HasLabel">False</property>
-                <property name="UseUnderline">True</property>
-                <property name="Group">group1</property>
-                <child>
-                  <placeholder />
-                </child>
-              </widget>
-              <packing>
-                <property name="TopAttach">6</property>
-                <property name="BottomAttach">7</property>
                 <property name="LeftAttach">2</property>
                 <property name="RightAttach">3</property>
                 <property name="AutoSize">False</property>
