@@ -45,6 +45,11 @@ namespace R7.Webmaster.Addins.TextCleaner
 			get { return OnSourceChanged; }
 		}
 
+		public string Icon 
+		{ 
+			get { return Gtk.Stock.FindAndReplace; } 
+		}
+
 		public List<Gtk.Action> Actions 
 		{
 			get 

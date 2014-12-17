@@ -48,6 +48,11 @@ namespace R7.Webmaster.Addins.RatioCalculator
 
 		public string Label { get { return "Ratio Calculator"; } }
 
+		public string Icon 
+		{ 
+			get { return Gtk.Stock.OrientationPortrait; } 
+		}
+
 		public List<Gtk.Action> Actions 
 		{
 			get 

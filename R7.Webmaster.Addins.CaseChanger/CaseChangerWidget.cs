@@ -57,6 +57,11 @@ namespace R7.Webmaster.Addins.CaseChanger
 			get { return OnInputTextChangedInternal; } 
 		}
 
+		public string Icon 
+		{ 
+			get { return Gtk.Stock.SpellCheck; } 
+		}
+
 		public List<Gtk.Action> Actions 
 		{
 			get 

@@ -55,7 +55,8 @@ namespace R7.Webmaster
 
 			foreach (var widget in Addins.Widgets)
 			{
-				notebook1.AppendPage (widget.Instance, new Gtk.Label (widget.Label));
+				AppendPage (notebook1, widget.Instance, widget.Label, widget.Icon);
+
 				AddinPages.Add (widget);
 
 				// subscribe text input widgets
@@ -174,6 +175,32 @@ namespace R7.Webmaster
 
 			// show all changes
 			toolbar1.ShowAll ();
+		}
+
+		protected void AppendPage (Gtk.Notebook nb, Gtk.Widget child, string title, string iconName)
+		{
+			var label = new Gtk.Label(title);
+			var header = new Gtk.HBox();
+
+			// BUGBUG: Windows have not default GTK theme? So LoadIcon() failed for most icons
+			// var image = new Image (IconTheme.Default.LoadIcon(iconName, 16, IconLookupFlags.UseBuiltin));
+
+			var image = new Gtk.Image (RenderIcon (iconName, Gtk.IconSize.Menu, ""));
+
+			/*var rcStyle = new RcStyle ();
+			rcStyle.Xthickness = rcStyle.Ythickness = 0;
+
+			label.ModifyStyle (rcStyle);
+			image.ModifyStyle (rcStyle);
+*/
+			label.Justify = Gtk.Justification.Left;
+			header.BorderWidth = 0;
+
+			header.PackStart (image, false, false, 4);
+			header.PackStart (label, false, false, 0);
+			header.ShowAll ();
+
+			nb.AppendPage(child, header);
 		}
 	}
 }
