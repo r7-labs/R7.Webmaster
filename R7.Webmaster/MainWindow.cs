@@ -21,8 +21,9 @@
 
 using System;
 using System.Collections.Generic;
-using Gtk;
+using GtkSourceView;
 using R7.Webmaster.Addins.Root;
+using System.Runtime.Remoting.Channels;
 
 namespace R7.Webmaster
 {
@@ -31,6 +32,15 @@ namespace R7.Webmaster
 		protected WidgetAddinManager Addins;
 
 		protected List<IWidgetAddin> AddinPages; 
+
+		protected event EventHandler InputTextChanged;
+
+		protected void OnInputTextChanged (object sender, EventArgs e)
+		{
+			// propagate event to subscribers
+			if (InputTextChanged != null)
+				InputTextChanged (InputTextWidget, e);
+		}
 
 		public MainWindow () : base (Gtk.WindowType.Toplevel)
 		{
@@ -44,18 +54,75 @@ namespace R7.Webmaster
 
 			foreach (var widget in Addins.Widgets)
 			{
-				notebook1.AppendPage (widget.Instance, new Label (widget.Label));
+				notebook1.AppendPage (widget.Instance, new Gtk.Label (widget.Label));
 				AddinPages.Add (widget);
+
+				// subscribe text input widgets
+				if (widget is ITextInputWidgetAddin)
+					InputTextChanged += ((ITextInputWidgetAddin) widget).OnInputTextChanged;
 			}
 
 			// wire up SwitchPage here to avoid firing it for default page
 			notebook1.SwitchPage += OnNotebook1SwitchPage;
 			notebook1.ShowAll ();
+
+			InitTextWidget ();
 		}
 
-		protected void OnDeleteEvent (object sender, DeleteEventArgs a)
+		protected void InitTextWidget ()
 		{
-			Application.Quit ();
+			var linux = true;
+
+			// Linux: GtkSourceViewSharp available
+			if (linux)
+			{
+				var sourceLanguage = SourceLanguageManager.Default.GetLanguage ("xml");
+				var sourceStyleSheme = SourceStyleSchemeManager.Default.GetScheme ("tango");
+
+				var sourceView = new SourceView ();
+				InputTextWidget = sourceView;
+
+				InputTextWidget.Buffer.Changed += OnInputTextChanged;
+
+				// sourceView.ShowLineNumbers = true;
+
+				((SourceBuffer) sourceView.Buffer).Language = sourceLanguage;
+				((SourceBuffer) sourceView.Buffer).HighlightSyntax = true;
+				((SourceBuffer) sourceView.Buffer).StyleScheme = sourceStyleSheme;
+			}
+			else
+			// windows: use TextView
+			{
+				InputTextWidget = new Gtk.TextView ();
+
+			}
+
+			// use monospace font
+			InputTextWidget.ModifyFont (Pango.FontDescription.FromString ("Monospace,8"));
+
+			TextScrolledWindow = new Gtk.ScrolledWindow ();
+			TextScrolledWindow.Add (InputTextWidget);
+
+			TextScrolledWindow.ShadowType = Gtk.ShadowType.EtchedIn;
+			TextScrolledWindow.BorderWidth = 1;
+
+			// place in vbox
+			vbox1.Add (TextScrolledWindow);
+
+			((Gtk.Box.BoxChild) vbox1 [TextScrolledWindow]).Position = 1; // below toolbar
+			((Gtk.Box.BoxChild) vbox1 [TextScrolledWindow]).Expand = true;
+			((Gtk.Box.BoxChild) vbox1 [TextScrolledWindow]).Fill = true;
+
+			vbox1.ShowAll ();
+		}
+
+		protected Gtk.ScrolledWindow TextScrolledWindow;
+
+		protected Gtk.TextView InputTextWidget;
+
+		protected void OnDeleteEvent (object sender, Gtk.DeleteEventArgs a)
+		{
+			Gtk.Application.Quit ();
 			a.RetVal = true;
 		}
 
@@ -69,11 +136,14 @@ namespace R7.Webmaster
 			throw new NotImplementedException ();
 		}
 	
-		protected void OnNotebook1SwitchPage (object o, SwitchPageArgs args)
+		protected void OnNotebook1SwitchPage (object o, Gtk.SwitchPageArgs args)
 		{
 			Console.WriteLine (args.PageNum);
 
 			var widget = AddinPages [(int) args.PageNum];
+
+			// show textview only to text input widgets
+			TextScrolledWindow.Visible = widget is ITextInputWidgetAddin;
 
 			if (widget.FocusWidget != null)
 				widget.FocusWidget.GrabFocus ();
@@ -89,8 +159,8 @@ namespace R7.Webmaster
 			foreach (var action in widget.Actions)
 			{
 				var toolitem = (action != null) ? 
-					(ToolItem) action.CreateToolItem () :
-					new SeparatorToolItem ();
+					(Gtk.ToolItem) action.CreateToolItem () :
+					new Gtk.SeparatorToolItem ();
 
 				// insert toolitem to the right
 				toolbar1.Insert (toolitem, toolbar1.NItems);

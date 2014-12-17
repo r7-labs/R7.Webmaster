@@ -85,7 +85,7 @@ namespace R7.Webmaster
 			this.label1.ShowAll ();
 			this.vbox1.Add (this.notebook1);
 			global::Gtk.Box.BoxChild w6 = ((global::Gtk.Box.BoxChild)(this.vbox1 [this.notebook1]));
-			w6.Position = 1;
+			w6.Position = 2;
 			this.Add (this.vbox1);
 			if ((this.Child != null)) {
 				this.Child.ShowAll ();

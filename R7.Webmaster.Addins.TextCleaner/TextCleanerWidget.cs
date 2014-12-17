@@ -29,7 +29,7 @@ namespace R7.Webmaster.Addins.TextCleaner
 {
 	[System.ComponentModel.ToolboxItem (true)]
 	[Extension(typeof(IWidgetAddin))]
-	public partial class TextCleanerWidget : Gtk.Bin, ITextCleanerView, IWidgetAddin
+	public partial class TextCleanerWidget : Gtk.Bin, ITextCleanerView, ITextInputWidgetAddin
 	{
 
 		#region IWidgetAddin implementation
@@ -39,6 +39,11 @@ namespace R7.Webmaster.Addins.TextCleaner
 		public Gtk.Widget FocusWidget { get { return txvSource; } }
 
 		public string Label { get { return "Text Cleaner"; } }
+
+		public EventHandler OnInputTextChanged 
+		{
+			get { return OnSourceChanged; }
+		}
 
 		public List<Gtk.Action> Actions 
 		{
@@ -74,12 +79,14 @@ namespace R7.Webmaster.Addins.TextCleaner
 
 			this.Model = new TextCleanerModel ();
 
+			//OnInputTextChanged += OnSourceChanged;
+
 			PrevSources = new Stack<string> ();
 			PrevSources.Push (string.Empty); // preview
 			PrevSources.Push (txvSource.Buffer.Text); // current
 			NextSources = new Stack<string> ();
 
-			txvSource.Buffer.Changed += OnSourceChanged;
+			// txvSource.Buffer.Changed += OnSourceChanged;
 
 			Pango.FontDescription font = Pango.FontDescription.FromString ("Monospace");
 			txvResult.ModifyFont (font);
@@ -103,6 +110,8 @@ namespace R7.Webmaster.Addins.TextCleaner
 		{
 			//var PrevSourceText = PrevSources.Peek ();
 
+			InputText = ((Gtk.TextView) sender).Buffer.Text;
+
 			var needProcess = chkAutoProcess.Active;
 			/*&&
 				(txvSource.Buffer.Text.Length != PrevSourceText.Length ||
@@ -111,9 +120,10 @@ namespace R7.Webmaster.Addins.TextCleaner
 			if (needProcess)
 				OnActionProcessActivated (sender, e);
 
+			/*
 			if (!string.IsNullOrWhiteSpace (txvSource.Buffer.Text))
 				PrevSources.Push (txvSource.Buffer.Text);
-
+			*/
 			ProcessState ();
 		}
 
@@ -166,6 +176,8 @@ namespace R7.Webmaster.Addins.TextCleaner
 		}
 
 
+		protected string InputText;
+
 		protected void OnActionProcessActivated (object sender, EventArgs e)
 		{
 			TextCleanerParams param = new TextCleanerParams ()
@@ -203,14 +215,16 @@ namespace R7.Webmaster.Addins.TextCleaner
 					checkEmNames.Active, param);
 			*/
 
-			txvResult.Buffer.Text = Model.TextClean (txvSource.Buffer.Text,
+
+
+			txvResult.Buffer.Text = Model.TextClean (InputText,
 				new TextCleanerParams {
 					HtmlOut = true,
 					EmNames = checkEmNames.Active 
 				}
 			);
 					
-			textviewText.Buffer.Text = Model.TextClean (txvSource.Buffer.Text,
+			textviewText.Buffer.Text = Model.TextClean (InputText,
 				new TextCleanerParams {
 					HtmlOut = false,
 					EmNames = false

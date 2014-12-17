@@ -28,6 +28,6 @@ namespace R7.Webmaster.Addins.Root
 	[TypeExtensionPoint]
 	public interface ITextInputWidgetAddin : IWidgetAddin
 	{
-		Gtk.Widget TextInput { get; }
+		EventHandler OnInputTextChanged { get; }
 	}
 }

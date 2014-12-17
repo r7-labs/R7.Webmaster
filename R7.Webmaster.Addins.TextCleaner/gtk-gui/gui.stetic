@@ -105,7 +105,7 @@
                 <child>
                   <widget class="Gtk.ScrolledWindow" id="GtkScrolledWindow">
                     <property name="MemberName" />
-                    <property name="ShadowType">In</property>
+                    <property name="ShadowType">EtchedIn</property>
                     <property name="BorderWidth">6</property>
                     <child>
                       <widget class="Gtk.TextView" id="txvSource">
@@ -390,6 +390,7 @@ mm</property>
                                     <property name="MemberName" />
                                     <property name="CanFocus">True</property>
                                     <property name="Label" translatable="yes">XML/HTML</property>
+                                    <property name="Active">True</property>
                                     <property name="DrawIndicator">True</property>
                                     <property name="HasLabel">True</property>
                                     <property name="UseUnderline">True</property>

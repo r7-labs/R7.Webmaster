@@ -11,6 +11,7 @@
     <widget-library name="../../R7.Webmaster.Addins.RatioCalculator/bin/Debug/R7.Webmaster.Addins.RatioCalculator.dll" />
     <widget-library name="../../R7.Webmaster.Addins.PasswordGenerator/bin/Debug/R7.Webmaster.Addins.PasswordGenerator.dll" />
     <widget-library name="../../R7.Webmaster.Addins.TextCleaner/bin/Debug/R7.Webmaster.Addins.TextCleaner.dll" />
+    <widget-library name="gtksourceview2-sharp, Version=2.0.0.0, Culture=neutral, PublicKeyToken=35e10195dab3c99f" />
     <widget-library name="../bin/Debug/R7.Webmaster.exe" internal="true" />
   </import>
   <widget class="Gtk.Window" id="R7.Webmaster.MainWindow" design-size="400 300">
@@ -75,6 +76,9 @@
           </packing>
         </child>
         <child>
+          <placeholder />
+        </child>
+        <child>
           <widget class="Gtk.Notebook" id="notebook1">
             <property name="MemberName" />
             <property name="CanFocus">True</property>
@@ -93,7 +97,7 @@
             </child>
           </widget>
           <packing>
-            <property name="Position">1</property>
+            <property name="Position">2</property>
             <property name="AutoSize">True</property>
           </packing>
         </child>

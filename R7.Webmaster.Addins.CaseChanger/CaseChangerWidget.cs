@@ -31,7 +31,7 @@ namespace R7.Webmaster.Addins.CaseChanger
 {
 	[System.ComponentModel.ToolboxItem (true)]
 	[Extension(typeof(IWidgetAddin))]
-	public partial class CaseChangerWidget : Gtk.Bin, ICaseChangerView, IWidgetAddin
+	public partial class CaseChangerWidget : Gtk.Bin, ICaseChangerView, ITextInputWidgetAddin
 	{
 		private CaseChangerModel Model;
 
@@ -52,6 +52,11 @@ namespace R7.Webmaster.Addins.CaseChanger
 
 		public string Label { get { return "Case Changer"; } }
 
+		public EventHandler OnInputTextChanged 
+		{ 
+			get { return OnInputTextChangedInternal; } 
+		}
+
 		public List<Gtk.Action> Actions 
 		{
 			get 
@@ -62,23 +67,29 @@ namespace R7.Webmaster.Addins.CaseChanger
 
 		#endregion
 
+		protected void OnInputTextChangedInternal (object sender, EventArgs e)
+		{
+			InputText = ((Gtk.TextView) sender).Buffer.Text;
+		}
+
+		protected string InputText;
 
 		protected void Process ()
 		{
 			// All caps
-			entryResult1.Text = entrySource.Text.ToUpper();
+			entryResult1.Text = InputText.ToUpper();
 
 			// All stroke
-			entryResult2.Text = entrySource.Text.ToLower();
+			entryResult2.Text = InputText.ToLower();
 
 			// Invert case
-			entryResult3.Text = Model.InvertedCase(entrySource.Text);
+			entryResult3.Text = Model.InvertedCase(InputText);
 
 			// Sentence case
-			entryResult4.Text = Model.SentenceCase(entrySource.Text);
+			entryResult4.Text = Model.SentenceCase(InputText);
 
 			// Word first letter to upper case
-			entryResult5.Text = Model.WordFirstLetterUpperCase(entrySource.Text);
+			entryResult5.Text = Model.WordFirstLetterUpperCase(InputText);
 
 			// copy results to clipboard
 			if (radiobutton1.Active)

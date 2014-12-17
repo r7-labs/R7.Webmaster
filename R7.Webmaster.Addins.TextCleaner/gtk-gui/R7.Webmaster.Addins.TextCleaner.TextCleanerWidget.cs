@@ -136,7 +136,7 @@ namespace R7.Webmaster.Addins.TextCleaner
 			// Container child vbox2.Gtk.Box+BoxChild
 			this.GtkScrolledWindow = new global::Gtk.ScrolledWindow ();
 			this.GtkScrolledWindow.Name = "GtkScrolledWindow";
-			this.GtkScrolledWindow.ShadowType = ((global::Gtk.ShadowType)(1));
+			this.GtkScrolledWindow.ShadowType = ((global::Gtk.ShadowType)(3));
 			this.GtkScrolledWindow.BorderWidth = ((uint)(6));
 			// Container child GtkScrolledWindow.Gtk.Container+ContainerChild
 			this.txvSource = new global::Gtk.TextView ();
