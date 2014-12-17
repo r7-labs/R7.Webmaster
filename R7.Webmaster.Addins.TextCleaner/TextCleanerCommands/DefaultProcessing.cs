@@ -42,6 +42,7 @@ namespace R7.Webmaster.Addins.TextCleaner
 				// enclose all text in the para
 				new CompositeCommand (
 					new PrependCommand ("<p>"),
+					// FIXME: parameters captured at declare time!
 					new AppendCommand ("</p>")).When (() => Params.HtmlOut && !Params.HtmlIn),
 
 				// normalize endlines
@@ -119,7 +120,7 @@ namespace R7.Webmaster.Addins.TextCleaner
 					new ReplaceCommand ("»", "\"")).When (() => !Params.HtmlOut),
 
 				// remove hyphens
-				new ReplaceCommand ("¬", ""),
+				new ReplaceCommand ("¬", string.Empty),
 
 				// replace long dashes with &ndash;, place &nbsp; before it
 				new CompositeCommand (

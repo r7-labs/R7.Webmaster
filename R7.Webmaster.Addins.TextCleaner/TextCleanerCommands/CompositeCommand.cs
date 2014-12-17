@@ -43,7 +43,7 @@ namespace R7.Webmaster.Addins.TextCleaner
 
 		public override string Execute (string value)
 		{
-			if (IsEnabled && IsEnabledHandler != null && IsEnabledHandler())
+			if (IsEnabled && ((IsEnabledHandler != null && IsEnabledHandler()) || IsEnabledHandler == null))
 			{
 				foreach (var command in Commands)
 					value = command.Execute (value);

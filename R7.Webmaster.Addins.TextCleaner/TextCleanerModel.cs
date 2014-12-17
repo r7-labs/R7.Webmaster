@@ -49,16 +49,20 @@ namespace R7.Webmaster.Addins.TextCleaner
 
 	public class TextCleanerModel
 	{
-		private DefaultProcessing DefaultProcessing;
-
 		public TextCleanerModel ()
 		{
-			DefaultProcessing = new DefaultProcessing (); 
 		}
 
 		public string TextClean (string text, TextCleanerParams textCleanParams)
 		{
-			return DefaultProcessing.Execute (text, textCleanParams);
+			textCleanParams.HtmlIn = IsHtml (text);
+
+			if (!textCleanParams.HtmlIn && textCleanParams.HtmlOut)
+				return new TextToHtmlProcessing ().Execute (text, textCleanParams);
+			else if (!textCleanParams.HtmlIn && !textCleanParams.HtmlOut)
+				return new TextToTextProcessing ().Execute (text, textCleanParams);
+
+			return text;
 		}
 
 		public bool IsHtml (string text)

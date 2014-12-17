@@ -36,7 +36,7 @@ namespace R7.Webmaster.Addins.TextCleaner
 
 		protected abstract void Build ();
 
-		public string Execute (string text, TextCleanerParams textCleanerParams)
+		public virtual string Execute (string text, TextCleanerParams textCleanerParams)
 		{
 			Params = textCleanerParams;
 
