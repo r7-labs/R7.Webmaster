@@ -28,7 +28,7 @@ using R7.Webmaster.Core;
 
 namespace R7.Webmaster
 {
-	public partial class MainWindow: Gtk.Window
+	public partial class MainWindow: Gtk.Window, ITextInputWidgetAddinHost
 	{
 		protected WidgetAddinManager Addins;
 
@@ -42,6 +42,20 @@ namespace R7.Webmaster
 			if (InputTextChanged != null)
 				InputTextChanged (InputTextWidget, e);
 		}
+
+		#region ITextInputAddinHost implementation
+
+		public string InputText
+		{
+			get { return InputTextWidget.Buffer.Text; }
+		}
+			
+		public bool AutoProcess
+		{
+			get { return toggleAutoProcess.Active; }
+		}
+
+		#endregion
 
 		public MainWindow () : base (Gtk.WindowType.Toplevel)
 		{
@@ -61,7 +75,10 @@ namespace R7.Webmaster
 
 				// subscribe text input widgets
 				if (widget is ITextInputWidgetAddin)
+				{
+					((ITextInputWidgetAddin) widget).Host = this;
 					InputTextChanged += ((ITextInputWidgetAddin) widget).OnInputTextChanged;
+				}
 			}
 
 			// wire up SwitchPage here to avoid firing it for default page
@@ -159,6 +176,7 @@ namespace R7.Webmaster
 			if (widget is ITextInputWidgetAddin)
 			{
 				toolbar1.Insert ((Gtk.ToolItem) actionPaste.CreateToolItem (), pos++);
+				toolbar1.Insert ((Gtk.ToolItem) toggleAutoProcess.CreateToolItem (), pos++);
 				toolbar1.Insert (new Gtk.SeparatorToolItem (), pos++);
 			}
 		

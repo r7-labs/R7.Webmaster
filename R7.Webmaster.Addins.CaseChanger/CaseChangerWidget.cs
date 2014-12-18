@@ -44,13 +44,15 @@ namespace R7.Webmaster.Addins.CaseChanger
 			radiobutton4.Active = true;
 		}
 
-		#region IWidgetAddin implementation
+		#region ITextInputWidgetAddin implementation
 
 		public Gtk.Widget Instance { get { return this; } }
 
 		public Gtk.Widget FocusWidget { get { return entryResult1; } }
 
 		public string Label { get { return "Case Changer"; } }
+
+		public ITextInputWidgetAddinHost Host { get; set; }
 
 		public EventHandler OnInputTextChanged 
 		{ 
@@ -74,29 +76,26 @@ namespace R7.Webmaster.Addins.CaseChanger
 
 		protected void OnInputTextChangedInternal (object sender, EventArgs e)
 		{
-			InputText = ((Gtk.TextView) sender).Buffer.Text;
-
-			Process ();
+			if (Host.AutoProcess)
+				Process ();
 		}
-
-		protected string InputText;
 
 		protected void Process ()
 		{
 			// All caps
-			entryResult1.Text = InputText.ToUpper();
+			entryResult1.Text = Host.InputText.ToUpper();
 
 			// All stroke
-			entryResult2.Text = InputText.ToLower();
+			entryResult2.Text = Host.InputText.ToLower();
 
 			// Invert case
-			entryResult3.Text = Model.InvertedCase(InputText);
+			entryResult3.Text = Model.InvertedCase (Host.InputText);
 
 			// Sentence case
-			entryResult4.Text = Model.SentenceCase(InputText);
+			entryResult4.Text = Model.SentenceCase (Host.InputText);
 
 			// Word first letter to upper case
-			entryResult5.Text = Model.WordFirstLetterUpperCase(InputText);
+			entryResult5.Text = Model.WordFirstLetterUpperCase (Host.InputText);
 
 			// copy results to clipboard
 			if (radiobutton1.Active)

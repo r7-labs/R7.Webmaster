@@ -12,6 +12,8 @@ namespace R7.Webmaster
 		
 		private global::Gtk.Action actionPaste;
 		
+		private global::Gtk.ToggleAction toggleAutoProcess;
+		
 		private global::Gtk.VBox vbox1;
 		
 		private global::Gtk.HBox hbox1;
@@ -38,6 +40,10 @@ namespace R7.Webmaster
 			this.actionPaste.IsImportant = true;
 			this.actionPaste.ShortLabel = global::Mono.Unix.Catalog.GetString ("_Paste");
 			w1.Add (this.actionPaste, null);
+			this.toggleAutoProcess = new global::Gtk.ToggleAction ("toggleAutoProcess", global::Mono.Unix.Catalog.GetString ("Auto Process"), null, "gtk-media-forward");
+			this.toggleAutoProcess.Active = true;
+			this.toggleAutoProcess.ShortLabel = global::Mono.Unix.Catalog.GetString ("Auto Process");
+			w1.Add (this.toggleAutoProcess, null);
 			this.UIManager.InsertActionGroup (w1, 0);
 			this.AddAccelGroup (this.UIManager.AccelGroup);
 			this.Name = "R7.Webmaster.MainWindow";
@@ -97,7 +103,7 @@ namespace R7.Webmaster
 				this.Child.ShowAll ();
 			}
 			this.DefaultWidth = 400;
-			this.DefaultHeight = 300;
+			this.DefaultHeight = 296;
 			this.toolbar2.Hide ();
 			this.Show ();
 			this.DeleteEvent += new global::Gtk.DeleteEventHandler (this.OnDeleteEvent);

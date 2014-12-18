@@ -32,11 +32,13 @@ namespace R7.Webmaster.Addins.TextCleaner
 	public partial class TextCleanerWidget : Gtk.Bin, ITextCleanerView, ITextInputWidgetAddin
 	{
 
-		#region IWidgetAddin implementation
+		#region ITextInputWidgetAddin implementation
 
 		public Gtk.Widget Instance { get { return this; } }
 
 		public Gtk.Widget FocusWidget { get { return notebook1; } }
+
+		public ITextInputWidgetAddinHost Host { get; set; }
 
 		public string Label { get { return "Text Cleaner"; } }
 
@@ -111,9 +113,7 @@ namespace R7.Webmaster.Addins.TextCleaner
 		{
 			//var PrevSourceText = PrevSources.Peek ();
 
-			InputText = ((Gtk.TextView) sender).Buffer.Text;
-
-			var needProcess = chkAutoProcess.Active;
+			var needProcess = Host.AutoProcess;
 			/*&&
 				(txvSource.Buffer.Text.Length != PrevSourceText.Length ||
 				txvSource.Buffer.Text != PrevSourceText);*/
@@ -177,9 +177,6 @@ namespace R7.Webmaster.Addins.TextCleaner
 			actionCopy.Sensitive = !string.IsNullOrWhiteSpace (textviewText.Buffer.Text);
 		}
 
-
-		protected string InputText;
-
 		protected void OnActionProcessActivated (object sender, EventArgs e)
 		{
 			TextCleanerParams param = new TextCleanerParams ()
@@ -219,14 +216,14 @@ namespace R7.Webmaster.Addins.TextCleaner
 
 
 
-			txvResult.Buffer.Text = Model.TextClean (InputText,
+			txvResult.Buffer.Text = Model.TextClean (Host.InputText,
 				new TextCleanerParams {
 					HtmlOut = true,
 					EmNames = checkEmNames.Active 
 				}
 			);
 					
-			textviewText.Buffer.Text = Model.TextClean (InputText,
+			textviewText.Buffer.Text = Model.TextClean (Host.InputText,
 				new TextCleanerParams {
 					HtmlOut = false,
 					EmNames = false

@@ -1,5 +1,5 @@
 ﻿//
-//  IWidgetAddin.cs
+//  TextInputAddinHost.cs
 //
 //  Author:
 //       Roman M. Yagodin <roman.yagodin@gmail.com>
@@ -19,17 +19,14 @@
 //  You should have received a copy of the GNU General Public License
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 using System;
-using System.Collections.Generic;
-using Gtk;
-using Mono.Addins;
 
 namespace R7.Webmaster.Addins.Root
 {
-	[TypeExtensionPoint]
-	public interface ITextInputWidgetAddin : IWidgetAddin
+	public interface ITextInputWidgetAddinHost
 	{
-		ITextInputWidgetAddinHost Host { get; set; }
+		string InputText { get; }
 
-		EventHandler OnInputTextChanged { get; }
+		bool AutoProcess { get; }
 	}
 }
+

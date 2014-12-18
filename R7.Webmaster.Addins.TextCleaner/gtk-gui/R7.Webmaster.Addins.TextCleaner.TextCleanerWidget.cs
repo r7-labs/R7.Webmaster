@@ -64,8 +64,6 @@ namespace R7.Webmaster.Addins.TextCleaner
 		
 		private global::Gtk.CheckButton chkAutoCopy;
 		
-		private global::Gtk.CheckButton chkAutoProcess;
-		
 		private global::Gtk.CheckButton chkClearTables;
 		
 		private global::Gtk.CheckButton chkFixRssDate;
@@ -163,7 +161,7 @@ namespace R7.Webmaster.Addins.TextCleaner
 			this.GtkAlignment7.LeftPadding = ((uint)(12));
 			this.GtkAlignment7.TopPadding = ((uint)(4));
 			// Container child GtkAlignment7.Gtk.Container+ContainerChild
-			this.table1 = new global::Gtk.Table (((uint)(7)), ((uint)(1)), false);
+			this.table1 = new global::Gtk.Table (((uint)(6)), ((uint)(1)), false);
 			this.table1.Name = "table1";
 			this.table1.RowSpacing = ((uint)(6));
 			this.table1.ColumnSpacing = ((uint)(6));
@@ -253,8 +251,8 @@ namespace R7.Webmaster.Addins.TextCleaner
 			this.alignment2.Add (this.tableClearTablesOptions);
 			this.table1.Add (this.alignment2);
 			global::Gtk.Table.TableChild w15 = ((global::Gtk.Table.TableChild)(this.table1 [this.alignment2]));
-			w15.TopAttach = ((uint)(6));
-			w15.BottomAttach = ((uint)(7));
+			w15.TopAttach = ((uint)(5));
+			w15.BottomAttach = ((uint)(6));
 			w15.XOptions = ((global::Gtk.AttachOptions)(4));
 			w15.YOptions = ((global::Gtk.AttachOptions)(4));
 			// Container child table1.Gtk.Table+TableChild
@@ -293,8 +291,8 @@ namespace R7.Webmaster.Addins.TextCleaner
 			this.alignment3.Add (this.hboxAutoCopyFormat);
 			this.table1.Add (this.alignment3);
 			global::Gtk.Table.TableChild w19 = ((global::Gtk.Table.TableChild)(this.table1 [this.alignment3]));
-			w19.TopAttach = ((uint)(2));
-			w19.BottomAttach = ((uint)(3));
+			w19.TopAttach = ((uint)(1));
+			w19.BottomAttach = ((uint)(2));
 			w19.XOptions = ((global::Gtk.AttachOptions)(4));
 			w19.YOptions = ((global::Gtk.AttachOptions)(4));
 			// Container child table1.Gtk.Table+TableChild
@@ -307,8 +305,8 @@ namespace R7.Webmaster.Addins.TextCleaner
 			this.checkEmNames.UseUnderline = true;
 			this.table1.Add (this.checkEmNames);
 			global::Gtk.Table.TableChild w20 = ((global::Gtk.Table.TableChild)(this.table1 [this.checkEmNames]));
-			w20.TopAttach = ((uint)(3));
-			w20.BottomAttach = ((uint)(4));
+			w20.TopAttach = ((uint)(2));
+			w20.BottomAttach = ((uint)(3));
 			w20.XOptions = ((global::Gtk.AttachOptions)(4));
 			w20.YOptions = ((global::Gtk.AttachOptions)(4));
 			// Container child table1.Gtk.Table+TableChild
@@ -321,22 +319,8 @@ namespace R7.Webmaster.Addins.TextCleaner
 			this.chkAutoCopy.UseUnderline = true;
 			this.table1.Add (this.chkAutoCopy);
 			global::Gtk.Table.TableChild w21 = ((global::Gtk.Table.TableChild)(this.table1 [this.chkAutoCopy]));
-			w21.TopAttach = ((uint)(1));
-			w21.BottomAttach = ((uint)(2));
 			w21.XOptions = ((global::Gtk.AttachOptions)(4));
 			w21.YOptions = ((global::Gtk.AttachOptions)(4));
-			// Container child table1.Gtk.Table+TableChild
-			this.chkAutoProcess = new global::Gtk.CheckButton ();
-			this.chkAutoProcess.CanFocus = true;
-			this.chkAutoProcess.Name = "chkAutoProcess";
-			this.chkAutoProcess.Label = global::Mono.Unix.Catalog.GetString ("Autoprocess");
-			this.chkAutoProcess.Active = true;
-			this.chkAutoProcess.DrawIndicator = true;
-			this.chkAutoProcess.UseUnderline = true;
-			this.table1.Add (this.chkAutoProcess);
-			global::Gtk.Table.TableChild w22 = ((global::Gtk.Table.TableChild)(this.table1 [this.chkAutoProcess]));
-			w22.XOptions = ((global::Gtk.AttachOptions)(4));
-			w22.YOptions = ((global::Gtk.AttachOptions)(4));
 			// Container child table1.Gtk.Table+TableChild
 			this.chkClearTables = new global::Gtk.CheckButton ();
 			this.chkClearTables.CanFocus = true;
@@ -345,11 +329,11 @@ namespace R7.Webmaster.Addins.TextCleaner
 			this.chkClearTables.DrawIndicator = true;
 			this.chkClearTables.UseUnderline = true;
 			this.table1.Add (this.chkClearTables);
-			global::Gtk.Table.TableChild w23 = ((global::Gtk.Table.TableChild)(this.table1 [this.chkClearTables]));
-			w23.TopAttach = ((uint)(5));
-			w23.BottomAttach = ((uint)(6));
-			w23.XOptions = ((global::Gtk.AttachOptions)(4));
-			w23.YOptions = ((global::Gtk.AttachOptions)(4));
+			global::Gtk.Table.TableChild w22 = ((global::Gtk.Table.TableChild)(this.table1 [this.chkClearTables]));
+			w22.TopAttach = ((uint)(4));
+			w22.BottomAttach = ((uint)(5));
+			w22.XOptions = ((global::Gtk.AttachOptions)(4));
+			w22.YOptions = ((global::Gtk.AttachOptions)(4));
 			// Container child table1.Gtk.Table+TableChild
 			this.chkFixRssDate = new global::Gtk.CheckButton ();
 			this.chkFixRssDate.Sensitive = false;
@@ -359,21 +343,21 @@ namespace R7.Webmaster.Addins.TextCleaner
 			this.chkFixRssDate.DrawIndicator = true;
 			this.chkFixRssDate.UseUnderline = true;
 			this.table1.Add (this.chkFixRssDate);
-			global::Gtk.Table.TableChild w24 = ((global::Gtk.Table.TableChild)(this.table1 [this.chkFixRssDate]));
-			w24.TopAttach = ((uint)(4));
-			w24.BottomAttach = ((uint)(5));
-			w24.XOptions = ((global::Gtk.AttachOptions)(4));
-			w24.YOptions = ((global::Gtk.AttachOptions)(4));
+			global::Gtk.Table.TableChild w23 = ((global::Gtk.Table.TableChild)(this.table1 [this.chkFixRssDate]));
+			w23.TopAttach = ((uint)(3));
+			w23.BottomAttach = ((uint)(4));
+			w23.XOptions = ((global::Gtk.AttachOptions)(4));
+			w23.YOptions = ((global::Gtk.AttachOptions)(4));
 			this.GtkAlignment7.Add (this.table1);
 			this.alignment4.Add (this.GtkAlignment7);
 			this.hbox4.Add (this.alignment4);
-			global::Gtk.Box.BoxChild w27 = ((global::Gtk.Box.BoxChild)(this.hbox4 [this.alignment4]));
-			w27.Position = 1;
-			w27.Expand = false;
-			w27.Fill = false;
+			global::Gtk.Box.BoxChild w26 = ((global::Gtk.Box.BoxChild)(this.hbox4 [this.alignment4]));
+			w26.Position = 1;
+			w26.Expand = false;
+			w26.Fill = false;
 			this.vbox1.Add (this.hbox4);
-			global::Gtk.Box.BoxChild w28 = ((global::Gtk.Box.BoxChild)(this.vbox1 [this.hbox4]));
-			w28.Position = 0;
+			global::Gtk.Box.BoxChild w27 = ((global::Gtk.Box.BoxChild)(this.vbox1 [this.hbox4]));
+			w27.Position = 0;
 			this.Add (this.vbox1);
 			if ((this.Child != null)) {
 				this.Child.ShowAll ();

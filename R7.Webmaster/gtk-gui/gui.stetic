@@ -15,7 +15,7 @@
     <widget-library name="../../R7.Webmaster.Core/bin/Debug/R7.Webmaster.Core.dll" />
     <widget-library name="../bin/Debug/R7.Webmaster.exe" internal="true" />
   </import>
-  <widget class="Gtk.Window" id="R7.Webmaster.MainWindow" design-size="400 300">
+  <widget class="Gtk.Window" id="R7.Webmaster.MainWindow" design-size="400 296">
     <action-group name="Default">
       <action id="undoAction">
         <property name="Type">Action</property>
@@ -34,6 +34,14 @@
         <property name="ShortLabel" translatable="yes">_Paste</property>
         <property name="StockId">gtk-paste</property>
         <signal name="Activated" handler="OnActionPasteActivated" />
+      </action>
+      <action id="toggleAutoProcess">
+        <property name="Type">Toggle</property>
+        <property name="Label" translatable="yes">Auto Process</property>
+        <property name="ShortLabel" translatable="yes">Auto Process</property>
+        <property name="StockId">gtk-media-forward</property>
+        <property name="DrawAsRadio">False</property>
+        <property name="Active">True</property>
       </action>
     </action-group>
     <property name="MemberName" />
