@@ -32,7 +32,7 @@ namespace R7.Webmaster.Addins.TextCleaner
 
 		protected override void Build ()
 		{
-			Commands = new List<ITextCleanerCommand> () {
+			Command = new CompositeCommand (
 
 				// enclose all text in the para
 				new CompositeCommand (
@@ -53,7 +53,7 @@ namespace R7.Webmaster.Addins.TextCleaner
 
 				// remove extra and empty paras
 				new CompositeCommand (
-					new CustomCommand ( delegate (string value) 
+					new CustomCommand (delegate (string value)
 					{
 						var buffer_t = string.Empty;
 						var once = true;
@@ -115,7 +115,7 @@ namespace R7.Webmaster.Addins.TextCleaner
 					new RegexReplaceCommand (@"\b[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}\b",
 						"<a href=\"mailto:$&\">$&</a>", RegexOptions.IgnoreCase))
 
-			}; // end list
+			);
 		}
 
 		public override string Execute (string text, TextCleanerParams textCleanerParams)
@@ -126,10 +126,7 @@ namespace R7.Webmaster.Addins.TextCleaner
 
 			Params = textCleanerParams;
 
-			foreach (ITextCleanerCommand command in Commands)
-				text = command.Execute (text);
-
-			return text;
+			return Command.Execute (text);
 		}
 	}
 }

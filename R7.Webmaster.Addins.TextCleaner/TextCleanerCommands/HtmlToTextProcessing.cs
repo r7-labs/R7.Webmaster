@@ -32,12 +32,13 @@ namespace R7.Webmaster.Addins.TextCleaner
 
 		protected override void Build ()
 		{
-			Commands = new List<ITextCleanerCommand> () {
+			Command = new CompositeCommand (
 
 				// replace entities
 				new CompositeCommand (
 					new RegexReplaceCommand (@"&nbsp;", " ", RegexOptions.IgnoreCase),
-					new RegexReplaceCommand (@"&amp;", "'", RegexOptions.IgnoreCase),
+					new RegexReplaceCommand (@"&amp;", "&", RegexOptions.IgnoreCase),
+					new RegexReplaceCommand (@"&apos;", "'", RegexOptions.IgnoreCase),
 					new RegexReplaceCommand (@"&quot;", "\"", RegexOptions.IgnoreCase)),
 
 				// add endlines
@@ -58,15 +59,14 @@ namespace R7.Webmaster.Addins.TextCleaner
 				new CompositeCommand (
 					new RegexReplaceCommand (@"<.*?>", " "))
 
-			}; // end list
+			);
 		}
 
 		public override string Execute (string text, TextCleanerParams textCleanerParams)
 		{
 			Params = textCleanerParams;
 
-			foreach (ITextCleanerCommand command in Commands)
-				text = command.Execute (text);
+			text = Command.Execute (text);
 
 			// perform text-to-text processing after converting from HTML
 			var textToTextProcessing = new TextToTextProcessing ();

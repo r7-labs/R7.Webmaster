@@ -32,7 +32,7 @@ namespace R7.Webmaster.Addins.TextCleaner
 
 		protected override void Build ()
 		{
-			Commands = new List<ITextCleanerCommand> () {
+			Command = new CompositeCommand (
 
 				// add spaces after punctuation
 				new CompositeCommand (
@@ -80,8 +80,7 @@ namespace R7.Webmaster.Addins.TextCleaner
 				new CompositeCommand (
 					new TrimCommand ())
 
-			}; // end list
-
+			);
 		}
 	}
 }

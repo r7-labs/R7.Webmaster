@@ -32,7 +32,7 @@ namespace R7.Webmaster.Addins.TextCleaner
 
 		protected TextCleanerParams Params { get; set; }
 
-		protected List<ITextCleanerCommand> Commands { get; set; }
+		protected ITextCleanerCommand Command { get; set; }
 
 		protected abstract void Build ();
 
@@ -40,10 +40,7 @@ namespace R7.Webmaster.Addins.TextCleaner
 		{
 			Params = textCleanerParams;
 
-			foreach (ITextCleanerCommand command in Commands)
-				text = command.Execute (text);
-
-			return text;
+			return Command.Execute (text);
 		}
 	}
 }

@@ -32,7 +32,7 @@ namespace R7.Webmaster.Addins.TextCleaner
 
 		protected override void Build ()
 		{
-			Commands = new List<ITextCleanerCommand> () {
+			Command = new CompositeCommand (
 
 				// add spaces after punctuation
 				new CompositeCommand (
@@ -64,7 +64,7 @@ namespace R7.Webmaster.Addins.TextCleaner
 
 				// remove extra and empty paras
 				new CompositeCommand (
-					new CustomCommand ( delegate (string value) 
+					new CustomCommand (delegate (string value)
 					{
 						var buffer_t = string.Empty;
 						var once = true;
@@ -150,21 +150,20 @@ namespace R7.Webmaster.Addins.TextCleaner
 					.When (() => Params.HtmlOut && Params.EmNames), 
 
 					// fix some common typos
-					new CompositeCommand (
-						new ReplaceCommand ("г.г.", "гг."),
-						new ReplaceCommand ("с\\х", "с.-х."),
-						new ReplaceCommand ("с/х", "с.-х."),
-						new ReplaceCommand ("с.х.", "с.-х.")),
+				new CompositeCommand (
+					new ReplaceCommand ("г.г.", "гг."),
+					new ReplaceCommand ("с\\х", "с.-х."),
+					new ReplaceCommand ("с/х", "с.-х."),
+					new ReplaceCommand ("с.х.", "с.-х.")),
 
 					// replace URL's with links
-					new CompositeCommand (
-						new RegexReplaceCommand (@"\b((http|https|ftp|ftps)://.*?)([\s\.,:;!\?]\B)", 
-							"<a href=\"${1}\">${1}</a>${3}", RegexOptions.IgnoreCase),
-						new RegexReplaceCommand (@"\b[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}\b",
-							"<a href=\"mailto:$&\">$&</a>", RegexOptions.IgnoreCase)).When (() => Params.HtmlOut && !Params.HtmlIn)
+				new CompositeCommand (
+					new RegexReplaceCommand (@"\b((http|https|ftp|ftps)://.*?)([\s\.,:;!\?]\B)", 
+						"<a href=\"${1}\">${1}</a>${3}", RegexOptions.IgnoreCase),
+					new RegexReplaceCommand (@"\b[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}\b",
+						"<a href=\"mailto:$&\">$&</a>", RegexOptions.IgnoreCase)).When (() => Params.HtmlOut && !Params.HtmlIn)
 
-				}; // end list
-
+			);
 		}
 	}
 }
