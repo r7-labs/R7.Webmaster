@@ -76,6 +76,10 @@ namespace R7.Webmaster.Addins.TextCleaner
 					new ReplaceCommand ("с/х", "с.-х."),
 					new ReplaceCommand ("с.х.", "с.-х.")),
 
+				// trim text
+				new CompositeCommand (
+					new TrimCommand ())
+
 			}; // end list
 
 		}

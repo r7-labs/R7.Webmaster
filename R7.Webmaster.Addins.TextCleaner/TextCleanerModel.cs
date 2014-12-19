@@ -22,10 +22,6 @@ using System;
 using System.Text;
 using System.Collections.Generic;
 using System.Text.RegularExpressions;
-using Gtk;
-using GLib;
-using System.Linq.Expressions;
-using System.Threading;
 
 namespace R7.Webmaster.Addins.TextCleaner
 {
@@ -58,9 +54,17 @@ namespace R7.Webmaster.Addins.TextCleaner
 			textCleanParams.HtmlIn = IsHtml (text);
 
 			if (!textCleanParams.HtmlIn && textCleanParams.HtmlOut)
+			{
 				return new TextToHtmlProcessing ().Execute (text, textCleanParams);
+			}
 			else if (!textCleanParams.HtmlIn && !textCleanParams.HtmlOut)
+			{
 				return new TextToTextProcessing ().Execute (text, textCleanParams);
+			}
+			else if (textCleanParams.HtmlIn && !textCleanParams.HtmlOut)
+			{
+				return new HtmlToTextProcessing ().Execute (text, textCleanParams);
+			}
 
 			return text;
 		}
