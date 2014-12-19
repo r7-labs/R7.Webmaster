@@ -86,7 +86,69 @@ namespace R7.Webmaster
 			notebook1.ShowAll ();
 
 			InitTextWidget ();
+			InitTrayIcon ();
 		}
+
+		#region Tray icon and menu
+
+		protected Gtk.StatusIcon TrayIcon;
+
+		protected void InitTrayIcon ()
+		{
+			// load menu structure
+			UIManager.AddUiFromResource("R7.Webmaster.ui.TrayMenu.xml");
+
+			// REVIEW: Use icon resource instead of icon name
+			TrayIcon = new Gtk.StatusIcon (RenderIcon ("application", Gtk.IconSize.Dialog, ""));
+			TrayIcon.Visible = true;
+
+			// icon tooltip
+			TrayIcon.Tooltip = Title;
+
+			// on left-click
+			TrayIcon.Activate += OnActionRestoreActivated;
+
+			// on right-click
+			TrayIcon.PopupMenu += OnTrayIconPopup;
+		}
+
+		void OnTrayIconPopup (object o, EventArgs args)
+		{
+			// ensure that menu is loaded
+			UIManager.EnsureUpdate();
+
+			// get menu widget
+			var trayMenu = (Gtk.Menu) UIManager.GetWidget ("/trayMenu");
+			trayMenu.ShowAll();
+
+			// popup the menu
+			trayMenu.Popup();
+		}
+
+		protected void OnActionRestoreActivated (object sender, EventArgs e)
+		{
+			// restore window from tray
+			Visible = true;
+
+			// move window to the front
+			Present();
+		}
+
+		protected void OnDeleteEvent (object sender, Gtk.DeleteEventArgs a)
+		{
+			// hide the window to the tray
+			Visible = false;
+
+			// event was processed?
+			a.RetVal = true;
+		}
+
+		protected void OnActionQuitActivated (object sender, EventArgs e)
+		{
+			Gtk.Application.Quit ();
+		}
+
+		#endregion
 
 		protected void InitTextWidget ()
 		{
@@ -138,12 +200,6 @@ namespace R7.Webmaster
 		protected Gtk.ScrolledWindow TextScrolledWindow;
 
 		protected Gtk.TextView InputTextWidget;
-
-		protected void OnDeleteEvent (object sender, Gtk.DeleteEventArgs a)
-		{
-			Gtk.Application.Quit ();
-			a.RetVal = true;
-		}
 
 		protected void OnActionPasteActivated (object sender, EventArgs e)
 		{
@@ -220,5 +276,7 @@ namespace R7.Webmaster
 
 			nb.AppendPage(child, header);
 		}
+
+
 	}
 }

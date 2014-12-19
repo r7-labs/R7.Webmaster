@@ -14,6 +14,10 @@ namespace R7.Webmaster
 		
 		private global::Gtk.ToggleAction toggleAutoProcess;
 		
+		private global::Gtk.Action actionQuit;
+		
+		private global::Gtk.Action actionRestore;
+		
 		private global::Gtk.VBox vbox1;
 		
 		private global::Gtk.HBox hbox1;
@@ -44,6 +48,12 @@ namespace R7.Webmaster
 			this.toggleAutoProcess.Active = true;
 			this.toggleAutoProcess.ShortLabel = global::Mono.Unix.Catalog.GetString ("Auto Process");
 			w1.Add (this.toggleAutoProcess, null);
+			this.actionQuit = new global::Gtk.Action ("actionQuit", global::Mono.Unix.Catalog.GetString ("_Quit"), null, "gtk-quit");
+			this.actionQuit.ShortLabel = global::Mono.Unix.Catalog.GetString ("_Quit");
+			w1.Add (this.actionQuit, null);
+			this.actionRestore = new global::Gtk.Action ("actionRestore", global::Mono.Unix.Catalog.GetString ("_Restore"), null, "gtk-goto-top");
+			this.actionRestore.ShortLabel = global::Mono.Unix.Catalog.GetString ("_Restore");
+			w1.Add (this.actionRestore, null);
 			this.UIManager.InsertActionGroup (w1, 0);
 			this.AddAccelGroup (this.UIManager.AccelGroup);
 			this.Name = "R7.Webmaster.MainWindow";
@@ -108,6 +118,8 @@ namespace R7.Webmaster
 			this.Show ();
 			this.DeleteEvent += new global::Gtk.DeleteEventHandler (this.OnDeleteEvent);
 			this.actionPaste.Activated += new global::System.EventHandler (this.OnActionPasteActivated);
+			this.actionQuit.Activated += new global::System.EventHandler (this.OnActionQuitActivated);
+			this.actionRestore.Activated += new global::System.EventHandler (this.OnActionRestoreActivated);
 		}
 	}
 }

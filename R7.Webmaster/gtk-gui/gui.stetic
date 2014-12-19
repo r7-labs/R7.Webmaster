@@ -15,6 +15,13 @@
     <widget-library name="../../R7.Webmaster.Core/bin/Debug/R7.Webmaster.Core.dll" />
     <widget-library name="../bin/Debug/R7.Webmaster.exe" internal="true" />
   </import>
+  <icon-factory>
+    <icon-set id="application">
+      <source>
+        <property name="Image">resource:R7.Webmaster.icons.webmaster_128.png</property>
+      </source>
+    </icon-set>
+  </icon-factory>
   <widget class="Gtk.Window" id="R7.Webmaster.MainWindow" design-size="400 296">
     <action-group name="Default">
       <action id="undoAction">
@@ -42,6 +49,20 @@
         <property name="StockId">gtk-media-forward</property>
         <property name="DrawAsRadio">False</property>
         <property name="Active">True</property>
+      </action>
+      <action id="actionQuit">
+        <property name="Type">Action</property>
+        <property name="Label" translatable="yes">_Quit</property>
+        <property name="ShortLabel" translatable="yes">_Quit</property>
+        <property name="StockId">gtk-quit</property>
+        <signal name="Activated" handler="OnActionQuitActivated" />
+      </action>
+      <action id="actionRestore">
+        <property name="Type">Action</property>
+        <property name="Label" translatable="yes">_Restore</property>
+        <property name="ShortLabel" translatable="yes">_Restore</property>
+        <property name="StockId">gtk-goto-top</property>
+        <signal name="Activated" handler="OnActionRestoreActivated" />
       </action>
     </action-group>
     <property name="MemberName" />

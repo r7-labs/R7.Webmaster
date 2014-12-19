@@ -67,6 +67,7 @@
     </EmbeddedResource>
     <EmbeddedResource Include="icons\webmaster_512.png" />
     <EmbeddedResource Include="icons\webmaster_128.png" />
+    <EmbeddedResource Include="ui\TrayMenu.xml" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="gtk-gui\generated.cs" />
@@ -105,5 +106,8 @@
   <ItemGroup>
     <None Include="App.config" />
     <None Include="icons\webmaster.svg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="ui\" />
   </ItemGroup>
 </Project>
