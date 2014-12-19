@@ -302,8 +302,6 @@ namespace R7.Webmaster.Addins.PasswordGenerator
 			this.vbox1.Add (this.table1);
 			global::Gtk.Box.BoxChild w19 = ((global::Gtk.Box.BoxChild)(this.vbox1 [this.table1]));
 			w19.Position = 0;
-			w19.Expand = false;
-			w19.Fill = false;
 			// Container child vbox1.Gtk.Box+BoxChild
 			this.expander1 = new global::Gtk.Expander (null);
 			this.expander1.CanFocus = true;
