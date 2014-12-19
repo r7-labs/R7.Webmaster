@@ -266,8 +266,10 @@ namespace R7.Webmaster
 			// windows: use TextView
 			{
 				InputTextWidget = new Gtk.TextView ();
-
 			}
+
+			// set text wrap mode
+			InputTextWidget.WrapMode = Gtk.WrapMode.Word;
 
 			// use monospace font
 			InputTextWidget.ModifyFont (Pango.FontDescription.FromString ("Monospace,8"));
