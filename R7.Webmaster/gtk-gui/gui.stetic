@@ -90,20 +90,7 @@
               </packing>
             </child>
             <child>
-              <widget class="Gtk.Toolbar" id="toolbar2">
-                <property name="MemberName" />
-                <property name="Visible">False</property>
-                <property name="ShowArrow">False</property>
-                <node name="toolbar2" type="Toolbar">
-                  <node type="Toolitem" action="actionMenu" />
-                </node>
-              </widget>
-              <packing>
-                <property name="Position">1</property>
-                <property name="AutoSize">False</property>
-                <property name="Expand">False</property>
-                <property name="Fill">False</property>
-              </packing>
+              <placeholder />
             </child>
           </widget>
           <packing>

@@ -308,7 +308,6 @@ namespace R7.Webmaster.Addins.PasswordGenerator
 			this.expander1 = new global::Gtk.Expander (null);
 			this.expander1.CanFocus = true;
 			this.expander1.Name = "expander1";
-			this.expander1.Expanded = true;
 			this.expander1.BorderWidth = ((uint)(6));
 			// Container child expander1.Gtk.Container+ContainerChild
 			this.GtkScrolledWindow = new global::Gtk.ScrolledWindow ();

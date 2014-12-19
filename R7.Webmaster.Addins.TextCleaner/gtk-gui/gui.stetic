@@ -31,7 +31,7 @@
       </source>
     </icon-set>
   </icon-factory>
-  <widget class="Gtk.Bin" id="R7.Webmaster.Addins.TextCleaner.TextCleanerWidget" design-size="622 467">
+  <widget class="Gtk.Bin" id="R7.Webmaster.Addins.TextCleaner.TextCleanerWidget" design-size="364 215">
     <action-group name="Default">
       <action id="actionProcess">
         <property name="Type">Action</property>

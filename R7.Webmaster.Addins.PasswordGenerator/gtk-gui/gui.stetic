@@ -31,7 +31,7 @@
       </source>
     </icon-set>
   </icon-factory>
-  <widget class="Gtk.Bin" id="R7.Webmaster.Addins.PasswordGenerator.PasswordGeneratorWidget" design-size="622 467">
+  <widget class="Gtk.Bin" id="R7.Webmaster.Addins.PasswordGenerator.PasswordGeneratorWidget" design-size="622 199">
     <action-group name="Default">
       <action id="actionGenerate">
         <property name="Type">Action</property>
@@ -474,7 +474,6 @@
           <widget class="Gtk.Expander" id="expander1">
             <property name="MemberName" />
             <property name="CanFocus">True</property>
-            <property name="Expanded">True</property>
             <property name="BorderWidth">6</property>
             <child>
               <widget class="Gtk.ScrolledWindow" id="GtkScrolledWindow">

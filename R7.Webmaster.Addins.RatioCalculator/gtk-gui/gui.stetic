@@ -31,7 +31,7 @@
       </source>
     </icon-set>
   </icon-factory>
-  <widget class="Gtk.Bin" id="R7.Webmaster.Addins.RatioCalculator.RatioCalculatorWidget" design-size="564 300">
+  <widget class="Gtk.Bin" id="R7.Webmaster.Addins.RatioCalculator.RatioCalculatorWidget" design-size="434 127">
     <action-group name="Default">
       <action id="actionLockFactor">
         <property name="Type">Toggle</property>
