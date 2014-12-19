@@ -61,7 +61,34 @@ namespace R7.Webmaster
 		{
 			Build ();
 		
+			InitAddins ();
+
+			InitNotebook ();
+			InitTextWidget ();
+			InitTrayIcon ();
+		}
+
+		protected void InitAddins ()
+		{
 			Addins = new WidgetAddinManager ();
+
+			foreach (var widget in Addins.Widgets)
+			{
+				// bind text input widgets
+				if (widget is ITextInputWidgetAddin)
+				{
+					var textInputWidget = (ITextInputWidgetAddin) widget;
+
+					textInputWidget.Host = this;
+					InputTextChanged += textInputWidget.OnInputTextChanged;
+				}
+			}
+		}
+
+		#region Notebook
+
+		protected void InitNotebook ()
+		{
 			AddinPages = new List<IWidgetAddin> ();
 
 			// remove default page
@@ -69,25 +96,89 @@ namespace R7.Webmaster
 
 			foreach (var widget in Addins.Widgets)
 			{
-				AppendPage (notebook1, widget.Instance, widget.Label, widget.Icon);
-
 				AddinPages.Add (widget);
 
-				// subscribe text input widgets
-				if (widget is ITextInputWidgetAddin)
-				{
-					((ITextInputWidgetAddin) widget).Host = this;
-					InputTextChanged += ((ITextInputWidgetAddin) widget).OnInputTextChanged;
-				}
+				AppendPage (notebook1, widget.Instance, widget.Label, widget.Icon);
 			}
 
-			// wire up SwitchPage here to avoid firing it for default page
+			// wire up SwitchPage manually to avoid firing it for default page
 			notebook1.SwitchPage += OnNotebook1SwitchPage;
 			notebook1.ShowAll ();
-
-			InitTextWidget ();
-			InitTrayIcon ();
 		}
+
+		protected void OnNotebook1SwitchPage (object o, Gtk.SwitchPageArgs args)
+		{
+			#if DEBUG
+			Console.WriteLine (args.PageNum);
+			#endif
+
+			var widget = AddinPages [(int) args.PageNum];
+
+			// show textview only to text input widgets
+			TextScrolledWindow.Visible = widget is ITextInputWidgetAddin;
+
+			if (widget.FocusWidget != null)
+				widget.FocusWidget.GrabFocus ();
+				
+			// REVIEW: clear or recreate toolbar!
+
+			while (toolbar1.NItems > 0)
+			{
+				toolbar1.Remove (toolbar1.GetNthItem (0));
+			}
+
+			// starting insert position
+			var pos = 0;
+		
+			// add common ITextInputWidgetAddin actions
+			if (widget is ITextInputWidgetAddin)
+			{
+				toolbar1.Insert ((Gtk.ToolItem) actionPaste.CreateToolItem (), pos++);
+				toolbar1.Insert ((Gtk.ToolItem) toggleAutoProcess.CreateToolItem (), pos++);
+				toolbar1.Insert (new Gtk.SeparatorToolItem (), pos++);
+			}
+		
+			// fill out toolbar
+			foreach (var action in widget.Actions)
+			{
+				var toolitem = (action != null) ? 
+					(Gtk.ToolItem) action.CreateToolItem () :
+					new Gtk.SeparatorToolItem ();
+
+				// insert toolitem to the right
+				toolbar1.Insert (toolitem, pos++);
+			}
+
+			// show all changes
+			toolbar1.ShowAll ();
+		}
+
+		protected void AppendPage (Gtk.Notebook nb, Gtk.Widget child, string title, string iconName)
+		{
+			var label = new Gtk.Label (title);
+			var header = new Gtk.HBox ();
+
+			// FIXME: Windows have not default GTK theme? So LoadIcon() failed for most icons
+			// var image = new Image (IconTheme.Default.LoadIcon(iconName, 16, IconLookupFlags.UseBuiltin));
+
+			var image = new Gtk.Image (RenderIcon (iconName, Gtk.IconSize.Menu, ""));
+
+			// var rcStyle = new RcStyle ();
+			// rcStyle.Xthickness = rcStyle.Ythickness = 0;
+			// label.ModifyStyle (rcStyle);
+			// image.ModifyStyle (rcStyle);
+
+			label.Justify = Gtk.Justification.Left;
+			header.BorderWidth = 0;
+
+			header.PackStart (image, false, false, 4);
+			header.PackStart (label, false, false, 0);
+			header.ShowAll ();
+
+			nb.AppendPage (child, header);
+		}
+
+		#endregion
 
 		#region Tray icon and menu
 
@@ -206,76 +297,9 @@ namespace R7.Webmaster
 			InputTextWidget.Buffer.Text = Clipboard.Text;
 		}
 
-		protected void OnNotebook1SwitchPage (object o, Gtk.SwitchPageArgs args)
-		{
-			Console.WriteLine (args.PageNum);
 
-			var widget = AddinPages [(int) args.PageNum];
 
-			// show textview only to text input widgets
-			TextScrolledWindow.Visible = widget is ITextInputWidgetAddin;
 
-			if (widget.FocusWidget != null)
-				widget.FocusWidget.GrabFocus ();
-				
-			// REVIEW: clear or recreate toolbar!
-
-			while (toolbar1.NItems > 0)
-			{
-				toolbar1.Remove (toolbar1.GetNthItem (0));
-			}
-
-			// starting insert position
-			var pos = 0;
-		
-			// add common ITextInputWidgetAddin actions
-			if (widget is ITextInputWidgetAddin)
-			{
-				toolbar1.Insert ((Gtk.ToolItem) actionPaste.CreateToolItem (), pos++);
-				toolbar1.Insert ((Gtk.ToolItem) toggleAutoProcess.CreateToolItem (), pos++);
-				toolbar1.Insert (new Gtk.SeparatorToolItem (), pos++);
-			}
-		
-			// fill out toolbar
-			foreach (var action in widget.Actions)
-			{
-				var toolitem = (action != null) ? 
-					(Gtk.ToolItem) action.CreateToolItem () :
-					new Gtk.SeparatorToolItem ();
-
-				// insert toolitem to the right
-				toolbar1.Insert (toolitem, pos++);
-			}
-
-			// show all changes
-			toolbar1.ShowAll ();
-		}
-
-		protected void AppendPage (Gtk.Notebook nb, Gtk.Widget child, string title, string iconName)
-		{
-			var label = new Gtk.Label(title);
-			var header = new Gtk.HBox();
-
-			// BUGBUG: Windows have not default GTK theme? So LoadIcon() failed for most icons
-			// var image = new Image (IconTheme.Default.LoadIcon(iconName, 16, IconLookupFlags.UseBuiltin));
-
-			var image = new Gtk.Image (RenderIcon (iconName, Gtk.IconSize.Menu, ""));
-
-			/*var rcStyle = new RcStyle ();
-			rcStyle.Xthickness = rcStyle.Ythickness = 0;
-
-			label.ModifyStyle (rcStyle);
-			image.ModifyStyle (rcStyle);
-*/
-			label.Justify = Gtk.Justification.Left;
-			header.BorderWidth = 0;
-
-			header.PackStart (image, false, false, 4);
-			header.PackStart (label, false, false, 0);
-			header.ShowAll ();
-
-			nb.AppendPage(child, header);
-		}
 
 
 	}
