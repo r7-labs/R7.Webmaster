@@ -1,5 +1,5 @@
 ﻿//
-//  Program.cs
+//  ISingleInstance.cs
 //
 //  Author:
 //       Roman M. Yagodin <roman.yagodin@gmail.com>
@@ -19,49 +19,14 @@
 //  You should have received a copy of the GNU General Public License
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 using System;
-using R7.Webmaster.Core;
 
-namespace R7.Webmaster
+namespace R7.Webmaster.Core
 {
-	class Program
+	public interface ISingleInstance
 	{
-		public static AppConfig AppConfig;
+		bool TryEnter ();
 
-		public static SingleInstance SingleInstance;
-
-		public static void Main (string[] args)
-		{
-
-			SingleInstance = new SingleInstance ("R7.Webmaster");
-
-			if (SingleInstance.TryEnter ())
-			{
-				try 
-				{
-					AppConfig = new AppConfig ();
-
-					Gtk.Application.Init ();
-					var win = new MainWindow ();
-					win.Show ();
-					Gtk.Application.Run ();
-				}
-				catch (Exception ex)
-				{
-					throw ex;
-				}
-				finally
-				{
-					SingleInstance.Leave ();
-
-					#if DEBUG
-					Console.WriteLine ("Exiting...");
-					#endif
-				}
-			}
-			else
-			{
-				// TODO: Invoke running instance
-			}
-		}
+		void Leave ();
 	}
 }
+

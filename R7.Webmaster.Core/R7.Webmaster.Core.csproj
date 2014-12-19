@@ -55,6 +55,8 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Compile>
     <Compile Include="Clipboard.cs" />
+    <Compile Include="ISingleInstance.cs" />
+    <Compile Include="SingleInstance.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>

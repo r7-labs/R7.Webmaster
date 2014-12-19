@@ -1,5 +1,5 @@
 ﻿//
-//  Program.cs
+//  SingleInstance.cs
 //
 //  Author:
 //       Roman M. Yagodin <roman.yagodin@gmail.com>
@@ -18,50 +18,41 @@
 //
 //  You should have received a copy of the GNU General Public License
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
 using System;
-using R7.Webmaster.Core;
+using System.Threading;
 
-namespace R7.Webmaster
+namespace R7.Webmaster.Core
 {
-	class Program
+	public class SingleInstance: ISingleInstance
 	{
-		public static AppConfig AppConfig;
+		private readonly Mutex singleInstance;
 
-		public static SingleInstance SingleInstance;
-
-		public static void Main (string[] args)
+		public SingleInstance (string name)
 		{
+			singleInstance = new Mutex (false, name);
+		}
 
-			SingleInstance = new SingleInstance ("R7.Webmaster");
+		#region ISingleInstance implementation
 
-			if (SingleInstance.TryEnter ())
+		public bool TryEnter ()
+		{
+			return singleInstance.WaitOne (0);
+		}
+
+		public void Leave ()
+		{
+			try
 			{
-				try 
-				{
-					AppConfig = new AppConfig ();
-
-					Gtk.Application.Init ();
-					var win = new MainWindow ();
-					win.Show ();
-					Gtk.Application.Run ();
-				}
-				catch (Exception ex)
-				{
-					throw ex;
-				}
-				finally
-				{
-					SingleInstance.Leave ();
-
-					#if DEBUG
-					Console.WriteLine ("Exiting...");
-					#endif
-				}
+				singleInstance.ReleaseMutex ();
 			}
-			else
+			finally
 			{
-				// TODO: Invoke running instance
+				singleInstance.Close ();
 			}
 		}
+
+		#endregion
 	}
 }
+
