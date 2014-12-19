@@ -34,8 +34,15 @@ namespace R7.Webmaster.Addins.TextCleaner
 		{
 			Commands = new List<ITextCleanerCommand> () {
 
+				// replace entities
+				new CompositeCommand (
+					new RegexReplaceCommand (@"&nbsp;", " ", RegexOptions.IgnoreCase),
+					new RegexReplaceCommand (@"&amp;", "'", RegexOptions.IgnoreCase),
+					new RegexReplaceCommand (@"&quot;", "\"", RegexOptions.IgnoreCase)),
+
 				// add endlines
 				new CompositeCommand (
+					new RegexReplaceCommand (@"<br\s*?/?>", "\n", RegexOptions.IgnoreCase),
 					new RegexReplaceCommand (@"</p>", "\n", RegexOptions.IgnoreCase),
 					new RegexReplaceCommand (@"</li>", "\n", RegexOptions.IgnoreCase),
 					new RegexReplaceCommand (@"</tr>", "\n", RegexOptions.IgnoreCase),
