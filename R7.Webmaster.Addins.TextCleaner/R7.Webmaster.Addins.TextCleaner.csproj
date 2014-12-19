@@ -73,17 +73,17 @@
     <Compile Include="gtk-gui\R7.Webmaster.Addins.TextCleaner.TextCleanerWidget.cs" />
     <Compile Include="TextCleanerModel.cs" />
     <Compile Include="TextCleanerPresenter.cs" />
-    <Compile Include="TextCleanerCommands\CompositeCommand.cs" />
-    <Compile Include="TextCleanerCommands\CustomCommand.cs" />
-    <Compile Include="TextCleanerCommands\TextCleanerCommand.cs" />
+    <Compile Include="Commands\CompositeCommand.cs" />
+    <Compile Include="Commands\CustomCommand.cs" />
+    <Compile Include="Commands\TextCleanerCommand.cs" />
     <Compile Include="ITextCleanerView.cs" />
-    <Compile Include="TextCleanerCommands\RegexCommands.cs" />
-    <Compile Include="TextCleanerCommands\StringCommands.cs" />
-    <Compile Include="TextCleanerCommands\TextCleanerProcessing.cs" />
-    <Compile Include="TextCleanerCommands\DefaultProcessing.cs" />
-    <Compile Include="TextCleanerCommands\TextToTextProcessing.cs" />
-    <Compile Include="TextCleanerCommands\TextToHtmlProcessing.cs" />
-    <Compile Include="TextCleanerCommands\HtmlToTextProcessing.cs" />
+    <Compile Include="Commands\RegexCommands.cs" />
+    <Compile Include="Commands\StringCommands.cs" />
+    <Compile Include="Processings\TextCleanerProcessing.cs" />
+    <Compile Include="Processings\DefaultProcessing.cs" />
+    <Compile Include="Processings\TextToTextProcessing.cs" />
+    <Compile Include="Processings\TextToHtmlProcessing.cs" />
+    <Compile Include="Processings\HtmlToTextProcessing.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
@@ -98,5 +98,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="TextCleanerCommands\" />
+    <Folder Include="Processings\" />
+    <Folder Include="Commands\" />
   </ItemGroup>
 </Project>
