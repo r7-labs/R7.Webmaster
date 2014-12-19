@@ -46,8 +46,10 @@ namespace R7.Webmaster.Core
 
 			var baseConfigFile = Path.Combine (Path.GetDirectoryName (Assembly.GetExecutingAssembly ().Location), configName + ".config");
 
-			// TEST: overwrite user config with app config
-			// File.Copy (baseConfigFile, userConfigFile, true);
+			#if DEBUG
+			// always replace user config file with original one
+			File.Copy (baseConfigFile, userConfigFile, true);
+			#endif
 
 			// copy base config to the user config
 			if (!File.Exists (userConfigFile))

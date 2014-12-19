@@ -28,6 +28,12 @@ namespace R7.Webmaster
 		public AppConfig (): base ("app")
 		{
 		}
+
+		public Gtk.PositionType TabsPosition
+		{
+			get { return (Gtk.PositionType) Enum.Parse (typeof (Gtk.PositionType), CommonConfig.Get ("tabsPosition", Gtk.PositionType.Top.ToString())); }
+			set { CommonConfig.Set ("tabsPosition", value.ToString ()); }
+		}
 	}
 }
 

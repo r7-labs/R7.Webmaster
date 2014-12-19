@@ -91,6 +91,9 @@ namespace R7.Webmaster
 		{
 			AddinPages = new List<IWidgetAddin> ();
 
+			// restore tabs position
+			notebook1.TabPos = Program.AppConfig.TabsPosition;
+
 			// remove default page
 			notebook1.RemovePage (0);
 
