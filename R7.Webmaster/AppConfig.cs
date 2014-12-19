@@ -25,7 +25,7 @@ namespace R7.Webmaster
 {
 	public class AppConfig: ConfigBase
 	{
-		public AppConfig (): base ("app")
+		public AppConfig (): base ("app", "R7.Webmaster")
 		{
 		}
 

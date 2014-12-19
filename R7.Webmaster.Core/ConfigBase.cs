@@ -20,15 +20,14 @@
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 using System;
 using System.IO;
+using System.Reflection;
 using System.Configuration;
 using System.Collections.Specialized;
-
 using Nini.Config;
-using System.Reflection;
 
 namespace R7.Webmaster.Core
 {
-	public class ConfigBase
+	public abstract class ConfigBase
 	{
 		protected IConfigSource ConfigSource;
 
@@ -37,18 +36,27 @@ namespace R7.Webmaster.Core
 		protected IConfig PlatformConfig;
 
 		protected string ConfigName;
+	
+		protected string ConfigSubFolder;
 
-		public ConfigBase (string configName)
+		protected ConfigBase (string configName, string configSubFolder)
 		{
+			ConfigSubFolder = configSubFolder;
 			ConfigName = configName;
 
-			var userConfigFile = Path.Combine (ApplicationData, configName + ".user.config");
-
+			// base (original) and user config files
 			var baseConfigFile = Path.Combine (Path.GetDirectoryName (Assembly.GetExecutingAssembly ().Location), configName + ".config");
+			var userConfigFile = Path.Combine (ApplicationData, configName + ".config");
 
 			#if DEBUG
+
+			// create app data directory, if needed
+			if (!Directory.Exists (ApplicationData))
+				Directory.CreateDirectory (ApplicationData);
+
 			// always replace user config file with original one
 			File.Copy (baseConfigFile, userConfigFile, true);
+
 			#endif
 
 			// copy base config to the user config
@@ -61,8 +69,10 @@ namespace R7.Webmaster.Core
 				File.Copy (baseConfigFile, userConfigFile);
 			}
 
+			// get config source
 			ConfigSource = new DotNetConfigSource (userConfigFile);
 
+			// get configs (config sections)
  			CommonConfig = ConfigSource.Configs ["common"];
 			PlatformConfig = ConfigSource.Configs [Platform + "Platform"];
 		}
@@ -80,9 +90,7 @@ namespace R7.Webmaster.Core
 			get 
 			{ 
 				return Path.Combine ( 
-					Environment.GetFolderPath (Environment.SpecialFolder.ApplicationData), 
-					// TODO: Don't hardcode application name
-					"r7-webmaster"); 
+					Environment.GetFolderPath (Environment.SpecialFolder.ApplicationData), ConfigSubFolder); 
 			}
 		}
 
