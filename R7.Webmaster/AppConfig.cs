@@ -1,5 +1,5 @@
 ﻿//
-//  Program.cs
+//  HostConfig.cs
 //
 //  Author:
 //       Roman M. Yagodin <roman.yagodin@gmail.com>
@@ -19,22 +19,15 @@
 //  You should have received a copy of the GNU General Public License
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 using System;
-using Gtk;
+using R7.Webmaster.Core;
 
 namespace R7.Webmaster
 {
-	class Program
+	public class AppConfig: ConfigBase
 	{
-		public static AppConfig AppConfig;
-
-		public static void Main (string[] args)
+		public AppConfig (): base ("app")
 		{
-			AppConfig = new AppConfig ();
-
-			Application.Init ();
-			MainWindow win = new MainWindow ();
-			win.Show ();
-			Application.Run ();
 		}
 	}
 }
+
