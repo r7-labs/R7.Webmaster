@@ -277,6 +277,12 @@ namespace R7.Webmaster.Addins.RatioCalculator
 			this.Hide ();
 			this.actionRotate.Activated += new global::System.EventHandler (this.OnActionRotateActivated);
 			this.spinWidth.ValueChanged += new global::System.EventHandler (this.OnSpinWidthValueChanged);
+			this.spinHeight.ValueChanged += new global::System.EventHandler (this.OnSpinHeightValueChanged);
+			this.scaleTolerance.ValueChanged += new global::System.EventHandler (this.OnScaleToleranceValueChanged);
+			this.scaleTolerance.FormatValue += new global::Gtk.FormatValueHandler (this.OnScaleToleranceFormatValue);
+			this.buttonReverseRatio.Clicked += new global::System.EventHandler (this.OnButtonReverseRatioClicked);
+			this.buttonMultiply.Clicked += new global::System.EventHandler (this.OnButtonMultiplyClicked);
+			this.buttonDivide.Clicked += new global::System.EventHandler (this.OnButtonDivideClicked);
 		}
 	}
 }

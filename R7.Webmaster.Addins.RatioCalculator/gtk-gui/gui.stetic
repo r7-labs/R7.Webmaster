@@ -142,6 +142,7 @@
                 <property name="Icon">stock:gtk-zoom-out Button</property>
                 <property name="Label" translatable="yes" />
                 <property name="UseUnderline">True</property>
+                <signal name="Clicked" handler="OnButtonDivideClicked" />
               </widget>
               <packing>
                 <property name="LeftAttach">6</property>
@@ -166,6 +167,7 @@
                 <property name="Icon">stock:gtk-zoom-in Button</property>
                 <property name="Label" translatable="yes" />
                 <property name="UseUnderline">True</property>
+                <signal name="Clicked" handler="OnButtonMultiplyClicked" />
               </widget>
               <packing>
                 <property name="LeftAttach">8</property>
@@ -190,6 +192,7 @@
                 <property name="Icon">stock:gtk-jump-to Button</property>
                 <property name="Label" translatable="yes" />
                 <property name="UseUnderline">True</property>
+                <signal name="Clicked" handler="OnButtonReverseRatioClicked" />
               </widget>
               <packing>
                 <property name="TopAttach">1</property>
@@ -382,6 +385,8 @@
                 <property name="DrawValue">True</property>
                 <property name="Digits">0</property>
                 <property name="ValuePos">Right</property>
+                <signal name="ValueChanged" handler="OnScaleToleranceValueChanged" />
+                <signal name="FormatValue" handler="OnScaleToleranceFormatValue" />
               </widget>
               <packing>
                 <property name="TopAttach">3</property>
@@ -410,6 +415,7 @@
                 <property name="ClimbRate">1</property>
                 <property name="Numeric">True</property>
                 <property name="Value">768</property>
+                <signal name="ValueChanged" handler="OnSpinHeightValueChanged" />
               </widget>
               <packing>
                 <property name="LeftAttach">3</property>
