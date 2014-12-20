@@ -1,5 +1,5 @@
 ﻿//
-//  SingleInstance.cs
+//  IInvocableSingleInstance.cs
 //
 //  Author:
 //       Roman M. Yagodin <roman.yagodin@gmail.com>
@@ -20,39 +20,15 @@
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 using System;
-using System.Threading;
+using System.Threading.Tasks;
 
 namespace R7.Webmaster.Core
 {
-	public class SingleInstance: ISingleInstance
+	public interface IInvocableSingleInstance: ISingleInstance
 	{
-		protected readonly Mutex WaitHandle;
+		void Invoke ();
 
-		public SingleInstance (string name)
-		{
-			WaitHandle = new Mutex (false, name);
-		}
-
-		#region ISingleInstance implementation
-
-		public bool TryEnter ()
-		{
-			return WaitHandle.WaitOne (0);
-		}
-
-		public void Leave ()
-		{
-			try
-			{
-				WaitHandle.ReleaseMutex ();
-			}
-			finally
-			{
-				WaitHandle.Close ();
-			}
-		}
-
-		#endregion
+		EventHandler InvokeHandler { get; set; }
 	}
 }
 

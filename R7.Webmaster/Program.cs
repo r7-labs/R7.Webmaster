@@ -18,6 +18,7 @@
 //
 //  You should have received a copy of the GNU General Public License
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
 using System;
 using R7.Webmaster.Core;
 
@@ -25,24 +26,32 @@ namespace R7.Webmaster
 {
 	class Program
 	{
-		public static AppConfig AppConfig;
+		public static readonly AppConfig AppConfig;
 
-		public static SingleInstance SingleInstance;
+		protected static readonly IInvocableSingleInstance AppInstance;
+
+		protected static MainWindow MainWindow;
+
+		protected static void OnInvoke (object sender, EventArgs e)
+		{
+			MainWindow.Restore ();
+		}
+	
+		static Program ()
+		{
+			AppConfig = new AppConfig ();
+			AppInstance = new InvocableSingleInstance ("R7.Webmaster", OnInvoke);
+		}
 
 		public static void Main (string[] args)
 		{
-
-			SingleInstance = new SingleInstance ("R7.Webmaster");
-
-			if (SingleInstance.TryEnter ())
+			if (AppInstance.TryEnter ())
 			{
-				try 
+				try
 				{
-					AppConfig = new AppConfig ();
-
 					Gtk.Application.Init ();
-					var win = new MainWindow ();
-					win.Show ();
+					MainWindow = new MainWindow ();
+					MainWindow.Show ();
 					Gtk.Application.Run ();
 				}
 				catch (Exception ex)
@@ -51,7 +60,7 @@ namespace R7.Webmaster
 				}
 				finally
 				{
-					SingleInstance.Leave ();
+					AppInstance.Leave ();
 
 					#if DEBUG
 					Console.WriteLine ("Exiting...");
@@ -60,7 +69,8 @@ namespace R7.Webmaster
 			}
 			else
 			{
-				// TODO: Invoke running instance
+				// send signal to running instance
+				AppInstance.Invoke ();
 			}
 		}
 	}

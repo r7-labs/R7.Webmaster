@@ -219,13 +219,18 @@ namespace R7.Webmaster
 			trayMenu.Popup();
 		}
 
-		protected void OnActionRestoreActivated (object sender, EventArgs e)
+		public void Restore ()
 		{
 			// restore window from tray
 			Visible = true;
 
 			// move window to the front
 			Present();
+		}
+
+		protected void OnActionRestoreActivated (object sender, EventArgs e)
+		{
+			Restore ();
 		}
 
 		protected void OnDeleteEvent (object sender, Gtk.DeleteEventArgs a)

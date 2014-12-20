@@ -57,6 +57,8 @@
     <Compile Include="Clipboard.cs" />
     <Compile Include="ISingleInstance.cs" />
     <Compile Include="SingleInstance.cs" />
+    <Compile Include="IInvocableSingleInstance.cs" />
+    <Compile Include="InvocableSingleInstance.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
