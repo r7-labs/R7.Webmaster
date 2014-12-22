@@ -49,6 +49,8 @@ namespace R7.Webmaster.Addins.TextCleaner
 			get { return OnSourceChanged; }
 		}
 
+		public bool IsActive { get; set; }
+
 		public string Icon 
 		{ 
 			get { return Gtk.Stock.FindAndReplace; } 
@@ -115,7 +117,7 @@ namespace R7.Webmaster.Addins.TextCleaner
 		{
 			//var PrevSourceText = PrevSources.Peek ();
 
-			var needProcess = Host.AutoProcess;
+			var needProcess = IsActive && Host.AutoProcess;
 			/*&&
 				(txvSource.Buffer.Text.Length != PrevSourceText.Length ||
 				txvSource.Buffer.Text != PrevSourceText);*/

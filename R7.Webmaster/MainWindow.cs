@@ -134,13 +134,17 @@ namespace R7.Webmaster
 			Console.WriteLine (args.PageNum);
 			#endif
 
-			var widget = Addins [(int) args.PageNum];
+			var selectedAddin = Addins [(int) args.PageNum];
+
+			// set IsActive state for addins
+			foreach (var addin in Addins)
+				addin.IsActive = (addin == selectedAddin);
 
 			// show textview only to text input widgets
-			TextScrolledWindow.Visible = widget is ITextInputWidgetAddin;
+			TextScrolledWindow.Visible = selectedAddin is ITextInputWidgetAddin;
 
-			if (widget.FocusWidget != null)
-				widget.FocusWidget.GrabFocus ();
+			if (selectedAddin.FocusWidget != null)
+				selectedAddin.FocusWidget.GrabFocus ();
 				
 			// REVIEW: clear or recreate toolbar!
 
@@ -153,7 +157,7 @@ namespace R7.Webmaster
 			var pos = 0;
 		
 			// add common ITextInputWidgetAddin actions
-			if (widget is ITextInputWidgetAddin)
+			if (selectedAddin is ITextInputWidgetAddin)
 			{
 				toolbar1.Insert ((Gtk.ToolItem) actionPaste.CreateToolItem (), pos++);
 				toolbar1.Insert ((Gtk.ToolItem) toggleAutoProcess.CreateToolItem (), pos++);
@@ -161,7 +165,7 @@ namespace R7.Webmaster
 			}
 		
 			// fill out toolbar
-			foreach (var action in widget.Actions)
+			foreach (var action in selectedAddin.Actions)
 			{
 				var toolitem = (action != null) ? 
 					(Gtk.ToolItem) action.CreateToolItem () :

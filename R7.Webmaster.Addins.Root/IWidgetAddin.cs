@@ -39,5 +39,7 @@ namespace R7.Webmaster.Addins.Root
 		string Icon { get; }
 
 		List<Gtk.Action> Actions { get; } 
+
+		bool IsActive { get; set; }
 	}
 }

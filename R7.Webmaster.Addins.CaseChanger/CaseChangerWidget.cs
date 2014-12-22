@@ -61,6 +61,8 @@ namespace R7.Webmaster.Addins.CaseChanger
 			get { return OnInputTextChangedInternal; } 
 		}
 
+		public bool IsActive { get; set; }
+
 		public string Icon 
 		{ 
 			get { return Gtk.Stock.SpellCheck; } 
@@ -78,7 +80,7 @@ namespace R7.Webmaster.Addins.CaseChanger
 
 		protected void OnInputTextChangedInternal (object sender, EventArgs e)
 		{
-			if (Host.AutoProcess)
+			if (IsActive && Host.AutoProcess)
 				Process ();
 		}
 

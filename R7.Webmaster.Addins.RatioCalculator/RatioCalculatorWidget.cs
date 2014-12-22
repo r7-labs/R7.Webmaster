@@ -50,6 +50,8 @@ namespace R7.Webmaster.Addins.RatioCalculator
 
 		public string SafeName { get { return "ratiocalculator"; } }
 
+		public bool IsActive { get; set; }
+
 		public string Icon 
 		{ 
 			get { return Gtk.Stock.OrientationPortrait; } 
