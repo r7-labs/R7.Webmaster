@@ -42,6 +42,8 @@ namespace R7.Webmaster.Addins.TextCleaner
 
 		public string Label { get { return "Text Cleaner"; } }
 
+		public string SafeName { get { return "textcleaner"; } }
+
 		public EventHandler OnInputTextChanged 
 		{
 			get { return OnSourceChanged; }

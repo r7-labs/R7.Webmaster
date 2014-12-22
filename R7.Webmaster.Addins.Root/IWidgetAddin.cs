@@ -34,6 +34,8 @@ namespace R7.Webmaster.Addins.Root
 
 		string Label { get; }
 
+		string SafeName { get; }
+
 		string Icon { get; }
 
 		List<Gtk.Action> Actions { get; } 

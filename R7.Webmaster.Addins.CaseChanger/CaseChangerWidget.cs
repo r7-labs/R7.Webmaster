@@ -52,6 +52,8 @@ namespace R7.Webmaster.Addins.CaseChanger
 
 		public string Label { get { return "Case Changer"; } }
 
+		public string SafeName { get { return "casechanger"; } }
+
 		public ITextInputWidgetAddinHost Host { get; set; }
 
 		public EventHandler OnInputTextChanged 

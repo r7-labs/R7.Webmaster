@@ -41,6 +41,8 @@ namespace R7.Webmaster.Addins.PasswordGenerator
 
 		public string Label { get { return "Password Generator"; } }
 
+		public string SafeName { get { return "passwordgenerator"; } }
+
 		public string Icon 
 		{ 
 			get { return Gtk.Stock.DialogAuthentication; } 
