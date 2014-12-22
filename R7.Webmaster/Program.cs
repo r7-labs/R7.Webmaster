@@ -34,12 +34,16 @@ namespace R7.Webmaster
 
 		protected static void OnInvoke (object sender, EventArgs e)
 		{
-			MainWindow.Restore ();
+			if (MainWindow != null)
+				MainWindow.Restore ();
 		}
 	
 		static Program ()
 		{
 			AppConfig = new AppConfig ();
+
+			// couldn't pass MainWindow.OnActionRestoreActivated directly,
+			// as MainWindow object doesn't exist at this point 
 			AppInstance = new InvocableSingleInstance ("R7.Webmaster", OnInvoke);
 		}
 
