@@ -23,16 +23,15 @@ using System;
 using System.Collections.Generic;
 using GtkSourceView;
 using R7.Webmaster.Addins.Root;
-using System.Runtime.Remoting.Channels;
 using R7.Webmaster.Core;
 
 namespace R7.Webmaster
 {
 	public partial class MainWindow: Gtk.Window, ITextInputWidgetAddinHost
 	{
-		protected WidgetAddinManager Addins;
+		protected WidgetAddinManager AddinManager;
 
-		protected List<IWidgetAddin> AddinPages; 
+		protected IWidgetAddin [] Addins; 
 
 		protected event EventHandler InputTextChanged;
 
@@ -70,9 +69,12 @@ namespace R7.Webmaster
 
 		protected void InitAddins ()
 		{
-			Addins = new WidgetAddinManager ();
+			AddinManager = new WidgetAddinManager ();
+			Addins = AddinManager.Widgets;
 
-			foreach (var widget in Addins.Widgets)
+			ReorderAddins (Addins);
+
+			foreach (var widget in Addins)
 			{
 				// bind text input widgets
 				if (widget is ITextInputWidgetAddin)
@@ -85,22 +87,35 @@ namespace R7.Webmaster
 			}
 		}
 
+		protected void ReorderAddins (IWidgetAddin [] addins)
+		{
+			var addinsOrder = Program.AppConfig.AddinsOrder;
+
+			for (var i = 0; i < addins.Length; i++)
+			{
+				int j;
+				if (addinsOrder.TryGetValue (addins [i].SafeName, out j))
+				{
+					// swap addins
+					var tmpAddin = addins [j];
+					addins [j] = addins [i];
+					addins [i] = tmpAddin;
+				}
+			}
+		}
+
 		#region Notebook
 
 		protected void InitNotebook ()
 		{
-			AddinPages = new List<IWidgetAddin> ();
-
 			// restore tabs position
 			notebook1.TabPos = Program.AppConfig.TabsPosition;
 
 			// remove default page
 			notebook1.RemovePage (0);
 
-			foreach (var widget in Addins.Widgets)
+			foreach (var widget in Addins)
 			{
-				AddinPages.Add (widget);
-
 				AppendPage (notebook1, widget.Instance, widget.Label, widget.Icon);
 			}
 
@@ -115,7 +130,7 @@ namespace R7.Webmaster
 			Console.WriteLine (args.PageNum);
 			#endif
 
-			var widget = AddinPages [(int) args.PageNum];
+			var widget = Addins [(int) args.PageNum];
 
 			// show textview only to text input widgets
 			TextScrolledWindow.Visible = widget is ITextInputWidgetAddin;

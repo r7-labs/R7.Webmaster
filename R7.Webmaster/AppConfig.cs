@@ -1,5 +1,5 @@
 ﻿//
-//  HostConfig.cs
+//  AppConfig.cs
 //
 //  Author:
 //       Roman M. Yagodin <roman.yagodin@gmail.com>
@@ -18,7 +18,9 @@
 //
 //  You should have received a copy of the GNU General Public License
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
 using System;
+using System.Collections.Generic;
 using R7.Webmaster.Core;
 
 namespace R7.Webmaster
@@ -33,6 +35,21 @@ namespace R7.Webmaster
 		{
 			get { return (Gtk.PositionType) Enum.Parse (typeof (Gtk.PositionType), CommonConfig.Get ("tabsPosition", Gtk.PositionType.Top.ToString())); }
 			set { CommonConfig.Set ("tabsPosition", value.ToString ()); }
+		}
+
+		public Dictionary<string,int> AddinsOrder
+		{
+			get 
+			{ 
+				var addinSafeNames = CommonConfig.Get ("addinsOrder", string.Empty).Split (new [] { ',' }, StringSplitOptions.RemoveEmptyEntries);
+				var addinsOrder = new Dictionary<string,int> (16);
+
+				var index = 0;
+				foreach (var addinSafeName in addinSafeNames)
+					addinsOrder.Add (addinSafeName, index++);
+
+				return addinsOrder;
+			}
 		}
 	}
 }
