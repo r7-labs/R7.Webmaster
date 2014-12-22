@@ -30,6 +30,8 @@ namespace R7.Webmaster.Core
 
 		protected readonly Thread WatchThread;
 
+		protected readonly EventHandler InvokeHandler;
+
 		public InvocableSingleInstance (string waitHandleName, EventHandler invokeHandler)
 		{
 			WaitHandle = new Semaphore (1, 1, waitHandleName);
@@ -47,7 +49,7 @@ namespace R7.Webmaster.Core
 					Gtk.Application.Invoke (InvokeHandler);
 				}
 			}
-			catch (ThreadAbortException ex)
+			catch (ThreadAbortException)
 			{
 			}
 		}
