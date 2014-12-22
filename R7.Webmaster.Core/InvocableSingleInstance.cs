@@ -86,8 +86,6 @@ namespace R7.Webmaster.Core
 			WaitHandle.Release ();
 		}
 
-		public EventHandler InvokeHandler { get; set; }
-
 		#endregion
 	}
 }

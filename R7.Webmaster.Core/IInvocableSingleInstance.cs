@@ -27,8 +27,6 @@ namespace R7.Webmaster.Core
 	public interface IInvocableSingleInstance: ISingleInstance
 	{
 		void Invoke ();
-
-		EventHandler InvokeHandler { get; set; }
 	}
 }
 
