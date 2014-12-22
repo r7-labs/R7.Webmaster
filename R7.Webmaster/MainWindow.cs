@@ -31,7 +31,7 @@ namespace R7.Webmaster
 	{
 		protected WidgetAddinManager AddinManager;
 
-		protected IWidgetAddin [] Addins; 
+		protected List<IWidgetAddin> Addins; 
 
 		protected event EventHandler InputTextChanged;
 
@@ -70,9 +70,7 @@ namespace R7.Webmaster
 		protected void InitAddins ()
 		{
 			AddinManager = new WidgetAddinManager ();
-			Addins = AddinManager.Widgets;
-
-			ReorderAddins (Addins);
+			Addins = OrderAddins (AddinManager.Widgets, Program.AppConfig.AddinsOrder);
 
 			foreach (var widget in Addins)
 			{
@@ -87,21 +85,27 @@ namespace R7.Webmaster
 			}
 		}
 
-		protected void ReorderAddins (IWidgetAddin [] addins)
+		protected List<IWidgetAddin> OrderAddins (IWidgetAddin [] addins, string [] addinsOrder)
 		{
-			var addinsOrder = Program.AppConfig.AddinsOrder;
+			var unorderedAddins = new List<IWidgetAddin> (addins);
+			var orderedAddins = new List<IWidgetAddin> (unorderedAddins.Count);
 
-			for (var i = 0; i < addins.Length; i++)
+			for (var i = 0; i < addinsOrder.Length; i++)
 			{
-				int j;
-				if (addinsOrder.TryGetValue (addins [i].SafeName, out j))
+				var addin = unorderedAddins.Find (a => a.SafeName == addinsOrder [i]);
+
+				if (addin != null)
 				{
-					// swap addins
-					var tmpAddin = addins [j];
-					addins [j] = addins [i];
-					addins [i] = tmpAddin;
+					// move founded addin to its place 
+					orderedAddins.Add (addin);
+					unorderedAddins.Remove (addin);
 				}
 			}
+
+			// add remained items
+			orderedAddins.AddRange (unorderedAddins);
+
+			return orderedAddins;
 		}
 
 		#region Notebook

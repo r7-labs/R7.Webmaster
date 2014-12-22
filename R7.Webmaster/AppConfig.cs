@@ -37,20 +37,9 @@ namespace R7.Webmaster
 			set { CommonConfig.Set ("tabsPosition", value.ToString ()); }
 		}
 
-		public Dictionary<string,int> AddinsOrder
+		public string [] AddinsOrder
 		{
-			get 
-			{ 
-				var addinSafeNames = CommonConfig.Get ("addinsOrder", string.Empty).Split (new [] { ',' }, StringSplitOptions.RemoveEmptyEntries);
-				var addinsOrder = new Dictionary<string,int> (16);
-
-				var index = 0;
-				foreach (var addinSafeName in addinSafeNames)
-					addinsOrder.Add (addinSafeName, index++);
-
-				return addinsOrder;
-			}
+			get { return CommonConfig.Get ("addinsOrder", string.Empty).Split (new [] { ',' }, StringSplitOptions.RemoveEmptyEntries); }
 		}
 	}
 }
-
