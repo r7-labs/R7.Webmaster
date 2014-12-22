@@ -1,5 +1,5 @@
 ﻿//
-//  TextToHtmlProcessing.cs
+//  TextToHtmlTextProcessing.cs
 //
 //  Author:
 //       Roman M. Yagodin <roman.yagodin@gmail.com>
@@ -18,16 +18,18 @@
 //
 //  You should have received a copy of the GNU General Public License
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
-
 using System;
 using System.Collections.Generic;
 using System.Text.RegularExpressions;
 
 namespace R7.Webmaster.Addins.TextCleaner
 {
-	public class TextToHtmlProcessing : TextCleanerProcessing
+	/// <summary>
+	/// Text to HTML-text processing.
+	/// </summary>
+	public class TextToHtmlTextProcessing : TextCleanerProcessing
 	{
-		public TextToHtmlProcessing () : base ()
+		public TextToHtmlTextProcessing () : base ()
 		{
 		}
 
@@ -35,52 +37,12 @@ namespace R7.Webmaster.Addins.TextCleaner
 		{
 			Command = new CompositeCommand (
 
-				// enclose all text in the para
-				new CompositeCommand (
-					new PrependCommand ("<p>"),
-					new AppendCommand ("</p>")),
-
-				// replace endlines with paras
-				new CompositeCommand (
-					new ReplaceCommand ("\n", "</p><p>")),
-
-				// remove spaces before and after para tags
-				new CompositeCommand (
-					new ReplaceCommand ("<p> ", "<p>"),
-					new ReplaceCommand (" </p>", "</p>")),
-
 				// remove duplicate whitespace
 				new RegexReplaceCommand (@"\s+", " "),
 
-				// remove extra and empty paras
+				// replace ampersands and quotes
 				new CompositeCommand (
-					new CustomCommand (delegate (string value)
-					{
-						var buffer_t = string.Empty;
-						var once = true;
-						while (buffer_t.Length != value.Length)
-						{
-							if (once)
-								once = false;
-							else
-								value = buffer_t;
-
-							buffer_t = value.Replace ("</p><p></p><p>", "</p><p>");
-						}
-
-						return buffer_t;
-					}),
-					new ReplaceCommand ("<p></p>", ""),
-					new ReplaceCommand ("<p> </p>", ""),
-					new ReplaceCommand ("<p>\u00A0</p>", ""),
-					new ReplaceCommand ("<p>&#160;</p>", ""),
-					new ReplaceCommand ("<p>&nbsp;</p>", ""),
-					new ReplaceCommand ("<p><p>", "<p>"),
-					new ReplaceCommand ("</p></p>", "</p>")),
-
-				// replace ampersands and quotes // &apos;?
-				new CompositeCommand (
-					new ReplaceCommand ("&", "&amp;"),
+					new RegexReplaceCommand (@"(&)(\s+)", "&amp;$2"),
 					new ReplaceCommand ("\"", "&quot;"),
 					new ReplaceCommand ("'", "&apos;")),
 

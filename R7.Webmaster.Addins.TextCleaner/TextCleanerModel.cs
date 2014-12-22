@@ -35,14 +35,6 @@ namespace R7.Webmaster.Addins.TextCleaner
 		public string TableWidthUnits;
 	}
 
-	public class MatchGroup
-	{
-		public int Index;
-		public int Length;
-		public string Value;
-		public string NewValue;
-	}
-
 	public class TextCleanerModel
 	{
 		public TextCleanerModel ()
@@ -57,13 +49,20 @@ namespace R7.Webmaster.Addins.TextCleaner
 			{
 				return new TextToHtmlProcessing ().Execute (text, textCleanParams);
 			}
-			else if (!textCleanParams.HtmlIn && !textCleanParams.HtmlOut)
+
+			if (!textCleanParams.HtmlIn && !textCleanParams.HtmlOut)
 			{
 				return new TextToTextProcessing ().Execute (text, textCleanParams);
 			}
-			else if (textCleanParams.HtmlIn && !textCleanParams.HtmlOut)
+
+			if (textCleanParams.HtmlIn && !textCleanParams.HtmlOut)
 			{
 				return new HtmlToTextProcessing ().Execute (text, textCleanParams);
+			}
+
+			if (textCleanParams.HtmlIn && textCleanParams.HtmlOut)
+			{
+				return new HtmlToHtmlProcessing ().Execute (text, textCleanParams);
 			}
 
 			return text;
@@ -80,214 +79,8 @@ namespace R7.Webmaster.Addins.TextCleaner
 			return delta > 0;
 		}
 
-		private int CountValidMatches (MatchCollection matches, int nGroup)
-		{
-			var matchCount = 0;
-
-			foreach (Match match in matches)
-				if (match.Success && !string.IsNullOrWhiteSpace (match.Groups [nGroup].Value))
-					matchCount++;
-
-			return matchCount;
-		}
-
-		private void CopyValidMatches (MatchCollection matches, MatchGroup[] matchArray, int groupnum)
-		{
-			var matchCount = 0;
-
-			foreach (Match match in matches)
-				if (match.Success && !string.IsNullOrWhiteSpace (match.Groups [groupnum].Value))
-				{
-					matchArray [matchCount] = new MatchGroup ();
-					matchArray [matchCount].Index = match.Groups [groupnum].Index;
-					matchArray [matchCount].Length = match.Groups [groupnum].Length;
-					matchArray [matchCount].Value = match.Groups [groupnum].Value;
-					matchCount++;
-				}
-
-		}
-
-		/// <summary>
-		/// Cleans text in HTML attributes and values. 
-		/// Opposite to TextToText(), uses some HTML markup for entities 
-		/// </summary>
-		/// <returns>
-		/// Cleansed text for HTML attrs and values.
-		/// </returns>
-		/// <param name='text'>
-		/// Input string.
-		/// </param>
-		private string TextToHtmlText (string text, bool inAttr)
-		{
-			// TODO: Realize TextToHtmlText ()
-
-			text = text.Trim (' ', '\n', '\t', '\r');
-
-			// удаляем пробелы перед "закрывающими" знаками препинания
-			text = Regex.Replace (text, @"\s+([\.,;:\)\]\?!])", "${1}");
-
-			// удаляем лишние знаки препинания в скобках 
-			text = text.Replace (".).", ".)");
-
-			// replace quotes
-			text = text.Replace ("\"", "&quot;");
-			text = text.Replace ("«", "&quot;");
-			text = text.Replace ("»", "&quot;");
-			text = text.Replace ("`", "'"); // &apos;?
-
-			// удаляем "мягкие" переносы
-			text = text.Replace ("¬", "");
-
-			// replace &nbsp; with XML &#160;
-			text = text.Replace ("&nbsp;", "&#160;");
-
-			// заменяем длинные тире - на &ndash;
-			// ставим неразрывный пробел перед дефисом
-
-			text = text.Replace (" - ", "&#160;- ");
-
-			// ставим пробел после дефиса
-			text = text.Replace (" -", "&#160;- ");
-
-			// заменяем очень длинное тире просто длинным &ndash;: 
-			text = text.Replace ("\x2014", "\x2013");
-			text = text.Replace ("&ndash;", "\x2013");
-			text = text.Replace ("&mdash;", "\x2013");
-
-			// ставим неразрывный пробел перед дефисом
-			text = text.Replace ("\x2013 ", "&#160;\x2013 ");
-			text = text.Replace ("\x2013 ", "&#160;\x2013 ");
-
-			text = Regex.Replace (text, @"\s+&#160;", "&#160;");
-
-			// TODO: т.д., т.п., т.е., т.о.
-
-			// Common abbreviations
-			text = text.Replace ("г.г.", "гг.");
-			text = text.Replace ("с\\х", "с.-х.");
-			text = text.Replace ("с/х", "с.-х.");
-			text = text.Replace ("с.х.", "с.-х.");
-
-			if (!inAttr)
-			{
-				// replace urls   
-				text = Regex.Replace (text, @"\b((http|https|ftp|ftps)://.*?)([\s\.,:;!\?]\B)", 
-					"<a href=\"${1}\">${1}</a>${3}", RegexOptions.IgnoreCase);
-
-				text = Regex.Replace (text, @"\b[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}\b",
-					"<a href=\"mailto:$&\">$&</a>", RegexOptions.IgnoreCase);
-			}
-
-			// ставим пробелы после знаков препинания
-
-			// TODO: Need entities and url check, else . and ? must be removed from list!
-			// text = text.Replace (".", ". ");
-			// text = text.Replace ("?", "? ");
-
-			text = text.Replace (",", ", ");
-			text = text.Replace ("!", "! ");
-			text = text.Replace (";", "; "); 
-			text = text.Replace (":", ": ");
-
-
-			// remove breaks in a decimal numbers: 12, 23 => 12,23
-			text = Regex.Replace (text, @"(\d[,\.])\s+(\d)", "${1}${2}");
-
-			// удаляем дублирующиеся пробелы, табуляции, переводы строк,
-			// заменяем их на 1 пробел
-			text = Regex.Replace (text, @"\s+", " ");
-
-			text = text.Trim ();
-
-			return text;
-		}
-
-		private string HtmlToHtml (string text)
-		{
-			// TODO: Realize HtmlToHtml ()
-			return text;
-		}
-
-		/// <summary>
-		/// Applies the [changed] match groups back to text, base on their original index and length
-		/// </summary>
-		/// <returns>
-		/// Resulting text
-		/// </returns>
-		/// <param name='text'>
-		/// Base text
-		/// </param>
-		/// <param name='matchGroups'>
-		/// Match groups array.
-		/// </param>
-		private string ApplyMatchGroups (string text, MatchGroup[] matchGroups)
-		{
-			var offset = 0;
-			var newtext = text;		
-
-			foreach (MatchGroup _group in matchGroups)
-			{
-				newtext = newtext.Remove (_group.Index + offset, _group.Length);
-				newtext = newtext.Insert (_group.Index + offset, _group.NewValue);
-				offset = newtext.Length - text.Length; 
-			}
-
-			return newtext;
-		}
-
-		public string Parse (string text) //, TextCleanParams param)
-		{
-			// get match collections, attrs @title, @alt, @summary going first
-			// THINK: More precise and universal regex for attr match
-			MatchCollection attrs = Regex.Matches (text, @"(title|alt|summary)=[""'](.*?)[""']", RegexOptions.IgnoreCase | RegexOptions.Singleline);
-
-			// calculate real matches count, without empty and non-successful 
-			var attrsCount = CountValidMatches (attrs, 2);
-
-			// make an array of MatchGroups to store new attribute values
-			MatchGroup[] attrGroups = new MatchGroup[attrsCount];
-			CopyValidMatches (attrs, attrGroups, 2);
-
-			// pass all matched values to cleanup
-			foreach (MatchGroup _group in attrGroups)
-				_group.NewValue = TextToHtmlText (_group.Value, true);
-
-			// now, we need to apply changes back to original text,
-			// before proceed with tags and values
-			text = ApplyMatchGroups (text, attrGroups);
-
-			// get tags 
-			MatchCollection tags = Regex.Matches (text, "<.*?>", RegexOptions.Singleline);
-			var tagsCount = CountValidMatches (tags, 0);
-
-			MatchGroup[] tagGroups = new MatchGroup[tagsCount];
-			CopyValidMatches (tags, tagGroups, 0);
-
-			foreach (MatchGroup _group in tagGroups)
-				_group.NewValue = HtmlToHtml (_group.Value);
-
-			text = ApplyMatchGroups (text, tagGroups);
-
-			// get values
-			MatchCollection values = Regex.Matches (text, ">(.*?)<", RegexOptions.Singleline);
-			var valuesCount = CountValidMatches (values, 1);
-
-			MatchGroup[] valueGroups = new MatchGroup[valuesCount];
-			CopyValidMatches (values, valueGroups, 1);
-
-			foreach (MatchGroup _group in valueGroups)
-				_group.NewValue = TextToHtmlText (_group.Value, false);
-
-			text = ApplyMatchGroups (text, valueGroups);
-
-
-			// text = HtmlTidy.Process (text);
-
-			return text;
-		}
-
-
-		public string TextCleanOld (string text, bool htmlin, bool htmlout, bool fixRssDate, bool clearTables, bool emNames, TextCleanerParams param)
+		[Obsolete("Use TextProcessing classes instead.", true)]
+		private string TextCleanOld (string text, bool htmlin, bool htmlout, bool fixRssDate, bool clearTables, bool emNames, TextCleanerParams param)
 		{
 			// TODO: требуется разработать лексико-синтаксический анализатор,
 			// отделяющий разметку HTML и содержимое,
@@ -484,8 +277,6 @@ namespace R7.Webmaster.Addins.TextCleaner
 				// MS Excel non-standard export attributes
 				text = Regex.Replace (text, "x:num|x:str", "");
 
-
-
 				// remove @@@@@ before span attributes
 				text = text.Replace ("@@@@@", "");
 
@@ -550,4 +341,3 @@ namespace R7.Webmaster.Addins.TextCleaner
 		}
 	}
 }
-

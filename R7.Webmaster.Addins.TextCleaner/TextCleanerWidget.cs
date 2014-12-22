@@ -181,63 +181,24 @@ namespace R7.Webmaster.Addins.TextCleaner
 
 		protected void OnActionProcessActivated (object sender, EventArgs e)
 		{
-			TextCleanerParams param = new TextCleanerParams ()
+			var textCleanerParams = new TextCleanerParams ()
 			{
 				TableCSSClass = entryTableClass.Text,
 				TableWidth = spinTableWidth.ValueAsInt,
-				TableWidthUnits = comboWidthUnits.ActiveText
+				TableWidthUnits = comboWidthUnits.ActiveText,
+				EmNames = true
 			};			
 
-			/*	
-			txvResult.Buffer.Text =
-				this.Model.TextClean (txvSource.Buffer.Text,
-				    (rbnAutoIn.Active) ? 
-						this.Model.IsHtml (txvSource.Buffer.Text) : 
-						rbnHtmlIn.Active,
-				    rbnHtmlOut.Active,
-				    chkFixRssDate.Active, chkClearTables.Active, param);
-			*/
-
-			/* pre 141214
-			txvResult.Buffer.Text =
-				this.Model.TextClean (
-					txvSource.Buffer.Text,
-					this.Model.IsHtml (txvSource.Buffer.Text),
-					true, // XML / HTML
-					chkFixRssDate.Active, chkClearTables.Active,
-					checkEmNames.Active, param);
-
-			textviewText.Buffer.Text =
-				this.Model.TextClean (
-					txvSource.Buffer.Text,
-					this.Model.IsHtml (txvSource.Buffer.Text),
-					false, // Plain text
-					chkFixRssDate.Active, chkClearTables.Active, 
-					checkEmNames.Active, param);
-			*/
-
-
-
-			txvResult.Buffer.Text = Model.TextClean (Host.InputText,
-				new TextCleanerParams {
-					HtmlOut = true,
-					EmNames = checkEmNames.Active 
-				}
-			);
+			textCleanerParams.HtmlOut = true;
+			txvResult.Buffer.Text = Model.TextClean (Host.InputText, textCleanerParams);
 					
-			textviewText.Buffer.Text = Model.TextClean (Host.InputText,
-				new TextCleanerParams {
-					HtmlOut = false,
-					EmNames = false
-				}
-			);
-
+			textCleanerParams.HtmlOut = false;
+			textviewText.Buffer.Text = Model.TextClean (Host.InputText, textCleanerParams);
 
 			CopyResults ();
 
 			ProcessState ();
 		}
-
 
 		// TODO: Implement in the host application
 		/* 
