@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0" DefaultTargets="GenerateFiles;Debian">
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0" DefaultTargets="Configure;Install">
 	<PropertyGroup>
 		<prefix>/usr/local</prefix>
 	</PropertyGroup>
@@ -10,16 +10,24 @@
     	<InstallStarterScriptFilesPath>$(prefix)/bin</InstallStarterScriptFilesPath>
 		<InstallDesktopFilesPath>$(prefix)/share/applications</InstallDesktopFilesPath>
   	</PropertyGroup> 
-  	<Target Name="GenerateFiles">
-  		<Exec Command="./webmaster.generate $(InstallBinaryFilesPath)" />
+  	<Target Name="Configure">
+  		<PropertyGroup>
+		<StartScriptTemplate xml:space="preserve">#!/bin/bash
+
+export MONO_ENABLE_SHM=1
+cd &quot;$(InstallBinaryFilesPath)&quot;
+mono R7.Webmaster.exe</StartScriptTemplate>
+	</PropertyGroup> 
+  		<Exec Command="echo &quot;$(StartScriptTemplate)&quot; > webmaster" />
+		<Exec Command="chmod a+x webmaster" />
   	</Target>
-	<Target Name="Debian" DependsOn="GenerateFiles">
+	<Target Name="Install" DependsOn="Configure">
 		<Message Text="Installing to $(InstallPrefix) prefix" />
 
 		<!-- Declare binaries -->
 		<ItemGroup>
 			<InstallBinaryFiles Include="R7.Webmaster.exe" />
-			<InstallBinaryFiles Include="R7.Webmaster*.dll" />
+			<InstallBinaryFiles Include="*.dll" />
 		</ItemGroup>
 
 		<!-- Declare config files -->
@@ -27,12 +35,12 @@
 			<InstallConfigFiles Include="*.config" Exclude="*.exe.config" />
 		</ItemGroup>
 
-		<!-- Declare starter scripts (should be generated first) -->
+		<!-- Declare starter scripts -->
 		<ItemGroup>
 			<InstallStarterScriptFiles Include="webmaster" />
 		</ItemGroup>
 
-		<!-- Declare desktop files (should be generated first) -->
+		<!-- Declare desktop files -->
 		<ItemGroup>
 			<InstallDesktopFiles Include="*.desktop" />
 		</ItemGroup>

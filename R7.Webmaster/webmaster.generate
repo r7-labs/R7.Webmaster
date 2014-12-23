@@ -1,7 +1,0 @@
-#!/bin/bash
-
-echo "#!/bin/bash" > webmaster
-echo "export MONO_ENABLE_SHM=1" >> webmaster
-echo "cd ${1}" >> webmaster
-echo "mono R7.Webmaster.exe" >> webmaster
-chmod a+x webmaster
