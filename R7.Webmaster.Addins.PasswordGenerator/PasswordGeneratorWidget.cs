@@ -58,6 +58,11 @@ namespace R7.Webmaster.Addins.PasswordGenerator
 			}
 		}
 
+		public List<Gtk.ToolItem> ToolItems
+		{
+			get { return new List<Gtk.ToolItem> (); }
+		}
+
 		#endregion
 
 		public PasswordGeneratorWidget ()

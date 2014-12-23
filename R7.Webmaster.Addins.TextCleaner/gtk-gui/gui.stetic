@@ -6,9 +6,9 @@
   </configuration>
   <import>
     <widget-library name="glade-sharp, Version=2.12.0.0, Culture=neutral, PublicKeyToken=35e10195dab3c99f" />
-    <widget-library name="../../R7.Webmaster.Addins.Root/bin/Debug/R7.Webmaster.Addins.Root.dll" />
-    <widget-library name="../../R7.Webmaster.Core/bin/Debug/R7.Webmaster.Core.dll" />
-    <widget-library name="../bin/Debug/R7.Webmaster.Addins.TextCleaner.dll" internal="true" />
+    <widget-library name="../../R7.Webmaster.Addins.Root/bin/Release/R7.Webmaster.Addins.Root.dll" />
+    <widget-library name="../../R7.Webmaster.Core/bin/Release/R7.Webmaster.Core.dll" />
+    <widget-library name="../bin/Release/R7.Webmaster.Addins.TextCleaner.dll" internal="true" />
   </import>
   <icon-factory>
     <icon-set id="locked">
@@ -31,7 +31,7 @@
       </source>
     </icon-set>
   </icon-factory>
-  <widget class="Gtk.Bin" id="R7.Webmaster.Addins.TextCleaner.TextCleanerWidget" design-size="369 215">
+  <widget class="Gtk.Bin" id="R7.Webmaster.Addins.TextCleaner.TextCleanerWidget" design-size="369 216">
     <action-group name="Default">
       <action id="actionProcess">
         <property name="Type">Action</property>
@@ -41,22 +41,6 @@
         <property name="StockId">gtk-media-play</property>
         <signal name="Activated" handler="OnActionProcessActivated" />
       </action>
-      <action id="actionCopy">
-        <property name="Type">Action</property>
-        <property name="IsImportant">True</property>
-        <property name="Label" translatable="yes">_Copy</property>
-        <property name="ShortLabel" translatable="yes">_Copy</property>
-        <property name="StockId">gtk-copy</property>
-        <signal name="Activated" handler="OnActionCopyActivated" />
-      </action>
-      <action id="actionCopyHtml">
-        <property name="Type">Action</property>
-        <property name="IsImportant">True</property>
-        <property name="Label" translatable="yes">_Copy HTML</property>
-        <property name="ShortLabel" translatable="yes">_Copy HTML</property>
-        <property name="StockId">gtk-copy</property>
-        <signal name="Activated" handler="OnActionCopyMarkupActivated" />
-      </action>
       <action id="toggleAutoCopy">
         <property name="Type">Toggle</property>
         <property name="Label" translatable="yes">_Auto Copy</property>
@@ -65,6 +49,26 @@
         <property name="DrawAsRadio">False</property>
         <property name="Active">True</property>
         <signal name="Toggled" handler="OnToggleAutoCopyToggled" />
+      </action>
+      <action id="radioCopyText">
+        <property name="Type">Radio</property>
+        <property name="Label" translatable="yes">Copy Text</property>
+        <property name="ShortLabel" translatable="yes">Copy Text</property>
+        <property name="DrawAsRadio">False</property>
+        <property name="Active">False</property>
+        <property name="Value">0</property>
+        <property name="Group">Copy</property>
+        <signal name="Activated" handler="OnRadioCopyActivated" />
+      </action>
+      <action id="radioCopyHtml">
+        <property name="Type">Radio</property>
+        <property name="Label" translatable="yes">Copy HTML</property>
+        <property name="ShortLabel" translatable="yes">Copy HTML</property>
+        <property name="DrawAsRadio">False</property>
+        <property name="Active">True</property>
+        <property name="Value">0</property>
+        <property name="Group">Copy</property>
+        <signal name="Activated" handler="OnRadioCopyActivated" />
       </action>
     </action-group>
     <property name="MemberName" />
@@ -86,7 +90,6 @@
                     <property name="MemberName" />
                     <property name="CanFocus">True</property>
                     <property name="CurrentPage">1</property>
-                    <property name="TabPos">Bottom</property>
                     <child>
                       <widget class="Gtk.ScrolledWindow" id="GtkScrolledWindow1">
                         <property name="MemberName" />
@@ -164,7 +167,7 @@
                     <child>
                       <widget class="Gtk.Table" id="table1">
                         <property name="MemberName" />
-                        <property name="NRows">3</property>
+                        <property name="NRows">2</property>
                         <property name="RowSpacing">6</property>
                         <property name="ColumnSpacing">6</property>
                         <child>
@@ -304,8 +307,8 @@ mm</property>
                             </child>
                           </widget>
                           <packing>
-                            <property name="TopAttach">2</property>
-                            <property name="BottomAttach">3</property>
+                            <property name="TopAttach">1</property>
+                            <property name="BottomAttach">2</property>
                             <property name="AutoSize">True</property>
                             <property name="XOptions">Fill</property>
                             <property name="YOptions">Fill</property>
@@ -326,60 +329,6 @@ mm</property>
                             <property name="HasLabel">True</property>
                             <property name="UseUnderline">True</property>
                             <signal name="Toggled" handler="OnChkClearTablesToggled" />
-                          </widget>
-                          <packing>
-                            <property name="TopAttach">1</property>
-                            <property name="BottomAttach">2</property>
-                            <property name="AutoSize">True</property>
-                            <property name="XOptions">Fill</property>
-                            <property name="YOptions">Fill</property>
-                            <property name="XExpand">False</property>
-                            <property name="XFill">True</property>
-                            <property name="XShrink">False</property>
-                            <property name="YExpand">False</property>
-                            <property name="YFill">True</property>
-                            <property name="YShrink">False</property>
-                          </packing>
-                        </child>
-                        <child>
-                          <widget class="Gtk.HBox" id="hboxAutoCopyFormat">
-                            <property name="MemberName" />
-                            <property name="Spacing">6</property>
-                            <child>
-                              <widget class="Gtk.RadioButton" id="rbnHtmlOut">
-                                <property name="MemberName" />
-                                <property name="CanFocus">True</property>
-                                <property name="Label" translatable="yes">HTML</property>
-                                <property name="Active">True</property>
-                                <property name="DrawIndicator">True</property>
-                                <property name="HasLabel">True</property>
-                                <property name="UseUnderline">True</property>
-                                <property name="Group">group2</property>
-                              </widget>
-                              <packing>
-                                <property name="Position">0</property>
-                                <property name="AutoSize">False</property>
-                                <property name="Expand">False</property>
-                                <property name="Fill">False</property>
-                              </packing>
-                            </child>
-                            <child>
-                              <widget class="Gtk.RadioButton" id="rbnPlainTextOut">
-                                <property name="MemberName" />
-                                <property name="CanFocus">True</property>
-                                <property name="Label" translatable="yes">Plain text</property>
-                                <property name="DrawIndicator">True</property>
-                                <property name="HasLabel">True</property>
-                                <property name="UseUnderline">True</property>
-                                <property name="Group">group2</property>
-                              </widget>
-                              <packing>
-                                <property name="Position">1</property>
-                                <property name="AutoSize">False</property>
-                                <property name="Expand">False</property>
-                                <property name="Fill">False</property>
-                              </packing>
-                            </child>
                           </widget>
                           <packing>
                             <property name="AutoSize">True</property>

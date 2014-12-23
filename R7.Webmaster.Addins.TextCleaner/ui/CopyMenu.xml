@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<popup name="copyMenu">
+	<menuitem name="toggleAutoCopy" action="toggleAutoCopy" />
+	<separator />
+    <menuitem name="radioCopyHtml" action="radioCopyHtml" />
+	<menuitem name="radioCopyText" action="radioCopyText" />	
+</popup>

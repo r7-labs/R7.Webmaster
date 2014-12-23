@@ -8,11 +8,11 @@ namespace R7.Webmaster.Addins.TextCleaner
 		
 		private global::Gtk.Action actionProcess;
 		
-		private global::Gtk.Action actionCopy;
-		
-		private global::Gtk.Action actionCopyHtml;
-		
 		private global::Gtk.ToggleAction toggleAutoCopy;
+		
+		private global::Gtk.RadioAction radioCopyText;
+		
+		private global::Gtk.RadioAction radioCopyHtml;
 		
 		private global::Gtk.VBox vbox1;
 		
@@ -55,12 +55,6 @@ namespace R7.Webmaster.Addins.TextCleaner
 		private global::Gtk.SpinButton spinTableWidth;
 		
 		private global::Gtk.CheckButton chkClearTables;
-		
-		private global::Gtk.HBox hboxAutoCopyFormat;
-		
-		private global::Gtk.RadioButton rbnHtmlOut;
-		
-		private global::Gtk.RadioButton rbnPlainTextOut;
 
 		protected virtual void Build ()
 		{
@@ -73,18 +67,18 @@ namespace R7.Webmaster.Addins.TextCleaner
 			this.actionProcess.IsImportant = true;
 			this.actionProcess.ShortLabel = global::Mono.Unix.Catalog.GetString ("_Process");
 			w2.Add (this.actionProcess, null);
-			this.actionCopy = new global::Gtk.Action ("actionCopy", global::Mono.Unix.Catalog.GetString ("_Copy"), null, "gtk-copy");
-			this.actionCopy.IsImportant = true;
-			this.actionCopy.ShortLabel = global::Mono.Unix.Catalog.GetString ("_Copy");
-			w2.Add (this.actionCopy, null);
-			this.actionCopyHtml = new global::Gtk.Action ("actionCopyHtml", global::Mono.Unix.Catalog.GetString ("_Copy HTML"), null, "gtk-copy");
-			this.actionCopyHtml.IsImportant = true;
-			this.actionCopyHtml.ShortLabel = global::Mono.Unix.Catalog.GetString ("_Copy HTML");
-			w2.Add (this.actionCopyHtml, null);
 			this.toggleAutoCopy = new global::Gtk.ToggleAction ("toggleAutoCopy", global::Mono.Unix.Catalog.GetString ("_Auto Copy"), null, "gtk-copy");
 			this.toggleAutoCopy.Active = true;
 			this.toggleAutoCopy.ShortLabel = global::Mono.Unix.Catalog.GetString ("_Auto Copy");
 			w2.Add (this.toggleAutoCopy, null);
+			this.radioCopyText = new global::Gtk.RadioAction ("radioCopyText", global::Mono.Unix.Catalog.GetString ("Copy Text"), null, null, 0);
+			this.radioCopyText.Group = new global::GLib.SList (global::System.IntPtr.Zero);
+			this.radioCopyText.ShortLabel = global::Mono.Unix.Catalog.GetString ("Copy Text");
+			w2.Add (this.radioCopyText, null);
+			this.radioCopyHtml = new global::Gtk.RadioAction ("radioCopyHtml", global::Mono.Unix.Catalog.GetString ("Copy HTML"), null, null, 0);
+			this.radioCopyHtml.Group = this.radioCopyText.Group;
+			this.radioCopyHtml.ShortLabel = global::Mono.Unix.Catalog.GetString ("Copy HTML");
+			w2.Add (this.radioCopyHtml, null);
 			this.UIManager.InsertActionGroup (w2, 0);
 			this.Name = "R7.Webmaster.Addins.TextCleaner.TextCleanerWidget";
 			// Container child R7.Webmaster.Addins.TextCleaner.TextCleanerWidget.Gtk.Container+ContainerChild
@@ -104,7 +98,6 @@ namespace R7.Webmaster.Addins.TextCleaner
 			this.notebook1.CanFocus = true;
 			this.notebook1.Name = "notebook1";
 			this.notebook1.CurrentPage = 1;
-			this.notebook1.TabPos = ((global::Gtk.PositionType)(3));
 			// Container child notebook1.Gtk.Notebook+NotebookChild
 			this.GtkScrolledWindow1 = new global::Gtk.ScrolledWindow ();
 			this.GtkScrolledWindow1.Name = "GtkScrolledWindow1";
@@ -157,7 +150,8 @@ namespace R7.Webmaster.Addins.TextCleaner
 			this.GtkAlignment7.LeftPadding = ((uint)(12));
 			this.GtkAlignment7.TopPadding = ((uint)(4));
 			// Container child GtkAlignment7.Gtk.Container+ContainerChild
-			this.table1 = new global::Gtk.Table (((uint)(3)), ((uint)(1)), false);
+			this.table1 = new global::Gtk.Table (((uint)(2)), ((uint)(1)), false);
+			this.table1.Name = "table1";
 			this.table1.RowSpacing = ((uint)(6));
 			this.table1.ColumnSpacing = ((uint)(6));
 			// Container child table1.Gtk.Table+TableChild
@@ -246,8 +240,8 @@ namespace R7.Webmaster.Addins.TextCleaner
 			this.alignment2.Add (this.tableClearTablesOptions);
 			this.table1.Add (this.alignment2);
 			global::Gtk.Table.TableChild w15 = ((global::Gtk.Table.TableChild)(this.table1 [this.alignment2]));
-			w15.TopAttach = ((uint)(2));
-			w15.BottomAttach = ((uint)(3));
+			w15.TopAttach = ((uint)(1));
+			w15.BottomAttach = ((uint)(2));
 			w15.XOptions = ((global::Gtk.AttachOptions)(4));
 			w15.YOptions = ((global::Gtk.AttachOptions)(4));
 			// Container child table1.Gtk.Table+TableChild
@@ -259,52 +253,18 @@ namespace R7.Webmaster.Addins.TextCleaner
 			this.chkClearTables.UseUnderline = true;
 			this.table1.Add (this.chkClearTables);
 			global::Gtk.Table.TableChild w16 = ((global::Gtk.Table.TableChild)(this.table1 [this.chkClearTables]));
-			w16.TopAttach = ((uint)(1));
-			w16.BottomAttach = ((uint)(2));
 			w16.XOptions = ((global::Gtk.AttachOptions)(4));
 			w16.YOptions = ((global::Gtk.AttachOptions)(4));
-			// Container child table1.Gtk.Table+TableChild
-			this.hboxAutoCopyFormat = new global::Gtk.HBox ();
-			this.hboxAutoCopyFormat.Name = "hboxAutoCopyFormat";
-			this.hboxAutoCopyFormat.Spacing = 6;
-			// Container child hboxAutoCopyFormat.Gtk.Box+BoxChild
-			this.rbnHtmlOut = new global::Gtk.RadioButton (global::Mono.Unix.Catalog.GetString ("HTML"));
-			this.rbnHtmlOut.CanFocus = true;
-			this.rbnHtmlOut.Name = "rbnHtmlOut";
-			this.rbnHtmlOut.DrawIndicator = true;
-			this.rbnHtmlOut.UseUnderline = true;
-			this.rbnHtmlOut.Group = new global::GLib.SList (global::System.IntPtr.Zero);
-			this.hboxAutoCopyFormat.Add (this.rbnHtmlOut);
-			global::Gtk.Box.BoxChild w17 = ((global::Gtk.Box.BoxChild)(this.hboxAutoCopyFormat [this.rbnHtmlOut]));
-			w17.Position = 0;
-			w17.Expand = false;
-			w17.Fill = false;
-			// Container child hboxAutoCopyFormat.Gtk.Box+BoxChild
-			this.rbnPlainTextOut = new global::Gtk.RadioButton (global::Mono.Unix.Catalog.GetString ("Plain text"));
-			this.rbnPlainTextOut.CanFocus = true;
-			this.rbnPlainTextOut.Name = "rbnPlainTextOut";
-			this.rbnPlainTextOut.DrawIndicator = true;
-			this.rbnPlainTextOut.UseUnderline = true;
-			this.rbnPlainTextOut.Group = this.rbnHtmlOut.Group;
-			this.hboxAutoCopyFormat.Add (this.rbnPlainTextOut);
-			global::Gtk.Box.BoxChild w18 = ((global::Gtk.Box.BoxChild)(this.hboxAutoCopyFormat [this.rbnPlainTextOut]));
-			w18.Position = 1;
-			w18.Expand = false;
-			w18.Fill = false;
-			this.table1.Add (this.hboxAutoCopyFormat);
-			global::Gtk.Table.TableChild w19 = ((global::Gtk.Table.TableChild)(this.table1 [this.hboxAutoCopyFormat]));
-			w19.XOptions = ((global::Gtk.AttachOptions)(4));
-			w19.YOptions = ((global::Gtk.AttachOptions)(4));
 			this.GtkAlignment7.Add (this.table1);
 			this.alignment4.Add (this.GtkAlignment7);
 			this.hbox4.Add (this.alignment4);
-			global::Gtk.Box.BoxChild w22 = ((global::Gtk.Box.BoxChild)(this.hbox4 [this.alignment4]));
-			w22.Position = 1;
-			w22.Expand = false;
-			w22.Fill = false;
+			global::Gtk.Box.BoxChild w19 = ((global::Gtk.Box.BoxChild)(this.hbox4 [this.alignment4]));
+			w19.Position = 1;
+			w19.Expand = false;
+			w19.Fill = false;
 			this.vbox1.Add (this.hbox4);
-			global::Gtk.Box.BoxChild w23 = ((global::Gtk.Box.BoxChild)(this.vbox1 [this.hbox4]));
-			w23.Position = 0;
+			global::Gtk.Box.BoxChild w20 = ((global::Gtk.Box.BoxChild)(this.vbox1 [this.hbox4]));
+			w20.Position = 0;
 			this.Add (this.vbox1);
 			if ((this.Child != null)) {
 				this.Child.ShowAll ();
@@ -312,9 +272,9 @@ namespace R7.Webmaster.Addins.TextCleaner
 			w1.SetUiManager (UIManager);
 			this.Hide ();
 			this.actionProcess.Activated += new global::System.EventHandler (this.OnActionProcessActivated);
-			this.actionCopy.Activated += new global::System.EventHandler (this.OnActionCopyActivated);
-			this.actionCopyHtml.Activated += new global::System.EventHandler (this.OnActionCopyMarkupActivated);
 			this.toggleAutoCopy.Toggled += new global::System.EventHandler (this.OnToggleAutoCopyToggled);
+			this.radioCopyText.Activated += new global::System.EventHandler (this.OnRadioCopyActivated);
+			this.radioCopyHtml.Activated += new global::System.EventHandler (this.OnRadioCopyActivated);
 			this.chkClearTables.Toggled += new global::System.EventHandler (this.OnChkClearTablesToggled);
 		}
 	}

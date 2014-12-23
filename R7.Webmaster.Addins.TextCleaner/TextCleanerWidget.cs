@@ -65,8 +65,13 @@ namespace R7.Webmaster.Addins.TextCleaner
 		{
 			get 
 			{
-				return new List<Gtk.Action> () { actionProcess, null, toggleAutoCopy, actionCopy, actionCopyHtml };
+				return new List<Gtk.Action> () { actionProcess, null };
 			}
+		}
+
+		public List<Gtk.ToolItem> ToolItems
+		{
+			get { return new List<Gtk.ToolItem> () { buttonCopy }; }
 		}
 
 		#endregion
@@ -75,19 +80,25 @@ namespace R7.Webmaster.Addins.TextCleaner
 		// Stack<string> PrevSources;
 		// Stack<string> NextSources;
 		 
-		protected void CopyResults ()
+		protected void AutoCopyResults ()
 		{
 			if (toggleAutoCopy.Active)
 			{
-				//Gtk.Clipboard cb = txvResult.GetClipboard(...).Get(...);
-				if (rbnHtmlOut.Active)
-					Clipboard.Text = txvResult.Buffer.Text;
-				else
-					Clipboard.Text = textviewText.Buffer.Text;
+				CopyResults ();
 			}
 		}
 
+		protected void CopyResults ()
+		{
+			if (radioCopyHtml.Active)
+				Clipboard.Text = txvResult.Buffer.Text;
+			else
+				Clipboard.Text = textviewText.Buffer.Text;
+		}
+
 		private TextCleanerModel Model;
+
+		protected Gtk.MenuToolButton buttonCopy;
 
 		public TextCleanerWidget ()
 		{
@@ -105,15 +116,18 @@ namespace R7.Webmaster.Addins.TextCleaner
 			txvResult.ModifyFont (font);
 			textviewText.ModifyFont (font);
 
-			DefaultState ();
-			ProcessState ();
-		}
+			UIManager.AddUiFromResource ("R7.Webmaster.Addins.TextCleaner.ui.CopyMenu.xml");
 
-		protected void DefaultState()
-		{
-			//rbnAutoIn.Active = true;
-			rbnHtmlOut.Active = true;
-			//expanderClearTables.Expanded = false;
+			buttonCopy = new Gtk.MenuToolButton (Gtk.Stock.Copy);
+			buttonCopy.IsImportant = true;
+			// buttonCopy.Sensitive = false;
+			buttonCopy.Menu = UIManager.GetWidget ("/copyMenu");
+			buttonCopy.Clicked += OnButtonCopyClicked;
+
+			// activate copy HTML button to set copy button label
+			radioCopyHtml.Active = true;
+
+			ProcessState ();
 		}
 
 		// protected string PrevSourceText = string.Empty;
@@ -164,15 +178,13 @@ namespace R7.Webmaster.Addins.TextCleaner
 		{
 			tableClearTablesOptions.Sensitive = chkClearTables.Active;
 
-			hboxAutoCopyFormat.Sensitive = toggleAutoCopy.Active;
-
 			// TODO: Implement in the host application
 			// actionPrevSource.Sensitive = PrevSources.Count > 2;
 			// actionNextSource.Sensitive = NextSources.Count > 0;
 
-			// make copy buttons active, if there are something to copy
-			actionCopyHtml.Sensitive = !string.IsNullOrWhiteSpace (txvResult.Buffer.Text);
-			actionCopy.Sensitive = !string.IsNullOrWhiteSpace (textviewText.Buffer.Text);
+			// make copy button sensitive
+			/* buttonCopy.Sensitive = 
+				!string.IsNullOrWhiteSpace (txvResult.Buffer.Text) || !string.IsNullOrWhiteSpace (textviewText.Buffer.Text);*/
 		}
 
 		protected void OnActionProcessActivated (object sender, EventArgs e)
@@ -191,19 +203,14 @@ namespace R7.Webmaster.Addins.TextCleaner
 			textCleanerParams.HtmlOut = false;
 			textviewText.Buffer.Text = Model.TextClean (Host.InputText, textCleanerParams);
 
-			CopyResults ();
+			AutoCopyResults ();
 
 			ProcessState ();
 		}
 
-		protected void OnActionCopyActivated (object sender, EventArgs e)
+		protected void OnButtonCopyClicked (object sender, EventArgs e)
 		{
-			Clipboard.Text = textviewText.Buffer.Text;
-		}
-
-		protected void OnActionCopyMarkupActivated (object sender, EventArgs e)
-		{
-			Clipboard.Text = txvResult.Buffer.Text;
+			CopyResults ();
 		}
 
 		// TODO: Implement in the host application
@@ -231,6 +238,11 @@ namespace R7.Webmaster.Addins.TextCleaner
 		protected void OnToggleAutoCopyToggled (object sender, EventArgs e)
 		{
 			ProcessState ();
+		}
+
+		protected void OnRadioCopyActivated (object sender, EventArgs e)
+		{
+			buttonCopy.Label = ((Gtk.RadioAction) sender).Label;
 		}
 	}
 }

@@ -81,6 +81,11 @@ namespace R7.Webmaster.Addins.CaseChanger
 			}
 		}
 
+		public List<Gtk.ToolItem> ToolItems
+		{
+			get { return new List<Gtk.ToolItem> (); }
+		}
+
 		#endregion
 
 		protected void OnInputTextChangedInternal (object sender, EventArgs e)

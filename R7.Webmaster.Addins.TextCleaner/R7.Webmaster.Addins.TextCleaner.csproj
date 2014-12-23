@@ -65,6 +65,7 @@
     <EmbeddedResource Include="gtk-gui\gui.stetic">
       <LogicalName>gui.stetic</LogicalName>
     </EmbeddedResource>
+    <EmbeddedResource Include="ui\CopyMenu.xml" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="gtk-gui\generated.cs" />
@@ -101,5 +102,6 @@
   <ItemGroup>
     <Folder Include="Processings\" />
     <Folder Include="Commands\" />
+    <Folder Include="ui\" />
   </ItemGroup>
 </Project>

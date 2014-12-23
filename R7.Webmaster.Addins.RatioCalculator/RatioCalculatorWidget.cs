@@ -65,6 +65,11 @@ namespace R7.Webmaster.Addins.RatioCalculator
 			}
 		}
 
+		public List<Gtk.ToolItem> ToolItems
+		{
+			get { return new List<Gtk.ToolItem> (); }
+		}
+
 		#endregion
 
 

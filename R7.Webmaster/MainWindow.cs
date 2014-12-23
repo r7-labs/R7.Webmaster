@@ -175,7 +175,7 @@ namespace R7.Webmaster
 					toolbar1.Insert (new Gtk.SeparatorToolItem (), pos++);
 			}
 		
-			// fill out toolbar
+			// add actions to the toolbar
 			foreach (var action in selectedAddin.Actions)
 			{
 				var toolitem = (action != null) ? 
@@ -184,6 +184,13 @@ namespace R7.Webmaster
 
 				// insert toolitem to the right
 				toolbar1.Insert (toolitem, pos++);
+			}
+
+			// add toolitems to the toolbar
+			foreach (var toolItem in selectedAddin.ToolItems)
+			{
+				// insert toolitem to the right
+				toolbar1.Insert (toolItem ?? new Gtk.SeparatorToolItem (), pos++);
 			}
 
 			// show all changes

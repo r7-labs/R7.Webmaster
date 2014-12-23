@@ -20,7 +20,6 @@
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 using System;
 using System.Collections.Generic;
-using Gtk;
 using Mono.Addins;
 
 namespace R7.Webmaster.Addins.Root
@@ -39,6 +38,8 @@ namespace R7.Webmaster.Addins.Root
 		string Icon { get; }
 
 		List<Gtk.Action> Actions { get; } 
+
+		List<Gtk.ToolItem> ToolItems { get; } 
 
 		bool IsActive { get; set; }
 	}
