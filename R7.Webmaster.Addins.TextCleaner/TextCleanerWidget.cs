@@ -65,7 +65,7 @@ namespace R7.Webmaster.Addins.TextCleaner
 		{
 			get 
 			{
-				return new List<Gtk.Action> () { actionProcess, null, actionCopy, actionCopyHtml };
+				return new List<Gtk.Action> () { actionProcess, null, toggleAutoCopy, actionCopy, actionCopyHtml };
 			}
 		}
 
@@ -77,7 +77,7 @@ namespace R7.Webmaster.Addins.TextCleaner
 		 
 		protected void CopyResults ()
 		{
-			if (chkAutoCopy.Active)
+			if (toggleAutoCopy.Active)
 			{
 				//Gtk.Clipboard cb = txvResult.GetClipboard(...).Get(...);
 				if (rbnHtmlOut.Active)
@@ -142,17 +142,6 @@ namespace R7.Webmaster.Addins.TextCleaner
 			ProcessState ();
 		}
 
-		protected void OnChkAutoCopyToggled (object sender, System.EventArgs e)
-		{
-			ProcessState ();
-		}
-
-		protected void OnNewActionActivated (object sender, EventArgs e)
-		{
-			// txvResult.Buffer.Text = Model.Parse(txvSource.Buffer.Text);
-			// txvResult.Buffer.Text = HtmlTidy.Process(txvSource.Buffer.Text);
-		}		
-
 		/*
 		protected void OnTextToSeoActionActivated (object sender, EventArgs e)
 		{
@@ -175,7 +164,7 @@ namespace R7.Webmaster.Addins.TextCleaner
 		{
 			tableClearTablesOptions.Sensitive = chkClearTables.Active;
 
-			hboxAutoCopyFormat.Sensitive = chkAutoCopy.Active;
+			hboxAutoCopyFormat.Sensitive = toggleAutoCopy.Active;
 
 			// TODO: Implement in the host application
 			// actionPrevSource.Sensitive = PrevSources.Count > 2;
@@ -238,6 +227,11 @@ namespace R7.Webmaster.Addins.TextCleaner
 
 			ProcessState ();
 		}*/
+	
+		protected void OnToggleAutoCopyToggled (object sender, EventArgs e)
+		{
+			ProcessState ();
+		}
 	}
 }
 

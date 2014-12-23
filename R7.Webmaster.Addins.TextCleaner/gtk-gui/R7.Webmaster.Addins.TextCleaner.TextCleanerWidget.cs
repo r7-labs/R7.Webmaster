@@ -12,6 +12,8 @@ namespace R7.Webmaster.Addins.TextCleaner
 		
 		private global::Gtk.Action actionCopyHtml;
 		
+		private global::Gtk.ToggleAction toggleAutoCopy;
+		
 		private global::Gtk.VBox vbox1;
 		
 		private global::Gtk.HBox hbox4;
@@ -52,17 +54,13 @@ namespace R7.Webmaster.Addins.TextCleaner
 		
 		private global::Gtk.SpinButton spinTableWidth;
 		
-		private global::Gtk.Alignment alignment3;
+		private global::Gtk.CheckButton chkClearTables;
 		
 		private global::Gtk.HBox hboxAutoCopyFormat;
 		
 		private global::Gtk.RadioButton rbnHtmlOut;
 		
 		private global::Gtk.RadioButton rbnPlainTextOut;
-		
-		private global::Gtk.CheckButton chkAutoCopy;
-		
-		private global::Gtk.CheckButton chkClearTables;
 
 		protected virtual void Build ()
 		{
@@ -83,6 +81,10 @@ namespace R7.Webmaster.Addins.TextCleaner
 			this.actionCopyHtml.IsImportant = true;
 			this.actionCopyHtml.ShortLabel = global::Mono.Unix.Catalog.GetString ("_Copy HTML");
 			w2.Add (this.actionCopyHtml, null);
+			this.toggleAutoCopy = new global::Gtk.ToggleAction ("toggleAutoCopy", global::Mono.Unix.Catalog.GetString ("_Auto Copy"), null, "gtk-copy");
+			this.toggleAutoCopy.Active = true;
+			this.toggleAutoCopy.ShortLabel = global::Mono.Unix.Catalog.GetString ("_Auto Copy");
+			w2.Add (this.toggleAutoCopy, null);
 			this.UIManager.InsertActionGroup (w2, 0);
 			this.Name = "R7.Webmaster.Addins.TextCleaner.TextCleanerWidget";
 			// Container child R7.Webmaster.Addins.TextCleaner.TextCleanerWidget.Gtk.Container+ContainerChild
@@ -155,8 +157,7 @@ namespace R7.Webmaster.Addins.TextCleaner
 			this.GtkAlignment7.LeftPadding = ((uint)(12));
 			this.GtkAlignment7.TopPadding = ((uint)(4));
 			// Container child GtkAlignment7.Gtk.Container+ContainerChild
-			this.table1 = new global::Gtk.Table (((uint)(4)), ((uint)(1)), false);
-			this.table1.Name = "table1";
+			this.table1 = new global::Gtk.Table (((uint)(3)), ((uint)(1)), false);
 			this.table1.RowSpacing = ((uint)(6));
 			this.table1.ColumnSpacing = ((uint)(6));
 			// Container child table1.Gtk.Table+TableChild
@@ -245,16 +246,24 @@ namespace R7.Webmaster.Addins.TextCleaner
 			this.alignment2.Add (this.tableClearTablesOptions);
 			this.table1.Add (this.alignment2);
 			global::Gtk.Table.TableChild w15 = ((global::Gtk.Table.TableChild)(this.table1 [this.alignment2]));
-			w15.TopAttach = ((uint)(3));
-			w15.BottomAttach = ((uint)(4));
+			w15.TopAttach = ((uint)(2));
+			w15.BottomAttach = ((uint)(3));
 			w15.XOptions = ((global::Gtk.AttachOptions)(4));
 			w15.YOptions = ((global::Gtk.AttachOptions)(4));
 			// Container child table1.Gtk.Table+TableChild
-			this.alignment3 = new global::Gtk.Alignment (0.5F, 0.5F, 1F, 1F);
-			this.alignment3.Name = "alignment3";
-			this.alignment3.LeftPadding = ((uint)(24));
-			this.alignment3.RightPadding = ((uint)(10));
-			// Container child alignment3.Gtk.Container+ContainerChild
+			this.chkClearTables = new global::Gtk.CheckButton ();
+			this.chkClearTables.CanFocus = true;
+			this.chkClearTables.Name = "chkClearTables";
+			this.chkClearTables.Label = global::Mono.Unix.Catalog.GetString ("Clear tables");
+			this.chkClearTables.DrawIndicator = true;
+			this.chkClearTables.UseUnderline = true;
+			this.table1.Add (this.chkClearTables);
+			global::Gtk.Table.TableChild w16 = ((global::Gtk.Table.TableChild)(this.table1 [this.chkClearTables]));
+			w16.TopAttach = ((uint)(1));
+			w16.BottomAttach = ((uint)(2));
+			w16.XOptions = ((global::Gtk.AttachOptions)(4));
+			w16.YOptions = ((global::Gtk.AttachOptions)(4));
+			// Container child table1.Gtk.Table+TableChild
 			this.hboxAutoCopyFormat = new global::Gtk.HBox ();
 			this.hboxAutoCopyFormat.Name = "hboxAutoCopyFormat";
 			this.hboxAutoCopyFormat.Spacing = 6;
@@ -266,10 +275,10 @@ namespace R7.Webmaster.Addins.TextCleaner
 			this.rbnHtmlOut.UseUnderline = true;
 			this.rbnHtmlOut.Group = new global::GLib.SList (global::System.IntPtr.Zero);
 			this.hboxAutoCopyFormat.Add (this.rbnHtmlOut);
-			global::Gtk.Box.BoxChild w16 = ((global::Gtk.Box.BoxChild)(this.hboxAutoCopyFormat [this.rbnHtmlOut]));
-			w16.Position = 0;
-			w16.Expand = false;
-			w16.Fill = false;
+			global::Gtk.Box.BoxChild w17 = ((global::Gtk.Box.BoxChild)(this.hboxAutoCopyFormat [this.rbnHtmlOut]));
+			w17.Position = 0;
+			w17.Expand = false;
+			w17.Fill = false;
 			// Container child hboxAutoCopyFormat.Gtk.Box+BoxChild
 			this.rbnPlainTextOut = new global::Gtk.RadioButton (global::Mono.Unix.Catalog.GetString ("Plain text"));
 			this.rbnPlainTextOut.CanFocus = true;
@@ -278,52 +287,24 @@ namespace R7.Webmaster.Addins.TextCleaner
 			this.rbnPlainTextOut.UseUnderline = true;
 			this.rbnPlainTextOut.Group = this.rbnHtmlOut.Group;
 			this.hboxAutoCopyFormat.Add (this.rbnPlainTextOut);
-			global::Gtk.Box.BoxChild w17 = ((global::Gtk.Box.BoxChild)(this.hboxAutoCopyFormat [this.rbnPlainTextOut]));
-			w17.Position = 1;
-			w17.Expand = false;
-			w17.Fill = false;
-			this.alignment3.Add (this.hboxAutoCopyFormat);
-			this.table1.Add (this.alignment3);
-			global::Gtk.Table.TableChild w19 = ((global::Gtk.Table.TableChild)(this.table1 [this.alignment3]));
-			w19.TopAttach = ((uint)(1));
-			w19.BottomAttach = ((uint)(2));
+			global::Gtk.Box.BoxChild w18 = ((global::Gtk.Box.BoxChild)(this.hboxAutoCopyFormat [this.rbnPlainTextOut]));
+			w18.Position = 1;
+			w18.Expand = false;
+			w18.Fill = false;
+			this.table1.Add (this.hboxAutoCopyFormat);
+			global::Gtk.Table.TableChild w19 = ((global::Gtk.Table.TableChild)(this.table1 [this.hboxAutoCopyFormat]));
 			w19.XOptions = ((global::Gtk.AttachOptions)(4));
 			w19.YOptions = ((global::Gtk.AttachOptions)(4));
-			// Container child table1.Gtk.Table+TableChild
-			this.chkAutoCopy = new global::Gtk.CheckButton ();
-			this.chkAutoCopy.CanFocus = true;
-			this.chkAutoCopy.Name = "chkAutoCopy";
-			this.chkAutoCopy.Label = global::Mono.Unix.Catalog.GetString ("Copy to clipboard");
-			this.chkAutoCopy.Active = true;
-			this.chkAutoCopy.DrawIndicator = true;
-			this.chkAutoCopy.UseUnderline = true;
-			this.table1.Add (this.chkAutoCopy);
-			global::Gtk.Table.TableChild w20 = ((global::Gtk.Table.TableChild)(this.table1 [this.chkAutoCopy]));
-			w20.XOptions = ((global::Gtk.AttachOptions)(4));
-			w20.YOptions = ((global::Gtk.AttachOptions)(4));
-			// Container child table1.Gtk.Table+TableChild
-			this.chkClearTables = new global::Gtk.CheckButton ();
-			this.chkClearTables.CanFocus = true;
-			this.chkClearTables.Name = "chkClearTables";
-			this.chkClearTables.Label = global::Mono.Unix.Catalog.GetString ("Clear tables");
-			this.chkClearTables.DrawIndicator = true;
-			this.chkClearTables.UseUnderline = true;
-			this.table1.Add (this.chkClearTables);
-			global::Gtk.Table.TableChild w21 = ((global::Gtk.Table.TableChild)(this.table1 [this.chkClearTables]));
-			w21.TopAttach = ((uint)(2));
-			w21.BottomAttach = ((uint)(3));
-			w21.XOptions = ((global::Gtk.AttachOptions)(4));
-			w21.YOptions = ((global::Gtk.AttachOptions)(4));
 			this.GtkAlignment7.Add (this.table1);
 			this.alignment4.Add (this.GtkAlignment7);
 			this.hbox4.Add (this.alignment4);
-			global::Gtk.Box.BoxChild w24 = ((global::Gtk.Box.BoxChild)(this.hbox4 [this.alignment4]));
-			w24.Position = 1;
-			w24.Expand = false;
-			w24.Fill = false;
+			global::Gtk.Box.BoxChild w22 = ((global::Gtk.Box.BoxChild)(this.hbox4 [this.alignment4]));
+			w22.Position = 1;
+			w22.Expand = false;
+			w22.Fill = false;
 			this.vbox1.Add (this.hbox4);
-			global::Gtk.Box.BoxChild w25 = ((global::Gtk.Box.BoxChild)(this.vbox1 [this.hbox4]));
-			w25.Position = 0;
+			global::Gtk.Box.BoxChild w23 = ((global::Gtk.Box.BoxChild)(this.vbox1 [this.hbox4]));
+			w23.Position = 0;
 			this.Add (this.vbox1);
 			if ((this.Child != null)) {
 				this.Child.ShowAll ();
@@ -333,8 +314,8 @@ namespace R7.Webmaster.Addins.TextCleaner
 			this.actionProcess.Activated += new global::System.EventHandler (this.OnActionProcessActivated);
 			this.actionCopy.Activated += new global::System.EventHandler (this.OnActionCopyActivated);
 			this.actionCopyHtml.Activated += new global::System.EventHandler (this.OnActionCopyMarkupActivated);
+			this.toggleAutoCopy.Toggled += new global::System.EventHandler (this.OnToggleAutoCopyToggled);
 			this.chkClearTables.Toggled += new global::System.EventHandler (this.OnChkClearTablesToggled);
-			this.chkAutoCopy.Toggled += new global::System.EventHandler (this.OnChkAutoCopyToggled);
 		}
 	}
 }
