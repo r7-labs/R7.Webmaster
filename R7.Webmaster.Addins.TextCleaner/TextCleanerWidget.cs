@@ -65,7 +65,7 @@ namespace R7.Webmaster.Addins.TextCleaner
 		{
 			get 
 			{
-				return new List<Gtk.Action> () { actionProcess, null, actionCopy, actionCopyMarkup };
+				return new List<Gtk.Action> () { actionProcess, null, actionCopy, actionCopyHtml };
 			}
 		}
 
@@ -182,7 +182,7 @@ namespace R7.Webmaster.Addins.TextCleaner
 			// actionNextSource.Sensitive = NextSources.Count > 0;
 
 			// make copy buttons active, if there are something to copy
-			actionCopyMarkup.Sensitive = !string.IsNullOrWhiteSpace (txvResult.Buffer.Text);
+			actionCopyHtml.Sensitive = !string.IsNullOrWhiteSpace (txvResult.Buffer.Text);
 			actionCopy.Sensitive = !string.IsNullOrWhiteSpace (textviewText.Buffer.Text);
 		}
 

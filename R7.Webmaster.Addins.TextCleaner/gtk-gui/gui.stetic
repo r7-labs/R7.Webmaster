@@ -49,11 +49,11 @@
         <property name="StockId">gtk-copy</property>
         <signal name="Activated" handler="OnActionCopyActivated" />
       </action>
-      <action id="actionCopyMarkup">
+      <action id="actionCopyHtml">
         <property name="Type">Action</property>
         <property name="IsImportant">True</property>
-        <property name="Label" translatable="yes">_Copy Markup</property>
-        <property name="ShortLabel" translatable="yes">_Copy Markup</property>
+        <property name="Label" translatable="yes">_Copy HTML</property>
+        <property name="ShortLabel" translatable="yes">_Copy HTML</property>
         <property name="StockId">gtk-copy</property>
         <signal name="Activated" handler="OnActionCopyMarkupActivated" />
       </action>
@@ -97,7 +97,7 @@
                     <child>
                       <widget class="Gtk.Label" id="label3">
                         <property name="MemberName" />
-                        <property name="LabelProp" translatable="yes">Markup</property>
+                        <property name="LabelProp" translatable="yes">HTML</property>
                       </widget>
                       <packing>
                         <property name="type">tab</property>
@@ -323,8 +323,7 @@ mm</property>
                                   <widget class="Gtk.RadioButton" id="rbnHtmlOut">
                                     <property name="MemberName" />
                                     <property name="CanFocus">True</property>
-                                    <property name="Label" translatable="yes">XML/HTML</property>
-                                    <property name="Active">True</property>
+                                    <property name="Label" translatable="yes">HTML</property>
                                     <property name="DrawIndicator">True</property>
                                     <property name="HasLabel">True</property>
                                     <property name="UseUnderline">True</property>

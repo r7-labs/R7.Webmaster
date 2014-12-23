@@ -10,7 +10,7 @@ namespace R7.Webmaster.Addins.TextCleaner
 		
 		private global::Gtk.Action actionCopy;
 		
-		private global::Gtk.Action actionCopyMarkup;
+		private global::Gtk.Action actionCopyHtml;
 		
 		private global::Gtk.VBox vbox1;
 		
@@ -83,10 +83,10 @@ namespace R7.Webmaster.Addins.TextCleaner
 			this.actionCopy.IsImportant = true;
 			this.actionCopy.ShortLabel = global::Mono.Unix.Catalog.GetString ("_Copy");
 			w2.Add (this.actionCopy, null);
-			this.actionCopyMarkup = new global::Gtk.Action ("actionCopyMarkup", global::Mono.Unix.Catalog.GetString ("_Copy Markup"), null, "gtk-copy");
-			this.actionCopyMarkup.IsImportant = true;
-			this.actionCopyMarkup.ShortLabel = global::Mono.Unix.Catalog.GetString ("_Copy Markup");
-			w2.Add (this.actionCopyMarkup, null);
+			this.actionCopyHtml = new global::Gtk.Action ("actionCopyHtml", global::Mono.Unix.Catalog.GetString ("_Copy HTML"), null, "gtk-copy");
+			this.actionCopyHtml.IsImportant = true;
+			this.actionCopyHtml.ShortLabel = global::Mono.Unix.Catalog.GetString ("_Copy HTML");
+			w2.Add (this.actionCopyHtml, null);
 			this.UIManager.InsertActionGroup (w2, 0);
 			this.Name = "R7.Webmaster.Addins.TextCleaner.TextCleanerWidget";
 			// Container child R7.Webmaster.Addins.TextCleaner.TextCleanerWidget.Gtk.Container+ContainerChild
@@ -122,7 +122,7 @@ namespace R7.Webmaster.Addins.TextCleaner
 			// Notebook tab
 			this.label3 = new global::Gtk.Label ();
 			this.label3.Name = "label3";
-			this.label3.LabelProp = global::Mono.Unix.Catalog.GetString ("Markup");
+			this.label3.LabelProp = global::Mono.Unix.Catalog.GetString ("HTML");
 			this.notebook1.SetTabLabel (this.GtkScrolledWindow1, this.label3);
 			this.label3.ShowAll ();
 			// Container child notebook1.Gtk.Notebook+NotebookChild
@@ -265,10 +265,9 @@ namespace R7.Webmaster.Addins.TextCleaner
 			this.hboxAutoCopyFormat.Name = "hboxAutoCopyFormat";
 			this.hboxAutoCopyFormat.Spacing = 6;
 			// Container child hboxAutoCopyFormat.Gtk.Box+BoxChild
-			this.rbnHtmlOut = new global::Gtk.RadioButton (global::Mono.Unix.Catalog.GetString ("XML/HTML"));
+			this.rbnHtmlOut = new global::Gtk.RadioButton (global::Mono.Unix.Catalog.GetString ("HTML"));
 			this.rbnHtmlOut.CanFocus = true;
 			this.rbnHtmlOut.Name = "rbnHtmlOut";
-			this.rbnHtmlOut.Active = true;
 			this.rbnHtmlOut.DrawIndicator = true;
 			this.rbnHtmlOut.UseUnderline = true;
 			this.rbnHtmlOut.Group = new global::GLib.SList (global::System.IntPtr.Zero);
@@ -368,7 +367,7 @@ namespace R7.Webmaster.Addins.TextCleaner
 			this.Hide ();
 			this.actionProcess.Activated += new global::System.EventHandler (this.OnActionProcessActivated);
 			this.actionCopy.Activated += new global::System.EventHandler (this.OnActionCopyActivated);
-			this.actionCopyMarkup.Activated += new global::System.EventHandler (this.OnActionCopyMarkupActivated);
+			this.actionCopyHtml.Activated += new global::System.EventHandler (this.OnActionCopyMarkupActivated);
 			this.chkClearTables.Toggled += new global::System.EventHandler (this.OnChkClearTablesToggled);
 			this.chkAutoCopy.Toggled += new global::System.EventHandler (this.OnChkAutoCopyToggled);
 		}
