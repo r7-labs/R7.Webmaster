@@ -18,6 +18,8 @@ namespace R7.Webmaster
 		
 		private global::Gtk.Action actionRestore;
 		
+		private global::Gtk.Action actionPasteHtml;
+		
 		private global::Gtk.VBox vbox1;
 		
 		private global::Gtk.HBox hbox1;
@@ -52,6 +54,10 @@ namespace R7.Webmaster
 			this.actionRestore = new global::Gtk.Action ("actionRestore", global::Mono.Unix.Catalog.GetString ("_Restore"), null, "gtk-goto-top");
 			this.actionRestore.ShortLabel = global::Mono.Unix.Catalog.GetString ("_Restore");
 			w1.Add (this.actionRestore, null);
+			this.actionPasteHtml = new global::Gtk.Action ("actionPasteHtml", global::Mono.Unix.Catalog.GetString ("Paste _HTML"), null, "gtk-paste");
+			this.actionPasteHtml.IsImportant = true;
+			this.actionPasteHtml.ShortLabel = global::Mono.Unix.Catalog.GetString ("Paste _HTML");
+			w1.Add (this.actionPasteHtml, null);
 			this.UIManager.InsertActionGroup (w1, 0);
 			this.AddAccelGroup (this.UIManager.AccelGroup);
 			this.Name = "R7.Webmaster.MainWindow";
@@ -107,6 +113,7 @@ namespace R7.Webmaster
 			this.actionPaste.Activated += new global::System.EventHandler (this.OnActionPasteActivated);
 			this.actionQuit.Activated += new global::System.EventHandler (this.OnActionQuitActivated);
 			this.actionRestore.Activated += new global::System.EventHandler (this.OnActionRestoreActivated);
+			this.actionPasteHtml.Activated += new global::System.EventHandler (this.OnActionPasteHtmlActivated);
 		}
 	}
 }

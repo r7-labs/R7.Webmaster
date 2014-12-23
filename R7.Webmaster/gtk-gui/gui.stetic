@@ -64,6 +64,14 @@
         <property name="StockId">gtk-goto-top</property>
         <signal name="Activated" handler="OnActionRestoreActivated" />
       </action>
+      <action id="actionPasteHtml">
+        <property name="Type">Action</property>
+        <property name="IsImportant">True</property>
+        <property name="Label" translatable="yes">Paste _HTML</property>
+        <property name="ShortLabel" translatable="yes">Paste _HTML</property>
+        <property name="StockId">gtk-paste</property>
+        <signal name="Activated" handler="OnActionPasteHtmlActivated" />
+      </action>
     </action-group>
     <property name="MemberName" />
     <property name="Title" translatable="yes">R7.Webmaster</property>

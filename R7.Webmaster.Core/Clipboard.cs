@@ -19,6 +19,7 @@
 //  You should have received a copy of the GNU General Public License
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 using System;
+using System.Text;
 
 namespace R7.Webmaster.Core
 {
@@ -41,6 +42,25 @@ namespace R7.Webmaster.Core
 				var clipboard = Gtk.Clipboard.Get (Gdk.Atom.Intern ("CLIPBOARD", true));
 				clipboard.Text = value;
 				clipboard.Store ();
+			}
+		}
+
+		public static string Html
+		{
+			get 
+			{ 
+				var clipboard = Gtk.Clipboard.Get (Gdk.Atom.Intern ("CLIPBOARD", true));
+				var target = Gdk.Atom.Intern ("text/html", true);
+
+				var selection = clipboard.WaitForContents (target);
+				if (selection != null)
+				{
+					var text = Encoding.UTF8.GetString (selection.Data, 0, selection.Data.Length);
+					Console.WriteLine (text);
+					return text;
+				}
+
+				return Text;
 			}
 		}
 	}

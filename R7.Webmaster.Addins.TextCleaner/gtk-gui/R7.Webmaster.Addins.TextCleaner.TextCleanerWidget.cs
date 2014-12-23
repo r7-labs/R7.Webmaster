@@ -268,6 +268,7 @@ namespace R7.Webmaster.Addins.TextCleaner
 			this.rbnHtmlOut = new global::Gtk.RadioButton (global::Mono.Unix.Catalog.GetString ("XML/HTML"));
 			this.rbnHtmlOut.CanFocus = true;
 			this.rbnHtmlOut.Name = "rbnHtmlOut";
+			this.rbnHtmlOut.Active = true;
 			this.rbnHtmlOut.DrawIndicator = true;
 			this.rbnHtmlOut.UseUnderline = true;
 			this.rbnHtmlOut.Group = new global::GLib.SList (global::System.IntPtr.Zero);

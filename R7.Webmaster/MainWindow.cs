@@ -159,9 +159,20 @@ namespace R7.Webmaster
 			// add common ITextInputWidgetAddin actions
 			if (selectedAddin is ITextInputWidgetAddin)
 			{
-				toolbar1.Insert ((Gtk.ToolItem) actionPaste.CreateToolItem (), pos++);
-				toolbar1.Insert ((Gtk.ToolItem) toggleAutoProcess.CreateToolItem (), pos++);
-				toolbar1.Insert (new Gtk.SeparatorToolItem (), pos++);
+				var selectedTextInputAddin = (ITextInputWidgetAddin) selectedAddin;
+
+				if ((selectedTextInputAddin.SupportedActions & TextInputAction.Paste) > 0)
+					toolbar1.Insert ((Gtk.ToolItem) actionPaste.CreateToolItem (), pos++);
+		
+				if ((selectedTextInputAddin.SupportedActions & TextInputAction.PasteHtml) > 0)
+					toolbar1.Insert ((Gtk.ToolItem) actionPasteHtml.CreateToolItem (), pos++);
+
+				if ((selectedTextInputAddin.SupportedActions & TextInputAction.AutoProcess) > 0)
+					toolbar1.Insert ((Gtk.ToolItem) toggleAutoProcess.CreateToolItem (), pos++);
+
+				// insert separator if something inserted before
+				if (pos > 0)
+					toolbar1.Insert (new Gtk.SeparatorToolItem (), pos++);
 			}
 		
 			// fill out toolbar
@@ -330,10 +341,9 @@ namespace R7.Webmaster
 			InputTextWidget.Buffer.Text = Clipboard.Text;
 		}
 
-
-
-
-
-
+		protected void OnActionPasteHtmlActivated (object sender, EventArgs e)
+		{
+			InputTextWidget.Buffer.Text = Clipboard.Html;
+		}
 	}
 }

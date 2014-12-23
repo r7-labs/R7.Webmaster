@@ -49,6 +49,11 @@ namespace R7.Webmaster.Addins.TextCleaner
 			get { return OnSourceChanged; }
 		}
 
+		public TextInputAction SupportedActions 
+		{
+			get { return TextInputAction.Paste | TextInputAction.PasteHtml | TextInputAction.AutoProcess; }
+		}
+
 		public bool IsActive { get; set; }
 
 		public string Icon 
@@ -201,40 +206,6 @@ namespace R7.Webmaster.Addins.TextCleaner
 
 			ProcessState ();
 		}
-
-		// TODO: Implement in the host application
-		/* 
-		protected void OnActionPasteActivated (object sender, EventArgs e)
-		{
-			txvSource.Buffer.Text = Clipboard.Text;
-		}
-
-		protected void OnActionPasteHTMLActivated (object sender, EventArgs e)
-		{
-			// Try paste HTML, else paste text
-
-			var clip = Gtk.Clipboard.Get (Gdk.Atom.Intern ("CLIPBOARD", true));
-			var target = Gdk.Atom.Intern ("text/html", true);
-
-			var selection = clip.WaitForContents (target);
-			if (selection != null)
-			{
-				// Console.WriteLine (selection.Data.Length);
-				// Console.WriteLine (selection.Type.Name); // text/html
-
-				txvSource.Buffer.Text = System.Text.Encoding.UTF8.GetString (selection.Data, 0, selection.Data.Length);
-
-			}
-			else if (clip.WaitIsTextAvailable ())
-			{
-				var text = clip.WaitForText ();
-				// Console.WriteLine ("Text");
-				txvSource.Buffer.Text = text;
-			}
-			//else
-			//	Console.WriteLine ("No selection"); 
-		}
-		*/
 
 		protected void OnActionCopyActivated (object sender, EventArgs e)
 		{

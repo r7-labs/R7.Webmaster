@@ -61,6 +61,11 @@ namespace R7.Webmaster.Addins.CaseChanger
 			get { return OnInputTextChangedInternal; } 
 		}
 
+		public TextInputAction SupportedActions 
+		{
+			get { return TextInputAction.Paste | TextInputAction.AutoProcess; }
+		}
+
 		public bool IsActive { get; set; }
 
 		public string Icon 
