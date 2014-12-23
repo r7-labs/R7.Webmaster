@@ -19,9 +19,8 @@
 //  You should have received a copy of the GNU General Public License
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 using System;
-using System.Text;
-using System.Collections.Generic;
 using System.Text.RegularExpressions;
+using R7.Webmaster.Core;
 
 namespace R7.Webmaster.Addins.TextCleaner
 {
@@ -43,7 +42,7 @@ namespace R7.Webmaster.Addins.TextCleaner
 
 		public string TextClean (string text, TextCleanerParams textCleanParams)
 		{
-			textCleanParams.HtmlIn = IsHtml (text);
+			textCleanParams.HtmlIn = HtmlUtils.IsHtml (text);
 
 			if (!textCleanParams.HtmlIn && textCleanParams.HtmlOut)
 			{
@@ -68,16 +67,6 @@ namespace R7.Webmaster.Addins.TextCleaner
 			return text;
 		}
 
-		public bool IsHtml (string text)
-		{
-			string stripped = 
-				text.Replace ("</", "")
-						.Replace ("/>", "");
-
-			int delta = text.Length - stripped.Length;
-
-			return delta > 0;
-		}
 
 		[Obsolete("Use TextProcessing classes instead.", true)]
 		private string TextCleanOld (string text, bool htmlin, bool htmlout, bool fixRssDate, bool clearTables, bool emNames, TextCleanerParams param)

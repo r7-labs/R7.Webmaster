@@ -343,7 +343,7 @@ namespace R7.Webmaster
 
 		protected void OnActionPasteHtmlActivated (object sender, EventArgs e)
 		{
-			InputTextWidget.Buffer.Text = Clipboard.Html;
+			InputTextWidget.Buffer.Text = HtmlUtils.GetHtmlBody (Clipboard.Html);
 		}
 	}
 }
