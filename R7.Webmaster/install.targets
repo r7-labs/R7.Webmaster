@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0" DefaultTargets="Debian">
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0" DefaultTargets="GenerateFiles;Debian">
 	<PropertyGroup>
 		<prefix>/usr/local</prefix>
 	</PropertyGroup>
@@ -10,7 +10,10 @@
     	<InstallStarterScriptFilesPath>$(prefix)/bin</InstallStarterScriptFilesPath>
 		<InstallDesktopFilesPath>$(prefix)/share/applications</InstallDesktopFilesPath>
   	</PropertyGroup> 
-	<Target Name="Debian">
+  	<Target Name="GenerateFiles">
+  		<Exec Command="./webmaster.generate $(InstallBinaryFilesPath)" />
+  	</Target>
+	<Target Name="Debian" DependsOn="GenerateFiles">
 		<Message Text="Installing to $(InstallPrefix) prefix" />
 
 		<!-- Declare binaries -->
@@ -38,7 +41,7 @@
 		<Copy SourceFiles="@(InstallBinaryFiles)" DestinationFolder="$(InstallBinaryFilesPath)" />
 
 		<!-- Copy config files -->
-		<Copy SourceFiles="@(InstallConfigFiles)" DestinationFolder="$InstallBinaryFilesPath)" />
+		<Copy SourceFiles="@(InstallConfigFiles)" DestinationFolder="$(InstallBinaryFilesPath)" />
 
 		<!-- Copy starter scripts -->
 		<Copy SourceFiles="@(InstallStarterScriptFiles)" DestinationFolder="$(InstallStarterScriptFilesPath)" />

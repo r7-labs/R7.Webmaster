@@ -1,0 +1,8 @@
+[Desktop Entry]
+Encoding=UTF-8
+Type=Application
+Name=R7.Webmaster
+Terminal=false
+Exec=webmaster
+Icon=webmaster
+Categories=WebDevelopment;Development;GTK;
