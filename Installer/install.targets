@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0" DefaultTargets="Debian">
+	<PropertyGroup>
+		<prefix>/usr/local</prefix>
+	</PropertyGroup>
+	<PropertyGroup>
+		<InstallPrefix>$(prefix)</InstallPrefix>
+		<ApplicationFolder>R7.Webmaster</ApplicationFolder>
+    	<InstallBinaryFilesPath>$(prefix)/lib/$(ApplicationFolder)</InstallBinaryFilesPath>
+    	<InstallStarterScriptFilesPath>$(prefix)/bin</InstallStarterScriptFilesPath>
+		<InstallDesktopFilesPath>$(prefix)/share/applications</InstallDesktopFilesPath>
+  	</PropertyGroup> 
+	<Target Name="Debian">
+		<Message Text="Installing to $(InstallPrefix) prefix" />
+
+		<!-- Declare binaries -->
+		<ItemGroup>
+			<InstallBinaryFiles Include="R7.Webmaster.exe" />
+			<InstallBinaryFiles Include="R7.Webmaster*.dll" />
+		</ItemGroup>
+
+		<!-- Declare config files -->
+		<ItemGroup>
+			<InstallConfigFiles Include="*.config" Exclude="*.exe.config" />
+		</ItemGroup>
+
+		<!-- Declare starter scripts (should be generated first) -->
+		<ItemGroup>
+			<InstallStarterScriptFiles Include="webmaster" />
+		</ItemGroup>
+
+		<!-- Declare desktop files (should be generated first) -->
+		<ItemGroup>
+			<InstallDesktopFiles Include="*.desktop" />
+		</ItemGroup>
+
+		<!-- Copy binaries -->
+		<Copy SourceFiles="@(InstallBinaryFiles)" DestinationFolder="$(InstallBinaryFilesPath)" />
+
+		<!-- Copy config files -->
+		<Copy SourceFiles="@(InstallConfigFiles)" DestinationFolder="$InstallBinaryFilesPath)" />
+
+		<!-- Copy starter scripts -->
+		<Copy SourceFiles="@(InstallStarterScriptFiles)" DestinationFolder="$(InstallStarterScriptFilesPath)" />
+
+		<!-- Copy desktop files -->
+		<Copy SourceFiles="@(InstallDesktopFiles)" DestinationFolder="$(InstallDesktopFilesPath)" />
+
+		<Message Text="Install complete." />
+
+	</Target>
+</Project>
