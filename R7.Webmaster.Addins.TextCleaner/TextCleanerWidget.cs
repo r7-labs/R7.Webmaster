@@ -24,6 +24,7 @@ using System.Collections.Generic;
 using Mono.Addins;
 using R7.Webmaster.Addins.Root;
 using R7.Webmaster.Core;
+using System.Runtime.Remoting.Lifetime;
 
 namespace R7.Webmaster.Addins.TextCleaner
 {
@@ -91,9 +92,20 @@ namespace R7.Webmaster.Addins.TextCleaner
 		protected void CopyResults ()
 		{
 			if (radioCopyHtml.Active)
+			{
 				Clipboard.Text = txvResult.Buffer.Text;
-			else
+			}
+			else if (radioCopyText.Active)
+			{
 				Clipboard.Text = textviewText.Buffer.Text;
+			}
+			else // if (radioCopyActiveTab.Active)
+			{
+				if (notebook1.Page == 0)
+					Clipboard.Text = txvResult.Buffer.Text;
+				else
+					Clipboard.Text = textviewText.Buffer.Text;
+			}
 		}
 
 		private TextCleanerModel Model;
@@ -125,7 +137,7 @@ namespace R7.Webmaster.Addins.TextCleaner
 			buttonCopy.Clicked += OnButtonCopyClicked;
 
 			// activate copy HTML button to set copy button label
-			radioCopyHtml.Active = true;
+			radioCopyActiveTab.Active = true;
 
 			ProcessState ();
 		}

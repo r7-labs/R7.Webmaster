@@ -14,6 +14,8 @@ namespace R7.Webmaster.Addins.TextCleaner
 		
 		private global::Gtk.RadioAction radioCopyHtml;
 		
+		private global::Gtk.RadioAction radioCopyActiveTab;
+		
 		private global::Gtk.VBox vbox1;
 		
 		private global::Gtk.HBox hbox4;
@@ -79,6 +81,10 @@ namespace R7.Webmaster.Addins.TextCleaner
 			this.radioCopyHtml.Group = this.radioCopyText.Group;
 			this.radioCopyHtml.ShortLabel = global::Mono.Unix.Catalog.GetString ("Copy HTML");
 			w2.Add (this.radioCopyHtml, null);
+			this.radioCopyActiveTab = new global::Gtk.RadioAction ("radioCopyActiveTab", global::Mono.Unix.Catalog.GetString ("Copy Active Tab"), null, null, 0);
+			this.radioCopyActiveTab.Group = this.radioCopyText.Group;
+			this.radioCopyActiveTab.ShortLabel = global::Mono.Unix.Catalog.GetString ("Copy Active Tab");
+			w2.Add (this.radioCopyActiveTab, null);
 			this.UIManager.InsertActionGroup (w2, 0);
 			this.Name = "R7.Webmaster.Addins.TextCleaner.TextCleanerWidget";
 			// Container child R7.Webmaster.Addins.TextCleaner.TextCleanerWidget.Gtk.Container+ContainerChild
@@ -275,6 +281,7 @@ namespace R7.Webmaster.Addins.TextCleaner
 			this.toggleAutoCopy.Toggled += new global::System.EventHandler (this.OnToggleAutoCopyToggled);
 			this.radioCopyText.Activated += new global::System.EventHandler (this.OnRadioCopyActivated);
 			this.radioCopyHtml.Activated += new global::System.EventHandler (this.OnRadioCopyActivated);
+			this.radioCopyActiveTab.Activated += new global::System.EventHandler (this.OnRadioCopyActivated);
 			this.chkClearTables.Toggled += new global::System.EventHandler (this.OnChkClearTablesToggled);
 		}
 	}

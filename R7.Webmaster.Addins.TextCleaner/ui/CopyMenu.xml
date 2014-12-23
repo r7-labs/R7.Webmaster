@@ -2,6 +2,7 @@
 <popup name="copyMenu">
 	<menuitem name="toggleAutoCopy" action="toggleAutoCopy" />
 	<separator />
+	<menuitem name="radioCopyActiveTab" action="radioCopyActiveTab" />
     <menuitem name="radioCopyHtml" action="radioCopyHtml" />
 	<menuitem name="radioCopyText" action="radioCopyText" />	
 </popup>

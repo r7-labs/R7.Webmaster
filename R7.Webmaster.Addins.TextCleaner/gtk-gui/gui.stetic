@@ -70,6 +70,16 @@
         <property name="Group">Copy</property>
         <signal name="Activated" handler="OnRadioCopyActivated" />
       </action>
+      <action id="radioCopyActiveTab">
+        <property name="Type">Radio</property>
+        <property name="Label" translatable="yes">Copy Active Tab</property>
+        <property name="ShortLabel" translatable="yes">Copy Active Tab</property>
+        <property name="DrawAsRadio">False</property>
+        <property name="Active">False</property>
+        <property name="Value">0</property>
+        <property name="Group">Copy</property>
+        <signal name="Activated" handler="OnRadioCopyActivated" />
+      </action>
     </action-group>
     <property name="MemberName" />
     <property name="Visible">False</property>
