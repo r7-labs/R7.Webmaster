@@ -38,6 +38,11 @@ namespace R7.Webmaster.Core
 			return delta > 0;
 		}
 
+		public static bool HasStartTag (string text, string tag)
+		{
+			return Regex.Match (text, string.Format (@"<{0}\s?.*?>", tag), RegexOptions.IgnoreCase).Success;
+		}
+
 		public static string GetHtmlBody (string text)
 		{
 			var bodyStart = Regex.Match (text, @"<body.*?>", RegexOptions.IgnoreCase);

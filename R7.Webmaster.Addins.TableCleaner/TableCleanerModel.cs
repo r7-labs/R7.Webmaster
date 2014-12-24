@@ -47,7 +47,7 @@ namespace R7.Webmaster.Addins.TableCleaner
 		{
 			tableCleanParams.HtmlIn = HtmlUtils.IsHtml (text);
 
-			if (tableCleanParams.HtmlIn)
+			if (tableCleanParams.HtmlIn && HtmlUtils.HasStartTag (text, "table"))
 			{
 				return new TableCleanProcessing ().Execute (text, tableCleanParams);
 			}
