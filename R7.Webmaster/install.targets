@@ -1,0 +1,97 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0" DefaultTargets="Configure;Install">
+	<PropertyGroup>
+		<prefix>/usr/local</prefix>
+	</PropertyGroup>
+	<PropertyGroup>
+		<ApplicationName>R7.Webmaster</ApplicationName>
+		<SafeApplicationName>webmaster</SafeApplicationName>
+		<DesktopApplicationName>$(SafeApplicationName)-gtk</DesktopApplicationName>
+		<InstallPrefix>$(prefix)</InstallPrefix>
+		<ApplicationFolder>$(ApplicationName)</ApplicationFolder>
+		<InstallBinaryFilesPath>$(prefix)/lib/$(ApplicationFolder)</InstallBinaryFilesPath>
+    	<InstallStarterScriptFilesPath>$(prefix)/bin</InstallStarterScriptFilesPath>
+		<InstallDesktopFilesPath>$(prefix)/share/applications</InstallDesktopFilesPath>
+		<InstallIconFilesPath>$(prefix)/share/pixmaps</InstallIconFilesPath>
+  	</PropertyGroup>
+  	<Target Name="Configure">
+  		<PropertyGroup>
+			<StartScriptTemplate xml:space="preserve">#!/bin/bash
+
+export MONO_ENABLE_SHM=1
+cd &quot;$(InstallBinaryFilesPath)&quot;
+mono R7.Webmaster.exe</StartScriptTemplate>
+			<DesktopFileTemplate xml:space="preserve">[Desktop Entry]
+
+Encoding=UTF-8
+Type=Application
+Name=$(ApplicationName)
+GenericName=Desktop Productivity Tool
+Terminal=false
+Exec=$(DesktopApplicationName)
+Icon=$(DesktopApplicationName)
+Categories=WebDevelopment;Development;GTK;
+			</DesktopFileTemplate>
+	</PropertyGroup> 
+		<!-- Create starter script and desktop file -->
+  		<Exec Command="echo &quot;$(StartScriptTemplate)&quot; > $(DesktopApplicationName)" />
+  		<Exec Command="echo &quot;$(DesktopFileTemplate)&quot; > $(DesktopApplicationName).desktop" />
+
+  		<!-- Make starter script and desktop file executable -->
+		<Exec Command="chmod a+x $(DesktopApplicationName)" />
+		<Exec Command="chmod a+x $(DesktopApplicationName).desktop" />
+  	</Target>
+	<Target Name="Install" DependsOn="Configure">
+		<Message Text="Installing to $(InstallPrefix) prefix" />
+
+		<!-- Declare binaries -->
+		<ItemGroup>
+			<InstallBinaryFiles Include="R7.Webmaster.exe" />
+			<InstallBinaryFiles Include="*.dll" />
+		</ItemGroup>
+
+		<!-- Declare config files -->
+		<ItemGroup>
+			<InstallConfigFiles Include="*.config" Exclude="*.exe.config" />
+		</ItemGroup>
+
+		<!-- Declare starter scripts -->
+		<ItemGroup>
+			<InstallStarterScriptFiles Include="$(DesktopApplicationName)" />
+		</ItemGroup>
+
+		<!-- Declare desktop files -->
+		<ItemGroup>
+			<InstallDesktopFiles Include="*.desktop" />
+		</ItemGroup>
+
+		<!-- Declare icons -->
+		<ItemGroup>
+			<InstallIconFiles Include="icons/*.png" />
+			<InstallIconFiles Include="icons/*.svg" />
+		</ItemGroup>
+
+		<!-- Copy binaries -->
+		<Copy SourceFiles="@(InstallBinaryFiles)" DestinationFolder="$(InstallBinaryFilesPath)" />
+
+		<!-- Copy config files -->
+		<Copy SourceFiles="@(InstallConfigFiles)" DestinationFolder="$(InstallBinaryFilesPath)" />
+
+		<!-- Copy starter scripts -->
+		<Copy SourceFiles="@(InstallStarterScriptFiles)" DestinationFolder="$(InstallStarterScriptFilesPath)" />
+
+		<!-- Copy icons to the install dir -->
+		<!-- FIXME: %(RecursiveDir) not working? -->
+		<Copy SourceFiles="@(InstallIconFiles)" DestinationFolder="$(InstallBinaryFilesPath)/icons" />
+
+		<!-- Make symlink to the desktop file icon -->
+		<MakeDir Directories="$(InstallIconFilesPath)" />
+		<Exec Command="ln -s -f &quot;$(InstallBinaryFilesPath)/icons/webmaster_128.png&quot; &quot;$(InstallIconFilesPath)/$(DesktopApplicationName).png&quot;" />
+
+		<!-- Copy desktop files -->
+		<Copy SourceFiles="@(InstallDesktopFiles)" DestinationFolder="$(InstallDesktopFilesPath)" />
+
+		<Message Text="Install complete." />
+
+	</Target>
+</Project>

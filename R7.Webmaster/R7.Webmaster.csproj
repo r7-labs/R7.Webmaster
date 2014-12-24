@@ -78,8 +78,12 @@
     <EmbeddedResource Include="gtk-gui\gui.stetic">
       <LogicalName>gui.stetic</LogicalName>
     </EmbeddedResource>
-    <EmbeddedResource Include="icons\webmaster_512.png" />
-    <EmbeddedResource Include="icons\webmaster_128.png" />
+    <EmbeddedResource Include="icons\webmaster_512.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="icons\webmaster_128.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
     <EmbeddedResource Include="ui\TrayMenu.xml" />
   </ItemGroup>
   <ItemGroup>
@@ -120,6 +124,9 @@
   <ItemGroup>
     <None Include="icons\webmaster.svg" />
     <None Include="app.config">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="install.targets">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
   </ItemGroup>
