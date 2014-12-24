@@ -9,10 +9,11 @@
     	<InstallBinaryFilesPath>$(prefix)/lib/$(ApplicationFolder)</InstallBinaryFilesPath>
     	<InstallStarterScriptFilesPath>$(prefix)/bin</InstallStarterScriptFilesPath>
 		<InstallDesktopFilesPath>$(prefix)/share/applications</InstallDesktopFilesPath>
+		<InstallIconFilesPath>$(prefix)/share/pixmaps</InstallIconFilesPath>
   	</PropertyGroup> 
   	<Target Name="Configure">
   		<PropertyGroup>
-		<StartScriptTemplate xml:space="preserve">#!/bin/bash
+			<StartScriptTemplate xml:space="preserve">#!/bin/bash
 
 export MONO_ENABLE_SHM=1
 cd &quot;$(InstallBinaryFilesPath)&quot;
@@ -40,6 +41,12 @@ mono R7.Webmaster.exe</StartScriptTemplate>
 			<InstallStarterScriptFiles Include="webmaster" />
 		</ItemGroup>
 
+		<!-- Declare icons -->
+		<ItemGroup>
+			<InstallIconFiles Include="icons/*.png" />
+			<InstallIconFiles Include="icons/*.svg" />
+		</ItemGroup>
+
 		<!-- Declare desktop files -->
 		<ItemGroup>
 			<InstallDesktopFiles Include="*.desktop" />
@@ -54,8 +61,20 @@ mono R7.Webmaster.exe</StartScriptTemplate>
 		<!-- Copy starter scripts -->
 		<Copy SourceFiles="@(InstallStarterScriptFiles)" DestinationFolder="$(InstallStarterScriptFilesPath)" />
 
+		<!-- Copy icons to the install dir -->
+		<!-- FIXME: %(RecursiveDir) not working? -->
+		<Copy SourceFiles="@(InstallIconFiles)" DestinationFolder="$(InstallBinaryFilesPath)/icons" />
+
+		<!-- Make symlink to the desktop file icon -->
+		<MakeDir Directories="$(InstallIconFilesPath)" />
+		<Exec Command="ln -s -f &quot;$(InstallBinaryFilesPath)/icons/webmaster_128.png&quot; &quot;$(InstallIconFilesPath)/webmaster.png&quot;" />
+
 		<!-- Copy desktop files -->
 		<Copy SourceFiles="@(InstallDesktopFiles)" DestinationFolder="$(InstallDesktopFilesPath)" />
+
+		<!-- Make desktop file executable -->
+		<!-- TODO: Should make all desktop files executable -->
+		<Exec Command="chmod a+x &quot;$(InstallDesktopFilesPath)/webmaster.desktop&quot;" />
 
 		<Message Text="Install complete." />
 
