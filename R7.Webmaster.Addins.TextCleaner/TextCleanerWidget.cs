@@ -165,8 +165,6 @@ namespace R7.Webmaster.Addins.TextCleaner
 
 		protected void ProcessState()
 		{
-			tableClearTablesOptions.Sensitive = chkClearTables.Active;
-
 			// TODO: Implement in the host application
 			// actionPrevSource.Sensitive = PrevSources.Count > 2;
 			// actionNextSource.Sensitive = NextSources.Count > 0;
@@ -180,9 +178,6 @@ namespace R7.Webmaster.Addins.TextCleaner
 		{
 			var textCleanerParams = new TextCleanerParams ()
 			{
-				TableCSSClass = entryTableClass.Text,
-				TableWidth = spinTableWidth.ValueAsInt,
-				TableWidthUnits = comboWidthUnits.ActiveText,
 				EmNames = true
 			};			
 

@@ -1,5 +1,5 @@
 ﻿//
-//  TextCleanerModel.cs
+//  TableCleanerModel.cs
 //
 //  Author:
 //       Roman M. Yagodin <roman.yagodin@gmail.com>
@@ -22,44 +22,33 @@
 using System;
 using System.Text.RegularExpressions;
 using R7.Webmaster.Core;
+using R7.Webmaster.Addins.TextCleaner;
 
-namespace R7.Webmaster.Addins.TextCleaner
+namespace R7.Webmaster.Addins.TableCleaner
 {
-	public class TextCleanerParams
+	public class TableCleanerParams: TextCleanerParams
 	{
-		public bool HtmlIn;
-		public bool HtmlOut;
-		public bool EmNames;
+		public int TableWidth;
+		public bool SetWidth;
+		public string TableCSSClass;
+		public string TableWidthUnits;
 	}
 
-	public class TextCleanerModel
+	public class TableCleanerModel
 	{
-		public TextCleanerModel ()
+
+
+		public TableCleanerModel ()
 		{
 		}
 
-		public string TextClean (string text, TextCleanerParams textCleanParams)
+		public string TableClean (string text, TableCleanerParams tableCleanParams)
 		{
-			textCleanParams.HtmlIn = HtmlUtils.IsHtml (text);
+			tableCleanParams.HtmlIn = HtmlUtils.IsHtml (text);
 
-			if (!textCleanParams.HtmlIn && textCleanParams.HtmlOut)
+			if (tableCleanParams.HtmlIn)
 			{
-				return new TextToHtmlProcessing ().Execute (text, textCleanParams);
-			}
-
-			if (!textCleanParams.HtmlIn && !textCleanParams.HtmlOut)
-			{
-				return new TextToTextProcessing ().Execute (text, textCleanParams);
-			}
-
-			if (textCleanParams.HtmlIn && !textCleanParams.HtmlOut)
-			{
-				return new HtmlToTextProcessing ().Execute (text, textCleanParams);
-			}
-
-			if (textCleanParams.HtmlIn && textCleanParams.HtmlOut)
-			{
-				return new HtmlToHtmlProcessing ().Execute (text, textCleanParams);
+				return new TableCleanProcessing ().Execute (text, tableCleanParams);
 			}
 
 			return text;

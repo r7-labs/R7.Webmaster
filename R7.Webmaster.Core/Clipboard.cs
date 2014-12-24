@@ -57,7 +57,11 @@ namespace R7.Webmaster.Core
 				if (selection != null)
 				{
 					var text = Encoding.UTF8.GetString (selection.Data, 0, selection.Data.Length);
+
+					#if DEBUG
 					Console.WriteLine (text);
+					#endif
+
 					return text;
 				}
 

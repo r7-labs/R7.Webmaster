@@ -21,12 +21,18 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		README.md = README.md
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "R7.Webmaster.Addins.TableCleaner", "R7.Webmaster.Addins.TableCleaner\R7.Webmaster.Addins.TableCleaner.csproj", "{3EF57EBA-BEE8-4766-8148-97E305DC0A9E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x86 = Debug|x86
 		Release|x86 = Release|x86
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{3EF57EBA-BEE8-4766-8148-97E305DC0A9E}.Debug|x86.ActiveCfg = Debug|x86
+		{3EF57EBA-BEE8-4766-8148-97E305DC0A9E}.Debug|x86.Build.0 = Debug|x86
+		{3EF57EBA-BEE8-4766-8148-97E305DC0A9E}.Release|x86.ActiveCfg = Release|x86
+		{3EF57EBA-BEE8-4766-8148-97E305DC0A9E}.Release|x86.Build.0 = Release|x86
 		{570E67AC-BFF3-443D-AC49-4F357791DD97}.Debug|x86.ActiveCfg = Debug|x86
 		{570E67AC-BFF3-443D-AC49-4F357791DD97}.Debug|x86.Build.0 = Debug|x86
 		{570E67AC-BFF3-443D-AC49-4F357791DD97}.Release|x86.ActiveCfg = Release|x86
