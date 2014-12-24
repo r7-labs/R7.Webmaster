@@ -8,7 +8,7 @@ cross-platform (1) and extensible (2).
 
 ## Functionality
 
-*R7.Webmaster* consists of main host application, which serves as a plaform for extension modules (addins)
+*R7.Webmaster* consists of main host application, which serves as a platform for extension modules (addins)
 with end-user functionality. In its current (development) state *R7.Webmaster* include following addins by default:
 
 1. Text cleaner - to cleanup text and convert it to HTML;
@@ -33,6 +33,15 @@ with little effort (Linux and Windows versions are planned for the first release
 I'll try to implement MVP-based approach in the main application and default addins architecture, 
 but in the current state of development it's more like ugly Document-View - but I'm working on it.
 
+## Configuration
+
+Main application and default adding use Nini configuration library to access configs. Currently configs are stored
+in .NET configuration XML-based format. 
+
+Third-party addin could implement it's own configuraton storage, or define child class of ConfigBase in R7.Webmaster.Core 
+namespace. ConfigBase class currently provides automatic deployment of the config files to user profiles 
+and platform-awareness by returning only a set of settings for the current platform (OS).
+
 ## Command-line
 
-Command-line and scripting support is also planned, and MVP approach was choosen also because of that.
+Command-line and scripting support is also planned, and MVP approach and Nini library was choosen also because of that.
