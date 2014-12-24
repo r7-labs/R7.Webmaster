@@ -91,6 +91,8 @@ namespace R7.Webmaster.Addins.TableCleaner
 
 		private TableCleanerModel Model;
 
+		protected TableCleanerConfig Config;
+
 		protected Gtk.MenuToolButton buttonCopy;
 
 		public TableCleanerWidget ()
@@ -99,8 +101,15 @@ namespace R7.Webmaster.Addins.TableCleaner
 
 			this.Model = new TableCleanerModel ();
 
+			Config = new TableCleanerConfig ();
+
 			Pango.FontDescription font = Pango.FontDescription.FromString ("Monospace");
 			txvResult.ModifyFont (font);
+
+			// fill table CSS classes comboentry
+			foreach (var tableCssClass in Config.TableCssClasses)
+				centryCssClass.AppendText (tableCssClass);
+			centryCssClass.Active = 0;
 
 			UIManager.AddUiFromResource ("R7.Webmaster.Addins.TableCleaner.ui.CopyMenu.xml");
 
@@ -132,7 +141,7 @@ namespace R7.Webmaster.Addins.TableCleaner
 			{
 				SetWidth = checkSetWidth.Active,
 				SetCssClass = checkSetCssClass.Active,
-				TableCssClass = comboCssClass.ActiveText,
+				TableCssClass = centryCssClass.ActiveText,
 				TableWidth = spinWidth.ValueAsInt,
 				TableWidthUnits = comboWidthUnits.ActiveText,
 

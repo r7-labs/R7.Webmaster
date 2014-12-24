@@ -20,11 +20,11 @@ namespace R7.Webmaster.Addins.TableCleaner
 		
 		private global::Gtk.Table tableClearTablesOptions;
 		
+		private global::Gtk.ComboBoxEntry centryCssClass;
+		
 		private global::Gtk.CheckButton checkSetCssClass;
 		
 		private global::Gtk.CheckButton checkSetWidth;
-		
-		private global::Gtk.ComboBoxEntry comboCssClass;
 		
 		private global::Gtk.ComboBox comboWidthUnits;
 		
@@ -75,6 +75,15 @@ namespace R7.Webmaster.Addins.TableCleaner
 			this.tableClearTablesOptions.RowSpacing = ((uint)(6));
 			this.tableClearTablesOptions.ColumnSpacing = ((uint)(6));
 			// Container child tableClearTablesOptions.Gtk.Table+TableChild
+			this.centryCssClass = global::Gtk.ComboBoxEntry.NewText ();
+			this.centryCssClass.Name = "centryCssClass";
+			this.tableClearTablesOptions.Add (this.centryCssClass);
+			global::Gtk.Table.TableChild w5 = ((global::Gtk.Table.TableChild)(this.tableClearTablesOptions [this.centryCssClass]));
+			w5.LeftAttach = ((uint)(1));
+			w5.RightAttach = ((uint)(3));
+			w5.XOptions = ((global::Gtk.AttachOptions)(0));
+			w5.YOptions = ((global::Gtk.AttachOptions)(0));
+			// Container child tableClearTablesOptions.Gtk.Table+TableChild
 			this.checkSetCssClass = new global::Gtk.CheckButton ();
 			this.checkSetCssClass.CanFocus = true;
 			this.checkSetCssClass.Name = "checkSetCssClass";
@@ -82,9 +91,9 @@ namespace R7.Webmaster.Addins.TableCleaner
 			this.checkSetCssClass.DrawIndicator = true;
 			this.checkSetCssClass.UseUnderline = true;
 			this.tableClearTablesOptions.Add (this.checkSetCssClass);
-			global::Gtk.Table.TableChild w5 = ((global::Gtk.Table.TableChild)(this.tableClearTablesOptions [this.checkSetCssClass]));
-			w5.XOptions = ((global::Gtk.AttachOptions)(4));
-			w5.YOptions = ((global::Gtk.AttachOptions)(0));
+			global::Gtk.Table.TableChild w6 = ((global::Gtk.Table.TableChild)(this.tableClearTablesOptions [this.checkSetCssClass]));
+			w6.XOptions = ((global::Gtk.AttachOptions)(4));
+			w6.YOptions = ((global::Gtk.AttachOptions)(0));
 			// Container child tableClearTablesOptions.Gtk.Table+TableChild
 			this.checkSetWidth = new global::Gtk.CheckButton ();
 			this.checkSetWidth.CanFocus = true;
@@ -93,23 +102,10 @@ namespace R7.Webmaster.Addins.TableCleaner
 			this.checkSetWidth.DrawIndicator = true;
 			this.checkSetWidth.UseUnderline = true;
 			this.tableClearTablesOptions.Add (this.checkSetWidth);
-			global::Gtk.Table.TableChild w6 = ((global::Gtk.Table.TableChild)(this.tableClearTablesOptions [this.checkSetWidth]));
-			w6.TopAttach = ((uint)(1));
-			w6.BottomAttach = ((uint)(2));
-			w6.XOptions = ((global::Gtk.AttachOptions)(4));
-			w6.YOptions = ((global::Gtk.AttachOptions)(0));
-			// Container child tableClearTablesOptions.Gtk.Table+TableChild
-			this.comboCssClass = global::Gtk.ComboBoxEntry.NewText ();
-			this.comboCssClass.AppendText (global::Mono.Unix.Catalog.GetString ("data"));
-			this.comboCssClass.AppendText (global::Mono.Unix.Catalog.GetString ("table"));
-			this.comboCssClass.AppendText (global::Mono.Unix.Catalog.GetString ("dnnGrid"));
-			this.comboCssClass.Name = "comboCssClass";
-			this.comboCssClass.Active = 0;
-			this.tableClearTablesOptions.Add (this.comboCssClass);
-			global::Gtk.Table.TableChild w7 = ((global::Gtk.Table.TableChild)(this.tableClearTablesOptions [this.comboCssClass]));
-			w7.LeftAttach = ((uint)(1));
-			w7.RightAttach = ((uint)(3));
-			w7.XOptions = ((global::Gtk.AttachOptions)(0));
+			global::Gtk.Table.TableChild w7 = ((global::Gtk.Table.TableChild)(this.tableClearTablesOptions [this.checkSetWidth]));
+			w7.TopAttach = ((uint)(1));
+			w7.BottomAttach = ((uint)(2));
+			w7.XOptions = ((global::Gtk.AttachOptions)(4));
 			w7.YOptions = ((global::Gtk.AttachOptions)(0));
 			// Container child tableClearTablesOptions.Gtk.Table+TableChild
 			this.comboWidthUnits = global::Gtk.ComboBox.NewText ();

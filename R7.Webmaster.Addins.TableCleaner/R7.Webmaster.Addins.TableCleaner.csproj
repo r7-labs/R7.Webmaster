@@ -60,6 +60,9 @@
     <Reference Include="Mono.Addins, Version=1.0.0.0, Culture=neutral, PublicKeyToken=0738eb9f132ed756">
       <Package>mono-addins</Package>
     </Reference>
+    <Reference Include="Nini">
+      <HintPath>..\R7.Webmaster.Core\lib\Nini.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="gtk-gui\gui.stetic">
@@ -76,6 +79,7 @@
     <Compile Include="TableCleanerPresenter.cs" />
     <Compile Include="ITableCleanerView.cs" />
     <Compile Include="Processings\TableCleanProcessing.cs" />
+    <Compile Include="TableCleanerConfig.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
@@ -95,5 +99,10 @@
   <ItemGroup>
     <Folder Include="Processings\" />
     <Folder Include="ui\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="tablecleaner.config">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
 </Project>
