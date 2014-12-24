@@ -26,7 +26,7 @@ namespace R7.Webmaster
 {
 	class Program
 	{
-		public static readonly AppConfig AppConfig;
+		public static readonly WebmasterConfig Config;
 
 		protected static readonly IInvocableSingleInstance AppInstance;
 
@@ -40,7 +40,7 @@ namespace R7.Webmaster
 	
 		static Program ()
 		{
-			AppConfig = new AppConfig ();
+			Config = new WebmasterConfig ();
 
 			// couldn't pass MainWindow.OnActionRestoreActivated directly,
 			// as MainWindow object doesn't exist at this point 

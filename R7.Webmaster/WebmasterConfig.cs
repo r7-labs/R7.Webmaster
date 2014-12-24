@@ -25,9 +25,9 @@ using R7.Webmaster.Core;
 
 namespace R7.Webmaster
 {
-	public class AppConfig: ConfigBase
+	public class WebmasterConfig: ConfigBase
 	{
-		public AppConfig (): base ("app", "R7.Webmaster")
+		public WebmasterConfig (): base ("webmaster", "R7.Webmaster")
 		{
 		}
 

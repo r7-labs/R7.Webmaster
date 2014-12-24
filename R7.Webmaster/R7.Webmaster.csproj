@@ -92,7 +92,7 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="gtk-gui\R7.Webmaster.MainWindow.cs" />
-    <Compile Include="AppConfig.cs" />
+    <Compile Include="WebmasterConfig.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
@@ -127,10 +127,10 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="icons\webmaster.svg" />
-    <None Include="app.config">
+    <None Include="install.targets">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="install.targets">
+    <None Include="webmaster.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
   </ItemGroup>

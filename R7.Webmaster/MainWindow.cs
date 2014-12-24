@@ -70,7 +70,7 @@ namespace R7.Webmaster
 		protected void InitAddins ()
 		{
 			AddinManager = new WidgetAddinManager ();
-			Addins = OrderAddins (AddinManager.Widgets, Program.AppConfig.AddinsOrder);
+			Addins = OrderAddins (AddinManager.Widgets, Program.Config.AddinsOrder);
 
 			foreach (var widget in Addins)
 			{
@@ -113,7 +113,7 @@ namespace R7.Webmaster
 		protected void InitNotebook ()
 		{
 			// restore tabs position
-			notebook1.TabPos = Program.AppConfig.TabsPosition;
+			notebook1.TabPos = Program.Config.TabsPosition;
 
 			// remove default page
 			notebook1.RemovePage (0);
