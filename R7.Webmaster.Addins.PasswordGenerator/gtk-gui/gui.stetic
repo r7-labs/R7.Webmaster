@@ -6,9 +6,9 @@
   </configuration>
   <import>
     <widget-library name="glade-sharp, Version=2.12.0.0, Culture=neutral, PublicKeyToken=35e10195dab3c99f" />
-    <widget-library name="../../R7.Webmaster.Addins.Root/bin/Release/R7.Webmaster.Addins.Root.dll" />
-    <widget-library name="../../R7.Webmaster.Core/bin/Release/R7.Webmaster.Core.dll" />
-    <widget-library name="../bin/Release/R7.Webmaster.Addins.PasswordGenerator.dll" internal="true" />
+    <widget-library name="../../R7.Webmaster.Addins.Root/bin/Debug/R7.Webmaster.Addins.Root.dll" />
+    <widget-library name="../../R7.Webmaster.Core/bin/Debug/R7.Webmaster.Core.dll" />
+    <widget-library name="../bin/Debug/R7.Webmaster.Addins.PasswordGenerator.dll" internal="true" />
   </import>
   <icon-factory>
     <icon-set id="locked">

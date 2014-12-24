@@ -174,6 +174,7 @@ namespace R7.Webmaster.Addins.CaseChanger
 			w13.BottomAttach = ((uint)(2));
 			w13.LeftAttach = ((uint)(1));
 			w13.RightAttach = ((uint)(2));
+			w13.XOptions = ((global::Gtk.AttachOptions)(4));
 			w13.YOptions = ((global::Gtk.AttachOptions)(4));
 			// Container child table1.Gtk.Table+TableChild
 			this.entryResult2 = new global::Gtk.Entry ();
@@ -187,6 +188,7 @@ namespace R7.Webmaster.Addins.CaseChanger
 			w14.BottomAttach = ((uint)(3));
 			w14.LeftAttach = ((uint)(1));
 			w14.RightAttach = ((uint)(2));
+			w14.XOptions = ((global::Gtk.AttachOptions)(4));
 			w14.YOptions = ((global::Gtk.AttachOptions)(4));
 			// Container child table1.Gtk.Table+TableChild
 			this.entryResult3 = new global::Gtk.Entry ();
@@ -200,6 +202,7 @@ namespace R7.Webmaster.Addins.CaseChanger
 			w15.BottomAttach = ((uint)(4));
 			w15.LeftAttach = ((uint)(1));
 			w15.RightAttach = ((uint)(2));
+			w15.XOptions = ((global::Gtk.AttachOptions)(4));
 			w15.YOptions = ((global::Gtk.AttachOptions)(4));
 			// Container child table1.Gtk.Table+TableChild
 			this.entryResult4 = new global::Gtk.Entry ();
@@ -213,6 +216,7 @@ namespace R7.Webmaster.Addins.CaseChanger
 			w16.BottomAttach = ((uint)(5));
 			w16.LeftAttach = ((uint)(1));
 			w16.RightAttach = ((uint)(2));
+			w16.XOptions = ((global::Gtk.AttachOptions)(4));
 			w16.YOptions = ((global::Gtk.AttachOptions)(4));
 			// Container child table1.Gtk.Table+TableChild
 			this.entryResult5 = new global::Gtk.Entry ();
@@ -226,6 +230,7 @@ namespace R7.Webmaster.Addins.CaseChanger
 			w17.BottomAttach = ((uint)(6));
 			w17.LeftAttach = ((uint)(1));
 			w17.RightAttach = ((uint)(2));
+			w17.XOptions = ((global::Gtk.AttachOptions)(4));
 			w17.YOptions = ((global::Gtk.AttachOptions)(4));
 			// Container child table1.Gtk.Table+TableChild
 			this.hseparator1 = new global::Gtk.HSeparator ();
@@ -293,7 +298,6 @@ namespace R7.Webmaster.Addins.CaseChanger
 			this.radiobutton1 = new global::Gtk.RadioButton ("");
 			this.radiobutton1.CanFocus = true;
 			this.radiobutton1.Name = "radiobutton1";
-			this.radiobutton1.Active = true;
 			this.radiobutton1.DrawIndicator = true;
 			this.radiobutton1.UseUnderline = true;
 			this.radiobutton1.Group = new global::GLib.SList (global::System.IntPtr.Zero);
