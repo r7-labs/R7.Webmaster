@@ -32,7 +32,6 @@ namespace R7.Webmaster.Addins.TextCleaner
 	[Extension(typeof(IWidgetAddin))]
 	public partial class TextCleanerWidget : Gtk.Bin, ITextCleanerView, ITextInputWidgetAddin
 	{
-
 		#region ITextInputWidgetAddin implementation
 
 		public Gtk.Widget Instance { get { return this; } }
@@ -156,10 +155,6 @@ namespace R7.Webmaster.Addins.TextCleaner
 			if (needProcess)
 				OnActionProcessActivated (sender, e);
 
-			/*
-			if (!string.IsNullOrWhiteSpace (txvSource.Buffer.Text))
-				PrevSources.Push (txvSource.Buffer.Text);
-			*/
 			ProcessState ();
 		}
 
@@ -167,24 +162,6 @@ namespace R7.Webmaster.Addins.TextCleaner
 		{
 			ProcessState ();
 		}
-
-		/*
-		protected void OnTextToSeoActionActivated (object sender, EventArgs e)
-		{
-			// find root window:
-			var w = this.Parent;
-
-			while (!(w is Window))
-				w = w.Parent;
-
-			var main = w as MainForm;
-
-			// activate SEO tab
-			main.SetActivePage(2);
-			// move text to SEO input 
-			main.SetSeoText(textviewText.Buffer.Text);
-
-		}*/
 
 		protected void ProcessState()
 		{
@@ -258,4 +235,3 @@ namespace R7.Webmaster.Addins.TextCleaner
 		}
 	}
 }
-

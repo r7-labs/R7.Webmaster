@@ -18,13 +18,11 @@
 //
 //  You should have received a copy of the GNU General Public License
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
 using System;
 using System.Collections.Generic;
 using Mono.Addins;
 using R7.Webmaster.Core;
-using System.Security.Cryptography;
-
-
 using R7.Webmaster.Addins.Root;
 
 namespace R7.Webmaster.Addins.CaseChanger

@@ -293,6 +293,7 @@ namespace R7.Webmaster.Addins.CaseChanger
 			this.radiobutton1 = new global::Gtk.RadioButton ("");
 			this.radiobutton1.CanFocus = true;
 			this.radiobutton1.Name = "radiobutton1";
+			this.radiobutton1.Active = true;
 			this.radiobutton1.DrawIndicator = true;
 			this.radiobutton1.UseUnderline = true;
 			this.radiobutton1.Group = new global::GLib.SList (global::System.IntPtr.Zero);

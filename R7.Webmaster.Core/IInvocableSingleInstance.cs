@@ -29,4 +29,3 @@ namespace R7.Webmaster.Core
 		void Invoke ();
 	}
 }
-
