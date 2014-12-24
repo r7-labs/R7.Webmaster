@@ -4,13 +4,16 @@
 		<prefix>/usr/local</prefix>
 	</PropertyGroup>
 	<PropertyGroup>
+		<ApplicationName>R7.Webmaster</ApplicationName>
+		<SafeApplicationName>webmaster</SafeApplicationName>
+		<DesktopApplicationName>$(SafeApplicationName)-gtk</DesktopApplicationName>
 		<InstallPrefix>$(prefix)</InstallPrefix>
-		<ApplicationFolder>R7.Webmaster</ApplicationFolder>
-    	<InstallBinaryFilesPath>$(prefix)/lib/$(ApplicationFolder)</InstallBinaryFilesPath>
+		<ApplicationFolder>$(ApplicationName)</ApplicationFolder>
+		<InstallBinaryFilesPath>$(prefix)/lib/$(ApplicationFolder)</InstallBinaryFilesPath>
     	<InstallStarterScriptFilesPath>$(prefix)/bin</InstallStarterScriptFilesPath>
 		<InstallDesktopFilesPath>$(prefix)/share/applications</InstallDesktopFilesPath>
 		<InstallIconFilesPath>$(prefix)/share/pixmaps</InstallIconFilesPath>
-  	</PropertyGroup> 
+  	</PropertyGroup>
   	<Target Name="Configure">
   		<PropertyGroup>
 			<StartScriptTemplate xml:space="preserve">#!/bin/bash
@@ -18,9 +21,25 @@
 export MONO_ENABLE_SHM=1
 cd &quot;$(InstallBinaryFilesPath)&quot;
 mono R7.Webmaster.exe</StartScriptTemplate>
+			<DesktopFileTemplate xml:space="preserve">[Desktop Entry]
+
+Encoding=UTF-8
+Type=Application
+Name=$(ApplicationName)
+GenericName=Desktop Productivity Tool
+Terminal=false
+Exec=$(DesktopApplicationName)
+Icon=$(DesktopApplicationName)
+Categories=WebDevelopment;Development;GTK;
+			</DesktopFileTemplate>
 	</PropertyGroup> 
-  		<Exec Command="echo &quot;$(StartScriptTemplate)&quot; > webmaster" />
-		<Exec Command="chmod a+x webmaster" />
+		<!-- Create starter script and desktop file -->
+  		<Exec Command="echo &quot;$(StartScriptTemplate)&quot; > $(DesktopApplicationName)" />
+  		<Exec Command="echo &quot;$(DesktopFileTemplate)&quot; > $(DesktopApplicationName).desktop" />
+
+  		<!-- Make starter script and desktop file executable -->
+		<Exec Command="chmod a+x $(DesktopApplicationName)" />
+		<Exec Command="chmod a+x $(DesktopApplicationName).desktop" />
   	</Target>
 	<Target Name="Install" DependsOn="Configure">
 		<Message Text="Installing to $(InstallPrefix) prefix" />
@@ -38,18 +57,18 @@ mono R7.Webmaster.exe</StartScriptTemplate>
 
 		<!-- Declare starter scripts -->
 		<ItemGroup>
-			<InstallStarterScriptFiles Include="webmaster" />
+			<InstallStarterScriptFiles Include="$(DesktopApplicationName)" />
+		</ItemGroup>
+
+		<!-- Declare desktop files -->
+		<ItemGroup>
+			<InstallDesktopFiles Include="*.desktop" />
 		</ItemGroup>
 
 		<!-- Declare icons -->
 		<ItemGroup>
 			<InstallIconFiles Include="icons/*.png" />
 			<InstallIconFiles Include="icons/*.svg" />
-		</ItemGroup>
-
-		<!-- Declare desktop files -->
-		<ItemGroup>
-			<InstallDesktopFiles Include="*.desktop" />
 		</ItemGroup>
 
 		<!-- Copy binaries -->
@@ -67,14 +86,10 @@ mono R7.Webmaster.exe</StartScriptTemplate>
 
 		<!-- Make symlink to the desktop file icon -->
 		<MakeDir Directories="$(InstallIconFilesPath)" />
-		<Exec Command="ln -s -f &quot;$(InstallBinaryFilesPath)/icons/webmaster_128.png&quot; &quot;$(InstallIconFilesPath)/webmaster.png&quot;" />
+		<Exec Command="ln -s -f &quot;$(InstallBinaryFilesPath)/icons/webmaster_128.png&quot; &quot;$(InstallIconFilesPath)/$(DesktopApplicationName).png&quot;" />
 
 		<!-- Copy desktop files -->
 		<Copy SourceFiles="@(InstallDesktopFiles)" DestinationFolder="$(InstallDesktopFilesPath)" />
-
-		<!-- Make desktop file executable -->
-		<!-- TODO: Should make all desktop files executable -->
-		<Exec Command="chmod a+x &quot;$(InstallDesktopFilesPath)/webmaster.desktop&quot;" />
 
 		<Message Text="Install complete." />
 

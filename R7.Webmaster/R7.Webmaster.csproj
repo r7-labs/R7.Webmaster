@@ -133,10 +133,4 @@
   <ItemGroup>
     <Folder Include="ui\" />
   </ItemGroup>
-  <ItemGroup>
-    <Content Include="webmaster.desktop">
-      <DeployService-TargetDirectoryId>Linux.DesktopApplications</DeployService-TargetDirectoryId>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-  </ItemGroup>
 </Project>
