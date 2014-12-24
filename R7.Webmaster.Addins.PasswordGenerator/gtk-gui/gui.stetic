@@ -10,27 +10,6 @@
     <widget-library name="../../R7.Webmaster.Core/bin/Debug/R7.Webmaster.Core.dll" />
     <widget-library name="../bin/Debug/R7.Webmaster.Addins.PasswordGenerator.dll" internal="true" />
   </import>
-  <icon-factory>
-    <icon-set id="locked">
-      <source>
-        <property name="Image">stock:locked Dialog</property>
-        <property name="Size">Dialog</property>
-      </source>
-      <source>
-        <property name="Image">stock:locked LargeToolbar</property>
-        <property name="Size">LargeToolbar</property>
-      </source>
-      <source>
-        <property name="Image">stock:locked SmallToolbar</property>
-        <property name="Size">SmallToolbar</property>
-      </source>
-    </icon-set>
-    <icon-set id="rotate">
-      <source>
-        <property name="Image">stock:rotate LargeToolbar</property>
-      </source>
-    </icon-set>
-  </icon-factory>
   <widget class="Gtk.Bin" id="R7.Webmaster.Addins.PasswordGenerator.PasswordGeneratorWidget" design-size="622 199">
     <action-group name="Default">
       <action id="actionGenerate">

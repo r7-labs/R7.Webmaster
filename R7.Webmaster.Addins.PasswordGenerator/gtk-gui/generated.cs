@@ -10,61 +10,6 @@ namespace Stetic
 		{
 			if ((Stetic.Gui.initialized == false)) {
 				Stetic.Gui.initialized = true;
-				global::Gtk.IconFactory w1 = new global::Gtk.IconFactory ();
-				global::Gtk.IconSet w2 = new global::Gtk.IconSet ();
-				global::Gtk.IconSource w3 = new global::Gtk.IconSource ();
-				w3.Pixbuf = global::Stetic.IconLoader.LoadIcon (iconRenderer, "locked", global::Gtk.IconSize.Dialog);
-				w3.SizeWildcarded = false;
-				w3.Size = global::Gtk.IconSize.Dialog;
-				w2.AddSource (w3);
-				global::Gtk.IconSource w4 = new global::Gtk.IconSource ();
-				w4.Pixbuf = global::Stetic.IconLoader.LoadIcon (iconRenderer, "locked", global::Gtk.IconSize.LargeToolbar);
-				w4.SizeWildcarded = false;
-				w4.Size = global::Gtk.IconSize.LargeToolbar;
-				w2.AddSource (w4);
-				global::Gtk.IconSource w5 = new global::Gtk.IconSource ();
-				w5.Pixbuf = global::Stetic.IconLoader.LoadIcon (iconRenderer, "locked", global::Gtk.IconSize.SmallToolbar);
-				w5.SizeWildcarded = false;
-				w5.Size = global::Gtk.IconSize.SmallToolbar;
-				w2.AddSource (w5);
-				w1.Add ("locked", w2);
-				global::Gtk.IconSet w6 = new global::Gtk.IconSet (global::Stetic.IconLoader.LoadIcon (iconRenderer, "rotate", global::Gtk.IconSize.LargeToolbar));
-				w1.Add ("rotate", w6);
-				w1.AddDefault ();
-			}
-		}
-	}
-
-	internal class IconLoader
-	{
-		public static Gdk.Pixbuf LoadIcon (Gtk.Widget widget, string name, Gtk.IconSize size)
-		{
-			Gdk.Pixbuf res = widget.RenderIcon (name, size, null);
-			if ((res != null)) {
-				return res;
-			} else {
-				int sz;
-				int sy;
-				global::Gtk.Icon.SizeLookup (size, out  sz, out  sy);
-				try {
-					return Gtk.IconTheme.Default.LoadIcon (name, sz, 0);
-				} catch (System.Exception) {
-					if ((name != "gtk-missing-image")) {
-						return Stetic.IconLoader.LoadIcon (widget, "gtk-missing-image", size);
-					} else {
-						Gdk.Pixmap pmap = new Gdk.Pixmap (Gdk.Screen.Default.RootWindow, sz, sz);
-						Gdk.GC gc = new Gdk.GC (pmap);
-						gc.RgbFgColor = new Gdk.Color (255, 255, 255);
-						pmap.DrawRectangle (gc, true, 0, 0, sz, sz);
-						gc.RgbFgColor = new Gdk.Color (0, 0, 0);
-						pmap.DrawRectangle (gc, false, 0, 0, (sz - 1), (sz - 1));
-						gc.SetLineAttributes (3, Gdk.LineStyle.Solid, Gdk.CapStyle.Round, Gdk.JoinStyle.Round);
-						gc.RgbFgColor = new Gdk.Color (255, 0, 0);
-						pmap.DrawLine (gc, (sz / 4), (sz / 4), ((sz - 1) - (sz / 4)), ((sz - 1) - (sz / 4)));
-						pmap.DrawLine (gc, ((sz - 1) - (sz / 4)), (sz / 4), (sz / 4), ((sz - 1) - (sz / 4)));
-						return Gdk.Pixbuf.FromDrawable (pmap, pmap.Colormap, 0, 0, 0, 0, sz, sz);
-					}
-				}
 			}
 		}
 	}
