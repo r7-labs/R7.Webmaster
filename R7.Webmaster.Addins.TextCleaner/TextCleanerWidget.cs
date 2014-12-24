@@ -61,17 +61,16 @@ namespace R7.Webmaster.Addins.TextCleaner
 			get { return Gtk.Stock.FindAndReplace; } 
 		}
 
-		public List<Gtk.Action> Actions 
-		{
-			get 
-			{
-				return new List<Gtk.Action> () { actionProcess, null };
-			}
-		}
-
 		public List<Gtk.ToolItem> ToolItems
 		{
-			get { return new List<Gtk.ToolItem> () { buttonCopy }; }
+			get 
+			{ 
+				return new List<Gtk.ToolItem> () {
+					(Gtk.ToolItem) actionProcess.CreateToolItem (),
+					new Gtk.SeparatorToolItem (),
+					buttonCopy 
+				}; 
+			}
 		}
 
 		#endregion

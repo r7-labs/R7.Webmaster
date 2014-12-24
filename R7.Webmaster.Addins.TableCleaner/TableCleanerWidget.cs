@@ -61,17 +61,16 @@ namespace R7.Webmaster.Addins.TableCleaner
 			get { return Gtk.Stock.Clear; } 
 		}
 
-		public List<Gtk.Action> Actions 
-		{
-			get 
-			{
-				return new List<Gtk.Action> () { actionProcess, null };
-			}
-		}
-
 		public List<Gtk.ToolItem> ToolItems
 		{
-			get { return new List<Gtk.ToolItem> () { buttonCopy }; }
+			get 
+			{ 
+				return new List<Gtk.ToolItem> () {
+					(Gtk.ToolItem) actionProcess.CreateToolItem (),
+					new Gtk.SeparatorToolItem (),
+					buttonCopy 
+				}; 
+			}
 		}
 
 		#endregion

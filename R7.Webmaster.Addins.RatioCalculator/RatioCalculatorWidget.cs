@@ -58,22 +58,18 @@ namespace R7.Webmaster.Addins.RatioCalculator
 			get { return Gtk.Stock.OrientationPortrait; } 
 		}
 
-		public List<Gtk.Action> Actions 
+		public List<Gtk.ToolItem> ToolItems
 		{
 			get 
-			{
-				return new List<Gtk.Action> () { actionLockFactor, actionRotate };
+			{ 
+				return new List<Gtk.ToolItem> () {
+					(Gtk.ToolItem) actionLockFactor.CreateToolItem (),
+					(Gtk.ToolItem) actionRotate.CreateToolItem ()
+				};
 			}
 		}
 
-		public List<Gtk.ToolItem> ToolItems
-		{
-			get { return new List<Gtk.ToolItem> (); }
-		}
-
 		#endregion
-
-
 
 		protected void OnSpinWidthValueChanged (object sender, EventArgs e)
 		{

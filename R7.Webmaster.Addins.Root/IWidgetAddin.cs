@@ -38,7 +38,8 @@ namespace R7.Webmaster.Addins.Root
 
 		string Icon { get; }
 
-		List<Gtk.Action> Actions { get; } 
+		// replaced by ToolItems
+		// List<Gtk.Action> Actions { get; } 
 
 		List<Gtk.ToolItem> ToolItems { get; } 
 

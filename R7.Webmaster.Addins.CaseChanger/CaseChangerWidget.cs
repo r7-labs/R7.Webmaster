@@ -70,18 +70,15 @@ namespace R7.Webmaster.Addins.CaseChanger
 		{ 
 			get { return Gtk.Stock.SpellCheck; } 
 		}
-
-		public List<Gtk.Action> Actions 
-		{
-			get 
-			{
-				return new List<Gtk.Action>() { actionProcess }; 
-			}
-		}
-
+	
 		public List<Gtk.ToolItem> ToolItems
 		{
-			get { return new List<Gtk.ToolItem> (); }
+			get 
+			{ 
+				return new List<Gtk.ToolItem> () {
+					(Gtk.ToolItem) actionProcess.CreateToolItem ()
+				};
+			}
 		}
 
 		#endregion

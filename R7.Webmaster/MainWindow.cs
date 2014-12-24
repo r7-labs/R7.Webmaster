@@ -175,22 +175,11 @@ namespace R7.Webmaster
 					toolbar1.Insert (new Gtk.SeparatorToolItem (), pos++);
 			}
 		
-			// add actions to the toolbar
-			foreach (var action in selectedAddin.Actions)
-			{
-				var toolitem = (action != null) ? 
-					(Gtk.ToolItem) action.CreateToolItem () :
-					new Gtk.SeparatorToolItem ();
-
-				// insert toolitem to the right
-				toolbar1.Insert (toolitem, pos++);
-			}
-
 			// add toolitems to the toolbar
 			foreach (var toolItem in selectedAddin.ToolItems)
 			{
 				// insert toolitem to the right
-				toolbar1.Insert (toolItem ?? new Gtk.SeparatorToolItem (), pos++);
+				toolbar1.Insert (toolItem, pos++);
 			}
 
 			// show all changes

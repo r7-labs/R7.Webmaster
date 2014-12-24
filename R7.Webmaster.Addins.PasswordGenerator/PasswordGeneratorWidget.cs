@@ -49,17 +49,16 @@ namespace R7.Webmaster.Addins.PasswordGenerator
 			get { return Gtk.Stock.DialogAuthentication; } 
 		}
 
-		public List<Gtk.Action> Actions 
-		{
-			get 
-			{
-				return new List<Gtk.Action> () { actionGenerate, null, actionGuid };
-			}
-		}
-
 		public List<Gtk.ToolItem> ToolItems
 		{
-			get { return new List<Gtk.ToolItem> (); }
+			get 
+			{ 
+				return new List<Gtk.ToolItem> () {
+					(Gtk.ToolItem) actionGenerate.CreateToolItem (),
+					new Gtk.SeparatorToolItem (),
+					(Gtk.ToolItem) actionGuid.CreateToolItem ()
+				}; 
+			}
 		}
 
 		#endregion
