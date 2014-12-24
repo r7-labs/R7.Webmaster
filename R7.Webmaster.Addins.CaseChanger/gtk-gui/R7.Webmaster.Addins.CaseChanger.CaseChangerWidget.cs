@@ -92,7 +92,7 @@ namespace R7.Webmaster.Addins.CaseChanger
 			w4.BottomAttach = ((uint)(2));
 			w4.LeftAttach = ((uint)(3));
 			w4.RightAttach = ((uint)(4));
-			w4.XOptions = ((global::Gtk.AttachOptions)(4));
+			w4.XOptions = ((global::Gtk.AttachOptions)(0));
 			w4.YOptions = ((global::Gtk.AttachOptions)(4));
 			// Container child table1.Gtk.Table+TableChild
 			this.buttonCopy2 = new global::Gtk.Button ();
@@ -109,7 +109,7 @@ namespace R7.Webmaster.Addins.CaseChanger
 			w6.BottomAttach = ((uint)(3));
 			w6.LeftAttach = ((uint)(3));
 			w6.RightAttach = ((uint)(4));
-			w6.XOptions = ((global::Gtk.AttachOptions)(4));
+			w6.XOptions = ((global::Gtk.AttachOptions)(0));
 			w6.YOptions = ((global::Gtk.AttachOptions)(4));
 			// Container child table1.Gtk.Table+TableChild
 			this.buttonCopy3 = new global::Gtk.Button ();
@@ -126,7 +126,7 @@ namespace R7.Webmaster.Addins.CaseChanger
 			w8.BottomAttach = ((uint)(4));
 			w8.LeftAttach = ((uint)(3));
 			w8.RightAttach = ((uint)(4));
-			w8.XOptions = ((global::Gtk.AttachOptions)(4));
+			w8.XOptions = ((global::Gtk.AttachOptions)(0));
 			w8.YOptions = ((global::Gtk.AttachOptions)(4));
 			// Container child table1.Gtk.Table+TableChild
 			this.buttonCopy4 = new global::Gtk.Button ();
@@ -143,7 +143,7 @@ namespace R7.Webmaster.Addins.CaseChanger
 			w10.BottomAttach = ((uint)(5));
 			w10.LeftAttach = ((uint)(3));
 			w10.RightAttach = ((uint)(4));
-			w10.XOptions = ((global::Gtk.AttachOptions)(4));
+			w10.XOptions = ((global::Gtk.AttachOptions)(0));
 			w10.YOptions = ((global::Gtk.AttachOptions)(4));
 			// Container child table1.Gtk.Table+TableChild
 			this.buttonCopy5 = new global::Gtk.Button ();
@@ -160,7 +160,7 @@ namespace R7.Webmaster.Addins.CaseChanger
 			w12.BottomAttach = ((uint)(6));
 			w12.LeftAttach = ((uint)(3));
 			w12.RightAttach = ((uint)(4));
-			w12.XOptions = ((global::Gtk.AttachOptions)(4));
+			w12.XOptions = ((global::Gtk.AttachOptions)(0));
 			w12.YOptions = ((global::Gtk.AttachOptions)(4));
 			// Container child table1.Gtk.Table+TableChild
 			this.entryResult1 = new global::Gtk.Entry ();
@@ -174,7 +174,6 @@ namespace R7.Webmaster.Addins.CaseChanger
 			w13.BottomAttach = ((uint)(2));
 			w13.LeftAttach = ((uint)(1));
 			w13.RightAttach = ((uint)(2));
-			w13.XOptions = ((global::Gtk.AttachOptions)(4));
 			w13.YOptions = ((global::Gtk.AttachOptions)(4));
 			// Container child table1.Gtk.Table+TableChild
 			this.entryResult2 = new global::Gtk.Entry ();
@@ -188,7 +187,6 @@ namespace R7.Webmaster.Addins.CaseChanger
 			w14.BottomAttach = ((uint)(3));
 			w14.LeftAttach = ((uint)(1));
 			w14.RightAttach = ((uint)(2));
-			w14.XOptions = ((global::Gtk.AttachOptions)(4));
 			w14.YOptions = ((global::Gtk.AttachOptions)(4));
 			// Container child table1.Gtk.Table+TableChild
 			this.entryResult3 = new global::Gtk.Entry ();
@@ -202,7 +200,6 @@ namespace R7.Webmaster.Addins.CaseChanger
 			w15.BottomAttach = ((uint)(4));
 			w15.LeftAttach = ((uint)(1));
 			w15.RightAttach = ((uint)(2));
-			w15.XOptions = ((global::Gtk.AttachOptions)(4));
 			w15.YOptions = ((global::Gtk.AttachOptions)(4));
 			// Container child table1.Gtk.Table+TableChild
 			this.entryResult4 = new global::Gtk.Entry ();
@@ -216,7 +213,6 @@ namespace R7.Webmaster.Addins.CaseChanger
 			w16.BottomAttach = ((uint)(5));
 			w16.LeftAttach = ((uint)(1));
 			w16.RightAttach = ((uint)(2));
-			w16.XOptions = ((global::Gtk.AttachOptions)(4));
 			w16.YOptions = ((global::Gtk.AttachOptions)(4));
 			// Container child table1.Gtk.Table+TableChild
 			this.entryResult5 = new global::Gtk.Entry ();
@@ -230,7 +226,6 @@ namespace R7.Webmaster.Addins.CaseChanger
 			w17.BottomAttach = ((uint)(6));
 			w17.LeftAttach = ((uint)(1));
 			w17.RightAttach = ((uint)(2));
-			w17.XOptions = ((global::Gtk.AttachOptions)(4));
 			w17.YOptions = ((global::Gtk.AttachOptions)(4));
 			// Container child table1.Gtk.Table+TableChild
 			this.hseparator1 = new global::Gtk.HSeparator ();
@@ -307,7 +302,7 @@ namespace R7.Webmaster.Addins.CaseChanger
 			w24.BottomAttach = ((uint)(2));
 			w24.LeftAttach = ((uint)(2));
 			w24.RightAttach = ((uint)(3));
-			w24.XOptions = ((global::Gtk.AttachOptions)(4));
+			w24.XOptions = ((global::Gtk.AttachOptions)(0));
 			w24.YOptions = ((global::Gtk.AttachOptions)(4));
 			// Container child table1.Gtk.Table+TableChild
 			this.radiobutton2 = new global::Gtk.RadioButton ("");
