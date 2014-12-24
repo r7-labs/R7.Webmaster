@@ -21,6 +21,11 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		README.md = README.md
 	EndProjectSection
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "images", "images", "{C12592EB-A3A6-41D1-90ED-CEAD28F8416A}"
+	ProjectSection(SolutionItems) = preProject
+		images\webmaster_textcleaner.png = images\webmaster_textcleaner.png
+	EndProjectSection
+EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "R7.Webmaster.Addins.TableCleaner", "R7.Webmaster.Addins.TableCleaner\R7.Webmaster.Addins.TableCleaner.csproj", "{3EF57EBA-BEE8-4766-8148-97E305DC0A9E}"
 EndProject
 Global
@@ -63,6 +68,7 @@ Global
 		{F9781FD0-502A-44A0-AB9B-05748B5506FC}.Release|x86.Build.0 = Release|x86
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
+		{C12592EB-A3A6-41D1-90ED-CEAD28F8416A} = {667888CF-FD7D-4EFF-A26B-ECC2805CF77F}
 	EndGlobalSection
 	GlobalSection(MonoDevelopProperties) = preSolution
 		StartupItem = R7.Webmaster\R7.Webmaster.csproj

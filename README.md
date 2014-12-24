@@ -4,6 +4,8 @@
 of useful and (hopefully) ergonomic desktop tools. And I also think that these tools should be
 cross-platform (1) and extensible (2).
 
+![Screenshot](https://raw.githubusercontent.com/roman-yagodin/R7.Webmaster/master/images/webmaster_textcleaner.png "R7.Webmaster main application with TextCleaner addin")
+
 ## Functionality
 
 *R7.Webmaster* consists of main host application, which serves as a plaform for extension modules (addins)
