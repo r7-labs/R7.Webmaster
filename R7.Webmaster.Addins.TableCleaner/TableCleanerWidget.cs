@@ -131,8 +131,9 @@ namespace R7.Webmaster.Addins.TableCleaner
 			var tableCleanerParams = new TableCleanerParams ()
 			{
 				SetWidth = checkSetWidth.Active,
-				TableCSSClass = entryTableClass.Text,
-				TableWidth = spinTableWidth.ValueAsInt,
+				SetCssClass = checkSetCssClass.Active,
+				TableCssClass = comboCssClass.ActiveText,
+				TableWidth = spinWidth.ValueAsInt,
 				TableWidthUnits = comboWidthUnits.ActiveText,
 
 				// TextCleanerParams:

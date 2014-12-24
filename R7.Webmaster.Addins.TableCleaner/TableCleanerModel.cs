@@ -28,9 +28,10 @@ namespace R7.Webmaster.Addins.TableCleaner
 {
 	public class TableCleanerParams: TextCleanerParams
 	{
-		public int TableWidth;
 		public bool SetWidth;
-		public string TableCSSClass;
+		public bool SetCssClass;
+		public string TableCssClass;
+		public int TableWidth;
 		public string TableWidthUnits;
 	}
 

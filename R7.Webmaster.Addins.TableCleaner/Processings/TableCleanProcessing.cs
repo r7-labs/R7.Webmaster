@@ -98,9 +98,9 @@ namespace R7.Webmaster.Addins.TableCleaner
 
 			text = Command.Execute (text);
 
-			if (!string.IsNullOrEmpty (tableCleanerParams.TableCSSClass))
+			if (tableCleanerParams.SetCssClass)
 				text = text.Replace ("<table", string.Format (
-					"<table class=\"{0}\"", tableCleanerParams.TableCSSClass));
+					"<table class=\"{0}\"", tableCleanerParams.TableCssClass));
 
 			if (tableCleanerParams.SetWidth)
 				text = text.Replace ("<table", string.Format (

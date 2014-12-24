@@ -18,21 +18,17 @@ namespace R7.Webmaster.Addins.TableCleaner
 		
 		private global::Gtk.TextView txvResult;
 		
-		private global::Gtk.Table table1;
-		
-		private global::Gtk.Alignment alignment2;
-		
 		private global::Gtk.Table tableClearTablesOptions;
+		
+		private global::Gtk.CheckButton checkSetCssClass;
 		
 		private global::Gtk.CheckButton checkSetWidth;
 		
+		private global::Gtk.ComboBoxEntry comboCssClass;
+		
 		private global::Gtk.ComboBox comboWidthUnits;
 		
-		private global::Gtk.Entry entryTableClass;
-		
-		private global::Gtk.Label label1;
-		
-		private global::Gtk.SpinButton spinTableWidth;
+		private global::Gtk.SpinButton spinWidth;
 
 		protected virtual void Build ()
 		{
@@ -74,20 +70,21 @@ namespace R7.Webmaster.Addins.TableCleaner
 			global::Gtk.Box.BoxChild w4 = ((global::Gtk.Box.BoxChild)(this.hbox4 [this.GtkScrolledWindow1]));
 			w4.Position = 0;
 			// Container child hbox4.Gtk.Box+BoxChild
-			this.table1 = new global::Gtk.Table (((uint)(1)), ((uint)(1)), false);
-			this.table1.Name = "table1";
-			this.table1.RowSpacing = ((uint)(6));
-			this.table1.ColumnSpacing = ((uint)(6));
-			// Container child table1.Gtk.Table+TableChild
-			this.alignment2 = new global::Gtk.Alignment (0.5F, 0.5F, 1F, 1F);
-			this.alignment2.Name = "alignment2";
-			this.alignment2.LeftPadding = ((uint)(24));
-			this.alignment2.RightPadding = ((uint)(10));
-			// Container child alignment2.Gtk.Container+ContainerChild
-			this.tableClearTablesOptions = new global::Gtk.Table (((uint)(2)), ((uint)(3)), false);
+			this.tableClearTablesOptions = new global::Gtk.Table (((uint)(3)), ((uint)(3)), false);
 			this.tableClearTablesOptions.Name = "tableClearTablesOptions";
 			this.tableClearTablesOptions.RowSpacing = ((uint)(6));
 			this.tableClearTablesOptions.ColumnSpacing = ((uint)(6));
+			// Container child tableClearTablesOptions.Gtk.Table+TableChild
+			this.checkSetCssClass = new global::Gtk.CheckButton ();
+			this.checkSetCssClass.CanFocus = true;
+			this.checkSetCssClass.Name = "checkSetCssClass";
+			this.checkSetCssClass.Label = global::Mono.Unix.Catalog.GetString ("Set CSS Class:");
+			this.checkSetCssClass.DrawIndicator = true;
+			this.checkSetCssClass.UseUnderline = true;
+			this.tableClearTablesOptions.Add (this.checkSetCssClass);
+			global::Gtk.Table.TableChild w5 = ((global::Gtk.Table.TableChild)(this.tableClearTablesOptions [this.checkSetCssClass]));
+			w5.XOptions = ((global::Gtk.AttachOptions)(4));
+			w5.YOptions = ((global::Gtk.AttachOptions)(0));
 			// Container child tableClearTablesOptions.Gtk.Table+TableChild
 			this.checkSetWidth = new global::Gtk.CheckButton ();
 			this.checkSetWidth.CanFocus = true;
@@ -96,11 +93,24 @@ namespace R7.Webmaster.Addins.TableCleaner
 			this.checkSetWidth.DrawIndicator = true;
 			this.checkSetWidth.UseUnderline = true;
 			this.tableClearTablesOptions.Add (this.checkSetWidth);
-			global::Gtk.Table.TableChild w5 = ((global::Gtk.Table.TableChild)(this.tableClearTablesOptions [this.checkSetWidth]));
-			w5.TopAttach = ((uint)(1));
-			w5.BottomAttach = ((uint)(2));
-			w5.XOptions = ((global::Gtk.AttachOptions)(4));
-			w5.YOptions = ((global::Gtk.AttachOptions)(4));
+			global::Gtk.Table.TableChild w6 = ((global::Gtk.Table.TableChild)(this.tableClearTablesOptions [this.checkSetWidth]));
+			w6.TopAttach = ((uint)(1));
+			w6.BottomAttach = ((uint)(2));
+			w6.XOptions = ((global::Gtk.AttachOptions)(4));
+			w6.YOptions = ((global::Gtk.AttachOptions)(0));
+			// Container child tableClearTablesOptions.Gtk.Table+TableChild
+			this.comboCssClass = global::Gtk.ComboBoxEntry.NewText ();
+			this.comboCssClass.AppendText (global::Mono.Unix.Catalog.GetString ("data"));
+			this.comboCssClass.AppendText (global::Mono.Unix.Catalog.GetString ("table"));
+			this.comboCssClass.AppendText (global::Mono.Unix.Catalog.GetString ("dnnGrid"));
+			this.comboCssClass.Name = "comboCssClass";
+			this.comboCssClass.Active = 0;
+			this.tableClearTablesOptions.Add (this.comboCssClass);
+			global::Gtk.Table.TableChild w7 = ((global::Gtk.Table.TableChild)(this.tableClearTablesOptions [this.comboCssClass]));
+			w7.LeftAttach = ((uint)(1));
+			w7.RightAttach = ((uint)(3));
+			w7.XOptions = ((global::Gtk.AttachOptions)(0));
+			w7.YOptions = ((global::Gtk.AttachOptions)(0));
 			// Container child tableClearTablesOptions.Gtk.Table+TableChild
 			this.comboWidthUnits = global::Gtk.ComboBox.NewText ();
 			this.comboWidthUnits.AppendText (global::Mono.Unix.Catalog.GetString ("%"));
@@ -115,66 +125,39 @@ namespace R7.Webmaster.Addins.TableCleaner
 			this.comboWidthUnits.Name = "comboWidthUnits";
 			this.comboWidthUnits.Active = 0;
 			this.tableClearTablesOptions.Add (this.comboWidthUnits);
-			global::Gtk.Table.TableChild w6 = ((global::Gtk.Table.TableChild)(this.tableClearTablesOptions [this.comboWidthUnits]));
-			w6.TopAttach = ((uint)(1));
-			w6.BottomAttach = ((uint)(2));
-			w6.LeftAttach = ((uint)(2));
-			w6.RightAttach = ((uint)(3));
-			w6.XOptions = ((global::Gtk.AttachOptions)(4));
-			w6.YOptions = ((global::Gtk.AttachOptions)(4));
-			// Container child tableClearTablesOptions.Gtk.Table+TableChild
-			this.entryTableClass = new global::Gtk.Entry ();
-			this.entryTableClass.TooltipMarkup = "CSS class for cleaned table";
-			this.entryTableClass.CanFocus = true;
-			this.entryTableClass.Name = "entryTableClass";
-			this.entryTableClass.Text = global::Mono.Unix.Catalog.GetString ("data");
-			this.entryTableClass.IsEditable = true;
-			this.entryTableClass.WidthChars = 12;
-			this.entryTableClass.InvisibleChar = '●';
-			this.tableClearTablesOptions.Add (this.entryTableClass);
-			global::Gtk.Table.TableChild w7 = ((global::Gtk.Table.TableChild)(this.tableClearTablesOptions [this.entryTableClass]));
-			w7.LeftAttach = ((uint)(1));
-			w7.RightAttach = ((uint)(3));
-			w7.YOptions = ((global::Gtk.AttachOptions)(4));
-			// Container child tableClearTablesOptions.Gtk.Table+TableChild
-			this.label1 = new global::Gtk.Label ();
-			this.label1.Name = "label1";
-			this.label1.Xalign = 1F;
-			this.label1.LabelProp = global::Mono.Unix.Catalog.GetString ("CSS class:");
-			this.tableClearTablesOptions.Add (this.label1);
-			global::Gtk.Table.TableChild w8 = ((global::Gtk.Table.TableChild)(this.tableClearTablesOptions [this.label1]));
+			global::Gtk.Table.TableChild w8 = ((global::Gtk.Table.TableChild)(this.tableClearTablesOptions [this.comboWidthUnits]));
+			w8.TopAttach = ((uint)(1));
+			w8.BottomAttach = ((uint)(2));
+			w8.LeftAttach = ((uint)(2));
+			w8.RightAttach = ((uint)(3));
 			w8.XOptions = ((global::Gtk.AttachOptions)(4));
-			w8.YOptions = ((global::Gtk.AttachOptions)(4));
+			w8.YOptions = ((global::Gtk.AttachOptions)(0));
 			// Container child tableClearTablesOptions.Gtk.Table+TableChild
-			this.spinTableWidth = new global::Gtk.SpinButton (0, 10000, 1);
-			this.spinTableWidth.TooltipMarkup = "Width in % for cleaned table";
-			this.spinTableWidth.CanFocus = true;
-			this.spinTableWidth.Name = "spinTableWidth";
-			this.spinTableWidth.Adjustment.PageIncrement = 10;
-			this.spinTableWidth.ClimbRate = 10;
-			this.spinTableWidth.Numeric = true;
-			this.spinTableWidth.SnapToTicks = true;
-			this.spinTableWidth.Value = 100;
-			this.tableClearTablesOptions.Add (this.spinTableWidth);
-			global::Gtk.Table.TableChild w9 = ((global::Gtk.Table.TableChild)(this.tableClearTablesOptions [this.spinTableWidth]));
+			this.spinWidth = new global::Gtk.SpinButton (0, 10000, 1);
+			this.spinWidth.TooltipMarkup = "Width in % for cleaned table";
+			this.spinWidth.CanFocus = true;
+			this.spinWidth.Name = "spinWidth";
+			this.spinWidth.Adjustment.PageIncrement = 10;
+			this.spinWidth.ClimbRate = 10;
+			this.spinWidth.Numeric = true;
+			this.spinWidth.SnapToTicks = true;
+			this.spinWidth.Value = 100;
+			this.tableClearTablesOptions.Add (this.spinWidth);
+			global::Gtk.Table.TableChild w9 = ((global::Gtk.Table.TableChild)(this.tableClearTablesOptions [this.spinWidth]));
 			w9.TopAttach = ((uint)(1));
 			w9.BottomAttach = ((uint)(2));
 			w9.LeftAttach = ((uint)(1));
 			w9.RightAttach = ((uint)(2));
-			w9.YOptions = ((global::Gtk.AttachOptions)(4));
-			this.alignment2.Add (this.tableClearTablesOptions);
-			this.table1.Add (this.alignment2);
-			global::Gtk.Table.TableChild w11 = ((global::Gtk.Table.TableChild)(this.table1 [this.alignment2]));
-			w11.XOptions = ((global::Gtk.AttachOptions)(4));
-			w11.YOptions = ((global::Gtk.AttachOptions)(4));
-			this.hbox4.Add (this.table1);
-			global::Gtk.Box.BoxChild w12 = ((global::Gtk.Box.BoxChild)(this.hbox4 [this.table1]));
-			w12.Position = 1;
-			w12.Expand = false;
-			w12.Fill = false;
+			w9.XOptions = ((global::Gtk.AttachOptions)(4));
+			w9.YOptions = ((global::Gtk.AttachOptions)(0));
+			this.hbox4.Add (this.tableClearTablesOptions);
+			global::Gtk.Box.BoxChild w10 = ((global::Gtk.Box.BoxChild)(this.hbox4 [this.tableClearTablesOptions]));
+			w10.Position = 1;
+			w10.Expand = false;
+			w10.Fill = false;
 			this.vbox1.Add (this.hbox4);
-			global::Gtk.Box.BoxChild w13 = ((global::Gtk.Box.BoxChild)(this.vbox1 [this.hbox4]));
-			w13.Position = 0;
+			global::Gtk.Box.BoxChild w11 = ((global::Gtk.Box.BoxChild)(this.vbox1 [this.hbox4]));
+			w11.Position = 0;
 			this.Add (this.vbox1);
 			if ((this.Child != null)) {
 				this.Child.ShowAll ();
