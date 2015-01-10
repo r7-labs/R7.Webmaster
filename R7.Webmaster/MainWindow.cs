@@ -303,6 +303,7 @@ namespace R7.Webmaster
 			// windows: use TextView
 			{
 				InputTextWidget = new Gtk.TextView ();
+				Highlighther = new HtmlHighlighter (InputTextWidget.Buffer);
 			}
 
 			// set text wrap mode
@@ -330,6 +331,8 @@ namespace R7.Webmaster
 		protected Gtk.ScrolledWindow TextScrolledWindow;
 
 		protected Gtk.TextView InputTextWidget;
+
+		protected HtmlHighlighter Highlighther; 
 
 		protected void OnActionPasteActivated (object sender, EventArgs e)
 		{
