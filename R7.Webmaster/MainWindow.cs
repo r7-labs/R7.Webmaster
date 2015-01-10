@@ -281,10 +281,9 @@ namespace R7.Webmaster
 
 		protected void InitTextWidget ()
 		{
-			var linux = true;
+			var gtkSourceView = false;
 
-			// Linux: GtkSourceViewSharp available
-			if (linux)
+			if (gtkSourceView)
 			{
 				var sourceLanguage = SourceLanguageManager.Default.GetLanguage ("xml");
 				var sourceStyleSheme = SourceStyleSchemeManager.Default.GetScheme ("tango");
