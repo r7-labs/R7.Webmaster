@@ -332,7 +332,7 @@ namespace R7.Webmaster
 
 		protected Gtk.TextView InputTextWidget;
 
-		protected HtmlHighlighter Highlighther; 
+		protected TextViewHighlighterBase Highlighther; 
 
 		protected void OnActionPasteActivated (object sender, EventArgs e)
 		{

@@ -24,22 +24,14 @@ using System.Text.RegularExpressions;
 
 namespace R7.Webmaster.Core
 {
-	public class HtmlHighlighter
+	public class HtmlHighlighter: TextViewHighlighterBase
 	{
-		protected readonly Gtk.TextBuffer textBuffer;
-
-		public HtmlHighlighter (Gtk.TextBuffer textBuffer, bool applyOnChange = true)
+		public HtmlHighlighter (Gtk.TextBuffer textBuffer, bool applyOnChange = true): base (textBuffer)
 		{
-			this.textBuffer = textBuffer;
 			CreateTags ();
 
 			if (applyOnChange)
-				textBuffer.Changed += TextBufferChanged;
-		}
-
-		protected void TextBufferChanged (object sender, EventArgs e)
-		{
-			Highlight ();
+				textBuffer.Changed += (sender, e) => Highlight ();
 		}
 
 		protected void CreateTags ()
@@ -50,7 +42,7 @@ namespace R7.Webmaster.Core
 			textBuffer.TagTable.Add (tagTag);
 		}
 
-		public void Highlight ()
+		public override void Highlight ()
 		{
 			// clear current markup
 			textBuffer.RemoveAllTags (textBuffer.StartIter, textBuffer.EndIter);
