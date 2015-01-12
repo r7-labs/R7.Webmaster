@@ -36,10 +36,15 @@ namespace R7.Webmaster.Core
 
 		protected void CreateTags ()
 		{
-			var tagTag = new Gtk.TextTag ("tag");
-			tagTag.Foreground = "gray";
+			// colors are from tango gtksourceview theme
 
-			textBuffer.TagTable.Add (tagTag);
+			// fill buffer tags table
+			textBuffer.TagTable.Add (new Gtk.TextTag ("tag-name") { Foreground = "#729fcf" });
+			textBuffer.TagTable.Add (new Gtk.TextTag ("tag-bracket") { Foreground = "#729fcf" });
+			textBuffer.TagTable.Add (new Gtk.TextTag ("attribute-name") { Foreground = "#4e9a06", Weight = Pango.Weight.Bold });
+			textBuffer.TagTable.Add (new Gtk.TextTag ("attribute-value") { Foreground = "#ad7fa8" });
+			textBuffer.TagTable.Add (new Gtk.TextTag ("entity") { Foreground = "#8f5902" });
+			textBuffer.TagTable.Add (new Gtk.TextTag ("comment") { Foreground = "#204a87", Weight = Pango.Weight.Normal });
 		}
 
 		public override void Highlight ()
@@ -47,16 +52,42 @@ namespace R7.Webmaster.Core
 			// clear current markup
 			textBuffer.RemoveAllTags (textBuffer.StartIter, textBuffer.EndIter);
 
-			var tagMatches = Regex.Matches (textBuffer.Text, @"<\w+.*?>", RegexOptions.IgnoreCase);
-
-			foreach (Match tagMatch in tagMatches)
+			// find & highlight tags
+			foreach (Match match in Regex.Matches (textBuffer.Text, @"(</?)(\w+).*?(/?>)"))
 			{
-				if (tagMatch.Success)
+				if (match.Success)
 				{
-					var startIter = textBuffer.GetIterAtOffset (tagMatch.Index);
-					var endIter = textBuffer.GetIterAtOffset (tagMatch.Index + tagMatch.Length);
+					ApplyTag ("tag-name", match.Groups [2]);
+					ApplyTag ("tag-bracket", match.Groups [1]);
+					ApplyTag ("tag-bracket", match.Groups [3]);
+				}
+			}
 
-					textBuffer.ApplyTag ("tag", startIter, endIter);
+			// find & highlight attributes
+			foreach (Match match in Regex.Matches (textBuffer.Text, @"(\w+\s*?=)\s*?(['""].*?['""])"))
+			{
+				if (match.Success)
+				{
+					ApplyTag ("attribute-name", match.Groups [1]);
+					ApplyTag ("attribute-value", match.Groups [2]);
+				}
+			}
+
+			// find & highlight entities
+			foreach (Match match in Regex.Matches (textBuffer.Text, @"&[^\s;]+;"))
+			{
+				if (match.Success)
+				{
+					ApplyTag ("entity", match.Groups [0]);
+				}
+			}
+
+			// find & highlight comments
+			foreach (Match match in Regex.Matches (textBuffer.Text, @"<\!--.*?-->", RegexOptions.Singleline))
+			{
+				if (match.Success)
+				{
+					ApplyTag ("comment", match.Groups [0]);
 				}
 			}
 		}

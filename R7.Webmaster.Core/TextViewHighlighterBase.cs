@@ -20,6 +20,7 @@
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 using System;
+using System.Text.RegularExpressions;
 
 namespace R7.Webmaster.Core
 {
@@ -33,6 +34,14 @@ namespace R7.Webmaster.Core
 		}
 
 		public abstract void Highlight ();
+
+		protected void ApplyTag (string tagName, Capture capture)
+		{
+			var startIter = textBuffer.GetIterAtOffset (capture.Index);
+			var endIter = textBuffer.GetIterAtOffset (capture.Index + capture.Length);
+
+			textBuffer.ApplyTag (tagName, startIter, endIter);
+		}
 	}
 }
 
