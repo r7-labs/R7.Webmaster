@@ -58,6 +58,7 @@
     <Compile Include="IInvocableSingleInstance.cs" />
     <Compile Include="InvocableSingleInstance.cs" />
     <Compile Include="HtmlUtils.cs" />
+    <Compile Include="HtmlHighlighter.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>

@@ -22,7 +22,7 @@
 using System;
 using System.Text.RegularExpressions;
 
-namespace R7.Webmaster
+namespace R7.Webmaster.Core
 {
 	public class HtmlHighlighter
 	{
