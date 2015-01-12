@@ -21,7 +21,6 @@
 
 using System;
 using System.Collections.Generic;
-using GtkSourceView;
 using R7.Webmaster.Addins.Root;
 using R7.Webmaster.Core;
 
@@ -281,30 +280,8 @@ namespace R7.Webmaster
 
 		protected void InitTextWidget ()
 		{
-			var gtkSourceView = false;
-
-			if (gtkSourceView)
-			{
-				var sourceLanguage = SourceLanguageManager.Default.GetLanguage ("xml");
-				var sourceStyleSheme = SourceStyleSchemeManager.Default.GetScheme ("tango");
-
-				var sourceView = new SourceView ();
-				InputTextWidget = sourceView;
-
-				InputTextWidget.Buffer.Changed += OnInputTextChanged;
-
-				// sourceView.ShowLineNumbers = true;
-
-				((SourceBuffer) sourceView.Buffer).Language = sourceLanguage;
-				((SourceBuffer) sourceView.Buffer).HighlightSyntax = true;
-				((SourceBuffer) sourceView.Buffer).StyleScheme = sourceStyleSheme;
-			}
-			else
-			// windows: use TextView
-			{
-				InputTextWidget = new Gtk.TextView ();
-				Highlighther = new HtmlHighlighter (InputTextWidget.Buffer);
-			}
+			InputTextWidget = new Gtk.TextView ();
+			Highlighther = new HtmlHighlighter (InputTextWidget.Buffer);
 
 			// set text wrap mode
 			InputTextWidget.WrapMode = Gtk.WrapMode.Word;
