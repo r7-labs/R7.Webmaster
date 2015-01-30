@@ -1,5 +1,7 @@
 # R7.Webmaster
 
+[![Build Status](https://travis-ci.org/roman-yagodin/R7.Webmaster.svg?branch=master)](https://travis-ci.org/roman-yagodin/R7.Webmaster)
+
 *R7.Webmaster* project's main goal is to increase webmasters everyday productivity by providing a set
 of useful and (hopefully) ergonomic desktop tools. And I also think that these tools should be
 cross-platform (1) and extensible (2).
