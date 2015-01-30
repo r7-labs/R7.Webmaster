@@ -1,2 +1,5 @@
 language: csharp
 solution: R7.Webmaster.sln
+install:
+  - sudo apt-get install -y libmono-addins-cil-dev
+  - nuget restore R7.Webmaster.sln
