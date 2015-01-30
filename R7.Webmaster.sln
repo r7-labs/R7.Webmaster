@@ -19,6 +19,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 	ProjectSection(SolutionItems) = preProject
 		LICENSE.md = LICENSE.md
 		README.md = README.md
+		.travis.yml = .travis.yml
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "images", "images", "{C12592EB-A3A6-41D1-90ED-CEAD28F8416A}"
@@ -71,7 +72,6 @@ Global
 		{C12592EB-A3A6-41D1-90ED-CEAD28F8416A} = {667888CF-FD7D-4EFF-A26B-ECC2805CF77F}
 	EndGlobalSection
 	GlobalSection(MonoDevelopProperties) = preSolution
-		StartupItem = R7.Webmaster\R7.Webmaster.csproj
 		Policies = $0
 		$0.DotNetNamingPolicy = $1
 		$1.DirectoryNamespaceAssociation = None
