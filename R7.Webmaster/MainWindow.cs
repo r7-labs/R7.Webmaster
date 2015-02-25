@@ -295,6 +295,9 @@ namespace R7.Webmaster
 			TextScrolledWindow.ShadowType = Gtk.ShadowType.EtchedIn;
 			TextScrolledWindow.BorderWidth = 1;
 
+			// wireup changed event handler
+			InputTextWidget.Buffer.Changed += OnInputTextChanged;
+
 			// place in vbox
 			vbox1.Add (TextScrolledWindow);
 
