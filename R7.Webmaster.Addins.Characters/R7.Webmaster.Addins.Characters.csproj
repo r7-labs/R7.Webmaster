@@ -3,10 +3,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
-    <ProjectGuid>{B82793C6-D632-42C5-B91B-0216AB0F61C6}</ProjectGuid>
-    <OutputType>WinExe</OutputType>
-    <RootNamespace>R7.Webmaster</RootNamespace>
-    <AssemblyName>R7.Webmaster</AssemblyName>
+    <ProjectGuid>{E1BC5E3E-B179-49A7-9BDA-64F3F4AF32BA}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <RootNamespace>R7.Webmaster.Addins.Characters</RootNamespace>
+    <AssemblyName>R7.Webmaster.Addins.Characters</AssemblyName>
+    <UseMSBuildEngine>True</UseMSBuildEngine>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
@@ -19,11 +20,6 @@
     <WarningLevel>4</WarningLevel>
     <ConsolePause>false</ConsolePause>
     <PlatformTarget>x86</PlatformTarget>
-    <EnvironmentVariables>
-      <EnvironmentVariables>
-        <Variable name="MONO_ENABLE_SHM" value="1" />
-      </EnvironmentVariables>
-    </EnvironmentVariables>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
     <DebugType>full</DebugType>
@@ -33,11 +29,6 @@
     <WarningLevel>4</WarningLevel>
     <ConsolePause>false</ConsolePause>
     <PlatformTarget>x86</PlatformTarget>
-    <EnvironmentVariables>
-      <EnvironmentVariables>
-        <Variable name="MONO_ENABLE_SHM" value="1" />
-      </EnvironmentVariables>
-    </EnvironmentVariables>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -66,30 +57,23 @@
       <Package>gtk-sharp-2.0</Package>
     </Reference>
     <Reference Include="Mono.Posix" />
-    <Reference Include="System.ComponentModel.DataAnnotations" />
-    <Reference Include="Nini">
-      <HintPath>..\R7.Webmaster.Core\lib\Nini.dll</HintPath>
+    <Reference Include="Mono.Addins, Version=1.0.0.0, Culture=neutral, PublicKeyToken=0738eb9f132ed756">
+      <Package>mono-addins</Package>
     </Reference>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="gtk-gui\gui.stetic">
       <LogicalName>gui.stetic</LogicalName>
     </EmbeddedResource>
-    <EmbeddedResource Include="icons\webmaster_512.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </EmbeddedResource>
-    <EmbeddedResource Include="icons\webmaster_128.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </EmbeddedResource>
-    <EmbeddedResource Include="ui\TrayMenu.xml" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="gtk-gui\generated.cs" />
-    <Compile Include="MainWindow.cs" />
-    <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="gtk-gui\R7.Webmaster.MainWindow.cs" />
-    <Compile Include="WebmasterConfig.cs" />
+    <Compile Include="CharactersWidget.cs" />
+    <Compile Include="gtk-gui\R7.Webmaster.Addins.Characters.CharactersWidget.cs" />
+    <Compile Include="ICharactersView.cs" />
+    <Compile Include="CharactersModel.cs" />
+    <Compile Include="CharactersPresenter.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
@@ -97,45 +81,9 @@
       <Project>{9E9C53C7-15ED-4703-ACE1-0BC67280096A}</Project>
       <Name>R7.Webmaster.Addins.Root</Name>
     </ProjectReference>
-    <ProjectReference Include="..\R7.Webmaster.Addins.CaseChanger\R7.Webmaster.Addins.CaseChanger.csproj">
-      <Project>{7305D0C3-77E4-4B8F-9C1D-5DA63921619D}</Project>
-      <Name>R7.Webmaster.Addins.CaseChanger</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\R7.Webmaster.Addins.RatioCalculator\R7.Webmaster.Addins.RatioCalculator.csproj">
-      <Project>{570E67AC-BFF3-443D-AC49-4F357791DD97}</Project>
-      <Name>R7.Webmaster.Addins.RatioCalculator</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\R7.Webmaster.Addins.PasswordGenerator\R7.Webmaster.Addins.PasswordGenerator.csproj">
-      <Project>{F9781FD0-502A-44A0-AB9B-05748B5506FC}</Project>
-      <Name>R7.Webmaster.Addins.PasswordGenerator</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\R7.Webmaster.Addins.TextCleaner\R7.Webmaster.Addins.TextCleaner.csproj">
-      <Project>{972BDB06-45FC-4E3F-9FE5-59A98CE97554}</Project>
-      <Name>R7.Webmaster.Addins.TextCleaner</Name>
-    </ProjectReference>
     <ProjectReference Include="..\R7.Webmaster.Core\R7.Webmaster.Core.csproj">
       <Project>{EB897CA8-4CC5-4EEF-8B39-F16364387661}</Project>
       <Name>R7.Webmaster.Core</Name>
     </ProjectReference>
-    <ProjectReference Include="..\R7.Webmaster.Addins.TableCleaner\R7.Webmaster.Addins.TableCleaner.csproj">
-      <Project>{3EF57EBA-BEE8-4766-8148-97E305DC0A9E}</Project>
-      <Name>R7.Webmaster.Addins.TableCleaner</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\R7.Webmaster.Addins.Characters\R7.Webmaster.Addins.Characters.csproj">
-      <Project>{E1BC5E3E-B179-49A7-9BDA-64F3F4AF32BA}</Project>
-      <Name>R7.Webmaster.Addins.Characters</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="icons\webmaster.svg" />
-    <None Include="install.targets">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Include="webmaster.config">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="ui\" />
   </ItemGroup>
 </Project>
