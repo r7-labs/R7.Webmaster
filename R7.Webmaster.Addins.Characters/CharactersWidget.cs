@@ -23,6 +23,7 @@ using System;
 using System.Collections.Generic;
 using Mono.Addins;
 using R7.Webmaster.Addins.Root;
+using R7.Webmaster.Core;
 
 namespace R7.Webmaster.Addins.Characters
 {
@@ -98,14 +99,19 @@ namespace R7.Webmaster.Addins.Characters
 
 			if (character != null)
 			{
+				string charPresentation;
+
 				if (toggleXmlMode.Active)
 				{
-					entryCharacters.Text += character.Entity;
+					charPresentation = character.Entity;
 				}
 				else
 				{
-					entryCharacters.Text += (char)character.Code;
+					charPresentation = ((char)character.Code).ToString ();
 				}
+
+				entryCharacters.Text += charPresentation;
+				Clipboard.Text = charPresentation;
 			}
 		}
 	}

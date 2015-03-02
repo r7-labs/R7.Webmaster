@@ -4,7 +4,7 @@
   <Character Label="Non-breakable space" Code="160" Entity="&amp;nbsp;" />
   <Character Label="©" Code="169" Entity="&amp;copy;" />
   <Character Label="®" Code="174" Entity="&amp;reg;" />
-  <Character Label="TM" Code="8482" />
+  <Character Label="TM" Code="8482" Entity="&amp;trade;" />
   <Character Label="–" Code="8211" Entity="&amp;ndash;"/>
   <Character Label="—" Code="8212" Entity="&amp;mdash;"/>
 </Characters>
