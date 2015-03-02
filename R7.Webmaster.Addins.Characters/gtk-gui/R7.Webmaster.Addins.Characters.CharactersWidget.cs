@@ -6,13 +6,35 @@ namespace R7.Webmaster.Addins.Characters
 	{
 		private global::Gtk.UIManager UIManager;
 		
-		private global::Gtk.ToggleAction toggleXmlMode;
+		private global::Gtk.ToggleAction toggleAppend;
+		
+		private global::Gtk.Action actionClear;
 		
 		private global::Gtk.VBox vbox1;
 		
+		private global::Gtk.Table tableCharacters;
+		
+		private global::Gtk.Table table1;
+		
 		private global::Gtk.Entry entryCharacters;
 		
-		private global::Gtk.Table tableCharacters;
+		private global::Gtk.Entry entryEntities;
+		
+		private global::Gtk.Entry entryHexEntities;
+		
+		private global::Gtk.Entry entryNumericEntities;
+		
+		private global::Gtk.Entry entryUnicode;
+		
+		private global::Gtk.Label label1;
+		
+		private global::Gtk.Label label2;
+		
+		private global::Gtk.Label label3;
+		
+		private global::Gtk.Label label4;
+		
+		private global::Gtk.Label label5;
 
 		protected virtual void Build ()
 		{
@@ -21,10 +43,13 @@ namespace R7.Webmaster.Addins.Characters
 			Stetic.BinContainer w1 = global::Stetic.BinContainer.Attach (this);
 			this.UIManager = new global::Gtk.UIManager ();
 			global::Gtk.ActionGroup w2 = new global::Gtk.ActionGroup ("Default");
-			this.toggleXmlMode = new global::Gtk.ToggleAction ("toggleXmlMode", global::Mono.Unix.Catalog.GetString ("XML Mode"), null, "gtk-convert");
-			this.toggleXmlMode.IsImportant = true;
-			this.toggleXmlMode.ShortLabel = global::Mono.Unix.Catalog.GetString ("XML Mode");
-			w2.Add (this.toggleXmlMode, null);
+			this.toggleAppend = new global::Gtk.ToggleAction ("toggleAppend", global::Mono.Unix.Catalog.GetString ("Append"), null, "gtk-add");
+			this.toggleAppend.IsImportant = true;
+			this.toggleAppend.ShortLabel = global::Mono.Unix.Catalog.GetString ("Append");
+			w2.Add (this.toggleAppend, null);
+			this.actionClear = new global::Gtk.Action ("actionClear", global::Mono.Unix.Catalog.GetString ("Clear"), null, "gtk-clear");
+			this.actionClear.ShortLabel = global::Mono.Unix.Catalog.GetString ("Clear");
+			w2.Add (this.actionClear, null);
 			this.UIManager.InsertActionGroup (w2, 0);
 			this.Name = "R7.Webmaster.Addins.Characters.CharactersWidget";
 			// Container child R7.Webmaster.Addins.Characters.CharactersWidget.Gtk.Container+ContainerChild
@@ -32,30 +57,146 @@ namespace R7.Webmaster.Addins.Characters
 			this.vbox1.Name = "vbox1";
 			this.vbox1.Spacing = 6;
 			// Container child vbox1.Gtk.Box+BoxChild
+			this.tableCharacters = new global::Gtk.Table (((uint)(4)), ((uint)(5)), false);
+			this.tableCharacters.Name = "tableCharacters";
+			this.tableCharacters.RowSpacing = ((uint)(6));
+			this.tableCharacters.ColumnSpacing = ((uint)(6));
+			this.vbox1.Add (this.tableCharacters);
+			global::Gtk.Box.BoxChild w3 = ((global::Gtk.Box.BoxChild)(this.vbox1 [this.tableCharacters]));
+			w3.Position = 0;
+			// Container child vbox1.Gtk.Box+BoxChild
+			this.table1 = new global::Gtk.Table (((uint)(5)), ((uint)(3)), false);
+			this.table1.Name = "table1";
+			this.table1.RowSpacing = ((uint)(6));
+			this.table1.ColumnSpacing = ((uint)(6));
+			// Container child table1.Gtk.Table+TableChild
 			this.entryCharacters = new global::Gtk.Entry ();
 			this.entryCharacters.CanFocus = true;
 			this.entryCharacters.Name = "entryCharacters";
 			this.entryCharacters.IsEditable = true;
 			this.entryCharacters.InvisibleChar = '●';
-			this.vbox1.Add (this.entryCharacters);
-			global::Gtk.Box.BoxChild w3 = ((global::Gtk.Box.BoxChild)(this.vbox1 [this.entryCharacters]));
-			w3.Position = 0;
-			w3.Expand = false;
-			w3.Fill = false;
-			// Container child vbox1.Gtk.Box+BoxChild
-			this.tableCharacters = new global::Gtk.Table (((uint)(3)), ((uint)(3)), false);
-			this.tableCharacters.Name = "tableCharacters";
-			this.tableCharacters.RowSpacing = ((uint)(6));
-			this.tableCharacters.ColumnSpacing = ((uint)(6));
-			this.vbox1.Add (this.tableCharacters);
-			global::Gtk.Box.BoxChild w4 = ((global::Gtk.Box.BoxChild)(this.vbox1 [this.tableCharacters]));
-			w4.Position = 1;
+			this.table1.Add (this.entryCharacters);
+			global::Gtk.Table.TableChild w4 = ((global::Gtk.Table.TableChild)(this.table1 [this.entryCharacters]));
+			w4.LeftAttach = ((uint)(1));
+			w4.RightAttach = ((uint)(2));
+			w4.YOptions = ((global::Gtk.AttachOptions)(4));
+			// Container child table1.Gtk.Table+TableChild
+			this.entryEntities = new global::Gtk.Entry ();
+			this.entryEntities.CanFocus = true;
+			this.entryEntities.Name = "entryEntities";
+			this.entryEntities.IsEditable = true;
+			this.entryEntities.InvisibleChar = '●';
+			this.table1.Add (this.entryEntities);
+			global::Gtk.Table.TableChild w5 = ((global::Gtk.Table.TableChild)(this.table1 [this.entryEntities]));
+			w5.TopAttach = ((uint)(1));
+			w5.BottomAttach = ((uint)(2));
+			w5.LeftAttach = ((uint)(1));
+			w5.RightAttach = ((uint)(2));
+			w5.YOptions = ((global::Gtk.AttachOptions)(4));
+			// Container child table1.Gtk.Table+TableChild
+			this.entryHexEntities = new global::Gtk.Entry ();
+			this.entryHexEntities.CanFocus = true;
+			this.entryHexEntities.Name = "entryHexEntities";
+			this.entryHexEntities.IsEditable = true;
+			this.entryHexEntities.InvisibleChar = '●';
+			this.table1.Add (this.entryHexEntities);
+			global::Gtk.Table.TableChild w6 = ((global::Gtk.Table.TableChild)(this.table1 [this.entryHexEntities]));
+			w6.TopAttach = ((uint)(3));
+			w6.BottomAttach = ((uint)(4));
+			w6.LeftAttach = ((uint)(1));
+			w6.RightAttach = ((uint)(2));
+			w6.YOptions = ((global::Gtk.AttachOptions)(4));
+			// Container child table1.Gtk.Table+TableChild
+			this.entryNumericEntities = new global::Gtk.Entry ();
+			this.entryNumericEntities.CanFocus = true;
+			this.entryNumericEntities.Name = "entryNumericEntities";
+			this.entryNumericEntities.IsEditable = true;
+			this.entryNumericEntities.InvisibleChar = '●';
+			this.table1.Add (this.entryNumericEntities);
+			global::Gtk.Table.TableChild w7 = ((global::Gtk.Table.TableChild)(this.table1 [this.entryNumericEntities]));
+			w7.TopAttach = ((uint)(2));
+			w7.BottomAttach = ((uint)(3));
+			w7.LeftAttach = ((uint)(1));
+			w7.RightAttach = ((uint)(2));
+			w7.YOptions = ((global::Gtk.AttachOptions)(4));
+			// Container child table1.Gtk.Table+TableChild
+			this.entryUnicode = new global::Gtk.Entry ();
+			this.entryUnicode.CanFocus = true;
+			this.entryUnicode.Name = "entryUnicode";
+			this.entryUnicode.IsEditable = true;
+			this.entryUnicode.InvisibleChar = '●';
+			this.table1.Add (this.entryUnicode);
+			global::Gtk.Table.TableChild w8 = ((global::Gtk.Table.TableChild)(this.table1 [this.entryUnicode]));
+			w8.TopAttach = ((uint)(4));
+			w8.BottomAttach = ((uint)(5));
+			w8.LeftAttach = ((uint)(1));
+			w8.RightAttach = ((uint)(2));
+			w8.YOptions = ((global::Gtk.AttachOptions)(4));
+			// Container child table1.Gtk.Table+TableChild
+			this.label1 = new global::Gtk.Label ();
+			this.label1.Name = "label1";
+			this.label1.Xalign = 1F;
+			this.label1.LabelProp = global::Mono.Unix.Catalog.GetString ("Characters:");
+			this.table1.Add (this.label1);
+			global::Gtk.Table.TableChild w9 = ((global::Gtk.Table.TableChild)(this.table1 [this.label1]));
+			w9.XOptions = ((global::Gtk.AttachOptions)(4));
+			w9.YOptions = ((global::Gtk.AttachOptions)(4));
+			// Container child table1.Gtk.Table+TableChild
+			this.label2 = new global::Gtk.Label ();
+			this.label2.Name = "label2";
+			this.label2.Xalign = 1F;
+			this.label2.LabelProp = global::Mono.Unix.Catalog.GetString ("Entity Names:");
+			this.table1.Add (this.label2);
+			global::Gtk.Table.TableChild w10 = ((global::Gtk.Table.TableChild)(this.table1 [this.label2]));
+			w10.TopAttach = ((uint)(1));
+			w10.BottomAttach = ((uint)(2));
+			w10.XOptions = ((global::Gtk.AttachOptions)(4));
+			w10.YOptions = ((global::Gtk.AttachOptions)(4));
+			// Container child table1.Gtk.Table+TableChild
+			this.label3 = new global::Gtk.Label ();
+			this.label3.Name = "label3";
+			this.label3.Xalign = 1F;
+			this.label3.LabelProp = global::Mono.Unix.Catalog.GetString ("Numeric Entities:");
+			this.table1.Add (this.label3);
+			global::Gtk.Table.TableChild w11 = ((global::Gtk.Table.TableChild)(this.table1 [this.label3]));
+			w11.TopAttach = ((uint)(2));
+			w11.BottomAttach = ((uint)(3));
+			w11.XOptions = ((global::Gtk.AttachOptions)(4));
+			w11.YOptions = ((global::Gtk.AttachOptions)(4));
+			// Container child table1.Gtk.Table+TableChild
+			this.label4 = new global::Gtk.Label ();
+			this.label4.Name = "label4";
+			this.label4.Xalign = 1F;
+			this.label4.LabelProp = global::Mono.Unix.Catalog.GetString ("Numeric Entities (hex):");
+			this.table1.Add (this.label4);
+			global::Gtk.Table.TableChild w12 = ((global::Gtk.Table.TableChild)(this.table1 [this.label4]));
+			w12.TopAttach = ((uint)(3));
+			w12.BottomAttach = ((uint)(4));
+			w12.XOptions = ((global::Gtk.AttachOptions)(4));
+			w12.YOptions = ((global::Gtk.AttachOptions)(4));
+			// Container child table1.Gtk.Table+TableChild
+			this.label5 = new global::Gtk.Label ();
+			this.label5.Name = "label5";
+			this.label5.Xalign = 1F;
+			this.label5.LabelProp = global::Mono.Unix.Catalog.GetString ("Unicode Designation:");
+			this.table1.Add (this.label5);
+			global::Gtk.Table.TableChild w13 = ((global::Gtk.Table.TableChild)(this.table1 [this.label5]));
+			w13.TopAttach = ((uint)(4));
+			w13.BottomAttach = ((uint)(5));
+			w13.XOptions = ((global::Gtk.AttachOptions)(4));
+			w13.YOptions = ((global::Gtk.AttachOptions)(4));
+			this.vbox1.Add (this.table1);
+			global::Gtk.Box.BoxChild w14 = ((global::Gtk.Box.BoxChild)(this.vbox1 [this.table1]));
+			w14.Position = 1;
+			w14.Expand = false;
+			w14.Fill = false;
 			this.Add (this.vbox1);
 			if ((this.Child != null)) {
 				this.Child.ShowAll ();
 			}
 			w1.SetUiManager (UIManager);
 			this.Hide ();
+			this.actionClear.Activated += new global::System.EventHandler (this.OnActionClearActivated);
 		}
 	}
 }

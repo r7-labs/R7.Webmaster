@@ -49,7 +49,14 @@ namespace R7.Webmaster.Addins.Characters
 
 		public List<Gtk.ToolItem> ToolItems 
 		{ 
-			get { return new List<Gtk.ToolItem> () { (Gtk.ToolItem) toggleXmlMode.CreateToolItem () }; }
+			get 
+			{ 
+				return new List<Gtk.ToolItem> () 
+				{
+					(Gtk.ToolItem) toggleAppend.CreateToolItem (),
+					(Gtk.ToolItem) actionClear.CreateToolItem ()
+				}; 
+			}
 		}
 
 		#endregion
@@ -62,7 +69,7 @@ namespace R7.Webmaster.Addins.Characters
 
 			Model = new CharactersModel ();
 
-			MakeButtons (Model.Characters, tableCharacters, 5);
+			MakeButtons (Model.Characters, tableCharacters, 10);
 		}
 
 		protected void MakeButtons (CharacterList charList, Gtk.Table table, int columns)
@@ -99,20 +106,33 @@ namespace R7.Webmaster.Addins.Characters
 
 			if (character != null)
 			{
-				string charPresentation;
+				// need to append or replace entry text 
+				var append = toggleAppend.Active;
 
-				if (toggleXmlMode.Active)
-				{
-					charPresentation = character.Entity;
-				}
-				else
-				{
-					charPresentation = ((char)character.Code).ToString ();
-				}
+				// format chars and put them to the entiries
+				TextToEntry (entryCharacters, ((char)character.Code).ToString (), append);
+				TextToEntry (entryEntities, character.Entity, append);
+				TextToEntry (entryNumericEntities, "&#" + character.Code + ";", append);
+				TextToEntry (entryHexEntities, "&#x" + character.Code.ToString("X") + ";", append);
+				TextToEntry (entryUnicode, "U+" + character.Code.ToString ("X4"), append);
 
-				entryCharacters.Text += charPresentation;
-				Clipboard.Text = charPresentation;
+				// copy to clipboard
+				Clipboard.Text = ((char)character.Code).ToString ();
 			}
+		}
+
+		protected void TextToEntry (Gtk.Entry entry, string text, bool append)
+		{
+			entry.Text = (append ? entry.Text : "") + text;
+		}
+
+		protected void OnActionClearActivated (object sender, EventArgs e)
+		{
+			entryCharacters.Text = "";
+			entryEntities.Text = "";
+			entryNumericEntities.Text = "";
+			entryHexEntities.Text = "";
+			entryUnicode.Text = "";
 		}
 	}
 }
