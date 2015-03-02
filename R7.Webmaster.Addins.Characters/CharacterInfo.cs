@@ -49,7 +49,7 @@ namespace R7.Webmaster.Addins.Characters
 		[XmlAttribute]
 		public string Entity
 		{
-			get { return !string.IsNullOrWhiteSpace (entity) ? entity : "&#" + Code; }
+			get { return !string.IsNullOrWhiteSpace (entity) ? entity : "&#" + Code + ";"; }
 			set { entity = value; }
 		}
 
