@@ -4,22 +4,57 @@ namespace R7.Webmaster.Addins.Characters
 {
 	public partial class CharactersWidget
 	{
+		private global::Gtk.UIManager UIManager;
+		
+		private global::Gtk.ToggleAction toggleXmlMode;
+		
 		private global::Gtk.VBox vbox1;
+		
+		private global::Gtk.Entry entryCharacters;
+		
+		private global::Gtk.Table tableCharacters;
 
 		protected virtual void Build ()
 		{
 			global::Stetic.Gui.Initialize (this);
 			// Widget R7.Webmaster.Addins.Characters.CharactersWidget
-			global::Stetic.BinContainer.Attach (this);
+			Stetic.BinContainer w1 = global::Stetic.BinContainer.Attach (this);
+			this.UIManager = new global::Gtk.UIManager ();
+			global::Gtk.ActionGroup w2 = new global::Gtk.ActionGroup ("Default");
+			this.toggleXmlMode = new global::Gtk.ToggleAction ("toggleXmlMode", global::Mono.Unix.Catalog.GetString ("XML Mode"), null, "gtk-convert");
+			this.toggleXmlMode.IsImportant = true;
+			this.toggleXmlMode.ShortLabel = global::Mono.Unix.Catalog.GetString ("XML Mode");
+			w2.Add (this.toggleXmlMode, null);
+			this.UIManager.InsertActionGroup (w2, 0);
 			this.Name = "R7.Webmaster.Addins.Characters.CharactersWidget";
 			// Container child R7.Webmaster.Addins.Characters.CharactersWidget.Gtk.Container+ContainerChild
 			this.vbox1 = new global::Gtk.VBox ();
 			this.vbox1.Name = "vbox1";
 			this.vbox1.Spacing = 6;
+			// Container child vbox1.Gtk.Box+BoxChild
+			this.entryCharacters = new global::Gtk.Entry ();
+			this.entryCharacters.CanFocus = true;
+			this.entryCharacters.Name = "entryCharacters";
+			this.entryCharacters.IsEditable = true;
+			this.entryCharacters.InvisibleChar = '●';
+			this.vbox1.Add (this.entryCharacters);
+			global::Gtk.Box.BoxChild w3 = ((global::Gtk.Box.BoxChild)(this.vbox1 [this.entryCharacters]));
+			w3.Position = 0;
+			w3.Expand = false;
+			w3.Fill = false;
+			// Container child vbox1.Gtk.Box+BoxChild
+			this.tableCharacters = new global::Gtk.Table (((uint)(3)), ((uint)(3)), false);
+			this.tableCharacters.Name = "tableCharacters";
+			this.tableCharacters.RowSpacing = ((uint)(6));
+			this.tableCharacters.ColumnSpacing = ((uint)(6));
+			this.vbox1.Add (this.tableCharacters);
+			global::Gtk.Box.BoxChild w4 = ((global::Gtk.Box.BoxChild)(this.vbox1 [this.tableCharacters]));
+			w4.Position = 1;
 			this.Add (this.vbox1);
 			if ((this.Child != null)) {
 				this.Child.ShowAll ();
 			}
+			w1.SetUiManager (UIManager);
 			this.Hide ();
 		}
 	}

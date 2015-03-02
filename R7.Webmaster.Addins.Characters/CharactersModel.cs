@@ -24,11 +24,43 @@ using System;
 namespace R7.Webmaster.Addins.Characters
 {
 	public class CharactersModel
-	{
+	{	
+		public CharacterList Characters;
+
 		public CharactersModel ()
 		{
-
+			Characters = new CharacterList ();
+			Characters.LoadFromFile ("characters.xml");
 		}
+
+		/*
+		private void TestingDatabase ()
+		{
+			var charList = new CharacterList ();
+
+			charList.Characters.Add (new CharacterInfo () { Code = (int)'…' });
+			charList.Characters.Add (new CharacterInfo () { Label = "Non-breakable space", Code = 160, Entity = "&nbsp;" });
+			charList.Characters.Add (new CharacterInfo () { Code = (int)'Z' });
+
+			var stream = new FileStream ("characters.xml", FileMode.Create, FileAccess.Write, FileShare.Read);
+			// var xmlWriter = new XmlTextWriter (stream, System.Text.Encoding.UTF8);
+			//xmlWriter.Settings.Indent = true;
+			//xmlWriter.Settings.IndentChars = "\t";
+			//xmlWriter.Settings.NewLineOnAttributes = true;
+			//xmlWriter.Settings.NewLineChars = "\n";
+
+			var xser = new XmlSerializer (typeof (CharacterList) );
+			//var xser = new XmlSerializer (typeof (List<CharacterInfo>), new Type [] { typeof(CharacterInfo) } );
+			//var xser = new XmlSerializer (typeof(CharacterInfo));
+
+			//foreach (var ch in chars)
+			//	xser.Serialize (xmlWriter, ch);
+
+			xser.Serialize (stream, charList);
+
+			//xmlWriter.Close ();
+			stream.Close ();
+		}*/
 	}
 }
 

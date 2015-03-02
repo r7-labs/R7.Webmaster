@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Characters xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Character Label="…" Code="8230" />
+  <Character Label="Non-breakable space" Code="160" Entity="&amp;nbsp;" />
+  <Character Label="©" Code="169" Entity="&amp;copy;" />
+  <Character Label="®" Code="174" Entity="&amp;reg;" />
+  <Character Label="TM" Code="8482" />
+  <Character Label="–" Code="8211" Entity="&amp;ndash;"/>
+  <Character Label="—" Code="8212" Entity="&amp;mdash;"/>
+</Characters>

@@ -60,6 +60,8 @@
     <Reference Include="Mono.Addins, Version=1.0.0.0, Culture=neutral, PublicKeyToken=0738eb9f132ed756">
       <Package>mono-addins</Package>
     </Reference>
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Xml.Serialization" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="gtk-gui\gui.stetic">
@@ -74,6 +76,8 @@
     <Compile Include="ICharactersView.cs" />
     <Compile Include="CharactersModel.cs" />
     <Compile Include="CharactersPresenter.cs" />
+    <Compile Include="CharacterList.cs" />
+    <Compile Include="CharacterInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
@@ -85,5 +89,10 @@
       <Project>{EB897CA8-4CC5-4EEF-8B39-F16364387661}</Project>
       <Name>R7.Webmaster.Core</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="characters.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
 </Project>

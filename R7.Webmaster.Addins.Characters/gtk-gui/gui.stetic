@@ -11,6 +11,17 @@
     <widget-library name="../bin/Debug/R7.Webmaster.Addins.Characters.dll" internal="true" />
   </import>
   <widget class="Gtk.Bin" id="R7.Webmaster.Addins.Characters.CharactersWidget" design-size="519 300">
+    <action-group name="Default">
+      <action id="toggleXmlMode">
+        <property name="Type">Toggle</property>
+        <property name="IsImportant">True</property>
+        <property name="Label" translatable="yes">XML Mode</property>
+        <property name="ShortLabel" translatable="yes">XML Mode</property>
+        <property name="StockId">gtk-convert</property>
+        <property name="DrawAsRadio">False</property>
+        <property name="Active">False</property>
+      </action>
+    </action-group>
     <property name="MemberName" />
     <property name="Visible">False</property>
     <child>
@@ -18,13 +29,58 @@
         <property name="MemberName" />
         <property name="Spacing">6</property>
         <child>
-          <placeholder />
+          <widget class="Gtk.Entry" id="entryCharacters">
+            <property name="MemberName" />
+            <property name="CanFocus">True</property>
+            <property name="IsEditable">True</property>
+            <property name="InvisibleChar">●</property>
+          </widget>
+          <packing>
+            <property name="Position">0</property>
+            <property name="AutoSize">True</property>
+            <property name="Expand">False</property>
+            <property name="Fill">False</property>
+          </packing>
         </child>
         <child>
-          <placeholder />
-        </child>
-        <child>
-          <placeholder />
+          <widget class="Gtk.Table" id="tableCharacters">
+            <property name="MemberName" />
+            <property name="NRows">3</property>
+            <property name="NColumns">3</property>
+            <property name="RowSpacing">6</property>
+            <property name="ColumnSpacing">6</property>
+            <child>
+              <placeholder />
+            </child>
+            <child>
+              <placeholder />
+            </child>
+            <child>
+              <placeholder />
+            </child>
+            <child>
+              <placeholder />
+            </child>
+            <child>
+              <placeholder />
+            </child>
+            <child>
+              <placeholder />
+            </child>
+            <child>
+              <placeholder />
+            </child>
+            <child>
+              <placeholder />
+            </child>
+            <child>
+              <placeholder />
+            </child>
+          </widget>
+          <packing>
+            <property name="Position">1</property>
+            <property name="AutoSize">True</property>
+          </packing>
         </child>
       </widget>
     </child>
