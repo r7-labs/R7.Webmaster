@@ -63,6 +63,8 @@ namespace R7.Webmaster.Addins.Characters
 
 		protected CharactersModel Model;
 
+		protected ToggleButtonRadioGroup toggleButtonRadioGroup;
+
 		public CharactersWidget ()
 		{
 			this.Build ();
@@ -70,6 +72,11 @@ namespace R7.Webmaster.Addins.Characters
 			Model = new CharactersModel ();
 
 			MakeButtons (Model.Characters, tableCharacters, 10);
+
+			toggleButtonRadioGroup = new ToggleButtonRadioGroup (buttonCopyCharacters, 
+				buttonCopyEntities, buttonCopyNumericEntities, buttonCopyHexEntities, buttonCopyUnicode);
+
+			toggleButtonRadioGroup.Activate (0);
 		}
 
 		protected void MakeButtons (CharacterList charList, Gtk.Table table, int columns)
@@ -116,14 +123,28 @@ namespace R7.Webmaster.Addins.Characters
 				TextToEntry (entryHexEntities, "&#x" + character.Code.ToString("X") + ";", append);
 				TextToEntry (entryUnicode, "U+" + character.Code.ToString ("X4"), append);
 
-				// copy to clipboard
-				Clipboard.Text = ((char)character.Code).ToString ();
+				// copy entry content to clipboard
+				TextToClipboard (toggleButtonRadioGroup.Active);
 			}
 		}
 
 		protected void TextToEntry (Gtk.Entry entry, string text, bool append)
 		{
 			entry.Text = (append ? entry.Text : "") + text;
+		}
+
+		protected void TextToClipboard (Gtk.ToggleButton button)
+		{
+			if (button == buttonCopyCharacters)
+				Clipboard.Text = entryCharacters.Text;
+			else if (button == buttonCopyEntities)
+				Clipboard.Text = entryEntities.Text;
+			else if (button == buttonCopyHexEntities)
+				Clipboard.Text = entryHexEntities.Text;
+			else if (button == buttonCopyNumericEntities)
+				Clipboard.Text = entryNumericEntities.Text;
+			else if (button == buttonCopyUnicode)
+				Clipboard.Text = entryUnicode.Text;
 		}
 
 		protected void OnActionClearActivated (object sender, EventArgs e)
@@ -133,6 +154,14 @@ namespace R7.Webmaster.Addins.Characters
 			entryNumericEntities.Text = "";
 			entryHexEntities.Text = "";
 			entryUnicode.Text = "";
+		}
+
+		protected void OnButtonCopyClicked (object sender, EventArgs e)
+		{
+			var button = (Gtk.ToggleButton) sender;
+
+			if (button.Active)
+				TextToClipboard (button);
 		}
 	}
 }
