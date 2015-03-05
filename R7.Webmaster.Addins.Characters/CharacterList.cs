@@ -95,13 +95,19 @@ namespace R7.Webmaster.Addins.Characters
 			return null;
 		}
 
-        public List<CharacterInfo> FilterByCategory (string category)
+        public List<CharacterInfo> FilterByCategories (params string [] categories)
         {
             var result = new List<CharacterInfo> ();
 
             foreach (var character in Characters)
-                if (character.Categories.Contains (category))
-                    result.Add (character);
+                foreach (var category in categories)
+                    if (character.Categories.Contains (category))
+                    {
+                        result.Add (character);
+
+                        // included in result, move to next character
+                        break;
+                    }
 
             return result;
         }
