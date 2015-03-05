@@ -79,8 +79,17 @@ namespace R7.Webmaster.Addins.Characters
 			toggleButtonRadioGroup.Activate (0);
 		}
 
+        protected void ClearButtons (Gtk.Table table)
+        {
+            foreach (var w in table.Children)
+                if (w is Gtk.Button)
+                    table.Remove (w);
+        }
+
         protected void MakeButtons (List<CharacterInfo> charList, Gtk.Table table, int columns)
 		{
+            ClearButtons (table);
+
             table.NColumns = (uint)columns;
 			table.NRows = (uint)Math.Ceiling ((double)charList.Count / columns);
 
