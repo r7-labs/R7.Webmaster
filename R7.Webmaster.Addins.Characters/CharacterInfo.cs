@@ -54,6 +54,9 @@ namespace R7.Webmaster.Addins.Characters
 		}
 
         [XmlAttribute]
+        public string Categories { get; set; }
+
+        [XmlAttribute]
         public string Description { get; set; }
 
 		/*

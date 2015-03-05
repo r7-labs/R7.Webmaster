@@ -29,16 +29,41 @@ namespace R7.Webmaster.Addins.Characters
 	[XmlRoot ("Characters")]
 	public class CharacterList
 	{	
+        private SortedSet<string> categories;
+
 		#region Properties
 
 		[XmlElement ("Character", typeof (CharacterInfo))]
 		public List<CharacterInfo> Characters { get; set; } 
+
+        [XmlIgnore]
+        public SortedSet<string> Categories 
+        {
+            get
+            { 
+                if (categories == null)
+                {
+                    categories = new SortedSet<string> ();
+
+                    var splitChars = new [] { ',' };
+                    foreach (var character in Characters)
+                    {
+                        var catStrings = character.Categories.Split (splitChars, StringSplitOptions.RemoveEmptyEntries);
+                        foreach (var catString in catStrings)
+                            categories.Add (catString);
+                    }
+                }
+
+                return categories;
+            }
+        }
 
 		#endregion
 
 		public CharacterList ()
 		{
 			Characters = new List<CharacterInfo> ();
+
 		}
 
 		#region Methods
@@ -70,7 +95,18 @@ namespace R7.Webmaster.Addins.Characters
 			return null;
 		}
 
-		#endregion
+        public List<CharacterInfo> FilterByCategory (string category)
+        {
+            var result = new List<CharacterInfo> ();
+
+            foreach (var character in Characters)
+                if (character.Categories.Contains (category))
+                    result.Add (character);
+
+            return result;
+        }
+
+        #endregion
 	}
 }
 
