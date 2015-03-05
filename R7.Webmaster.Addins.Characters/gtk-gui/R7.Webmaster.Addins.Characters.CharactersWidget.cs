@@ -77,7 +77,7 @@ namespace R7.Webmaster.Addins.Characters
 			global::Gtk.Viewport w3 = new global::Gtk.Viewport ();
 			w3.ShadowType = ((global::Gtk.ShadowType)(0));
 			// Container child GtkViewport.Gtk.Container+ContainerChild
-			this.tableCharacters = new global::Gtk.Table (((uint)(4)), ((uint)(5)), false);
+			this.tableCharacters = new global::Gtk.Table (((uint)(4)), ((uint)(5)), true);
 			this.tableCharacters.Name = "tableCharacters";
 			this.tableCharacters.RowSpacing = ((uint)(6));
 			this.tableCharacters.ColumnSpacing = ((uint)(6));
