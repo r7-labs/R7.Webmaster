@@ -53,6 +53,9 @@ namespace R7.Webmaster.Addins.Characters
 			set { entity = value; }
 		}
 
+        [XmlAttribute]
+        public string Description { get; set; }
+
 		/*
 		#region IXmlSerializable implementation
 

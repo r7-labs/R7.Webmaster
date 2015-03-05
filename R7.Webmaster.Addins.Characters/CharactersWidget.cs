@@ -91,6 +91,7 @@ namespace R7.Webmaster.Addins.Characters
 			{
 				var button = new Gtk.Button ();
 				button.Label = ch.Label;
+                button.TooltipText = ch.Description;
 				button.Data.Add ("CharacterCode", ch.Code);
 				button.Clicked += CharacterButtonClicked;
 				// button.ModifyFont (Pango.FontDescription.FromString ("Monospace,24"));
