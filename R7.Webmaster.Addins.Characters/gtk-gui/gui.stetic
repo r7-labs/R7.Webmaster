@@ -10,7 +10,7 @@
     <widget-library name="../../R7.Webmaster.Core/bin/Debug/R7.Webmaster.Core.dll" />
     <widget-library name="../bin/Debug/R7.Webmaster.Addins.Characters.dll" internal="true" />
   </import>
-  <widget class="Gtk.Bin" id="R7.Webmaster.Addins.Characters.CharactersWidget" design-size="519 299">
+  <widget class="Gtk.Bin" id="R7.Webmaster.Addins.Characters.CharactersWidget" design-size="519 312">
     <action-group name="Default">
       <action id="toggleAppend">
         <property name="Type">Toggle</property>
@@ -36,71 +36,84 @@
         <property name="MemberName" />
         <property name="Spacing">6</property>
         <child>
-          <widget class="Gtk.Table" id="tableCharacters">
+          <widget class="Gtk.ScrolledWindow" id="scrolledwindow1">
             <property name="MemberName" />
-            <property name="NRows">4</property>
-            <property name="NColumns">5</property>
-            <property name="RowSpacing">6</property>
-            <property name="ColumnSpacing">6</property>
+            <property name="CanFocus">True</property>
+            <property name="HscrollbarPolicy">Never</property>
             <child>
-              <placeholder />
-            </child>
-            <child>
-              <placeholder />
-            </child>
-            <child>
-              <placeholder />
-            </child>
-            <child>
-              <placeholder />
-            </child>
-            <child>
-              <placeholder />
-            </child>
-            <child>
-              <placeholder />
-            </child>
-            <child>
-              <placeholder />
-            </child>
-            <child>
-              <placeholder />
-            </child>
-            <child>
-              <placeholder />
-            </child>
-            <child>
-              <placeholder />
-            </child>
-            <child>
-              <placeholder />
-            </child>
-            <child>
-              <placeholder />
-            </child>
-            <child>
-              <placeholder />
-            </child>
-            <child>
-              <placeholder />
-            </child>
-            <child>
-              <placeholder />
-            </child>
-            <child>
-              <placeholder />
-            </child>
-            <child>
-              <placeholder />
-            </child>
-            <child>
-              <placeholder />
-            </child>
-            <child>
-              <placeholder />
-            </child>
-            <child>
-              <placeholder />
+              <widget class="Gtk.Viewport" id="GtkViewport">
+                <property name="MemberName" />
+                <property name="ShadowType">None</property>
+                <child>
+                  <widget class="Gtk.Table" id="tableCharacters">
+                    <property name="MemberName" />
+                    <property name="NRows">4</property>
+                    <property name="NColumns">5</property>
+                    <property name="RowSpacing">6</property>
+                    <property name="ColumnSpacing">6</property>
+                    <child>
+                      <placeholder />
+                    </child>
+                    <child>
+                      <placeholder />
+                    </child>
+                    <child>
+                      <placeholder />
+                    </child>
+                    <child>
+                      <placeholder />
+                    </child>
+                    <child>
+                      <placeholder />
+                    </child>
+                    <child>
+                      <placeholder />
+                    </child>
+                    <child>
+                      <placeholder />
+                    </child>
+                    <child>
+                      <placeholder />
+                    </child>
+                    <child>
+                      <placeholder />
+                    </child>
+                    <child>
+                      <placeholder />
+                    </child>
+                    <child>
+                      <placeholder />
+                    </child>
+                    <child>
+                      <placeholder />
+                    </child>
+                    <child>
+                      <placeholder />
+                    </child>
+                    <child>
+                      <placeholder />
+                    </child>
+                    <child>
+                      <placeholder />
+                    </child>
+                    <child>
+                      <placeholder />
+                    </child>
+                    <child>
+                      <placeholder />
+                    </child>
+                    <child>
+                      <placeholder />
+                    </child>
+                    <child>
+                      <placeholder />
+                    </child>
+                    <child>
+                      <placeholder />
+                    </child>
+                  </widget>
+                </child>
+              </widget>
             </child>
           </widget>
           <packing>

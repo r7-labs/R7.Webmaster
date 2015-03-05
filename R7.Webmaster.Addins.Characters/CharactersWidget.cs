@@ -160,6 +160,7 @@ namespace R7.Webmaster.Addins.Characters
 		{
 			var button = (Gtk.ToggleButton) sender;
 
+			// simulate click-like behaviour
 			if (button.Active)
 				TextToClipboard (button);
 		}
