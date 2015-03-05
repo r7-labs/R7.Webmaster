@@ -71,7 +71,7 @@ namespace R7.Webmaster.Addins.Characters
 
 			Model = new CharactersModel ();
 
-			MakeButtons (Model.Characters, tableCharacters, 10);
+            MakeButtons (Model.Characters.Characters, tableCharacters, 10);
 
 			toggleButtonRadioGroup = new ToggleButtonRadioGroup (buttonCopyCharacters, 
 				buttonCopyEntities, buttonCopyNumericEntities, buttonCopyHexEntities, buttonCopyUnicode);
@@ -79,15 +79,15 @@ namespace R7.Webmaster.Addins.Characters
 			toggleButtonRadioGroup.Activate (0);
 		}
 
-		protected void MakeButtons (CharacterList charList, Gtk.Table table, int columns)
+        protected void MakeButtons (List<CharacterInfo> charList, Gtk.Table table, int columns)
 		{
-			table.NColumns = (uint)columns;
-			table.NRows = (uint)Math.Ceiling ((double)charList.Characters.Count / columns);
+            table.NColumns = (uint)columns;
+			table.NRows = (uint)Math.Ceiling ((double)charList.Count / columns);
 
 			// attach indexes
 			long left = 0;
 			long top = 0;
-			foreach (var ch in charList.Characters)
+			foreach (var ch in charList)
 			{
 				var button = new Gtk.Button ();
 				button.Label = ch.Label;
