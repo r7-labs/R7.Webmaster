@@ -50,9 +50,10 @@ Categories=WebDevelopment;Development;GTK;
 			<InstallBinaryFiles Include="*.dll" />
 		</ItemGroup>
 
-		<!-- Declare config files -->
+		<!-- Declare config &amp; data files -->
 		<ItemGroup>
 			<InstallConfigFiles Include="*.config" Exclude="*.exe.config" />
+            <InstallConfigFiles Include="*.xml" />
 		</ItemGroup>
 
 		<!-- Declare starter scripts -->
