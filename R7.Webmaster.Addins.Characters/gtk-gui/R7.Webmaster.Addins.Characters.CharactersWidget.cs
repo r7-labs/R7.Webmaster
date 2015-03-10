@@ -302,11 +302,6 @@ namespace R7.Webmaster.Addins.Characters
 			w1.SetUiManager (UIManager);
 			this.Hide ();
 			this.actionClear.Activated += new global::System.EventHandler (this.OnActionClearActivated);
-			this.buttonCopyUnicode.Toggled += new global::System.EventHandler (this.OnButtonCopyClicked);
-			this.buttonCopyNumericEntities.Toggled += new global::System.EventHandler (this.OnButtonCopyClicked);
-			this.buttonCopyHexEntities.Toggled += new global::System.EventHandler (this.OnButtonCopyClicked);
-			this.buttonCopyEntities.Toggled += new global::System.EventHandler (this.OnButtonCopyClicked);
-			this.buttonCopyCharacters.Toggled += new global::System.EventHandler (this.OnButtonCopyClicked);
 		}
 	}
 }

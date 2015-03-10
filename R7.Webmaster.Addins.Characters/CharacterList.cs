@@ -31,6 +31,8 @@ namespace R7.Webmaster.Addins.Characters
 	{	
         private SortedSet<string> categories;
 
+        private SortedSet<string> mainCategories;
+
 		#region Properties
 
 		[XmlElement ("Character", typeof (CharacterInfo))]
@@ -58,12 +60,32 @@ namespace R7.Webmaster.Addins.Characters
             }
         }
 
+        [XmlIgnore]
+        public SortedSet<string> MainCategories 
+        {
+            get
+            { 
+                if (mainCategories == null)
+                {
+                    mainCategories = new SortedSet<string> ();
+
+                    var splitChars = new [] { ',' };
+                    foreach (var character in Characters)
+                    {
+                        var catStrings = character.Categories.Split (splitChars, StringSplitOptions.RemoveEmptyEntries);
+                        mainCategories.Add (catStrings [0]);
+                    }
+                }
+
+                return mainCategories;
+            }
+        }
+
 		#endregion
 
 		public CharacterList ()
 		{
 			Characters = new List<CharacterInfo> ();
-
 		}
 
 		#region Methods

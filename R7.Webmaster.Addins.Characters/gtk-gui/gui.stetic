@@ -119,7 +119,7 @@
           </widget>
           <packing>
             <property name="Position">0</property>
-            <property name="AutoSize">True</property>
+            <property name="AutoSize">False</property>
           </packing>
         </child>
         <child>
@@ -137,7 +137,6 @@
                 <property name="Icon">stock:gtk-copy Menu</property>
                 <property name="Label" translatable="yes">Copy</property>
                 <property name="UseUnderline">True</property>
-                <signal name="Toggled" handler="OnButtonCopyClicked" />
               </widget>
               <packing>
                 <property name="LeftAttach">2</property>
@@ -161,7 +160,6 @@
                 <property name="Icon">stock:gtk-copy Menu</property>
                 <property name="Label" translatable="yes">Copy</property>
                 <property name="UseUnderline">True</property>
-                <signal name="Toggled" handler="OnButtonCopyClicked" />
               </widget>
               <packing>
                 <property name="TopAttach">1</property>
@@ -187,7 +185,6 @@
                 <property name="Icon">stock:gtk-copy Menu</property>
                 <property name="Label" translatable="yes">Copy</property>
                 <property name="UseUnderline">True</property>
-                <signal name="Toggled" handler="OnButtonCopyClicked" />
               </widget>
               <packing>
                 <property name="TopAttach">3</property>
@@ -213,7 +210,6 @@
                 <property name="Icon">stock:gtk-copy Menu</property>
                 <property name="Label" translatable="yes">Copy</property>
                 <property name="UseUnderline">True</property>
-                <signal name="Toggled" handler="OnButtonCopyClicked" />
               </widget>
               <packing>
                 <property name="TopAttach">2</property>
@@ -239,7 +235,6 @@
                 <property name="Icon">stock:gtk-copy Menu</property>
                 <property name="Label" translatable="yes">Copy</property>
                 <property name="UseUnderline">True</property>
-                <signal name="Toggled" handler="OnButtonCopyClicked" />
               </widget>
               <packing>
                 <property name="TopAttach">4</property>

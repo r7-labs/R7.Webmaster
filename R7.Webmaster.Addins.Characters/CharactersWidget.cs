@@ -54,7 +54,9 @@ namespace R7.Webmaster.Addins.Characters
 				return new List<Gtk.ToolItem> () 
 				{
 					(Gtk.ToolItem) toggleAppend.CreateToolItem (),
-					(Gtk.ToolItem) actionClear.CreateToolItem ()
+					(Gtk.ToolItem) actionClear.CreateToolItem (),
+                    new Gtk.SeparatorToolItem (),
+                    buttonFilter
 				}; 
 			}
 		}
@@ -64,6 +66,8 @@ namespace R7.Webmaster.Addins.Characters
 		protected CharactersModel Model;
 
 		protected ToggleButtonRadioGroup toggleButtonRadioGroup;
+
+        protected Gtk.MenuToolButton buttonFilter;
 
 		public CharactersWidget ()
 		{
@@ -77,7 +81,54 @@ namespace R7.Webmaster.Addins.Characters
 				buttonCopyEntities, buttonCopyNumericEntities, buttonCopyHexEntities, buttonCopyUnicode);
 
 			toggleButtonRadioGroup.Activate (0);
+
+            buttonFilter = new Gtk.MenuToolButton ("");
+            buttonFilter.Label = "All";
+            buttonFilter.IsImportant = true;
+            buttonFilter.Menu = MakeCategoriesMenu (Model.Characters);
 		}
+
+        protected Gtk.Menu MakeCategoriesMenu (CharacterList characters)
+        {
+            var menu = new Gtk.Menu ();
+            var submenu = new Gtk.Menu ();
+            Gtk.RadioAction actionFirst = null;
+
+            foreach (var category in characters.Categories)
+            {
+                var action = new Gtk.RadioAction (category, category, "", "", 0);
+
+                action.Toggled += CategoryActionToggled;
+
+                if (actionFirst == null)
+                    actionFirst = action;
+                else
+                    action.Group = actionFirst.Group;
+
+                if (characters.MainCategories.Contains (category))
+                    menu.Append (action.CreateMenuItem ());
+                else
+                    submenu.Append (action.CreateMenuItem ());
+            }
+
+            menu.Append (new Gtk.SeparatorMenuItem ());
+
+            var submenuItem = new Gtk.MenuItem ("Other");
+            submenuItem.Submenu = submenu;
+            menu.Append (submenuItem);
+
+            menu.ShowAll ();
+
+            return menu;
+        }
+
+        protected void CategoryActionToggled (object sender, EventArgs e)
+        {
+            var action = (Gtk.RadioAction) sender;
+
+            buttonFilter.Label = action.Name;
+            MakeButtons (Model.Characters.FilterByCategories (action.Name), tableCharacters, 10);
+        }
 
         protected void ClearButtons (Gtk.Table table)
         {
@@ -91,7 +142,7 @@ namespace R7.Webmaster.Addins.Characters
             ClearButtons (table);
 
             table.NColumns = (uint)columns;
-			table.NRows = (uint)Math.Ceiling ((double)charList.Count / columns);
+            table.NRows = Math.Max (3, (uint) Math.Ceiling ((double) charList.Count / columns));
 
 			// attach indexes
 			long left = 0;
@@ -99,7 +150,7 @@ namespace R7.Webmaster.Addins.Characters
 			foreach (var ch in charList)
 			{
 				var button = new Gtk.Button ();
-				button.Label = ch.Label;
+                button.Label = ch.Label;
                 button.TooltipText = ch.Description;
 				button.Data.Add ("CharacterCode", ch.Code);
 				button.Clicked += CharacterButtonClicked;
@@ -164,6 +215,9 @@ namespace R7.Webmaster.Addins.Characters
 			entryNumericEntities.Text = "";
 			entryHexEntities.Text = "";
 			entryUnicode.Text = "";
+
+            buttonFilter.Label = "All";
+            MakeButtons (Model.Characters.Characters, tableCharacters, 10);
 		}
 
 		protected void OnButtonCopyClicked (object sender, EventArgs e)

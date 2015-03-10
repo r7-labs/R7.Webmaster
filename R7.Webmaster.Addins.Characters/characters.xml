@@ -1,257 +1,257 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <!-- Source: http://en.wikipedia.org/wiki/List_of_XML_and_HTML_character_entity_references -->
 <Characters xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-    <Character Label="&quot;" Entity="&quot;" Code="34" Categories="HTML 2.0,HTMLspecial,ISOnum" Description="quotation mark (APL quote)" />
-    <Character Label="&amp;" Entity="&amp;" Code="38" Categories="HTML 2.0,HTMLspecial,ISOnum" Description="ampersand" />
-    <Character Label="'" Entity="&apos;" Code="39" Categories="XHTML 1.0 ,HTMLspecial,ISOnum" Description="apostrophe (apostrophe-quote); see below" />
-    <Character Label="&lt;" Entity="&lt;" Code="60" Categories="HTML 2.0,HTMLspecial,ISOnum" Description="less-than sign" />
-    <Character Label="&gt;" Entity="&gt;" Code="62" Categories="HTML 2.0,HTMLspecial,ISOnum" Description="greater-than sign" />
-    <Character Label="NBSP" Entity="&nbsp;" Code="160" Categories="HTML 3.2,HTMLlat1,ISOnum" Description="no-break space (non-breaking space)" />
-    <Character Label="¡" Entity="&iexcl;" Code="161" Categories="HTML 3.2,HTMLlat1,ISOnum" Description="inverted exclamation mark" />
-    <Character Label="¢" Entity="&cent;" Code="162" Categories="HTML 3.2,HTMLlat1,ISOnum" Description="cent sign" />
-    <Character Label="£" Entity="&pound;" Code="163" Categories="HTML 3.2,HTMLlat1,ISOnum" Description="pound sign" />
-    <Character Label="¤" Entity="&curren;" Code="164" Categories="HTML 3.2,HTMLlat1,ISOnum" Description="currency sign" />
-    <Character Label="¥" Entity="&yen;" Code="165" Categories="HTML 3.2,HTMLlat1,ISOnum" Description="yen sign (yuan sign)" />
-    <Character Label="¦" Entity="&brvbar;" Code="166" Categories="HTML 3.2,HTMLlat1,ISOnum" Description="broken bar (broken vertical bar)" />
-    <Character Label="§" Entity="&sect;" Code="167" Categories="HTML 3.2,HTMLlat1,ISOnum" Description="section sign" />
-    <Character Label="¨" Entity="&uml;" Code="168" Categories="HTML 3.2,HTMLlat1,ISOdia" Description="diaeresis (spacing diaeresis); see Germanic umlaut" />
-    <Character Label="©" Entity="&copy;" Code="169" Categories="HTML 3.2,HTMLlat1,ISOnum" Description="copyright symbol" />
-    <Character Label="ª" Entity="&ordf;" Code="170" Categories="HTML 3.2,HTMLlat1,ISOnum" Description="feminine ordinal indicator" />
-    <Character Label="«" Entity="&laquo;" Code="171" Categories="HTML 3.2,HTMLlat1,ISOnum" Description="left-pointing double angle quotation mark (left pointing guillemet)" />
-    <Character Label="¬" Entity="&not;" Code="172" Categories="HTML 3.2,HTMLlat1,ISOnum" Description="not sign" />
-    <Character Label="" Entity="&shy;" Code="173" Categories="HTML 3.2,HTMLlat1,ISOnum" Description="soft hyphen (discretionary hyphen)" />
-    <Character Label="®" Entity="&reg;" Code="174" Categories="HTML 3.2,HTMLlat1,ISOnum" Description="registered sign (registered trademark symbol)" />
-    <Character Label="¯" Entity="&macr;" Code="175" Categories="HTML 3.2,HTMLlat1,ISOdia" Description="macron (spacing macron, overline, APL overbar)" />
-    <Character Label="°" Entity="&deg;" Code="176" Categories="HTML 3.2,HTMLlat1,ISOnum" Description="degree symbol" />
-    <Character Label="±" Entity="&plusmn;" Code="177" Categories="HTML 3.2,HTMLlat1,ISOnum" Description="plus-minus sign (plus-or-minus sign)" />
-    <Character Label="²" Entity="&sup2;" Code="178" Categories="HTML 3.2,HTMLlat1,ISOnum" Description="superscript two (superscript digit two, squared)" />
-    <Character Label="³" Entity="&sup3;" Code="179" Categories="HTML 3.2,HTMLlat1,ISOnum" Description="superscript three (superscript digit three, cubed)" />
-    <Character Label="´" Entity="&acute;" Code="180" Categories="HTML 3.2,HTMLlat1,ISOdia" Description="acute accent (spacing acute)" />
-    <Character Label="µ" Entity="&micro;" Code="181" Categories="HTML 3.2,HTMLlat1,ISOnum" Description="micro sign" />
-    <Character Label="¶" Entity="&para;" Code="182" Categories="HTML 3.2,HTMLlat1,ISOnum" Description="pilcrow sign (paragraph sign)" />
-    <Character Label="·" Entity="&middot;" Code="183" Categories="HTML 3.2,HTMLlat1,ISOnum" Description="middle dot (Georgian comma, Greek middle dot)" />
-    <Character Label="¸" Entity="&cedil;" Code="184" Categories="HTML 3.2,HTMLlat1,ISOdia" Description="cedilla (spacing cedilla)" />
-    <Character Label="¹" Entity="&sup1;" Code="185" Categories="HTML 3.2,HTMLlat1,ISOnum" Description="superscript one (superscript digit one)" />
-    <Character Label="º" Entity="&ordm;" Code="186" Categories="HTML 3.2,HTMLlat1,ISOnum" Description="masculine ordinal indicator" />
-    <Character Label="»" Entity="&raquo;" Code="187" Categories="HTML 3.2,HTMLlat1,ISOnum" Description="right-pointing double angle quotation mark (right pointing guillemet)" />
-    <Character Label="¼" Entity="&frac14;" Code="188" Categories="HTML 3.2,HTMLlat1,ISOnum" Description="vulgar fraction one quarter (fraction one quarter)" />
-    <Character Label="½" Entity="&frac12;" Code="189" Categories="HTML 3.2,HTMLlat1,ISOnum" Description="vulgar fraction one half (fraction one half)" />
-    <Character Label="¾" Entity="&frac34;" Code="190" Categories="HTML 3.2,HTMLlat1,ISOnum" Description="vulgar fraction three quarters (fraction three quarters)" />
-    <Character Label="¿" Entity="&iquest;" Code="191" Categories="HTML 3.2,HTMLlat1,ISOnum" Description="inverted question mark (turned question mark)" />
-    <Character Label="À" Entity="&Agrave;" Code="192" Categories="HTML 2.0,HTMLlat1,ISOlat1" Description="Latin capital letter A with grave accent (Latin capital letter A grave)" />
-    <Character Label="Á" Entity="&Aacute;" Code="193" Categories="HTML 2.0,HTMLlat1,ISOlat1" Description="Latin capital letter A with acute accent" />
-    <Character Label="Â" Entity="&Acirc;" Code="194" Categories="HTML 2.0,HTMLlat1,ISOlat1" Description="Latin capital letter A with circumflex" />
-    <Character Label="Ã" Entity="&Atilde;" Code="195" Categories="HTML 2.0,HTMLlat1,ISOlat1" Description="Latin capital letter A with tilde" />
-    <Character Label="Ä" Entity="&Auml;" Code="196" Categories="HTML 2.0,HTMLlat1,ISOlat1" Description="Latin capital letter A with diaeresis" />
-    <Character Label="Å" Entity="&Aring;" Code="197" Categories="HTML 2.0,HTMLlat1,ISOlat1" Description="Latin capital letter A with ring above (Latin capital letter A ring)" />
-    <Character Label="Æ" Entity="&AElig;" Code="198" Categories="HTML 2.0,HTMLlat1,ISOlat1" Description="Latin capital letter AE (Latin capital ligature AE)" />
-    <Character Label="Ç" Entity="&Ccedil;" Code="199" Categories="HTML 2.0,HTMLlat1,ISOlat1" Description="Latin capital letter C with cedilla" />
-    <Character Label="È" Entity="&Egrave;" Code="200" Categories="HTML 2.0,HTMLlat1,ISOlat1" Description="Latin capital letter E with grave accent" />
-    <Character Label="É" Entity="&Eacute;" Code="201" Categories="HTML 2.0,HTMLlat1,ISOlat1" Description="Latin capital letter E with acute accent" />
-    <Character Label="Ê" Entity="&Ecirc;" Code="202" Categories="HTML 2.0,HTMLlat1,ISOlat1" Description="Latin capital letter E with circumflex" />
-    <Character Label="Ë" Entity="&Euml;" Code="203" Categories="HTML 2.0,HTMLlat1,ISOlat1" Description="Latin capital letter E with diaeresis" />
-    <Character Label="Ì" Entity="&Igrave;" Code="204" Categories="HTML 2.0,HTMLlat1,ISOlat1" Description="Latin capital letter I with grave accent" />
-    <Character Label="Í" Entity="&Iacute;" Code="205" Categories="HTML 2.0,HTMLlat1,ISOlat1" Description="Latin capital letter I with acute accent" />
-    <Character Label="Î" Entity="&Icirc;" Code="206" Categories="HTML 2.0,HTMLlat1,ISOlat1" Description="Latin capital letter I with circumflex" />
-    <Character Label="Ï" Entity="&Iuml;" Code="207" Categories="HTML 2.0,HTMLlat1,ISOlat1" Description="Latin capital letter I with diaeresis" />
-    <Character Label="Ð" Entity="&ETH;" Code="208" Categories="HTML 2.0,HTMLlat1,ISOlat1" Description="Latin capital letter Eth" />
-    <Character Label="Ñ" Entity="&Ntilde;" Code="209" Categories="HTML 2.0,HTMLlat1,ISOlat1" Description="Latin capital letter N with tilde" />
-    <Character Label="Ò" Entity="&Ograve;" Code="210" Categories="HTML 2.0,HTMLlat1,ISOlat1" Description="Latin capital letter O with grave accent" />
-    <Character Label="Ó" Entity="&Oacute;" Code="211" Categories="HTML 2.0,HTMLlat1,ISOlat1" Description="Latin capital letter O with acute accent" />
-    <Character Label="Ô" Entity="&Ocirc;" Code="212" Categories="HTML 2.0,HTMLlat1,ISOlat1" Description="Latin capital letter O with circumflex" />
-    <Character Label="Õ" Entity="&Otilde;" Code="213" Categories="HTML 2.0,HTMLlat1,ISOlat1" Description="Latin capital letter O with tilde" />
-    <Character Label="Ö" Entity="&Ouml;" Code="214" Categories="HTML 2.0,HTMLlat1,ISOlat1" Description="Latin capital letter O with diaeresis" />
-    <Character Label="×" Entity="&times;" Code="215" Categories="HTML 3.2,HTMLlat1,ISOnum" Description="multiplication sign" />
-    <Character Label="Ø" Entity="&Oslash;" Code="216" Categories="HTML 2.0,HTMLlat1,ISOlat1" Description="Latin capital letter O with stroke (Latin capital letter O slash)" />
-    <Character Label="Ù" Entity="&Ugrave;" Code="217" Categories="HTML 2.0,HTMLlat1,ISOlat1" Description="Latin capital letter U with grave accent" />
-    <Character Label="Ú" Entity="&Uacute;" Code="218" Categories="HTML 2.0,HTMLlat1,ISOlat1" Description="Latin capital letter U with acute accent" />
-    <Character Label="Û" Entity="&Ucirc;" Code="219" Categories="HTML 2.0,HTMLlat1,ISOlat1" Description="Latin capital letter U with circumflex" />
-    <Character Label="Ü" Entity="&Uuml;" Code="220" Categories="HTML 2.0,HTMLlat1,ISOlat1" Description="Latin capital letter U with diaeresis" />
-    <Character Label="Ý" Entity="&Yacute;" Code="221" Categories="HTML 2.0,HTMLlat1,ISOlat1" Description="Latin capital letter Y with acute accent" />
-    <Character Label="Þ" Entity="&THORN;" Code="222" Categories="HTML 2.0,HTMLlat1,ISOlat1" Description="Latin capital letter THORN" />
-    <Character Label="ß" Entity="&szlig;" Code="223" Categories="HTML 2.0,HTMLlat1,ISOlat1" Description="Latin small letter sharp s (ess-zed); see German Eszett" />
-    <Character Label="à" Entity="&agrave;" Code="224" Categories="HTML 2.0,HTMLlat1,ISOlat1" Description="Latin small letter a with grave accent" />
-    <Character Label="á" Entity="&aacute;" Code="225" Categories="HTML 2.0,HTMLlat1,ISOlat1" Description="Latin small letter a with acute accent" />
-    <Character Label="â" Entity="&acirc;" Code="226" Categories="HTML 2.0,HTMLlat1,ISOlat1" Description="Latin small letter a with circumflex" />
-    <Character Label="ã" Entity="&atilde;" Code="227" Categories="HTML 2.0,HTMLlat1,ISOlat1" Description="Latin small letter a with tilde" />
-    <Character Label="ä" Entity="&auml;" Code="228" Categories="HTML 2.0,HTMLlat1,ISOlat1" Description="Latin small letter a with diaeresis" />
-    <Character Label="å" Entity="&aring;" Code="229" Categories="HTML 2.0,HTMLlat1,ISOlat1" Description="Latin small letter a with ring above" />
-    <Character Label="æ" Entity="&aelig;" Code="230" Categories="HTML 2.0,HTMLlat1,ISOlat1" Description="Latin small letter ae (Latin small ligature ae)" />
-    <Character Label="ç" Entity="&ccedil;" Code="231" Categories="HTML 2.0,HTMLlat1,ISOlat1" Description="Latin small letter c with cedilla" />
-    <Character Label="è" Entity="&egrave;" Code="232" Categories="HTML 2.0,HTMLlat1,ISOlat1" Description="Latin small letter e with grave accent" />
-    <Character Label="é" Entity="&eacute;" Code="233" Categories="HTML 2.0,HTMLlat1,ISOlat1" Description="Latin small letter e with acute accent" />
-    <Character Label="ê" Entity="&ecirc;" Code="234" Categories="HTML 2.0,HTMLlat1,ISOlat1" Description="Latin small letter e with circumflex" />
-    <Character Label="ë" Entity="&euml;" Code="235" Categories="HTML 2.0,HTMLlat1,ISOlat1" Description="Latin small letter e with diaeresis" />
-    <Character Label="ì" Entity="&igrave;" Code="236" Categories="HTML 2.0,HTMLlat1,ISOlat1" Description="Latin small letter i with grave accent" />
-    <Character Label="í" Entity="&iacute;" Code="237" Categories="HTML 2.0,HTMLlat1,ISOlat1" Description="Latin small letter i with acute accent" />
-    <Character Label="î" Entity="&icirc;" Code="238" Categories="HTML 2.0,HTMLlat1,ISOlat1" Description="Latin small letter i with circumflex" />
-    <Character Label="ï" Entity="&iuml;" Code="239" Categories="HTML 2.0,HTMLlat1,ISOlat1" Description="Latin small letter i with diaeresis" />
-    <Character Label="ð" Entity="&eth;" Code="240" Categories="HTML 2.0,HTMLlat1,ISOlat1" Description="Latin small letter eth" />
-    <Character Label="ñ" Entity="&ntilde;" Code="241" Categories="HTML 2.0,HTMLlat1,ISOlat1" Description="Latin small letter n with tilde" />
-    <Character Label="ò" Entity="&ograve;" Code="242" Categories="HTML 2.0,HTMLlat1,ISOlat1" Description="Latin small letter o with grave accent" />
-    <Character Label="ó" Entity="&oacute;" Code="243" Categories="HTML 2.0,HTMLlat1,ISOlat1" Description="Latin small letter o with acute accent" />
-    <Character Label="ô" Entity="&ocirc;" Code="244" Categories="HTML 2.0,HTMLlat1,ISOlat1" Description="Latin small letter o with circumflex" />
-    <Character Label="õ" Entity="&otilde;" Code="245" Categories="HTML 2.0,HTMLlat1,ISOlat1" Description="Latin small letter o with tilde" />
-    <Character Label="ö" Entity="&ouml;" Code="246" Categories="HTML 2.0,HTMLlat1,ISOlat1" Description="Latin small letter o with diaeresis" />
-    <Character Label="÷" Entity="&divide;" Code="247" Categories="HTML 3.2,HTMLlat1,ISOnum" Description="division sign (obelus)" />
-    <Character Label="ø" Entity="&oslash;" Code="248" Categories="HTML 2.0,HTMLlat1,ISOlat1" Description="Latin small letter o with stroke (Latin small letter o slash)" />
-    <Character Label="ù" Entity="&ugrave;" Code="249" Categories="HTML 2.0,HTMLlat1,ISOlat1" Description="Latin small letter u with grave accent" />
-    <Character Label="ú" Entity="&uacute;" Code="250" Categories="HTML 2.0,HTMLlat1,ISOlat1" Description="Latin small letter u with acute accent" />
-    <Character Label="û" Entity="&ucirc;" Code="251" Categories="HTML 2.0,HTMLlat1,ISOlat1" Description="Latin small letter u with circumflex" />
-    <Character Label="ü" Entity="&uuml;" Code="252" Categories="HTML 2.0,HTMLlat1,ISOlat1" Description="Latin small letter u with diaeresis" />
-    <Character Label="ý" Entity="&yacute;" Code="253" Categories="HTML 2.0,HTMLlat1,ISOlat1" Description="Latin small letter y with acute accent" />
-    <Character Label="þ" Entity="&thorn;" Code="254" Categories="HTML 2.0,HTMLlat1,ISOlat1" Description="Latin small letter thorn" />
-    <Character Label="ÿ" Entity="&yuml;" Code="255" Categories="HTML 2.0,HTMLlat1,ISOlat1" Description="Latin small letter y with diaeresis" />
-    <Character Label="Œ" Entity="&OElig;" Code="338" Categories="HTML 4.0,HTMLspecial,ISOlat2" Description="Latin capital ligature oe" />
-    <Character Label="œ" Entity="&oelig;" Code="339" Categories="HTML 4.0,HTMLspecial,ISOlat2" Description="Latin small ligature oe" />
-    <Character Label="Š" Entity="&Scaron;" Code="352" Categories="HTML 4.0,HTMLspecial,ISOlat2" Description="Latin capital letter s with caron" />
-    <Character Label="š" Entity="&scaron;" Code="353" Categories="HTML 4.0,HTMLspecial,ISOlat2" Description="Latin small letter s with caron" />
-    <Character Label="Ÿ" Entity="&Yuml;" Code="376" Categories="HTML 4.0,HTMLspecial,ISOlat2" Description="Latin capital letter y with diaeresis" />
-    <Character Label="ƒ" Entity="&fnof;" Code="402" Categories="HTML 4.0,HTMLsymbol,ISOtech" Description="Latin small letter f with hook (function, florin)" />
-    <Character Label="ˆ" Entity="&circ;" Code="710" Categories="HTML 4.0,HTMLspecial,ISOpub" Description="modifier letter circumflex accent" />
-    <Character Label="˜" Entity="&tilde;" Code="732" Categories="HTML 4.0,HTMLspecial,ISOdia" Description="small tilde" />
-    <Character Label="Α" Entity="&Alpha;" Code="913" Categories="HTML 4.0,HTMLsymbol" Description="Greek capital letter Alpha" />
-    <Character Label="Β" Entity="&Beta;" Code="914" Categories="HTML 4.0,HTMLsymbol" Description="Greek capital letter Beta" />
-    <Character Label="Γ" Entity="&Gamma;" Code="915" Categories="HTML 4.0,HTMLsymbol,ISOgrk3" Description="Greek capital letter Gamma" />
-    <Character Label="Δ" Entity="&Delta;" Code="916" Categories="HTML 4.0,HTMLsymbol,ISOgrk3" Description="Greek capital letter Delta" />
-    <Character Label="Ε" Entity="&Epsilon;" Code="917" Categories="HTML 4.0,HTMLsymbol" Description="Greek capital letter Epsilon" />
-    <Character Label="Ζ" Entity="&Zeta;" Code="918" Categories="HTML 4.0,HTMLsymbol" Description="Greek capital letter Zeta" />
-    <Character Label="Η" Entity="&Eta;" Code="919" Categories="HTML 4.0,HTMLsymbol" Description="Greek capital letter Eta" />
-    <Character Label="Θ" Entity="&Theta;" Code="920" Categories="HTML 4.0,HTMLsymbol,ISOgrk3" Description="Greek capital letter Theta" />
-    <Character Label="Ι" Entity="&Iota;" Code="921" Categories="HTML 4.0,HTMLsymbol" Description="Greek capital letter Iota" />
-    <Character Label="Κ" Entity="&Kappa;" Code="922" Categories="HTML 4.0,HTMLsymbol" Description="Greek capital letter Kappa" />
-    <Character Label="Λ" Entity="&Lambda;" Code="923" Categories="HTML 4.0,HTMLsymbol,ISOgrk3" Description="Greek capital letter Lambda" />
-    <Character Label="Μ" Entity="&Mu;" Code="924" Categories="HTML 4.0,HTMLsymbol" Description="Greek capital letter Mu" />
-    <Character Label="Ν" Entity="&Nu;" Code="925" Categories="HTML 4.0,HTMLsymbol" Description="Greek capital letter Nu" />
-    <Character Label="Ξ" Entity="&Xi;" Code="926" Categories="HTML 4.0,HTMLsymbol,ISOgrk3" Description="Greek capital letter Xi" />
-    <Character Label="Ο" Entity="&Omicron;" Code="927" Categories="HTML 4.0,HTMLsymbol" Description="Greek capital letter Omicron" />
-    <Character Label="Π" Entity="&Pi;" Code="928" Categories="HTML 4.0,HTMLsymbol" Description="Greek capital letter Pi" />
-    <Character Label="Ρ" Entity="&Rho;" Code="929" Categories="HTML 4.0,HTMLsymbol" Description="Greek capital letter Rho" />
-    <Character Label="Σ" Entity="&Sigma;" Code="931" Categories="HTML 4.0,HTMLsymbol,ISOgrk3" Description="Greek capital letter Sigma" />
-    <Character Label="Τ" Entity="&Tau;" Code="932" Categories="HTML 4.0,HTMLsymbol" Description="Greek capital letter Tau" />
-    <Character Label="Υ" Entity="&Upsilon;" Code="933" Categories="HTML 4.0,HTMLsymbol,ISOgrk3" Description="Greek capital letter Upsilon" />
-    <Character Label="Φ" Entity="&Phi;" Code="934" Categories="HTML 4.0,HTMLsymbol,ISOgrk3" Description="Greek capital letter Phi" />
-    <Character Label="Χ" Entity="&Chi;" Code="935" Categories="HTML 4.0,HTMLsymbol" Description="Greek capital letter Chi" />
-    <Character Label="Ψ" Entity="&Psi;" Code="936" Categories="HTML 4.0,HTMLsymbol,ISOgrk3" Description="Greek capital letter Psi" />
-    <Character Label="Ω" Entity="&Omega;" Code="937" Categories="HTML 4.0,HTMLsymbol,ISOgrk3" Description="Greek capital letter Omega" />
-    <Character Label="α" Entity="&alpha;" Code="945" Categories="HTML 4.0,HTMLsymbol,ISOgrk3" Description="Greek small letter alpha" />
-    <Character Label="β" Entity="&beta;" Code="946" Categories="HTML 4.0,HTMLsymbol,ISOgrk3" Description="Greek small letter beta" />
-    <Character Label="γ" Entity="&gamma;" Code="947" Categories="HTML 4.0,HTMLsymbol,ISOgrk3" Description="Greek small letter gamma" />
-    <Character Label="δ" Entity="&delta;" Code="948" Categories="HTML 4.0,HTMLsymbol,ISOgrk3" Description="Greek small letter delta" />
-    <Character Label="ε" Entity="&epsilon;" Code="949" Categories="HTML 4.0,HTMLsymbol,ISOgrk3" Description="Greek small letter epsilon" />
-    <Character Label="ζ" Entity="&zeta;" Code="950" Categories="HTML 4.0,HTMLsymbol,ISOgrk3" Description="Greek small letter zeta" />
-    <Character Label="η" Entity="&eta;" Code="951" Categories="HTML 4.0,HTMLsymbol,ISOgrk3" Description="Greek small letter eta" />
-    <Character Label="θ" Entity="&theta;" Code="952" Categories="HTML 4.0,HTMLsymbol,ISOgrk3" Description="Greek small letter theta" />
-    <Character Label="ι" Entity="&iota;" Code="953" Categories="HTML 4.0,HTMLsymbol,ISOgrk3" Description="Greek small letter iota" />
-    <Character Label="κ" Entity="&kappa;" Code="954" Categories="HTML 4.0,HTMLsymbol,ISOgrk3" Description="Greek small letter kappa" />
-    <Character Label="λ" Entity="&lambda;" Code="955" Categories="HTML 4.0,HTMLsymbol,ISOgrk3" Description="Greek small letter lambda" />
-    <Character Label="μ" Entity="&mu;" Code="956" Categories="HTML 4.0,HTMLsymbol,ISOgrk3" Description="Greek small letter mu" />
-    <Character Label="ν" Entity="&nu;" Code="957" Categories="HTML 4.0,HTMLsymbol,ISOgrk3" Description="Greek small letter nu" />
-    <Character Label="ξ" Entity="&xi;" Code="958" Categories="HTML 4.0,HTMLsymbol,ISOgrk3" Description="Greek small letter xi" />
-    <Character Label="ο" Entity="&omicron;" Code="959" Categories="HTML 4.0,HTMLsymbol,NEW" Description="Greek small letter omicron" />
-    <Character Label="π" Entity="&pi;" Code="960" Categories="HTML 4.0,HTMLsymbol,ISOgrk3" Description="Greek small letter pi" />
-    <Character Label="ρ" Entity="&rho;" Code="961" Categories="HTML 4.0,HTMLsymbol,ISOgrk3" Description="Greek small letter rho" />
-    <Character Label="ς" Entity="&sigmaf;" Code="962" Categories="HTML 4.0,HTMLsymbol,ISOgrk3" Description="Greek small letter final sigma" />
-    <Character Label="σ" Entity="&sigma;" Code="963" Categories="HTML 4.0,HTMLsymbol,ISOgrk3" Description="Greek small letter sigma" />
-    <Character Label="τ" Entity="&tau;" Code="964" Categories="HTML 4.0,HTMLsymbol,ISOgrk3" Description="Greek small letter tau" />
-    <Character Label="υ" Entity="&upsilon;" Code="965" Categories="HTML 4.0,HTMLsymbol,ISOgrk3" Description="Greek small letter upsilon" />
-    <Character Label="φ" Entity="&phi;" Code="966" Categories="HTML 4.0,HTMLsymbol,ISOgrk3" Description="Greek small letter phi" />
-    <Character Label="χ" Entity="&chi;" Code="967" Categories="HTML 4.0,HTMLsymbol,ISOgrk3" Description="Greek small letter chi" />
-    <Character Label="ψ" Entity="&psi;" Code="968" Categories="HTML 4.0,HTMLsymbol,ISOgrk3" Description="Greek small letter psi" />
-    <Character Label="ω" Entity="&omega;" Code="969" Categories="HTML 4.0,HTMLsymbol,ISOgrk3" Description="Greek small letter omega" />
-    <Character Label="ϑ" Entity="&thetasym;" Code="977" Categories="HTML 4.0,HTMLsymbol,NEW" Description="Greek theta symbol" />
-    <Character Label="ϒ" Entity="&upsih;" Code="978" Categories="HTML 4.0,HTMLsymbol,NEW" Description="Greek Upsilon with hook symbol" />
-    <Character Label="ϖ" Entity="&piv;" Code="982" Categories="HTML 4.0,HTMLsymbol,ISOgrk3" Description="Greek pi symbol" />
-    <Character Label=" " Entity="&ensp;" Code="8194" Categories="HTML 4.0,HTMLspecial,ISOpub" Description="en space" />
-    <Character Label=" " Entity="&emsp;" Code="8195" Categories="HTML 4.0,HTMLspecial,ISOpub" Description="em space" />
-    <Character Label=" " Entity="&thinsp;" Code="8201" Categories="HTML 4.0,HTMLspecial,ISOpub" Description="thin space" />
-    <Character Label="" Entity="&zwnj;" Code="8204" Categories="HTML 4.0,HTMLspecial,NEW RFC 2070" Description="zero-width non-joiner" />
-    <Character Label="" Entity="&zwj;" Code="8205" Categories="HTML 4.0,HTMLspecial,NEW RFC 2070" Description="zero-width joiner" />
-    <Character Label="" Entity="&lrm;" Code="8206" Categories="HTML 4.0,HTMLspecial,NEW RFC 2070" Description="left-to-right mark" />
-    <Character Label="" Entity="&rlm;" Code="8207" Categories="HTML 4.0,HTMLspecial,NEW RFC 2070" Description="right-to-left mark" />
-    <Character Label="–" Entity="&ndash;" Code="8211" Categories="HTML 4.0,HTMLspecial,ISOpub" Description="en dash" />
-    <Character Label="—" Entity="&mdash;" Code="8212" Categories="HTML 4.0,HTMLspecial,ISOpub" Description="em dash" />
-    <Character Label="‘" Entity="&lsquo;" Code="8216" Categories="HTML 4.0,HTMLspecial,ISOnum" Description="left single quotation mark" />
-    <Character Label="’" Entity="&rsquo;" Code="8217" Categories="HTML 4.0,HTMLspecial,ISOnum" Description="right single quotation mark" />
-    <Character Label="‚" Entity="&sbquo;" Code="8218" Categories="HTML 4.0,HTMLspecial,NEW" Description="single low-9 quotation mark" />
-    <Character Label="“" Entity="&ldquo;" Code="8220" Categories="HTML 4.0,HTMLspecial,ISOnum" Description="left double quotation mark" />
-    <Character Label="”" Entity="&rdquo;" Code="8221" Categories="HTML 4.0,HTMLspecial,ISOnum" Description="right double quotation mark" />
-    <Character Label="„" Entity="&bdquo;" Code="8222" Categories="HTML 4.0,HTMLspecial,NEW" Description="double low-9 quotation mark" />
-    <Character Label="†" Entity="&dagger;" Code="8224" Categories="HTML 4.0,HTMLspecial,ISOpub" Description="dagger, obelisk" />
-    <Character Label="‡" Entity="&Dagger;" Code="8225" Categories="HTML 4.0,HTMLspecial,ISOpub" Description="double dagger, double obelisk" />
-    <Character Label="•" Entity="&bull;" Code="8226" Categories="HTML 4.0,HTMLspecial,ISOpub" Description="bullet (black small circle)" />
-    <Character Label="…" Entity="&hellip;" Code="8230" Categories="HTML 4.0,HTMLsymbol,ISOpub" Description="horizontal ellipsis (three dot leader)" />
-    <Character Label="‰" Entity="&permil;" Code="8240" Categories="HTML 4.0,HTMLspecial,ISOtech" Description="per mille sign" />
-    <Character Label="′" Entity="&prime;" Code="8242" Categories="HTML 4.0,HTMLsymbol,ISOtech" Description="prime (minutes, feet)" />
-    <Character Label="″" Entity="&Prime;" Code="8243" Categories="HTML 4.0,HTMLsymbol,ISOtech" Description="double prime (seconds, inches)" />
-    <Character Label="‹" Entity="&lsaquo;" Code="8249" Categories="HTML 4.0,HTMLspecial,ISO proposed" Description="single left-pointing angle quotation mark" />
-    <Character Label="›" Entity="&rsaquo;" Code="8250" Categories="HTML 4.0,HTMLspecial,ISO proposed" Description="single right-pointing angle quotation mark" />
-    <Character Label="‾" Entity="&oline;" Code="8254" Categories="HTML 4.0,HTMLsymbol,NEW" Description="overline (spacing overscore)" />
-    <Character Label="⁄" Entity="&frasl;" Code="8260" Categories="HTML 4.0,HTMLsymbol,NEW" Description="fraction slash (solidus)" />
-    <Character Label="€" Entity="&euro;" Code="8364" Categories="HTML 4.0,HTMLspecial,NEW" Description="euro sign" />
-    <Character Label="ℑ" Entity="&image;" Code="8465" Categories="HTML 4.0,HTMLsymbol,ISOamso" Description="black-letter capital I (imaginary part)" />
-    <Character Label="℘" Entity="&weierp;" Code="8472" Categories="HTML 4.0,HTMLsymbol,ISOamso" Description="script capital P (power set, Weierstrass p)" />
-    <Character Label="ℜ" Entity="&real;" Code="8476" Categories="HTML 4.0,HTMLsymbol,ISOamso" Description="black-letter capital R (real part symbol)" />
-    <Character Label="™" Entity="&trade;" Code="8482" Categories="HTML 4.0,HTMLsymbol,ISOnum" Description="trademark symbol" />
-    <Character Label="ℵ" Entity="&alefsym;" Code="8501" Categories="HTML 4.0,HTMLsymbol,NEW" Description="alef symbol (first transfinite cardinal)" />
-    <Character Label="←" Entity="&larr;" Code="8592" Categories="HTML 4.0,HTMLsymbol,ISOnum" Description="leftwards arrow" />
-    <Character Label="↑" Entity="&uarr;" Code="8593" Categories="HTML 4.0,HTMLsymbol,ISOnum" Description="upwards arrow" />
-    <Character Label="→" Entity="&rarr;" Code="8594" Categories="HTML 4.0,HTMLsymbol,ISOnum" Description="rightwards arrow" />
-    <Character Label="↓" Entity="&darr;" Code="8595" Categories="HTML 4.0,HTMLsymbol,ISOnum" Description="downwards arrow" />
-    <Character Label="↔" Entity="&harr;" Code="8596" Categories="HTML 4.0,HTMLsymbol,ISOamsa" Description="left right arrow" />
-    <Character Label="↵" Entity="&crarr;" Code="8629" Categories="HTML 4.0,HTMLsymbol,NEW" Description="downwards arrow with corner leftwards (carriage return)" />
-    <Character Label="⇐" Entity="&lArr;" Code="8656" Categories="HTML 4.0,HTMLsymbol,ISOtech" Description="leftwards double arrow" />
-    <Character Label="⇑" Entity="&uArr;" Code="8657" Categories="HTML 4.0,HTMLsymbol,ISOamsa" Description="upwards double arrow" />
-    <Character Label="⇒" Entity="&rArr;" Code="8658" Categories="HTML 4.0,HTMLsymbol,ISOnum" Description="rightwards double arrow" />
-    <Character Label="⇓" Entity="&dArr;" Code="8659" Categories="HTML 4.0,HTMLsymbol,ISOamsa" Description="downwards double arrow" />
-    <Character Label="⇔" Entity="&hArr;" Code="8660" Categories="HTML 4.0,HTMLsymbol,ISOamsa" Description="left right double arrow" />
-    <Character Label="∀" Entity="&forall;" Code="8704" Categories="HTML 4.0,HTMLsymbol,ISOtech" Description="for all" />
-    <Character Label="∂" Entity="&part;" Code="8706" Categories="HTML 4.0,HTMLsymbol,ISOtech" Description="partial differential" />
-    <Character Label="∃" Entity="&exist;" Code="8707" Categories="HTML 4.0,HTMLsymbol,ISOtech" Description="there exists" />
-    <Character Label="∅" Entity="&empty;" Code="8709" Categories="HTML 4.0,HTMLsymbol,ISOamso" Description="empty set (null set); see also U+8960, ⌀" />
-    <Character Label="∇" Entity="&nabla;" Code="8711" Categories="HTML 4.0,HTMLsymbol,ISOtech" Description="del or nabla (vector differential operator)" />
-    <Character Label="∈" Entity="&isin;" Code="8712" Categories="HTML 4.0,HTMLsymbol,ISOtech" Description="element of" />
-    <Character Label="∉" Entity="&notin;" Code="8713" Categories="HTML 4.0,HTMLsymbol,ISOtech" Description="not an element of" />
-    <Character Label="∋" Entity="&ni;" Code="8715" Categories="HTML 4.0,HTMLsymbol,ISOtech" Description="contains as member" />
-    <Character Label="∏" Entity="&prod;" Code="8719" Categories="HTML 4.0,HTMLsymbol,ISOamsb" Description="n-ary product (product sign)" />
-    <Character Label="∑" Entity="&sum;" Code="8721" Categories="HTML 4.0,HTMLsymbol,ISOamsb" Description="n-ary summation" />
-    <Character Label="−" Entity="&minus;" Code="8722" Categories="HTML 4.0,HTMLsymbol,ISOtech" Description="minus sign" />
-    <Character Label="∗" Entity="&lowast;" Code="8727" Categories="HTML 4.0,HTMLsymbol,ISOtech" Description="asterisk operator" />
-    <Character Label="√" Entity="&radic;" Code="8730" Categories="HTML 4.0,HTMLsymbol,ISOtech" Description="square root (radical sign)" />
-    <Character Label="∝" Entity="&prop;" Code="8733" Categories="HTML 4.0,HTMLsymbol,ISOtech" Description="proportional to" />
-    <Character Label="∞" Entity="&infin;" Code="8734" Categories="HTML 4.0,HTMLsymbol,ISOtech" Description="infinity" />
-    <Character Label="∠" Entity="&ang;" Code="8736" Categories="HTML 4.0,HTMLsymbol,ISOamso" Description="angle" />
-    <Character Label="∧" Entity="&and;" Code="8743" Categories="HTML 4.0,HTMLsymbol,ISOtech" Description="logical and (wedge)" />
-    <Character Label="∨" Entity="&or;" Code="8744" Categories="HTML 4.0,HTMLsymbol,ISOtech" Description="logical or (vee)" />
-    <Character Label="∩" Entity="&cap;" Code="8745" Categories="HTML 4.0,HTMLsymbol,ISOtech" Description="intersection (cap)" />
-    <Character Label="∪" Entity="&cup;" Code="8746" Categories="HTML 4.0,HTMLsymbol,ISOtech" Description="union (cup)" />
-    <Character Label="∫" Entity="&int;" Code="8747" Categories="HTML 4.0,HTMLsymbol,ISOtech" Description="integral" />
-    <Character Label="∴" Entity="&there4;" Code="8756" Categories="HTML 4.0,HTMLsymbol,ISOtech" Description="therefore sign" />
-    <Character Label="∼" Entity="&sim;" Code="8764" Categories="HTML 4.0,HTMLsymbol,ISOtech" Description="tilde operator (varies with, similar to)" />
-    <Character Label="≅" Entity="&cong;" Code="8773" Categories="HTML 4.0,HTMLsymbol,ISOtech" Description="congruent to" />
-    <Character Label="≈" Entity="&asymp;" Code="8776" Categories="HTML 4.0,HTMLsymbol,ISOamsr" Description="almost equal to (asymptotic to)" />
-    <Character Label="≠" Entity="&ne;" Code="8800" Categories="HTML 4.0,HTMLsymbol,ISOtech" Description="not equal to" />
-    <Character Label="≡" Entity="&equiv;" Code="8801" Categories="HTML 4.0,HTMLsymbol,ISOtech" Description="identical to; sometimes used for 'equivalent to'" />
-    <Character Label="≤" Entity="&le;" Code="8804" Categories="HTML 4.0,HTMLsymbol,ISOtech" Description="less-than or equal to" />
-    <Character Label="≥" Entity="&ge;" Code="8805" Categories="HTML 4.0,HTMLsymbol,ISOtech" Description="greater-than or equal to" />
-    <Character Label="⊂" Entity="&sub;" Code="8834" Categories="HTML 4.0,HTMLsymbol,ISOtech" Description="subset of" />
-    <Character Label="⊃" Entity="&sup;" Code="8835" Categories="HTML 4.0,HTMLsymbol,ISOtech" Description="superset of" />
-    <Character Label="⊄" Entity="&nsub;" Code="8836" Categories="HTML 4.0,HTMLsymbol,ISOamsn" Description="not a subset of" />
-    <Character Label="⊆" Entity="&sube;" Code="8838" Categories="HTML 4.0,HTMLsymbol,ISOtech" Description="subset of or equal to" />
-    <Character Label="⊇" Entity="&supe;" Code="8839" Categories="HTML 4.0,HTMLsymbol,ISOtech" Description="superset of or equal to" />
-    <Character Label="⊕" Entity="&oplus;" Code="8853" Categories="HTML 4.0,HTMLsymbol,ISOamsb" Description="circled plus (direct sum)" />
-    <Character Label="⊗" Entity="&otimes;" Code="8855" Categories="HTML 4.0,HTMLsymbol,ISOamsb" Description="circled times (vector product)" />
-    <Character Label="⊥" Entity="&perp;" Code="8869" Categories="HTML 4.0,HTMLsymbol,ISOtech" Description="up tack (orthogonal to, perpendicular)" />
-    <Character Label="⋅" Entity="&sdot;" Code="8901" Categories="HTML 4.0,HTMLsymbol,ISOamsb" Description="dot operator" />
-    <Character Label="⌈" Entity="&lceil;" Code="8968" Categories="HTML 4.0,HTMLsymbol,ISOamsc" Description="left ceiling (APL upstile)" />
-    <Character Label="⌉" Entity="&rceil;" Code="8969" Categories="HTML 4.0,HTMLsymbol,ISOamsc" Description="right ceiling" />
-    <Character Label="⌊" Entity="&lfloor;" Code="8970" Categories="HTML 4.0,HTMLsymbol,ISOamsc" Description="left floor (APL downstile)" />
-    <Character Label="⌋" Entity="&rfloor;" Code="8971" Categories="HTML 4.0,HTMLsymbol,ISOamsc" Description="right floor" />
-    <Character Label="〈" Entity="&lang;" Code="9001" Categories="HTML 4.0,HTMLsymbol,ISOtech" Description="left-pointing angle bracket (bra)" />
-    <Character Label="〉" Entity="&rang;" Code="9002" Categories="HTML 4.0,HTMLsymbol,ISOtech" Description="right-pointing angle bracket (ket)" />
-    <Character Label="◊" Entity="&loz;" Code="9674" Categories="HTML 4.0,HTMLsymbol,ISOpub" Description="lozenge" />
-    <Character Label="♠" Entity="&spades;" Code="9824" Categories="HTML 4.0,HTMLsymbol,ISOpub" Description="black spade suit" />
-    <Character Label="♣" Entity="&clubs;" Code="9827" Categories="HTML 4.0,HTMLsymbol,ISOpub" Description="black club suit (shamrock)" />
-    <Character Label="♥" Entity="&hearts;" Code="9829" Categories="HTML 4.0,HTMLsymbol,ISOpub" Description="black heart suit (valentine)" />
-    <Character Label="♦" Entity="&diams;" Code="9830" Categories="HTML 4.0,HTMLsymbol,ISOpub" Description="black diamond suit" />
+    <Character Label="&quot;" Entity="&amp;&quot;" Code="34" Categories="Quotes,HTML 2.0,HTMLspecial,ISOnum" Description="quotation mark (APL quote)" />
+    <Character Label="&amp;" Entity="&amp;amp;" Code="38" Categories="Punctuation,HTML 2.0,HTMLspecial,ISOnum" Description="ampersand" />
+    <Character Label="'" Entity="&apos;" Code="39" Categories="Quotes,XHTML 1.0 ,HTMLspecial,ISOnum" Description="apostrophe (apostrophe-quote); see below" />
+    <Character Label="&lt;" Entity="&lt;" Code="60" Categories="Quotes,HTML 2.0,HTMLspecial,ISOnum" Description="less-than sign" />
+    <Character Label="&gt;" Entity="&gt;" Code="62" Categories="Quotes,HTML 2.0,HTMLspecial,ISOnum" Description="greater-than sign" />
+    <Character Label="NBSP" Entity="&nbsp;" Code="160" Categories="Whitespace,HTML 3.2,HTMLlat1,ISOnum" Description="no-break space (non-breaking space)" />
+    <Character Label="¡" Entity="&iexcl;" Code="161" Categories="Punctuation,HTML 3.2,HTMLlat1,ISOnum" Description="inverted exclamation mark" />
+    <Character Label="¢" Entity="&cent;" Code="162" Categories="Currency,HTML 3.2,HTMLlat1,ISOnum" Description="cent sign" />
+    <Character Label="£" Entity="&pound;" Code="163" Categories="Currency,HTML 3.2,HTMLlat1,ISOnum" Description="pound sign" />
+    <Character Label="¤" Entity="&curren;" Code="164" Categories="Currency,HTML 3.2,HTMLlat1,ISOnum" Description="currency sign" />
+    <Character Label="¥" Entity="&yen;" Code="165" Categories="Currency,HTML 3.2,HTMLlat1,ISOnum" Description="yen sign (yuan sign)" />
+    <Character Label="¦" Entity="&brvbar;" Code="166" Categories="Punctuation,HTML 3.2,HTMLlat1,ISOnum" Description="broken bar (broken vertical bar)" />
+    <Character Label="§" Entity="&sect;" Code="167" Categories="Punctuation,HTML 3.2,HTMLlat1,ISOnum" Description="section sign" />
+    <Character Label="¨" Entity="&uml;" Code="168" Categories="Diacritics,HTML 3.2,HTMLlat1,ISOdia" Description="diaeresis (spacing diaeresis); see Germanic umlaut" />
+    <Character Label="©" Entity="&copy;" Code="169" Categories="Currency,HTML 3.2,HTMLlat1,ISOnum" Description="copyright symbol" />
+    <Character Label="ª" Entity="&ordf;" Code="170" Categories="Punctuation,HTML 3.2,HTMLlat1,ISOnum" Description="feminine ordinal indicator" />
+    <Character Label="«" Entity="&laquo;" Code="171" Categories="Quotes,HTML 3.2,HTMLlat1,ISOnum" Description="left-pointing double angle quotation mark (left pointing guillemet)" />
+    <Character Label="¬" Entity="&not;" Code="172" Categories="Math,HTML 3.2,HTMLlat1,ISOnum" Description="not sign" />
+    <Character Label="SHY" Entity="&shy;" Code="173" Categories="Whitespace,HTML 3.2,HTMLlat1,ISOnum" Description="soft hyphen (discretionary hyphen)" />
+    <Character Label="®" Entity="&reg;" Code="174" Categories="Currency,HTML 3.2,HTMLlat1,ISOnum" Description="registered sign (registered trademark symbol)" />
+    <Character Label="¯" Entity="&macr;" Code="175" Categories="Math,HTML 3.2,HTMLlat1,ISOdia" Description="macron (spacing macron, overline, APL overbar)" />
+    <Character Label="°" Entity="&deg;" Code="176" Categories="Math,HTML 3.2,HTMLlat1,ISOnum" Description="degree symbol" />
+    <Character Label="±" Entity="&plusmn;" Code="177" Categories="Math,HTML 3.2,HTMLlat1,ISOnum" Description="plus-minus sign (plus-or-minus sign)" />
+    <Character Label="²" Entity="&sup2;" Code="178" Categories="Math,HTML 3.2,HTMLlat1,ISOnum" Description="superscript two (superscript digit two, squared)" />
+    <Character Label="³" Entity="&sup3;" Code="179" Categories="Math,HTML 3.2,HTMLlat1,ISOnum" Description="superscript three (superscript digit three, cubed)" />
+    <Character Label="´" Entity="&acute;" Code="180" Categories="Diacritics,HTML 3.2,HTMLlat1,ISOdia" Description="acute accent (spacing acute)" />
+    <Character Label="µ" Entity="&micro;" Code="181" Categories="Math,HTML 3.2,HTMLlat1,ISOnum" Description="micro sign" />
+    <Character Label="¶" Entity="&para;" Code="182" Categories="Punctuation,HTML 3.2,HTMLlat1,ISOnum" Description="pilcrow sign (paragraph sign)" />
+    <Character Label="·" Entity="&middot;" Code="183" Categories="Punctuation,HTML 3.2,HTMLlat1,ISOnum" Description="middle dot (Georgian comma, Greek middle dot)" />
+    <Character Label="¸" Entity="&cedil;" Code="184" Categories="Diacritics,HTML 3.2,HTMLlat1,ISOdia" Description="cedilla (spacing cedilla)" />
+    <Character Label="¹" Entity="&sup1;" Code="185" Categories="Math,HTML 3.2,HTMLlat1,ISOnum" Description="superscript one (superscript digit one)" />
+    <Character Label="º" Entity="&ordm;" Code="186" Categories="Punctuation,HTML 3.2,HTMLlat1,ISOnum" Description="masculine ordinal indicator" />
+    <Character Label="»" Entity="&raquo;" Code="187" Categories="Quotes,HTML 3.2,HTMLlat1,ISOnum" Description="right-pointing double angle quotation mark (right pointing guillemet)" />
+    <Character Label="¼" Entity="&frac14;" Code="188" Categories="Math,HTML 3.2,HTMLlat1,ISOnum" Description="vulgar fraction one quarter (fraction one quarter)" />
+    <Character Label="½" Entity="&frac12;" Code="189" Categories="Math,HTML 3.2,HTMLlat1,ISOnum" Description="vulgar fraction one half (fraction one half)" />
+    <Character Label="¾" Entity="&frac34;" Code="190" Categories="Math,HTML 3.2,HTMLlat1,ISOnum" Description="vulgar fraction three quarters (fraction three quarters)" />
+    <Character Label="¿" Entity="&iquest;" Code="191" Categories="Punctuation,HTML 3.2,HTMLlat1,ISOnum" Description="inverted question mark (turned question mark)" />
+    <Character Label="À" Entity="&Agrave;" Code="192" Categories="Latin,HTML 2.0,HTMLlat1,ISOlat1" Description="Latin capital letter A with grave accent (Latin capital letter A grave)" />
+    <Character Label="Á" Entity="&Aacute;" Code="193" Categories="Latin,HTML 2.0,HTMLlat1,ISOlat1" Description="Latin capital letter A with acute accent" />
+    <Character Label="Â" Entity="&Acirc;" Code="194" Categories="Latin,HTML 2.0,HTMLlat1,ISOlat1" Description="Latin capital letter A with circumflex" />
+    <Character Label="Ã" Entity="&Atilde;" Code="195" Categories="Latin,HTML 2.0,HTMLlat1,ISOlat1" Description="Latin capital letter A with tilde" />
+    <Character Label="Ä" Entity="&Auml;" Code="196" Categories="Latin,HTML 2.0,HTMLlat1,ISOlat1" Description="Latin capital letter A with diaeresis" />
+    <Character Label="Å" Entity="&Aring;" Code="197" Categories="Latin,HTML 2.0,HTMLlat1,ISOlat1" Description="Latin capital letter A with ring above (Latin capital letter A ring)" />
+    <Character Label="Æ" Entity="&AElig;" Code="198" Categories="Latin,HTML 2.0,HTMLlat1,ISOlat1" Description="Latin capital letter AE (Latin capital ligature AE)" />
+    <Character Label="Ç" Entity="&Ccedil;" Code="199" Categories="Latin,HTML 2.0,HTMLlat1,ISOlat1" Description="Latin capital letter C with cedilla" />
+    <Character Label="È" Entity="&Egrave;" Code="200" Categories="Latin,HTML 2.0,HTMLlat1,ISOlat1" Description="Latin capital letter E with grave accent" />
+    <Character Label="É" Entity="&Eacute;" Code="201" Categories="Latin,HTML 2.0,HTMLlat1,ISOlat1" Description="Latin capital letter E with acute accent" />
+    <Character Label="Ê" Entity="&Ecirc;" Code="202" Categories="Latin,HTML 2.0,HTMLlat1,ISOlat1" Description="Latin capital letter E with circumflex" />
+    <Character Label="Ë" Entity="&Euml;" Code="203" Categories="Latin,HTML 2.0,HTMLlat1,ISOlat1" Description="Latin capital letter E with diaeresis" />
+    <Character Label="Ì" Entity="&Igrave;" Code="204" Categories="Latin,HTML 2.0,HTMLlat1,ISOlat1" Description="Latin capital letter I with grave accent" />
+    <Character Label="Í" Entity="&Iacute;" Code="205" Categories="Latin,HTML 2.0,HTMLlat1,ISOlat1" Description="Latin capital letter I with acute accent" />
+    <Character Label="Î" Entity="&Icirc;" Code="206" Categories="Latin,HTML 2.0,HTMLlat1,ISOlat1" Description="Latin capital letter I with circumflex" />
+    <Character Label="Ï" Entity="&Iuml;" Code="207" Categories="Latin,HTML 2.0,HTMLlat1,ISOlat1" Description="Latin capital letter I with diaeresis" />
+    <Character Label="Ð" Entity="&ETH;" Code="208" Categories="Latin,HTML 2.0,HTMLlat1,ISOlat1" Description="Latin capital letter Eth" />
+    <Character Label="Ñ" Entity="&Ntilde;" Code="209" Categories="Latin,HTML 2.0,HTMLlat1,ISOlat1" Description="Latin capital letter N with tilde" />
+    <Character Label="Ò" Entity="&Ograve;" Code="210" Categories="Latin,HTML 2.0,HTMLlat1,ISOlat1" Description="Latin capital letter O with grave accent" />
+    <Character Label="Ó" Entity="&Oacute;" Code="211" Categories="Latin,HTML 2.0,HTMLlat1,ISOlat1" Description="Latin capital letter O with acute accent" />
+    <Character Label="Ô" Entity="&Ocirc;" Code="212" Categories="Latin,HTML 2.0,HTMLlat1,ISOlat1" Description="Latin capital letter O with circumflex" />
+    <Character Label="Õ" Entity="&Otilde;" Code="213" Categories="Latin,HTML 2.0,HTMLlat1,ISOlat1" Description="Latin capital letter O with tilde" />
+    <Character Label="Ö" Entity="&Ouml;" Code="214" Categories="Latin,HTML 2.0,HTMLlat1,ISOlat1" Description="Latin capital letter O with diaeresis" />
+    <Character Label="×" Entity="&times;" Code="215" Categories="Latin,HTML 3.2,HTMLlat1,ISOnum" Description="multiplication sign" />
+    <Character Label="Ø" Entity="&Oslash;" Code="216" Categories="Latin,HTML 2.0,HTMLlat1,ISOlat1" Description="Latin capital letter O with stroke (Latin capital letter O slash)" />
+    <Character Label="Ù" Entity="&Ugrave;" Code="217" Categories="Latin,HTML 2.0,HTMLlat1,ISOlat1" Description="Latin capital letter U with grave accent" />
+    <Character Label="Ú" Entity="&Uacute;" Code="218" Categories="Latin,HTML 2.0,HTMLlat1,ISOlat1" Description="Latin capital letter U with acute accent" />
+    <Character Label="Û" Entity="&Ucirc;" Code="219" Categories="Latin,HTML 2.0,HTMLlat1,ISOlat1" Description="Latin capital letter U with circumflex" />
+    <Character Label="Ü" Entity="&Uuml;" Code="220" Categories="Latin,HTML 2.0,HTMLlat1,ISOlat1" Description="Latin capital letter U with diaeresis" />
+    <Character Label="Ý" Entity="&Yacute;" Code="221" Categories="Latin,HTML 2.0,HTMLlat1,ISOlat1" Description="Latin capital letter Y with acute accent" />
+    <Character Label="Þ" Entity="&THORN;" Code="222" Categories="Latin,HTML 2.0,HTMLlat1,ISOlat1" Description="Latin capital letter THORN" />
+    <Character Label="ß" Entity="&szlig;" Code="223" Categories="Latin,HTML 2.0,HTMLlat1,ISOlat1" Description="Latin small letter sharp s (ess-zed); see German Eszett" />
+    <Character Label="à" Entity="&agrave;" Code="224" Categories="Latin,HTML 2.0,HTMLlat1,ISOlat1" Description="Latin small letter a with grave accent" />
+    <Character Label="á" Entity="&aacute;" Code="225" Categories="Latin,HTML 2.0,HTMLlat1,ISOlat1" Description="Latin small letter a with acute accent" />
+    <Character Label="â" Entity="&acirc;" Code="226" Categories="Latin,HTML 2.0,HTMLlat1,ISOlat1" Description="Latin small letter a with circumflex" />
+    <Character Label="ã" Entity="&atilde;" Code="227" Categories="Latin,HTML 2.0,HTMLlat1,ISOlat1" Description="Latin small letter a with tilde" />
+    <Character Label="ä" Entity="&auml;" Code="228" Categories="Latin,HTML 2.0,HTMLlat1,ISOlat1" Description="Latin small letter a with diaeresis" />
+    <Character Label="å" Entity="&aring;" Code="229" Categories="Latin,HTML 2.0,HTMLlat1,ISOlat1" Description="Latin small letter a with ring above" />
+    <Character Label="æ" Entity="&aelig;" Code="230" Categories="Latin,HTML 2.0,HTMLlat1,ISOlat1" Description="Latin small letter ae (Latin small ligature ae)" />
+    <Character Label="ç" Entity="&ccedil;" Code="231" Categories="Latin,HTML 2.0,HTMLlat1,ISOlat1" Description="Latin small letter c with cedilla" />
+    <Character Label="è" Entity="&egrave;" Code="232" Categories="Latin,HTML 2.0,HTMLlat1,ISOlat1" Description="Latin small letter e with grave accent" />
+    <Character Label="é" Entity="&eacute;" Code="233" Categories="Latin,HTML 2.0,HTMLlat1,ISOlat1" Description="Latin small letter e with acute accent" />
+    <Character Label="ê" Entity="&ecirc;" Code="234" Categories="Latin,HTML 2.0,HTMLlat1,ISOlat1" Description="Latin small letter e with circumflex" />
+    <Character Label="ë" Entity="&euml;" Code="235" Categories="Latin,HTML 2.0,HTMLlat1,ISOlat1" Description="Latin small letter e with diaeresis" />
+    <Character Label="ì" Entity="&igrave;" Code="236" Categories="Latin,HTML 2.0,HTMLlat1,ISOlat1" Description="Latin small letter i with grave accent" />
+    <Character Label="í" Entity="&iacute;" Code="237" Categories="Latin,HTML 2.0,HTMLlat1,ISOlat1" Description="Latin small letter i with acute accent" />
+    <Character Label="î" Entity="&icirc;" Code="238" Categories="Latin,HTML 2.0,HTMLlat1,ISOlat1" Description="Latin small letter i with circumflex" />
+    <Character Label="ï" Entity="&iuml;" Code="239" Categories="Latin,HTML 2.0,HTMLlat1,ISOlat1" Description="Latin small letter i with diaeresis" />
+    <Character Label="ð" Entity="&eth;" Code="240" Categories="Latin,HTML 2.0,HTMLlat1,ISOlat1" Description="Latin small letter eth" />
+    <Character Label="ñ" Entity="&ntilde;" Code="241" Categories="Latin,HTML 2.0,HTMLlat1,ISOlat1" Description="Latin small letter n with tilde" />
+    <Character Label="ò" Entity="&ograve;" Code="242" Categories="Latin,HTML 2.0,HTMLlat1,ISOlat1" Description="Latin small letter o with grave accent" />
+    <Character Label="ó" Entity="&oacute;" Code="243" Categories="Latin,HTML 2.0,HTMLlat1,ISOlat1" Description="Latin small letter o with acute accent" />
+    <Character Label="ô" Entity="&ocirc;" Code="244" Categories="Latin,HTML 2.0,HTMLlat1,ISOlat1" Description="Latin small letter o with circumflex" />
+    <Character Label="õ" Entity="&otilde;" Code="245" Categories="Latin,HTML 2.0,HTMLlat1,ISOlat1" Description="Latin small letter o with tilde" />
+    <Character Label="ö" Entity="&ouml;" Code="246" Categories="Latin,HTML 2.0,HTMLlat1,ISOlat1" Description="Latin small letter o with diaeresis" />
+    <Character Label="÷" Entity="&divide;" Code="247" Categories="Math,HTML 3.2,HTMLlat1,ISOnum" Description="division sign (obelus)" />
+    <Character Label="ø" Entity="&oslash;" Code="248" Categories="Latin,HTML 2.0,HTMLlat1,ISOlat1" Description="Latin small letter o with stroke (Latin small letter o slash)" />
+    <Character Label="ù" Entity="&ugrave;" Code="249" Categories="Latin,HTML 2.0,HTMLlat1,ISOlat1" Description="Latin small letter u with grave accent" />
+    <Character Label="ú" Entity="&uacute;" Code="250" Categories="Latin,HTML 2.0,HTMLlat1,ISOlat1" Description="Latin small letter u with acute accent" />
+    <Character Label="û" Entity="&ucirc;" Code="251" Categories="Latin,HTML 2.0,HTMLlat1,ISOlat1" Description="Latin small letter u with circumflex" />
+    <Character Label="ü" Entity="&uuml;" Code="252" Categories="Latin,HTML 2.0,HTMLlat1,ISOlat1" Description="Latin small letter u with diaeresis" />
+    <Character Label="ý" Entity="&yacute;" Code="253" Categories="Latin,HTML 2.0,HTMLlat1,ISOlat1" Description="Latin small letter y with acute accent" />
+    <Character Label="þ" Entity="&thorn;" Code="254" Categories="Latin,HTML 2.0,HTMLlat1,ISOlat1" Description="Latin small letter thorn" />
+    <Character Label="ÿ" Entity="&yuml;" Code="255" Categories="Latin,HTML 2.0,HTMLlat1,ISOlat1" Description="Latin small letter y with diaeresis" />
+    <Character Label="Œ" Entity="&OElig;" Code="338" Categories="Latin,HTML 4.0,HTMLspecial,ISOlat2" Description="Latin capital ligature oe" />
+    <Character Label="œ" Entity="&oelig;" Code="339" Categories="Latin,HTML 4.0,HTMLspecial,ISOlat2" Description="Latin small ligature oe" />
+    <Character Label="Š" Entity="&Scaron;" Code="352" Categories="Latin,HTML 4.0,HTMLspecial,ISOlat2" Description="Latin capital letter s with caron" />
+    <Character Label="š" Entity="&scaron;" Code="353" Categories="Latin,HTML 4.0,HTMLspecial,ISOlat2" Description="Latin small letter s with caron" />
+    <Character Label="Ÿ" Entity="&Yuml;" Code="376" Categories="Latin,HTML 4.0,HTMLspecial,ISOlat2" Description="Latin capital letter y with diaeresis" />
+    <Character Label="ƒ" Entity="&fnof;" Code="402" Categories="Latin,HTML 4.0,HTMLsymbol,ISOtech" Description="Latin small letter f with hook (function, florin)" />
+    <Character Label="ˆ" Entity="&circ;" Code="710" Categories="Diacritics,HTML 4.0,HTMLspecial,ISOpub" Description="modifier letter circumflex accent" />
+    <Character Label="˜" Entity="&tilde;" Code="732" Categories="Diacritics,HTML 4.0,HTMLspecial,ISOdia" Description="small tilde" />
+    <Character Label="Α" Entity="&Alpha;" Code="913" Categories="Greek,HTML 4.0,HTMLsymbol" Description="Greek capital letter Alpha" />
+    <Character Label="Β" Entity="&Beta;" Code="914" Categories="Greek,HTML 4.0,HTMLsymbol" Description="Greek capital letter Beta" />
+    <Character Label="Γ" Entity="&Gamma;" Code="915" Categories="Greek,HTML 4.0,HTMLsymbol,ISOgrk3" Description="Greek capital letter Gamma" />
+    <Character Label="Δ" Entity="&Delta;" Code="916" Categories="Greek,HTML 4.0,HTMLsymbol,ISOgrk3" Description="Greek capital letter Delta" />
+    <Character Label="Ε" Entity="&Epsilon;" Code="917" Categories="Greek,HTML 4.0,HTMLsymbol" Description="Greek capital letter Epsilon" />
+    <Character Label="Ζ" Entity="&Zeta;" Code="918" Categories="Greek,HTML 4.0,HTMLsymbol" Description="Greek capital letter Zeta" />
+    <Character Label="Η" Entity="&Eta;" Code="919" Categories="Greek,HTML 4.0,HTMLsymbol" Description="Greek capital letter Eta" />
+    <Character Label="Θ" Entity="&Theta;" Code="920" Categories="Greek,HTML 4.0,HTMLsymbol,ISOgrk3" Description="Greek capital letter Theta" />
+    <Character Label="Ι" Entity="&Iota;" Code="921" Categories="Greek,HTML 4.0,HTMLsymbol" Description="Greek capital letter Iota" />
+    <Character Label="Κ" Entity="&Kappa;" Code="922" Categories="Greek,HTML 4.0,HTMLsymbol" Description="Greek capital letter Kappa" />
+    <Character Label="Λ" Entity="&Lambda;" Code="923" Categories="Greek,HTML 4.0,HTMLsymbol,ISOgrk3" Description="Greek capital letter Lambda" />
+    <Character Label="Μ" Entity="&Mu;" Code="924" Categories="Greek,HTML 4.0,HTMLsymbol" Description="Greek capital letter Mu" />
+    <Character Label="Ν" Entity="&Nu;" Code="925" Categories="Greek,HTML 4.0,HTMLsymbol" Description="Greek capital letter Nu" />
+    <Character Label="Ξ" Entity="&Xi;" Code="926" Categories="Greek,HTML 4.0,HTMLsymbol,ISOgrk3" Description="Greek capital letter Xi" />
+    <Character Label="Ο" Entity="&Omicron;" Code="927" Categories="Greek,HTML 4.0,HTMLsymbol" Description="Greek capital letter Omicron" />
+    <Character Label="Π" Entity="&Pi;" Code="928" Categories="Greek,HTML 4.0,HTMLsymbol" Description="Greek capital letter Pi" />
+    <Character Label="Ρ" Entity="&Rho;" Code="929" Categories="Greek,HTML 4.0,HTMLsymbol" Description="Greek capital letter Rho" />
+    <Character Label="Σ" Entity="&Sigma;" Code="931" Categories="Greek,HTML 4.0,HTMLsymbol,ISOgrk3" Description="Greek capital letter Sigma" />
+    <Character Label="Τ" Entity="&Tau;" Code="932" Categories="Greek,HTML 4.0,HTMLsymbol" Description="Greek capital letter Tau" />
+    <Character Label="Υ" Entity="&Upsilon;" Code="933" Categories="Greek,HTML 4.0,HTMLsymbol,ISOgrk3" Description="Greek capital letter Upsilon" />
+    <Character Label="Φ" Entity="&Phi;" Code="934" Categories="Greek,HTML 4.0,HTMLsymbol,ISOgrk3" Description="Greek capital letter Phi" />
+    <Character Label="Χ" Entity="&Chi;" Code="935" Categories="Greek,HTML 4.0,HTMLsymbol" Description="Greek capital letter Chi" />
+    <Character Label="Ψ" Entity="&Psi;" Code="936" Categories="Greek,HTML 4.0,HTMLsymbol,ISOgrk3" Description="Greek capital letter Psi" />
+    <Character Label="Ω" Entity="&Omega;" Code="937" Categories="Greek,HTML 4.0,HTMLsymbol,ISOgrk3" Description="Greek capital letter Omega" />
+    <Character Label="α" Entity="&alpha;" Code="945" Categories="Greek,HTML 4.0,HTMLsymbol,ISOgrk3" Description="Greek small letter alpha" />
+    <Character Label="β" Entity="&beta;" Code="946" Categories="Greek,HTML 4.0,HTMLsymbol,ISOgrk3" Description="Greek small letter beta" />
+    <Character Label="γ" Entity="&gamma;" Code="947" Categories="Greek,HTML 4.0,HTMLsymbol,ISOgrk3" Description="Greek small letter gamma" />
+    <Character Label="δ" Entity="&delta;" Code="948" Categories="Greek,HTML 4.0,HTMLsymbol,ISOgrk3" Description="Greek small letter delta" />
+    <Character Label="ε" Entity="&epsilon;" Code="949" Categories="Greek,HTML 4.0,HTMLsymbol,ISOgrk3" Description="Greek small letter epsilon" />
+    <Character Label="ζ" Entity="&zeta;" Code="950" Categories="Greek,HTML 4.0,HTMLsymbol,ISOgrk3" Description="Greek small letter zeta" />
+    <Character Label="η" Entity="&eta;" Code="951" Categories="Greek,HTML 4.0,HTMLsymbol,ISOgrk3" Description="Greek small letter eta" />
+    <Character Label="θ" Entity="&theta;" Code="952" Categories="Greek,HTML 4.0,HTMLsymbol,ISOgrk3" Description="Greek small letter theta" />
+    <Character Label="ι" Entity="&iota;" Code="953" Categories="Greek,HTML 4.0,HTMLsymbol,ISOgrk3" Description="Greek small letter iota" />
+    <Character Label="κ" Entity="&kappa;" Code="954" Categories="Greek,HTML 4.0,HTMLsymbol,ISOgrk3" Description="Greek small letter kappa" />
+    <Character Label="λ" Entity="&lambda;" Code="955" Categories="Greek,HTML 4.0,HTMLsymbol,ISOgrk3" Description="Greek small letter lambda" />
+    <Character Label="μ" Entity="&mu;" Code="956" Categories="Greek,HTML 4.0,HTMLsymbol,ISOgrk3" Description="Greek small letter mu" />
+    <Character Label="ν" Entity="&nu;" Code="957" Categories="Greek,HTML 4.0,HTMLsymbol,ISOgrk3" Description="Greek small letter nu" />
+    <Character Label="ξ" Entity="&xi;" Code="958" Categories="Greek,HTML 4.0,HTMLsymbol,ISOgrk3" Description="Greek small letter xi" />
+    <Character Label="ο" Entity="&omicron;" Code="959" Categories="Greek,HTML 4.0,HTMLsymbol,NEW" Description="Greek small letter omicron" />
+    <Character Label="π" Entity="&pi;" Code="960" Categories="Greek,HTML 4.0,HTMLsymbol,ISOgrk3" Description="Greek small letter pi" />
+    <Character Label="ρ" Entity="&rho;" Code="961" Categories="Greek,HTML 4.0,HTMLsymbol,ISOgrk3" Description="Greek small letter rho" />
+    <Character Label="ς" Entity="&sigmaf;" Code="962" Categories="Greek,HTML 4.0,HTMLsymbol,ISOgrk3" Description="Greek small letter final sigma" />
+    <Character Label="σ" Entity="&sigma;" Code="963" Categories="Greek,HTML 4.0,HTMLsymbol,ISOgrk3" Description="Greek small letter sigma" />
+    <Character Label="τ" Entity="&tau;" Code="964" Categories="Greek,HTML 4.0,HTMLsymbol,ISOgrk3" Description="Greek small letter tau" />
+    <Character Label="υ" Entity="&upsilon;" Code="965" Categories="Greek,HTML 4.0,HTMLsymbol,ISOgrk3" Description="Greek small letter upsilon" />
+    <Character Label="φ" Entity="&phi;" Code="966" Categories="Greek,HTML 4.0,HTMLsymbol,ISOgrk3" Description="Greek small letter phi" />
+    <Character Label="χ" Entity="&chi;" Code="967" Categories="Greek,HTML 4.0,HTMLsymbol,ISOgrk3" Description="Greek small letter chi" />
+    <Character Label="ψ" Entity="&psi;" Code="968" Categories="Greek,HTML 4.0,HTMLsymbol,ISOgrk3" Description="Greek small letter psi" />
+    <Character Label="ω" Entity="&omega;" Code="969" Categories="Greek,HTML 4.0,HTMLsymbol,ISOgrk3" Description="Greek small letter omega" />
+    <Character Label="ϑ" Entity="&thetasym;" Code="977" Categories="Greek,HTML 4.0,HTMLsymbol,NEW" Description="Greek theta symbol" />
+    <Character Label="ϒ" Entity="&upsih;" Code="978" Categories="Greek,HTML 4.0,HTMLsymbol,NEW" Description="Greek Upsilon with hook symbol" />
+    <Character Label="ϖ" Entity="&piv;" Code="982" Categories="Greek,HTML 4.0,HTMLsymbol,ISOgrk3" Description="Greek pi symbol" />
+    <Character Label="ENSP" Entity="&ensp;" Code="8194" Categories="Whitespace,HTML 4.0,HTMLspecial,ISOpub" Description="en space" />
+    <Character Label="EMSP" Entity="&emsp;" Code="8195" Categories="Whitespace,HTML 4.0,HTMLspecial,ISOpub" Description="em space" />
+    <Character Label="THINSP" Entity="&thinsp;" Code="8201" Categories="Whitespace,HTML 4.0,HTMLspecial,ISOpub" Description="thin space" />
+    <Character Label="ZWNJ" Entity="&zwnj;" Code="8204" Categories="Whitespace,HTML 4.0,HTMLspecial,NEW RFC 2070" Description="zero-width non-joiner" />
+    <Character Label="ZWJ" Entity="&zwj;" Code="8205" Categories="Whitespace,HTML 4.0,HTMLspecial,NEW RFC 2070" Description="zero-width joiner" />
+    <Character Label="LRM" Entity="&lrm;" Code="8206" Categories="Whitespace,HTML 4.0,HTMLspecial,NEW RFC 2070" Description="left-to-right mark" />
+    <Character Label="RLM" Entity="&rlm;" Code="8207" Categories="Whitespace,HTML 4.0,HTMLspecial,NEW RFC 2070" Description="right-to-left mark" />
+    <Character Label="–" Entity="&ndash;" Code="8211" Categories="Punctuation,HTML 4.0,HTMLspecial,ISOpub" Description="en dash" />
+    <Character Label="—" Entity="&mdash;" Code="8212" Categories="Punctuation,HTML 4.0,HTMLspecial,ISOpub" Description="em dash" />
+    <Character Label="‘" Entity="&lsquo;" Code="8216" Categories="Quotes,HTML 4.0,HTMLspecial,ISOnum" Description="left single quotation mark" />
+    <Character Label="’" Entity="&rsquo;" Code="8217" Categories="Quotes,HTML 4.0,HTMLspecial,ISOnum" Description="right single quotation mark" />
+    <Character Label="‚" Entity="&sbquo;" Code="8218" Categories="Quotes,HTML 4.0,HTMLspecial,NEW" Description="single low-9 quotation mark" />
+    <Character Label="“" Entity="&ldquo;" Code="8220" Categories="Quotes,HTML 4.0,HTMLspecial,ISOnum" Description="left double quotation mark" />
+    <Character Label="”" Entity="&rdquo;" Code="8221" Categories="Quotes,HTML 4.0,HTMLspecial,ISOnum" Description="right double quotation mark" />
+    <Character Label="„" Entity="&bdquo;" Code="8222" Categories="Quotes,HTML 4.0,HTMLspecial,NEW" Description="double low-9 quotation mark" />
+    <Character Label="†" Entity="&dagger;" Code="8224" Categories="Punctuation,HTML 4.0,HTMLspecial,ISOpub" Description="dagger, obelisk" />
+    <Character Label="‡" Entity="&Dagger;" Code="8225" Categories="Punctuation,HTML 4.0,HTMLspecial,ISOpub" Description="double dagger, double obelisk" />
+    <Character Label="•" Entity="&bull;" Code="8226" Categories="Punctuation,HTML 4.0,HTMLspecial,ISOpub" Description="bullet (black small circle)" />
+    <Character Label="…" Entity="&hellip;" Code="8230" Categories="Punctuation,HTML 4.0,HTMLsymbol,ISOpub" Description="horizontal ellipsis (three dot leader)" />
+    <Character Label="‰" Entity="&permil;" Code="8240" Categories="Math,HTML 4.0,HTMLspecial,ISOtech" Description="per mille sign" />
+    <Character Label="′" Entity="&prime;" Code="8242" Categories="Math,HTML 4.0,HTMLsymbol,ISOtech" Description="prime (minutes, feet)" />
+    <Character Label="″" Entity="&Prime;" Code="8243" Categories="Math,HTML 4.0,HTMLsymbol,ISOtech" Description="double prime (seconds, inches)" />
+    <Character Label="‹" Entity="&lsaquo;" Code="8249" Categories="Quotes,HTML 4.0,HTMLspecial,ISO proposed" Description="single left-pointing angle quotation mark" />
+    <Character Label="›" Entity="&rsaquo;" Code="8250" Categories="Quotes,HTML 4.0,HTMLspecial,ISO proposed" Description="single right-pointing angle quotation mark" />
+    <Character Label="‾" Entity="&oline;" Code="8254" Categories="Math,HTML 4.0,HTMLsymbol,NEW" Description="overline (spacing overscore)" />
+    <Character Label="⁄" Entity="&frasl;" Code="8260" Categories="Math,HTML 4.0,HTMLsymbol,NEW" Description="fraction slash (solidus)" />
+    <Character Label="€" Entity="&euro;" Code="8364" Categories="Currency,HTML 4.0,HTMLspecial,NEW" Description="euro sign" />
+    <Character Label="ℑ" Entity="&image;" Code="8465" Categories="Math,HTML 4.0,HTMLsymbol,ISOamso" Description="black-letter capital I (imaginary part)" />
+    <Character Label="℘" Entity="&weierp;" Code="8472" Categories="Math,HTML 4.0,HTMLsymbol,ISOamso" Description="script capital P (power set, Weierstrass p)" />
+    <Character Label="ℜ" Entity="&real;" Code="8476" Categories="Math,HTML 4.0,HTMLsymbol,ISOamso" Description="black-letter capital R (real part symbol)" />
+    <Character Label="™" Entity="&trade;" Code="8482" Categories="Currency,HTML 4.0,HTMLsymbol,ISOnum" Description="trademark symbol" />
+    <Character Label="ℵ" Entity="&alefsym;" Code="8501" Categories="Math,HTML 4.0,HTMLsymbol,NEW" Description="alef symbol (first transfinite cardinal)" />
+    <Character Label="←" Entity="&larr;" Code="8592" Categories="Arrows,HTML 4.0,HTMLsymbol,ISOnum" Description="leftwards arrow" />
+    <Character Label="↑" Entity="&uarr;" Code="8593" Categories="Arrows,HTML 4.0,HTMLsymbol,ISOnum" Description="upwards arrow" />
+    <Character Label="→" Entity="&rarr;" Code="8594" Categories="Arrows,HTML 4.0,HTMLsymbol,ISOnum" Description="rightwards arrow" />
+    <Character Label="↓" Entity="&darr;" Code="8595" Categories="Arrows,HTML 4.0,HTMLsymbol,ISOnum" Description="downwards arrow" />
+    <Character Label="↔" Entity="&harr;" Code="8596" Categories="Arrows,HTML 4.0,HTMLsymbol,ISOamsa" Description="left right arrow" />
+    <Character Label="↵" Entity="&crarr;" Code="8629" Categories="Arrows,HTML 4.0,HTMLsymbol,NEW" Description="downwards arrow with corner leftwards (carriage return)" />
+    <Character Label="⇐" Entity="&lArr;" Code="8656" Categories="Arrows,HTML 4.0,HTMLsymbol,ISOtech" Description="leftwards double arrow" />
+    <Character Label="⇑" Entity="&uArr;" Code="8657" Categories="Arrows,HTML 4.0,HTMLsymbol,ISOamsa" Description="upwards double arrow" />
+    <Character Label="⇒" Entity="&rArr;" Code="8658" Categories="Arrows,HTML 4.0,HTMLsymbol,ISOnum" Description="rightwards double arrow" />
+    <Character Label="⇓" Entity="&dArr;" Code="8659" Categories="Arrows,HTML 4.0,HTMLsymbol,ISOamsa" Description="downwards double arrow" />
+    <Character Label="⇔" Entity="&hArr;" Code="8660" Categories="Arrows,HTML 4.0,HTMLsymbol,ISOamsa" Description="left right double arrow" />
+    <Character Label="∀" Entity="&forall;" Code="8704" Categories="Math,HTML 4.0,HTMLsymbol,ISOtech" Description="for all" />
+    <Character Label="∂" Entity="&part;" Code="8706" Categories="Math,HTML 4.0,HTMLsymbol,ISOtech" Description="partial differential" />
+    <Character Label="∃" Entity="&exist;" Code="8707" Categories="Math,HTML 4.0,HTMLsymbol,ISOtech" Description="there exists" />
+    <Character Label="∅" Entity="&empty;" Code="8709" Categories="Math,HTML 4.0,HTMLsymbol,ISOamso" Description="empty set (null set); see also U+8960, ⌀" />
+    <Character Label="∇" Entity="&nabla;" Code="8711" Categories="Math,HTML 4.0,HTMLsymbol,ISOtech" Description="del or nabla (vector differential operator)" />
+    <Character Label="∈" Entity="&isin;" Code="8712" Categories="Math,HTML 4.0,HTMLsymbol,ISOtech" Description="element of" />
+    <Character Label="∉" Entity="&notin;" Code="8713" Categories="Math,HTML 4.0,HTMLsymbol,ISOtech" Description="not an element of" />
+    <Character Label="∋" Entity="&ni;" Code="8715" Categories="Math,HTML 4.0,HTMLsymbol,ISOtech" Description="contains as member" />
+    <Character Label="∏" Entity="&prod;" Code="8719" Categories="Math,HTML 4.0,HTMLsymbol,ISOamsb" Description="n-ary product (product sign)" />
+    <Character Label="∑" Entity="&sum;" Code="8721" Categories="Math,HTML 4.0,HTMLsymbol,ISOamsb" Description="n-ary summation" />
+    <Character Label="−" Entity="&minus;" Code="8722" Categories="Math,HTML 4.0,HTMLsymbol,ISOtech" Description="minus sign" />
+    <Character Label="∗" Entity="&lowast;" Code="8727" Categories="Math,HTML 4.0,HTMLsymbol,ISOtech" Description="asterisk operator" />
+    <Character Label="√" Entity="&radic;" Code="8730" Categories="Math,HTML 4.0,HTMLsymbol,ISOtech" Description="square root (radical sign)" />
+    <Character Label="∝" Entity="&prop;" Code="8733" Categories="Math,HTML 4.0,HTMLsymbol,ISOtech" Description="proportional to" />
+    <Character Label="∞" Entity="&infin;" Code="8734" Categories="Math,HTML 4.0,HTMLsymbol,ISOtech" Description="infinity" />
+    <Character Label="∠" Entity="&ang;" Code="8736" Categories="Math,HTML 4.0,HTMLsymbol,ISOamso" Description="angle" />
+    <Character Label="∧" Entity="&and;" Code="8743" Categories="Math,HTML 4.0,HTMLsymbol,ISOtech" Description="logical and (wedge)" />
+    <Character Label="∨" Entity="&or;" Code="8744" Categories="Math,HTML 4.0,HTMLsymbol,ISOtech" Description="logical or (vee)" />
+    <Character Label="∩" Entity="&cap;" Code="8745" Categories="Math,HTML 4.0,HTMLsymbol,ISOtech" Description="intersection (cap)" />
+    <Character Label="∪" Entity="&cup;" Code="8746" Categories="Math,HTML 4.0,HTMLsymbol,ISOtech" Description="union (cup)" />
+    <Character Label="∫" Entity="&int;" Code="8747" Categories="Math,HTML 4.0,HTMLsymbol,ISOtech" Description="integral" />
+    <Character Label="∴" Entity="&there4;" Code="8756" Categories="Math,HTML 4.0,HTMLsymbol,ISOtech" Description="therefore sign" />
+    <Character Label="∼" Entity="&sim;" Code="8764" Categories="Math,HTML 4.0,HTMLsymbol,ISOtech" Description="tilde operator (varies with, similar to)" />
+    <Character Label="≅" Entity="&cong;" Code="8773" Categories="Math,HTML 4.0,HTMLsymbol,ISOtech" Description="congruent to" />
+    <Character Label="≈" Entity="&asymp;" Code="8776" Categories="Math,HTML 4.0,HTMLsymbol,ISOamsr" Description="almost equal to (asymptotic to)" />
+    <Character Label="≠" Entity="&ne;" Code="8800" Categories="Math,HTML 4.0,HTMLsymbol,ISOtech" Description="not equal to" />
+    <Character Label="≡" Entity="&equiv;" Code="8801" Categories="Math,HTML 4.0,HTMLsymbol,ISOtech" Description="identical to; sometimes used for 'equivalent to'" />
+    <Character Label="≤" Entity="&le;" Code="8804" Categories="Math,HTML 4.0,HTMLsymbol,ISOtech" Description="less-than or equal to" />
+    <Character Label="≥" Entity="&ge;" Code="8805" Categories="Math,HTML 4.0,HTMLsymbol,ISOtech" Description="greater-than or equal to" />
+    <Character Label="⊂" Entity="&sub;" Code="8834" Categories="Math,HTML 4.0,HTMLsymbol,ISOtech" Description="subset of" />
+    <Character Label="⊃" Entity="&sup;" Code="8835" Categories="Math,HTML 4.0,HTMLsymbol,ISOtech" Description="superset of" />
+    <Character Label="⊄" Entity="&nsub;" Code="8836" Categories="Math,HTML 4.0,HTMLsymbol,ISOamsn" Description="not a subset of" />
+    <Character Label="⊆" Entity="&sube;" Code="8838" Categories="Math,HTML 4.0,HTMLsymbol,ISOtech" Description="subset of or equal to" />
+    <Character Label="⊇" Entity="&supe;" Code="8839" Categories="Math,HTML 4.0,HTMLsymbol,ISOtech" Description="superset of or equal to" />
+    <Character Label="⊕" Entity="&oplus;" Code="8853" Categories="Math,HTML 4.0,HTMLsymbol,ISOamsb" Description="circled plus (direct sum)" />
+    <Character Label="⊗" Entity="&otimes;" Code="8855" Categories="Math,HTML 4.0,HTMLsymbol,ISOamsb" Description="circled times (vector product)" />
+    <Character Label="⊥" Entity="&perp;" Code="8869" Categories="Math,HTML 4.0,HTMLsymbol,ISOtech" Description="up tack (orthogonal to, perpendicular)" />
+    <Character Label="⋅" Entity="&sdot;" Code="8901" Categories="Math,HTML 4.0,HTMLsymbol,ISOamsb" Description="dot operator" />
+    <Character Label="⌈" Entity="&lceil;" Code="8968" Categories="Math,HTML 4.0,HTMLsymbol,ISOamsc" Description="left ceiling (APL upstile)" />
+    <Character Label="⌉" Entity="&rceil;" Code="8969" Categories="Math,HTML 4.0,HTMLsymbol,ISOamsc" Description="right ceiling" />
+    <Character Label="⌊" Entity="&lfloor;" Code="8970" Categories="Math,HTML 4.0,HTMLsymbol,ISOamsc" Description="left floor (APL downstile)" />
+    <Character Label="⌋" Entity="&rfloor;" Code="8971" Categories="Math,HTML 4.0,HTMLsymbol,ISOamsc" Description="right floor" />
+    <Character Label="〈" Entity="&lang;" Code="9001" Categories="Quotes,HTML 4.0,HTMLsymbol,ISOtech" Description="left-pointing angle bracket (bra)" />
+    <Character Label="〉" Entity="&rang;" Code="9002" Categories="Quotes,HTML 4.0,HTMLsymbol,ISOtech" Description="right-pointing angle bracket (ket)" />
+    <Character Label="◊" Entity="&loz;" Code="9674" Categories="Figures,HTML 4.0,HTMLsymbol,ISOpub" Description="lozenge" />
+    <Character Label="♠" Entity="&spades;" Code="9824" Categories="Figures,HTML 4.0,HTMLsymbol,ISOpub" Description="black spade suit" />
+    <Character Label="♣" Entity="&clubs;" Code="9827" Categories="Figures,HTML 4.0,HTMLsymbol,ISOpub" Description="black club suit (shamrock)" />
+    <Character Label="♥" Entity="&hearts;" Code="9829" Categories="Figures,HTML 4.0,HTMLsymbol,ISOpub" Description="black heart suit (valentine)" />
+    <Character Label="♦" Entity="&diams;" Code="9830" Categories="Figures,HTML 4.0,HTMLsymbol,ISOpub" Description="black diamond suit" />
 </Characters>
