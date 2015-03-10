@@ -13,6 +13,7 @@
     <widget-library name="../../R7.Webmaster.Addins.TextCleaner/bin/Debug/R7.Webmaster.Addins.TextCleaner.dll" />
     <widget-library name="../../R7.Webmaster.Core/bin/Debug/R7.Webmaster.Core.dll" />
     <widget-library name="../../R7.Webmaster.Addins.TableCleaner/bin/Debug/R7.Webmaster.Addins.TableCleaner.dll" />
+    <widget-library name="../../R7.Webmaster.Addins.Characters/bin/Debug/R7.Webmaster.Addins.Characters.dll" />
     <widget-library name="../bin/Debug/R7.Webmaster.exe" internal="true" />
   </import>
   <icon-factory>
