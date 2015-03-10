@@ -20,6 +20,8 @@
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 using System;
+using System.IO;
+using System.Reflection;
 
 namespace R7.Webmaster.Addins.Characters
 {
@@ -27,10 +29,24 @@ namespace R7.Webmaster.Addins.Characters
 	{	
 		public CharacterList Characters;
 
+        public CharactersConfig Config;
+
 		public CharactersModel ()
 		{
-			Characters = new CharacterList ();
-			Characters.LoadFromFile ("characters.xml");
+            // load config
+            Config = new CharactersConfig ();
+			
+            // base (original) and user data files
+            var baseDataFile = Path.Combine (Path.GetDirectoryName (Assembly.GetExecutingAssembly ().Location), "characters.xml");
+            var userDataFile = Path.Combine (Config.ApplicationData, "characters.xml");
+
+            // copy base data file to the user data file
+            if (!File.Exists (userDataFile))
+                File.Copy (baseDataFile, userDataFile);
+
+            // load characters
+            Characters = new CharacterList ();
+            Characters.LoadFromFile (Path.Combine (Config.ApplicationData, "characters.xml"));
 		}
 
 		/*

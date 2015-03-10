@@ -78,6 +78,7 @@
     <Compile Include="CharactersPresenter.cs" />
     <Compile Include="CharacterList.cs" />
     <Compile Include="CharacterInfo.cs" />
+    <Compile Include="CharactersConfig.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
@@ -92,6 +93,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="characters.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="characters.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
   </ItemGroup>
