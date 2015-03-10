@@ -129,8 +129,11 @@ namespace R7.Webmaster.Addins.Characters
         {
             var action = (Gtk.RadioAction) sender;
 
-            buttonFilter.Label = action.Name;
-            MakeButtons (Model.Characters.FilterByCategories (action.Name), tableCharacters, 10);
+            if (action.Active)
+            {
+                buttonFilter.Label = action.Name;
+                MakeButtons (Model.Characters.FilterByCategories (action.Name), tableCharacters, 10);
+            }
         }
 
         protected void ClearButtons (Gtk.Table table)
