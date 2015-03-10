@@ -80,11 +80,12 @@ namespace R7.Webmaster.Addins.Characters
 
             MakeButtons (Model.Characters.Characters, tableCharacters, 10);
 
+            // make radiogroup from toggle buttons
 			toggleButtonRadioGroup = new ToggleButtonRadioGroup (buttonCopyCharacters, 
 				buttonCopyEntities, buttonCopyNumericEntities, buttonCopyHexEntities, buttonCopyUnicode);
+            toggleButtonRadioGroup.Activate (0);
 
-			toggleButtonRadioGroup.Activate (0);
-
+            // create menu toolbutton
             buttonFilter = new Gtk.MenuToolButton ("");
             buttonFilter.Label = "All";
             buttonFilter.IsImportant = true;
@@ -132,6 +133,7 @@ namespace R7.Webmaster.Addins.Characters
             if (action.Active)
             {
                 buttonFilter.Label = action.Name;
+                ClearButtons (tableCharacters);
                 MakeButtons (Model.Characters.FilterByCategories (action.Name), tableCharacters, 10);
             }
         }
@@ -145,8 +147,6 @@ namespace R7.Webmaster.Addins.Characters
 
         protected void MakeButtons (List<CharacterInfo> charList, Gtk.Table table, int columns)
 		{
-            ClearButtons (table);
-
             table.NColumns = (uint)columns;
             table.NRows = Math.Max (3, (uint) Math.Ceiling ((double) charList.Count / columns));
 
@@ -183,12 +183,12 @@ namespace R7.Webmaster.Addins.Characters
 				// need to append or replace entry text 
 				var append = toggleAppend.Active;
 
-				// format chars and put them to the entiries
+				// format chars and put them to the entries
 				TextToEntry (entryCharacters, ((char)character.Code).ToString (), append);
 				TextToEntry (entryEntities, character.Entity, append);
-				TextToEntry (entryNumericEntities, "&#" + character.Code + ";", append);
-				TextToEntry (entryHexEntities, "&#x" + character.Code.ToString("X") + ";", append);
-				TextToEntry (entryUnicode, "U+" + character.Code.ToString ("X4"), append);
+                TextToEntry (entryNumericEntities, character.ToDecEntity (), append);
+                TextToEntry (entryHexEntities, character.ToHexEntity (), append);
+                TextToEntry (entryUnicode, character.ToUnicode (), append);
 
 				// copy entry content to clipboard
 				TextToClipboard (toggleButtonRadioGroup.Active);
@@ -223,6 +223,7 @@ namespace R7.Webmaster.Addins.Characters
 			entryUnicode.Text = "";
 
             buttonFilter.Label = "All";
+            ClearButtons (tableCharacters);
             MakeButtons (Model.Characters.Characters, tableCharacters, 10);
 		}
 

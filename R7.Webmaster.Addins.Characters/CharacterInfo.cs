@@ -59,6 +59,25 @@ namespace R7.Webmaster.Addins.Characters
         [XmlAttribute]
         public string Description { get; set; }
 
+        #region Formats
+
+        public string ToUnicode ()
+        {
+            return "U+" + Code.ToString ("X4");
+        }
+
+        public string ToDecEntity ()
+        {
+            return "&#" + Code + ";";
+        }
+
+        public string ToHexEntity ()
+        {
+            return "&#x" + Code.ToString("X") + ";";
+        }
+
+        #endregion
+
 		/*
 		#region IXmlSerializable implementation
 
