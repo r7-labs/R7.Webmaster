@@ -21,6 +21,7 @@
 
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using Mono.Addins;
 using R7.Webmaster.Addins.Root;
 using R7.Webmaster.Core;
@@ -56,7 +57,9 @@ namespace R7.Webmaster.Addins.Characters
 					(Gtk.ToolItem) toggleAppend.CreateToolItem (),
 					(Gtk.ToolItem) actionClear.CreateToolItem (),
                     new Gtk.SeparatorToolItem (),
-                    buttonFilter
+                    buttonFilter,
+                    new Gtk.SeparatorToolItem (),
+                    (Gtk.ToolItem) actionCharmap.CreateToolItem ()
 				}; 
 			}
 		}
@@ -228,5 +231,10 @@ namespace R7.Webmaster.Addins.Characters
 			if (button.Active)
 				TextToClipboard (button);
 		}
+       
+        protected void OnActionCharmapActivated (object sender, EventArgs e)
+        {
+            Process.Start (Model.Config.CharMapApplication);
+        }
 	}
 }

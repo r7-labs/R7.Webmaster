@@ -29,5 +29,10 @@ namespace R7.Webmaster.Addins.Characters
         public CharactersConfig (): base ("characters", "R7.Webmaster")
         {
         }
+
+        public string CharMapApplication
+        {
+            get { return PlatformConfig.GetString ("CharMapApplication", string.Empty); }
+        }
     }
 }

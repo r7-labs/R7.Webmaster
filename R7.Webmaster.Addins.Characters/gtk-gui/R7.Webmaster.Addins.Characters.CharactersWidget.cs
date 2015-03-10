@@ -10,6 +10,8 @@ namespace R7.Webmaster.Addins.Characters
 		
 		private global::Gtk.Action actionClear;
 		
+		private global::Gtk.Action actionCharmap;
+		
 		private global::Gtk.VBox vbox1;
 		
 		private global::Gtk.ScrolledWindow scrolledwindow1;
@@ -62,6 +64,10 @@ namespace R7.Webmaster.Addins.Characters
 			this.actionClear = new global::Gtk.Action ("actionClear", global::Mono.Unix.Catalog.GetString ("Clear"), null, "gtk-clear");
 			this.actionClear.ShortLabel = global::Mono.Unix.Catalog.GetString ("Clear");
 			w2.Add (this.actionClear, null);
+			this.actionCharmap = new global::Gtk.Action ("actionCharmap", global::Mono.Unix.Catalog.GetString ("Character Map"), null, "gtk-select-font");
+			this.actionCharmap.IsImportant = true;
+			this.actionCharmap.ShortLabel = global::Mono.Unix.Catalog.GetString ("Character Map");
+			w2.Add (this.actionCharmap, null);
 			this.UIManager.InsertActionGroup (w2, 0);
 			this.Name = "R7.Webmaster.Addins.Characters.CharactersWidget";
 			// Container child R7.Webmaster.Addins.Characters.CharactersWidget.Gtk.Container+ContainerChild
@@ -302,6 +308,7 @@ namespace R7.Webmaster.Addins.Characters
 			w1.SetUiManager (UIManager);
 			this.Hide ();
 			this.actionClear.Activated += new global::System.EventHandler (this.OnActionClearActivated);
+			this.actionCharmap.Activated += new global::System.EventHandler (this.OnActionCharmapActivated);
 		}
 	}
 }

@@ -28,6 +28,14 @@
         <property name="StockId">gtk-clear</property>
         <signal name="Activated" handler="OnActionClearActivated" />
       </action>
+      <action id="actionCharmap">
+        <property name="Type">Action</property>
+        <property name="IsImportant">True</property>
+        <property name="Label" translatable="yes">Character Map</property>
+        <property name="ShortLabel" translatable="yes">Character Map</property>
+        <property name="StockId">gtk-select-font</property>
+        <signal name="Activated" handler="OnActionCharmapActivated" />
+      </action>
     </action-group>
     <property name="MemberName" />
     <property name="Visible">False</property>
