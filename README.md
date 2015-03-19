@@ -32,7 +32,7 @@ and then plug it to the main *R7.Webmaster* application.
 *R7.Webmaster* main application is a GTK# 2 application, so it could run on all Mono-enabled desktop platforms (Linux, Windows and Mac) 
 with little effort (Linux and Windows versions are planned for the first release). Every addin is mostly GTK# widget.
 
-I'll try to implement MVP-based approach in the main application and default addins architecture, 
+I'll try to implement some kind of MVP-VM approach in the main application and default addins architecture, 
 but in the current state of development it's more like ugly Document-View - but I'm working on it.
 
 ## Configuration
