@@ -1,5 +1,5 @@
 ﻿//
-//  PasswordGeneratorModel.cs
+//  CharactersModel.cs
 //
 //  Author:
 //       Roman M. Yagodin <roman.yagodin@gmail.com>
@@ -20,63 +20,25 @@
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 using System;
-using System.IO;
-using System.Reflection;
 
 namespace R7.Webmaster.Addins.Characters
 {
+    public enum CharacterFormat
+    { 
+        Character, 
+        Entity, 
+        NumericEntity, 
+        HexEntity, 
+        Unicode 
+    }
+
 	public class CharactersModel
 	{	
-		public CharacterList Characters;
+        #region Model properties 
 
-        public CharactersConfig Config;
+        public CharacterList CharactersList { get; set; }
 
-		public CharactersModel ()
-		{
-            // load config
-            Config = new CharactersConfig ();
-			
-            // base (original) and user data files
-            var baseDataFile = Path.Combine (Path.GetDirectoryName (Assembly.GetExecutingAssembly ().Location), "characters.xml");
-            var userDataFile = Path.Combine (Config.ApplicationData, "characters.xml");
-
-            // copy base data file to the user data file
-            if (!File.Exists (userDataFile))
-                File.Copy (baseDataFile, userDataFile);
-
-            // load characters
-            Characters = new CharacterList ();
-            Characters.LoadFromFile (Path.Combine (Config.ApplicationData, "characters.xml"));
-		}
-
-		/*
-		private void TestingDatabase ()
-		{
-			var charList = new CharacterList ();
-
-			charList.Characters.Add (new CharacterInfo () { Code = (int)'…' });
-			charList.Characters.Add (new CharacterInfo () { Label = "Non-breakable space", Code = 160, Entity = "&nbsp;" });
-			charList.Characters.Add (new CharacterInfo () { Code = (int)'Z' });
-
-			var stream = new FileStream ("characters.xml", FileMode.Create, FileAccess.Write, FileShare.Read);
-			// var xmlWriter = new XmlTextWriter (stream, System.Text.Encoding.UTF8);
-			//xmlWriter.Settings.Indent = true;
-			//xmlWriter.Settings.IndentChars = "\t";
-			//xmlWriter.Settings.NewLineOnAttributes = true;
-			//xmlWriter.Settings.NewLineChars = "\n";
-
-			var xser = new XmlSerializer (typeof (CharacterList) );
-			//var xser = new XmlSerializer (typeof (List<CharacterInfo>), new Type [] { typeof(CharacterInfo) } );
-			//var xser = new XmlSerializer (typeof(CharacterInfo));
-
-			//foreach (var ch in chars)
-			//	xser.Serialize (xmlWriter, ch);
-
-			xser.Serialize (stream, charList);
-
-			//xmlWriter.Close ();
-			stream.Close ();
-		}*/
+        #endregion
 	}
 }
 

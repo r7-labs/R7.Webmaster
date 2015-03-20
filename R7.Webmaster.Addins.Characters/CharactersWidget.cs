@@ -21,7 +21,6 @@
 
 using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using Mono.Addins;
 using R7.Webmaster.Addins.Root;
 using R7.Webmaster.Core;
@@ -32,7 +31,7 @@ namespace R7.Webmaster.Addins.Characters
 
 	[System.ComponentModel.ToolboxItem (true)]
 	[Extension(typeof(IWidgetAddin))]
-	public partial class CharactersWidget : Gtk.Bin, IWidgetAddin, ICharactersView
+	public partial class CharactersWidget : Gtk.Bin, IWidgetAddin
 	{
 		#region IWidgetAddin implementation
 
@@ -66,39 +65,61 @@ namespace R7.Webmaster.Addins.Characters
 
 		#endregion
 
-		protected CharactersModel Model;
+        #region MVP-VM references
+
+        protected CharactersViewModel ViewModel;
+
+        protected CharactersPresenter Presenter;
+
+        #endregion
+
+        #region Custom UI elements
 
 		protected ToggleButtonRadioGroup toggleButtonRadioGroup;
 
         protected Gtk.MenuToolButton buttonFilter;
 
+        #endregion
+
 		public CharactersWidget ()
 		{
 			this.Build ();
 
-			Model = new CharactersModel ();
-
-            MakeButtons (Model.Characters.Characters, tableCharacters, 10);
+            // create MVP-VM instances
+	        ViewModel = new CharactersViewModel ();
+            Presenter = new CharactersPresenter (ViewModel);
 
             // make radiogroup from toggle buttons
 			toggleButtonRadioGroup = new ToggleButtonRadioGroup (buttonCopyCharacters, 
 				buttonCopyEntities, buttonCopyNumericEntities, buttonCopyHexEntities, buttonCopyUnicode);
             toggleButtonRadioGroup.Activate (0);
 
+            // set buttons metadata
+            buttonCopyCharacters.Data.Add ("SelectedFormat", CharacterFormat.Character);
+            buttonCopyEntities.Data.Add ("SelectedFormat", CharacterFormat.Entity);
+            buttonCopyNumericEntities.Data.Add ("SelectedFormat", CharacterFormat.NumericEntity);
+            buttonCopyHexEntities.Data.Add ("SelectedFormat", CharacterFormat.HexEntity);
+            buttonCopyUnicode.Data.Add ("SelectedFormat", CharacterFormat.Unicode);
+
             // create menu toolbutton
             buttonFilter = new Gtk.MenuToolButton ("");
-            buttonFilter.Label = "All";
             buttonFilter.IsImportant = true;
-            buttonFilter.Menu = MakeCategoriesMenu (Model.Characters);
+            buttonFilter.Menu = MakeCategoriesMenu (
+                Presenter.GetCategories (), Presenter.GetMainCategories ());
+
+            UpdateView ();
+            UpdateViewTable ();
 		}
 
-        protected Gtk.Menu MakeCategoriesMenu (CharacterList characters)
+        #region UI helpers
+
+        protected Gtk.Menu MakeCategoriesMenu (IEnumerable<string> categories, SortedSet<string> mainCategories)
         {
             var menu = new Gtk.Menu ();
             var submenu = new Gtk.Menu ();
             Gtk.RadioAction actionFirst = null;
 
-            foreach (var category in characters.Categories)
+            foreach (var category in categories)
             {
                 var action = new Gtk.RadioAction (category, category, "", "", 0);
 
@@ -109,7 +130,7 @@ namespace R7.Webmaster.Addins.Characters
                 else
                     action.Group = actionFirst.Group;
 
-                if (characters.MainCategories.Contains (category))
+                if (mainCategories.Contains (category))
                     menu.Append (action.CreateMenuItem ());
                 else
                     submenu.Append (action.CreateMenuItem ());
@@ -124,18 +145,6 @@ namespace R7.Webmaster.Addins.Characters
             menu.ShowAll ();
 
             return menu;
-        }
-
-        protected void CategoryActionToggled (object sender, EventArgs e)
-        {
-            var action = (Gtk.RadioAction) sender;
-
-            if (action.Active)
-            {
-                buttonFilter.Label = action.Name;
-                ClearButtons (tableCharacters);
-                MakeButtons (Model.Characters.FilterByCategories (action.Name), tableCharacters, 10);
-            }
         }
 
         protected void ClearButtons (Gtk.Table table)
@@ -173,72 +182,104 @@ namespace R7.Webmaster.Addins.Characters
 			table.ShowAll ();
 		}
 
+        #endregion
+
+        private bool updateViewModel = true;
+
+        protected void UpdateView ()
+        {
+            updateViewModel = false;
+
+            buttonFilter.Label = ViewModel.Category;
+
+            entryCharacters.Text = ViewModel.CharactersString;
+            entryEntities.Text = ViewModel.EntitiesString;
+            entryNumericEntities.Text = ViewModel.NumericEntitiesString;
+            entryHexEntities.Text = ViewModel.HexEntitiesString;
+            entryUnicode.Text = ViewModel.UnicodeString;
+
+            updateViewModel = true;
+        }
+
+        protected void UpdateViewTable ()
+        {
+            ClearButtons (tableCharacters);
+            MakeButtons (Presenter.GetCharacters (), tableCharacters, 10);
+        }
+
+        protected void UpdateViewModel ()
+        {
+            ViewModel.CharactersString = entryCharacters.Text;
+            ViewModel.EntitiesString = entryEntities.Text;
+            ViewModel.NumericEntitiesString = entryNumericEntities.Text;
+            ViewModel.HexEntitiesString = entryHexEntities.Text;
+            ViewModel.UnicodeString = entryUnicode.Text;
+        }
+
+        #region Event handlers
+
+        protected void CategoryActionToggled (object sender, EventArgs e)
+        {
+            var action = (Gtk.RadioAction) sender;
+
+            // simulate click-like behaviour
+            if (action.Active)
+            {
+                ViewModel.Category = action.Name;
+
+                UpdateView ();
+                UpdateViewTable ();
+            }
+        }
+
 		protected void CharacterButtonClicked (object sender, EventArgs e)
 		{
 			var button = (Gtk.Button) sender;
-			var character = Model.Characters.FindByCode ((int) button.Data ["CharacterCode"]);
 
-			if (character != null)
-			{
-				// need to append or replace entry text 
-				var append = toggleAppend.Active;
+            var character = Presenter.GetCharacter ((int) button.Data ["CharacterCode"]);
+            if (character != null)
+            {
+                // format chars and put them to the entries
+                ViewModel.PutChar (character, toggleAppend.Active);
 
-				// format chars and put them to the entries
-				TextToEntry (entryCharacters, ((char)character.Code).ToString (), append);
-				TextToEntry (entryEntities, character.Entity, append);
-                TextToEntry (entryNumericEntities, character.ToDecEntity (), append);
-                TextToEntry (entryHexEntities, character.ToHexEntity (), append);
-                TextToEntry (entryUnicode, character.ToUnicode (), append);
+                UpdateView ();
 
-				// copy entry content to clipboard
-				TextToClipboard (toggleButtonRadioGroup.Active);
-			}
-		}
-
-		protected void TextToEntry (Gtk.Entry entry, string text, bool append)
-		{
-			entry.Text = (append ? entry.Text : "") + text;
-		}
-
-		protected void TextToClipboard (Gtk.ToggleButton button)
-		{
-			if (button == buttonCopyCharacters)
-				Clipboard.Text = entryCharacters.Text;
-			else if (button == buttonCopyEntities)
-				Clipboard.Text = entryEntities.Text;
-			else if (button == buttonCopyHexEntities)
-				Clipboard.Text = entryHexEntities.Text;
-			else if (button == buttonCopyNumericEntities)
-				Clipboard.Text = entryNumericEntities.Text;
-			else if (button == buttonCopyUnicode)
-				Clipboard.Text = entryUnicode.Text;
+                // copy selected entry content to clipboard
+                Presenter.CopyToClipboard ();
+            }
 		}
 
 		protected void OnActionClearActivated (object sender, EventArgs e)
 		{
-			entryCharacters.Text = "";
-			entryEntities.Text = "";
-			entryNumericEntities.Text = "";
-			entryHexEntities.Text = "";
-			entryUnicode.Text = "";
+            ViewModel.Clear ();
 
-            buttonFilter.Label = "All";
-            ClearButtons (tableCharacters);
-            MakeButtons (Model.Characters.Characters, tableCharacters, 10);
+            UpdateView ();
+            UpdateViewTable ();
 		}
 
-		protected void OnButtonCopyClicked (object sender, EventArgs e)
+		protected void OnButtonCopyToggled (object sender, EventArgs e)
 		{
 			var button = (Gtk.ToggleButton) sender;
 
 			// simulate click-like behaviour
 			if (button.Active)
-				TextToClipboard (button);
-		}
+            {
+                ViewModel.CharacterFormat = (CharacterFormat) button.Data ["SelectedFormat"];
+                Presenter.CopyToClipboard ();
+            }
+        }
        
         protected void OnActionCharmapActivated (object sender, EventArgs e)
         {
-            Process.Start (Model.Config.CharMapApplication);
+            Presenter.InvokeCharmapApplication ();
         }
+
+        protected void OnEntryCharactersChanged (object sender, EventArgs e)
+        {
+            if (updateViewModel)
+                UpdateViewModel ();
+        }
+
+        #endregion
 	}
 }

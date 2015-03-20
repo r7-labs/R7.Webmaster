@@ -102,6 +102,7 @@ namespace R7.Webmaster.Addins.Characters
 			this.buttonCopyCharacters.CanFocus = true;
 			this.buttonCopyCharacters.Name = "buttonCopyCharacters";
 			this.buttonCopyCharacters.UseUnderline = true;
+			this.buttonCopyCharacters.Active = true;
 			this.buttonCopyCharacters.Label = global::Mono.Unix.Catalog.GetString ("Copy");
 			global::Gtk.Image w7 = new global::Gtk.Image ();
 			w7.Pixbuf = global::Stetic.IconLoader.LoadIcon (this, "gtk-copy", global::Gtk.IconSize.Menu);
@@ -309,6 +310,16 @@ namespace R7.Webmaster.Addins.Characters
 			this.Hide ();
 			this.actionClear.Activated += new global::System.EventHandler (this.OnActionClearActivated);
 			this.actionCharmap.Activated += new global::System.EventHandler (this.OnActionCharmapActivated);
+			this.entryUnicode.Changed += new global::System.EventHandler (this.OnEntryCharactersChanged);
+			this.entryNumericEntities.Changed += new global::System.EventHandler (this.OnEntryCharactersChanged);
+			this.entryHexEntities.Changed += new global::System.EventHandler (this.OnEntryCharactersChanged);
+			this.entryEntities.Changed += new global::System.EventHandler (this.OnEntryCharactersChanged);
+			this.entryCharacters.Changed += new global::System.EventHandler (this.OnEntryCharactersChanged);
+			this.buttonCopyUnicode.Toggled += new global::System.EventHandler (this.OnButtonCopyToggled);
+			this.buttonCopyNumericEntities.Toggled += new global::System.EventHandler (this.OnButtonCopyToggled);
+			this.buttonCopyHexEntities.Toggled += new global::System.EventHandler (this.OnButtonCopyToggled);
+			this.buttonCopyEntities.Toggled += new global::System.EventHandler (this.OnButtonCopyToggled);
+			this.buttonCopyCharacters.Toggled += new global::System.EventHandler (this.OnButtonCopyToggled);
 		}
 	}
 }

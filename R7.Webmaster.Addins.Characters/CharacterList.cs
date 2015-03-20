@@ -27,7 +27,7 @@ using System.Xml.Serialization;
 namespace R7.Webmaster.Addins.Characters
 {
 	[XmlRoot ("Characters")]
-	public class CharacterList
+    public class CharacterList
 	{	
         private SortedSet<string> categories;
 

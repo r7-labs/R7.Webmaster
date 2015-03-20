@@ -76,12 +76,12 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="CharactersWidget.cs" />
     <Compile Include="gtk-gui\R7.Webmaster.Addins.Characters.CharactersWidget.cs" />
-    <Compile Include="ICharactersView.cs" />
     <Compile Include="CharactersModel.cs" />
     <Compile Include="CharactersPresenter.cs" />
     <Compile Include="CharacterList.cs" />
     <Compile Include="CharacterInfo.cs" />
     <Compile Include="CharactersConfig.cs" />
+    <Compile Include="CharactersViewModel.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
