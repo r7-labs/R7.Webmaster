@@ -108,7 +108,6 @@ namespace R7.Webmaster.Addins.Characters
                 Presenter.GetCategories (), Presenter.GetMainCategories ());
 
             UpdateView ();
-            UpdateViewTable ();
 		}
 
         #region UI helpers
@@ -186,7 +185,7 @@ namespace R7.Webmaster.Addins.Characters
 
         private bool updateViewModel = true;
 
-        protected void UpdateView ()
+        protected void UpdateView (bool updateTable = true)
         {
             updateViewModel = false;
 
@@ -199,12 +198,12 @@ namespace R7.Webmaster.Addins.Characters
             entryUnicode.Text = ViewModel.UnicodeString;
 
             updateViewModel = true;
-        }
 
-        protected void UpdateViewTable ()
-        {
-            ClearButtons (tableCharacters);
-            MakeButtons (Presenter.GetCharacters (), tableCharacters, 10);
+            if (updateTable)
+            {
+                ClearButtons (tableCharacters);
+                MakeButtons (Presenter.GetCharacters (), tableCharacters, 10);
+            }
         }
 
         protected void UpdateViewModel ()
@@ -228,7 +227,6 @@ namespace R7.Webmaster.Addins.Characters
                 ViewModel.Category = action.Name;
 
                 UpdateView ();
-                UpdateViewTable ();
             }
         }
 
@@ -242,7 +240,7 @@ namespace R7.Webmaster.Addins.Characters
                 // format chars and put them to the entries
                 ViewModel.PutChar (character, toggleAppend.Active);
 
-                UpdateView ();
+                UpdateView (false);
 
                 // copy selected entry content to clipboard
                 Presenter.CopyToClipboard ();
@@ -254,7 +252,6 @@ namespace R7.Webmaster.Addins.Characters
             ViewModel.Clear ();
 
             UpdateView ();
-            UpdateViewTable ();
 		}
 
 		protected void OnButtonCopyToggled (object sender, EventArgs e)
