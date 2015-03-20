@@ -183,10 +183,17 @@ namespace R7.Webmaster.Addins.Characters
 
         #endregion
 
+        #region View-ViewModel sync
+
         private bool updateViewModel = true;
 
+        /// <summary>
+        /// Updates the view from view model state.
+        /// </summary>
+        /// <param name="updateTable">If set to <c>true</c> update (recreate) characters table.</param>
         protected void UpdateView (bool updateTable = true)
         {
+            // suppress handlers which update view model
             updateViewModel = false;
 
             buttonFilter.Label = ViewModel.Category;
@@ -197,6 +204,7 @@ namespace R7.Webmaster.Addins.Characters
             entryHexEntities.Text = ViewModel.HexEntitiesString;
             entryUnicode.Text = ViewModel.UnicodeString;
 
+            // enable handlers which update view model
             updateViewModel = true;
 
             if (updateTable)
@@ -206,6 +214,9 @@ namespace R7.Webmaster.Addins.Characters
             }
         }
 
+        /// <summary>
+        /// Updates the view model from view (widgets) state.
+        /// </summary>
         protected void UpdateViewModel ()
         {
             ViewModel.CharactersString = entryCharacters.Text;
@@ -214,6 +225,8 @@ namespace R7.Webmaster.Addins.Characters
             ViewModel.HexEntitiesString = entryHexEntities.Text;
             ViewModel.UnicodeString = entryUnicode.Text;
         }
+
+        #endregion
 
         #region Event handlers
 
