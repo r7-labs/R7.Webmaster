@@ -30,13 +30,20 @@ namespace R7.Webmaster.Addins.RatioCalculator
 	[Extension(typeof(IWidgetAddin))]
 	public partial class RatioCalculatorWidget : Gtk.Bin, IRatioCalculatorView, IWidgetAddin
 	{
-		private RatioCalculatorModel Model;
+        #region MVP-VM references
+
+        protected RatioCalculatorViewModel ViewModel;
+
+        protected RatioCalculatorModel Model;
+
+        #endregion
 
 		public RatioCalculatorWidget ()
 		{
 			this.Build ();
 
 			Model = new RatioCalculatorModel ();
+            ViewModel = new RatioCalculatorViewModel ();
 
 			OnScaleToleranceValueChanged(scaleTolerance, null);
 		}
@@ -60,20 +67,14 @@ namespace R7.Webmaster.Addins.RatioCalculator
 
 		public List<Gtk.ToolItem> ToolItems
 		{
-			get 
-			{ 
-				return new List<Gtk.ToolItem> () {
-					(Gtk.ToolItem) actionLockFactor.CreateToolItem (),
-					(Gtk.ToolItem) actionRotate.CreateToolItem ()
-				};
-			}
+            get { return new List<Gtk.ToolItem> (); }
 		}
 
 		#endregion
 
 		protected void OnSpinWidthValueChanged (object sender, EventArgs e)
 		{
-			if (actionLockFactor.Active)
+            if (ViewModel.IsFactorLocked)
 			{
 				// f = w/h
 				// w = f*h
@@ -118,7 +119,18 @@ namespace R7.Webmaster.Addins.RatioCalculator
 
 		protected void OnButtonRotateClicked (object sender, EventArgs e)
 		{
+            Model.Rotate();
 
+            spinWidth.ValueChanged -= OnSpinWidthValueChanged;
+            spinHeight.ValueChanged -= OnSpinWidthValueChanged;
+
+            spinWidth.Value = Model.Width;
+            spinHeight.Value = Model.Height;
+
+            spinWidth.ValueChanged += OnSpinWidthValueChanged;
+            spinHeight.ValueChanged += OnSpinWidthValueChanged;
+
+            CalcFactorAndRatio ();
 		}
 
 		protected void OnButtonDivideClicked (object sender, EventArgs e)
@@ -183,22 +195,9 @@ namespace R7.Webmaster.Addins.RatioCalculator
 					string.Format("{0}", Math.Pow (10, -scale.Value));
 		}
 
-		protected void OnActionRotateActivated (object sender, EventArgs e)
-		{
-			Model.Rotate();
-
-			spinWidth.ValueChanged -= OnSpinWidthValueChanged;
-			spinHeight.ValueChanged -= OnSpinWidthValueChanged;
-
-			spinWidth.Value = Model.Width;
-			spinHeight.Value = Model.Height;
-
-			spinWidth.ValueChanged += OnSpinWidthValueChanged;
-			spinHeight.ValueChanged += OnSpinWidthValueChanged;
-
-			CalcFactorAndRatio ();
-		}
-
+        protected void OnButtonLockFactorToggled (object sender, EventArgs e)
+        {
+            ViewModel.IsFactorLocked = ((Gtk.ToggleButton) sender).Active;
+        }
 	}
 }
-

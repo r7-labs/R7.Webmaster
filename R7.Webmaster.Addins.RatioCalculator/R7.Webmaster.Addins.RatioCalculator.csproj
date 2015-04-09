@@ -74,6 +74,7 @@
     <Compile Include="RatioCalculatorModel.cs" />
     <Compile Include="RatioCalculatorPresenter.cs" />
     <Compile Include="IRatioCalculatorView.cs" />
+    <Compile Include="RatioCalculatorViewModel.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>

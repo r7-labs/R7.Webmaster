@@ -13,43 +13,43 @@
   <icon-factory>
     <icon-set id="locked">
       <source>
-        <property name="Image">stock:locked Dialog</property>
-        <property name="Size">Dialog</property>
+        <property name="Image">stock:locked Menu</property>
+        <property name="Size">Menu</property>
+      </source>
+      <source>
+        <property name="Image">stock:locked SmallToolbar</property>
+        <property name="Size">SmallToolbar</property>
       </source>
       <source>
         <property name="Image">stock:locked LargeToolbar</property>
         <property name="Size">LargeToolbar</property>
       </source>
       <source>
-        <property name="Image">stock:locked SmallToolbar</property>
-        <property name="Size">SmallToolbar</property>
+        <property name="Image">stock:locked Button</property>
+        <property name="Size">Button</property>
       </source>
     </icon-set>
     <icon-set id="rotate">
       <source>
+        <property name="Image">stock:rotate Menu</property>
+        <property name="Size">Menu</property>
+      </source>
+      <source>
+        <property name="Image">stock:rotate SmallToolbar</property>
+        <property name="Size">SmallToolbar</property>
+      </source>
+      <source>
         <property name="Image">stock:rotate LargeToolbar</property>
+        <property name="Size">LargeToolbar</property>
+      </source>
+      <source>
+        <property name="Image">stock:rotate Button</property>
+        <property name="Size">Button</property>
       </source>
     </icon-set>
   </icon-factory>
-  <widget class="Gtk.Bin" id="R7.Webmaster.Addins.RatioCalculator.RatioCalculatorWidget" design-size="434 127">
-    <action-group name="Default">
-      <action id="actionLockFactor">
-        <property name="Type">Toggle</property>
-        <property name="IsImportant">True</property>
-        <property name="Label" translatable="yes">_Lock Factor</property>
-        <property name="ShortLabel" translatable="yes">_Lock Factor</property>
-        <property name="StockId">locked</property>
-        <property name="DrawAsRadio">False</property>
-        <property name="Active">False</property>
-      </action>
-      <action id="actionRotate">
-        <property name="Type">Action</property>
-        <property name="Label" translatable="yes">_Rotate</property>
-        <property name="ShortLabel" translatable="yes">_Rotate</property>
-        <property name="StockId">rotate</property>
-        <signal name="Activated" handler="OnActionRotateActivated" />
-      </action>
-    </action-group>
+  <widget class="Gtk.Bin" id="R7.Webmaster.Addins.RatioCalculator.RatioCalculatorWidget" design-size="440 172">
+    <action-group name="Default" />
     <property name="MemberName" />
     <property name="Visible">False</property>
     <child>
@@ -128,25 +128,45 @@
               <placeholder />
             </child>
             <child>
-              <placeholder />
-            </child>
-            <child>
-              <placeholder />
-            </child>
-            <child>
               <widget class="Gtk.Button" id="buttonDivide">
                 <property name="MemberName" />
                 <property name="Tooltip" translatable="yes">Divide by</property>
                 <property name="CanFocus">True</property>
-                <property name="Type">TextAndIcon</property>
-                <property name="Icon">stock:gtk-zoom-out Button</property>
-                <property name="Label" translatable="yes" />
+                <property name="Type">TextOnly</property>
+                <property name="Label" translatable="yes">/</property>
                 <property name="UseUnderline">True</property>
                 <signal name="Clicked" handler="OnButtonDivideClicked" />
               </widget>
               <packing>
+                <property name="TopAttach">1</property>
+                <property name="BottomAttach">2</property>
                 <property name="LeftAttach">6</property>
                 <property name="RightAttach">7</property>
+                <property name="AutoSize">True</property>
+                <property name="XOptions">Fill</property>
+                <property name="YOptions">Fill</property>
+                <property name="XExpand">False</property>
+                <property name="XFill">True</property>
+                <property name="XShrink">False</property>
+                <property name="YExpand">False</property>
+                <property name="YFill">True</property>
+                <property name="YShrink">False</property>
+              </packing>
+            </child>
+            <child>
+              <widget class="Gtk.ToggleButton" id="buttonLockFactor">
+                <property name="MemberName" />
+                <property name="Tooltip" translatable="yes">Lock factor</property>
+                <property name="CanFocus">True</property>
+                <property name="Type">TextAndIcon</property>
+                <property name="Icon">stock:locked Menu</property>
+                <property name="Label" translatable="yes" />
+                <property name="UseUnderline">True</property>
+                <signal name="Toggled" handler="OnButtonLockFactorToggled" />
+              </widget>
+              <packing>
+                <property name="LeftAttach">4</property>
+                <property name="RightAttach">5</property>
                 <property name="AutoSize">True</property>
                 <property name="XOptions">Fill</property>
                 <property name="YOptions">Fill</property>
@@ -163,15 +183,16 @@
                 <property name="MemberName" />
                 <property name="Tooltip" translatable="yes">Multiply by</property>
                 <property name="CanFocus">True</property>
-                <property name="Type">TextAndIcon</property>
-                <property name="Icon">stock:gtk-zoom-in Button</property>
-                <property name="Label" translatable="yes" />
+                <property name="Type">TextOnly</property>
+                <property name="Label" translatable="yes">x</property>
                 <property name="UseUnderline">True</property>
                 <signal name="Clicked" handler="OnButtonMultiplyClicked" />
               </widget>
               <packing>
-                <property name="LeftAttach">8</property>
-                <property name="RightAttach">9</property>
+                <property name="TopAttach">1</property>
+                <property name="BottomAttach">2</property>
+                <property name="LeftAttach">5</property>
+                <property name="RightAttach">6</property>
                 <property name="AutoSize">True</property>
                 <property name="XOptions">Fill</property>
                 <property name="YOptions">Fill</property>
@@ -195,10 +216,33 @@
                 <signal name="Clicked" handler="OnButtonReverseRatioClicked" />
               </widget>
               <packing>
-                <property name="TopAttach">1</property>
-                <property name="BottomAttach">2</property>
-                <property name="LeftAttach">4</property>
-                <property name="RightAttach">5</property>
+                <property name="LeftAttach">6</property>
+                <property name="RightAttach">7</property>
+                <property name="AutoSize">True</property>
+                <property name="XOptions">Fill</property>
+                <property name="YOptions">Fill</property>
+                <property name="XExpand">False</property>
+                <property name="XFill">True</property>
+                <property name="XShrink">False</property>
+                <property name="YExpand">False</property>
+                <property name="YFill">True</property>
+                <property name="YShrink">False</property>
+              </packing>
+            </child>
+            <child>
+              <widget class="Gtk.Button" id="buttonRotate">
+                <property name="MemberName" />
+                <property name="Tooltip" translatable="yes">Rotate</property>
+                <property name="CanFocus">True</property>
+                <property name="Type">TextAndIcon</property>
+                <property name="Icon">stock:rotate Menu</property>
+                <property name="Label" translatable="yes" />
+                <property name="UseUnderline">True</property>
+                <signal name="Clicked" handler="OnButtonRotateClicked" />
+              </widget>
+              <packing>
+                <property name="LeftAttach">5</property>
+                <property name="RightAttach">6</property>
                 <property name="AutoSize">True</property>
                 <property name="XOptions">Fill</property>
                 <property name="YOptions">Fill</property>
@@ -445,8 +489,10 @@
                 <property name="Value">2</property>
               </widget>
               <packing>
-                <property name="LeftAttach">7</property>
-                <property name="RightAttach">8</property>
+                <property name="TopAttach">1</property>
+                <property name="BottomAttach">2</property>
+                <property name="LeftAttach">4</property>
+                <property name="RightAttach">5</property>
                 <property name="AutoSize">True</property>
                 <property name="XOptions">Fill</property>
                 <property name="YOptions">Fill</property>
