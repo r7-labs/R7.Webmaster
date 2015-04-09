@@ -173,16 +173,24 @@ namespace R7.Webmaster
 				if (pos > 0)
 					toolbar1.Insert (new Gtk.SeparatorToolItem (), pos++);
 			}
-		
-			// add toolitems to the toolbar
+
+            // add toolitems to the toolbar
 			foreach (var toolItem in selectedAddin.ToolItems)
 			{
 				// insert toolitem to the right
 				toolbar1.Insert (toolItem, pos++);
 			}
 
-			// show all changes
-			toolbar1.ShowAll ();
+            if (toolbar1.NItems == 0)
+            {
+                // hide toolbar if no items added
+                toolbar1.HideAll ();
+            }
+            else
+            {
+                // show all changes
+                toolbar1.ShowAll ();
+            }
 		}
 
 		protected void AppendPage (Gtk.Notebook nb, Gtk.Widget child, string title, string iconName)
