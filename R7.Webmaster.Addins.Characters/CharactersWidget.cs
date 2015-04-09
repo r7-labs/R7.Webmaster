@@ -106,6 +106,7 @@ namespace R7.Webmaster.Addins.Characters
             buttonFilter.IsImportant = true;
             buttonFilter.Menu = MakeCategoriesMenu (
                 Presenter.GetCategories (), Presenter.GetMainCategories ());
+            buttonFilter.Clicked += (sender, e) => ((Gtk.Menu)((Gtk.MenuToolButton)sender).Menu).Popup ();
 
             UpdateView ();
 		}
