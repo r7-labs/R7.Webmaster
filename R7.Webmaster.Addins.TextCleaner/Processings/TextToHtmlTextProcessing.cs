@@ -84,11 +84,11 @@ namespace R7.Webmaster.Addins.TextCleaner
 
 		public override string Execute (string text, TextCleanerParams textCleanerParams)
 		{
+            Params = textCleanerParams;
+
 			// perform text-to-text processing before converting to HTML
 			var textToTextProcessing = new TextToTextProcessing ();
-			text = textToTextProcessing.Execute (text, textCleanerParams);
-
-			Params = textCleanerParams;
+            text = textToTextProcessing.Execute (text, Params);
 
 			return Command.Execute (text);
 		}

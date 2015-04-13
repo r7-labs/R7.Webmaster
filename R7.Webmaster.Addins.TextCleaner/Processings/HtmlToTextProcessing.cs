@@ -65,13 +65,13 @@ namespace R7.Webmaster.Addins.TextCleaner
 
 		public override string Execute (string text, TextCleanerParams textCleanerParams)
 		{
-			Params = textCleanerParams;
+            Params = textCleanerParams;
 
 			text = Command.Execute (text);
 
 			// perform text-to-text processing after converting from HTML
 			var textToTextProcessing = new TextToTextProcessing ();
-			text = textToTextProcessing.Execute (text, textCleanerParams);
+            text = textToTextProcessing.Execute (text, Params);
 
 			return text;
 		}

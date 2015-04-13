@@ -40,6 +40,10 @@ namespace R7.Webmaster.Addins.TextCleaner
 					new PrependCommand ("<p>"),
 					new AppendCommand ("</p>")),
 
+                // replace endlines with paras
+                //new CompositeCommand (
+                //    new ReplaceCommand ("\r\n", "</p><p>")),
+
 				// replace endlines with paras
 				new CompositeCommand (
 					new ReplaceCommand ("\n", "</p><p>")),
@@ -121,11 +125,12 @@ namespace R7.Webmaster.Addins.TextCleaner
 
 		public override string Execute (string text, TextCleanerParams textCleanerParams)
 		{
+            Params = textCleanerParams;
+            Params.PreserveLines = true;
+
 			// perform text-to-text processing before converting to HTML
 			var textToTextProcessing = new TextToTextProcessing ();
-			text = textToTextProcessing.Execute (text, textCleanerParams);
-
-			Params = textCleanerParams;
+			text = textToTextProcessing.Execute (text, Params);
 
 			return Command.Execute (text);
 		}

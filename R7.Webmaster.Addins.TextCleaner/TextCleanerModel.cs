@@ -25,12 +25,6 @@ using R7.Webmaster.Core;
 
 namespace R7.Webmaster.Addins.TextCleaner
 {
-	public class TextCleanerParams
-	{
-		public bool HtmlIn;
-		public bool HtmlOut;
-		public bool EmNames;
-	}
 
 	public class TextCleanerModel
 	{
@@ -44,22 +38,22 @@ namespace R7.Webmaster.Addins.TextCleaner
 
 			if (!textCleanParams.HtmlIn && textCleanParams.HtmlOut)
 			{
-				return new TextToHtmlProcessing ().Execute (text, textCleanParams);
+                return new TextToHtmlProcessing ().Execute (text, textCleanParams.Copy ());
 			}
 
 			if (!textCleanParams.HtmlIn && !textCleanParams.HtmlOut)
 			{
-				return new TextToTextProcessing ().Execute (text, textCleanParams);
+                return new TextToTextProcessing ().Execute (text, textCleanParams.Copy ());
 			}
 
 			if (textCleanParams.HtmlIn && !textCleanParams.HtmlOut)
 			{
-				return new HtmlToTextProcessing ().Execute (text, textCleanParams);
+                return new HtmlToTextProcessing ().Execute (text, textCleanParams.Copy ());
 			}
 
 			if (textCleanParams.HtmlIn && textCleanParams.HtmlOut)
 			{
-				return new HtmlToHtmlProcessing ().Execute (text, textCleanParams);
+                return new HtmlToHtmlProcessing ().Execute (text, textCleanParams.Copy ());
 			}
 
 			return text;

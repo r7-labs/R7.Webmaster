@@ -33,20 +33,25 @@ namespace R7.Webmaster.Addins.TextCleaner
 
 		protected override void Build ()
 		{
-			Command = new CompositeCommand (
+            Command = new CompositeCommand (
 
 				// add spaces after punctuation
-				new CompositeCommand (
-					new ReplaceCommand (",", ", "),
-					new ReplaceCommand ("!", "! ")),
+                new CompositeCommand (
+                    new ReplaceCommand (",", ", "),
+                    new ReplaceCommand ("!", "! ")),
 
 				// normalize endlines
-				new CompositeCommand (
-					new ReplaceCommand ("\r", "\n"),
-					new ReplaceCommand ("\n\n", "\n")),
+                new CompositeCommand (
+                    new ReplaceCommand ("\r", "\n"),
+                    new ReplaceCommand ("\n\n", "\n")),
 
 				// remove duplicate whitespace
-				new RegexReplaceCommand (@"\s+", " "),
+                new CompositeCommand (
+                    new RegexReplaceCommand (@"\s+", " ")).When (() => !Params.PreserveLines),
+
+                new CompositeCommand (
+                    new RegexReplaceCommand (@"[ \t]+", " "),
+                    new RegexReplaceCommand (@"\n[ \t]+", "\n")).When (() => Params.PreserveLines),
 
 				// remove spaces before "closing" punctuation
 				new CompositeCommand (

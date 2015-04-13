@@ -87,6 +87,7 @@
     <Compile Include="Processings\HtmlToTextProcessing.cs" />
     <Compile Include="Processings\HtmlToHtmlProcessing.cs" />
     <Compile Include="Processings\TextToHtmlTextProcessing.cs" />
+    <Compile Include="TextCleanerParams.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
