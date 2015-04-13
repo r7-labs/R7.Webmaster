@@ -44,6 +44,8 @@ namespace R7.Webmaster.Addins.Characters
 
         public CharactersConfig Config { get; protected set; }
 
+        public string UserDataFile { get; protected set; }
+
         public CharactersPresenter (CharactersViewModel viewModel)
 		{
             // load config
@@ -51,11 +53,11 @@ namespace R7.Webmaster.Addins.Characters
 
             // base (original) and user data files
             var baseDataFile = Path.Combine (Path.GetDirectoryName (Assembly.GetExecutingAssembly ().Location), "characters.xml");
-            var userDataFile = Path.Combine (Config.ApplicationData, "characters.xml");
+            UserDataFile = Path.Combine (Config.ApplicationData, "characters.xml");
 
             // copy base data file to the user data file
-            if (!File.Exists (userDataFile))
-                File.Copy (baseDataFile, userDataFile);
+            if (!File.Exists (UserDataFile))
+                File.Copy (baseDataFile, UserDataFile);
 
             // load characters
             Model = new CharactersModel ();
@@ -114,6 +116,11 @@ namespace R7.Webmaster.Addins.Characters
                     Clipboard.Text = ViewModel.UnicodeString;
                     break;
             }
+        }
+
+        public void EditCharacters ()
+        {
+            Process.Start (Config.TextEditorApplication, UserDataFile);
         }
 	}
 }

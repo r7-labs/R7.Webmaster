@@ -12,6 +12,8 @@ namespace R7.Webmaster.Addins.Characters
 		
 		private global::Gtk.Action actionCharmap;
 		
+		private global::Gtk.Action actionEdit;
+		
 		private global::Gtk.VBox vbox1;
 		
 		private global::Gtk.ScrolledWindow scrolledwindow1;
@@ -68,6 +70,9 @@ namespace R7.Webmaster.Addins.Characters
 			this.actionCharmap.IsImportant = true;
 			this.actionCharmap.ShortLabel = global::Mono.Unix.Catalog.GetString ("Character Map");
 			w2.Add (this.actionCharmap, null);
+			this.actionEdit = new global::Gtk.Action ("actionEdit", global::Mono.Unix.Catalog.GetString ("_Edit"), null, "gtk-edit");
+			this.actionEdit.ShortLabel = global::Mono.Unix.Catalog.GetString ("_Edit");
+			w2.Add (this.actionEdit, null);
 			this.UIManager.InsertActionGroup (w2, 0);
 			this.Name = "R7.Webmaster.Addins.Characters.CharactersWidget";
 			// Container child R7.Webmaster.Addins.Characters.CharactersWidget.Gtk.Container+ContainerChild
@@ -310,6 +315,7 @@ namespace R7.Webmaster.Addins.Characters
 			this.Hide ();
 			this.actionClear.Activated += new global::System.EventHandler (this.OnActionClearActivated);
 			this.actionCharmap.Activated += new global::System.EventHandler (this.OnActionCharmapActivated);
+			this.actionEdit.Activated += new global::System.EventHandler (this.OnActionEditActivated);
 			this.entryUnicode.Changed += new global::System.EventHandler (this.OnEntryCharactersChanged);
 			this.entryNumericEntities.Changed += new global::System.EventHandler (this.OnEntryCharactersChanged);
 			this.entryHexEntities.Changed += new global::System.EventHandler (this.OnEntryCharactersChanged);

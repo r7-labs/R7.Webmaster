@@ -58,6 +58,8 @@ namespace R7.Webmaster.Addins.Characters
                     new Gtk.SeparatorToolItem (),
                     buttonFilter,
                     new Gtk.SeparatorToolItem (),
+                    (Gtk.ToolItem) actionEdit.CreateToolItem (),
+                    new Gtk.SeparatorToolItem (),
                     (Gtk.ToolItem) actionCharmap.CreateToolItem ()
 				}; 
 			}
@@ -289,6 +291,11 @@ namespace R7.Webmaster.Addins.Characters
         {
             if (updateViewModel)
                 UpdateViewModel ();
+        }
+
+        protected void OnActionEditActivated (object sender, EventArgs e)
+        {
+            Presenter.EditCharacters ();
         }
 
         #endregion

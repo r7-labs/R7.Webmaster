@@ -34,5 +34,10 @@ namespace R7.Webmaster.Addins.Characters
         {
             get { return PlatformConfig.GetString ("CharMapApplication", string.Empty); }
         }
+
+        public string TextEditorApplication
+        {
+            get { return PlatformConfig.GetString ("TextEditorApplication", string.Empty); }
+        }
     }
 }
