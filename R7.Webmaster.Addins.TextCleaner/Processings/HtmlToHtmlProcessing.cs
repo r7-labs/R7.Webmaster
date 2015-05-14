@@ -48,12 +48,12 @@ namespace R7.Webmaster.Addins.TextCleaner
 
 		public override string Execute (string text, TextCleanerParams textCleanerParams)
 		{
-			text = Command.Execute (text);
+			Params = textCleanerParams;
 
-			return text;
+			return Command.Execute (text);
 		}
 
-		private string HtmlToHtml (string text) //, TextCleanParams param)
+		private string HtmlToHtml (string text)
 		{
 			var text2HtmlTextProcessing = new TextToHtmlTextProcessing ();
 
@@ -72,7 +72,7 @@ namespace R7.Webmaster.Addins.TextCleaner
 
 			// pass all matched values to cleanup
 			foreach (var _group in attrGroups)
-				_group.NewValue = text2HtmlTextProcessing.Execute (_group.Value, null);
+				_group.NewValue = text2HtmlTextProcessing.Execute (_group.Value, Params);
 
 			// now, we need to apply changes back to original text,
 			// before proceed with tags and values
@@ -90,7 +90,7 @@ namespace R7.Webmaster.Addins.TextCleaner
 			CopyValidMatches (values, valueGroups, 1);
 
 			foreach (var _group in valueGroups)
-				_group.NewValue = text2HtmlTextProcessing.Execute (_group.Value, null);
+				_group.NewValue = text2HtmlTextProcessing.Execute (_group.Value, Params);
 
 			text = ApplyMatchGroups (text, valueGroups);
 
