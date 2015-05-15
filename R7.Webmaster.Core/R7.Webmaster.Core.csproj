@@ -61,6 +61,7 @@
     <Compile Include="HtmlHighlighter.cs" />
     <Compile Include="TextViewHighlighterBase.cs" />
     <Compile Include="ToggleButtonRadioGroup.cs" />
+    <Compile Include="TextUtils.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>

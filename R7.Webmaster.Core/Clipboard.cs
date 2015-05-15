@@ -46,40 +46,7 @@ namespace R7.Webmaster.Core
 			}
 		}
 
-		/// <summary>
-		/// Guesses the encoding of binary data.
-		/// </summary>
-		/// <returns>The encoding.</returns>
-		/// <param name="data">binary data.</param>
-		private static Encoding GuessEncoding (byte [] data)
-		{
-			var encodings = new [] {
-				Encoding.UTF8,
-				Encoding.Unicode,
-				Encoding.BigEndianUnicode,
-				Encoding.UTF32
-			};
 
-			foreach (var encoding in encodings)
-			{
-				var match = true;
-				var preamble = encoding.GetPreamble ();
-				for (var i = 0; i < preamble.Length; i++)
-				{
-					if (preamble [i] != data [i])
-					{
-						match = false;
-						break;
-					}
-				}
-
-				if (match)
-					return encoding;
-			}
-
-			// REVIEW: This may not be true...
-			return Encoding.UTF8;
-		}
 
 		public static string Html
 		{
@@ -91,25 +58,18 @@ namespace R7.Webmaster.Core
 				var selection = clipboard.WaitForContents (target);
 				if (selection != null)
 				{
-
-					string text;
-
 					// try to guess selection data encoding
-					var encoding = GuessEncoding (selection.Data);
+					var encoding = TextUtils.GuessEncoding (selection.Data, Encoding.UTF8);
 
-					if (encoding != null)
-					{
-						text = encoding.GetString (selection.Data);
+					// get HTML text
+					var htmlText = encoding.GetString (selection.Data);
 
-						#if DEBUG
-						Console.WriteLine (encoding.GetType ().Name);
-						Console.WriteLine (text);
-						#endif
+					#if DEBUG
+					Console.WriteLine (encoding.GetType ().Name);
+					Console.WriteLine (htmlText);
+					#endif
 
-						return text;
-					}
-
-					return string.Empty;
+					return htmlText;
 				}
 
 				return Text;
