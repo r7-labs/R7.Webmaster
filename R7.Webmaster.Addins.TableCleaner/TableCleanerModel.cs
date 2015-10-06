@@ -33,12 +33,12 @@ namespace R7.Webmaster.Addins.TableCleaner
 		public string TableCssClass;
 		public int TableWidth;
 		public string TableWidthUnits;
+		public bool ApplyResultFormat;
+		public string ResultFormat;
 	}
 
 	public class TableCleanerModel
 	{
-
-
 		public TableCleanerModel ()
 		{
 		}
@@ -49,7 +49,14 @@ namespace R7.Webmaster.Addins.TableCleaner
 
 			if (tableCleanParams.HtmlIn && HtmlUtils.HasStartTag (text, "table"))
 			{
-				return new TableCleanProcessing ().Execute (text, tableCleanParams);
+				var resultText = new TableCleanProcessing ().Execute (text, tableCleanParams);
+
+				if (tableCleanParams.ApplyResultFormat)
+				{
+					resultText = string.Format (tableCleanParams.ResultFormat, resultText);
+				}
+
+				return resultText;
 			}
 
 			return text;

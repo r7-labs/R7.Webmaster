@@ -6,12 +6,12 @@
   </configuration>
   <import>
     <widget-library name="glade-sharp, Version=2.12.0.0, Culture=neutral, PublicKeyToken=35e10195dab3c99f" />
-    <widget-library name="../../R7.Webmaster.Addins.Root/bin/Debug/R7.Webmaster.Addins.Root.dll" />
-    <widget-library name="../../R7.Webmaster.Core/bin/Debug/R7.Webmaster.Core.dll" />
-    <widget-library name="../../R7.Webmaster.Addins.TextCleaner/bin/Debug/R7.Webmaster.Addins.TextCleaner.dll" />
-    <widget-library name="../bin/Debug/R7.Webmaster.Addins.TableCleaner.dll" internal="true" />
+    <widget-library name="../../R7.Webmaster.Addins.Root/bin/Release/R7.Webmaster.Addins.Root.dll" />
+    <widget-library name="../../R7.Webmaster.Core/bin/Release/R7.Webmaster.Core.dll" />
+    <widget-library name="../../R7.Webmaster.Addins.TextCleaner/bin/Release/R7.Webmaster.Addins.TextCleaner.dll" />
+    <widget-library name="../bin/Release/R7.Webmaster.Addins.TableCleaner.dll" internal="true" />
   </import>
-  <widget class="Gtk.Bin" id="R7.Webmaster.Addins.TableCleaner.TableCleanerWidget" design-size="516 250">
+  <widget class="Gtk.Bin" id="R7.Webmaster.Addins.TableCleaner.TableCleanerWidget" design-size="516 271">
     <action-group name="Default">
       <action id="actionProcess">
         <property name="Type">Action</property>
@@ -40,13 +40,10 @@
         <child>
           <widget class="Gtk.Table" id="tableClearTablesOptions">
             <property name="MemberName" />
-            <property name="NRows">4</property>
+            <property name="NRows">5</property>
             <property name="NColumns">2</property>
             <property name="RowSpacing">6</property>
             <property name="ColumnSpacing">6</property>
-            <child>
-              <placeholder />
-            </child>
             <child>
               <placeholder />
             </child>
@@ -70,6 +67,30 @@
                 <property name="XShrink">False</property>
                 <property name="YExpand">False</property>
                 <property name="YFill">False</property>
+                <property name="YShrink">False</property>
+              </packing>
+            </child>
+            <child>
+              <widget class="Gtk.CheckButton" id="checkApplyResultFormat">
+                <property name="MemberName" />
+                <property name="CanFocus">True</property>
+                <property name="Label" translatable="yes">Apply Result Format:</property>
+                <property name="Active">True</property>
+                <property name="DrawIndicator">True</property>
+                <property name="HasLabel">True</property>
+                <property name="UseUnderline">True</property>
+              </widget>
+              <packing>
+                <property name="TopAttach">3</property>
+                <property name="BottomAttach">4</property>
+                <property name="AutoSize">True</property>
+                <property name="XOptions">Fill</property>
+                <property name="YOptions">Fill</property>
+                <property name="XExpand">False</property>
+                <property name="XFill">True</property>
+                <property name="XShrink">False</property>
+                <property name="YExpand">False</property>
+                <property name="YFill">True</property>
                 <property name="YShrink">False</property>
               </packing>
             </child>
@@ -114,6 +135,29 @@
                 <property name="XShrink">False</property>
                 <property name="YExpand">False</property>
                 <property name="YFill">False</property>
+                <property name="YShrink">False</property>
+              </packing>
+            </child>
+            <child>
+              <widget class="Gtk.Entry" id="entryResultFormat">
+                <property name="MemberName" />
+                <property name="CanFocus">True</property>
+                <property name="Text" translatable="yes">&lt;div class="table-responsive"&gt;{0}&lt;/div&gt;</property>
+                <property name="IsEditable">True</property>
+                <property name="InvisibleChar">●</property>
+              </widget>
+              <packing>
+                <property name="TopAttach">4</property>
+                <property name="BottomAttach">5</property>
+                <property name="RightAttach">2</property>
+                <property name="AutoSize">True</property>
+                <property name="XOptions">Fill</property>
+                <property name="YOptions">Fill</property>
+                <property name="XExpand">False</property>
+                <property name="XFill">True</property>
+                <property name="XShrink">False</property>
+                <property name="YExpand">False</property>
+                <property name="YFill">True</property>
                 <property name="YShrink">False</property>
               </packing>
             </child>

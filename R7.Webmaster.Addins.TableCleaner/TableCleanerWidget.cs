@@ -143,6 +143,8 @@ namespace R7.Webmaster.Addins.TableCleaner
 				TableCssClass = centryCssClass.ActiveText,
 				TableWidth = spinWidth.ValueAsInt,
 				TableWidthUnits = comboWidthUnits.ActiveText,
+				ApplyResultFormat = checkApplyResultFormat.Active,
+				ResultFormat = entryResultFormat.Text,
 
 				// TextCleanerParams:
 				HtmlOut = true,
