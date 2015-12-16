@@ -127,13 +127,14 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <None Include="icons\webmaster.svg" />
     <None Include="install.targets">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Include="webmaster.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
+    <None Include="icons\webmaster_v1.svg" />
+    <None Include="icons\webmaster_v2.svg" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="ui\" />
