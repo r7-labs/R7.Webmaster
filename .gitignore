@@ -1,0 +1,11 @@
+# User-specific
+*.userprefs
+*.usertasks
+
+# Build output
+*/bin/*
+*/obj/*
+
+# Downloaded NuGet packages
+packages/*
+Packages/*
