@@ -119,7 +119,9 @@ namespace R7.Webmaster
 
 			foreach (var widget in Addins)
 			{
-				AppendPage (notebook1, widget.Instance, widget.Label, widget.Icon);
+                var vbox = new Gtk.VBox (false, 0);
+                vbox.PackEnd (widget.Instance, true, true, 0u);
+                AppendPage (notebook1, vbox, widget.Label, widget.Icon);
 			}
 
 			// wire up SwitchPage manually to avoid firing it for default page
@@ -139,8 +141,14 @@ namespace R7.Webmaster
 			foreach (var addin in Addins)
 				addin.IsActive = (addin == selectedAddin);
 
-			// show textview only to text input widgets
-			TextScrolledWindow.Visible = selectedAddin is ITextInputWidgetAddin;
+            // show textview only to text input widgets
+            if (selectedAddin is ITextInputWidgetAddin)
+            {
+                var vbox = (Gtk.VBox) selectedAddin.Instance.Parent;
+                vbox.PackStart (TextScrolledWindow, true, true, 0u);
+                TextScrolledWindow.Reparent (vbox);
+                vbox.ShowAll ();
+            }
 
 			if (selectedAddin.FocusWidget != null)
 				selectedAddin.FocusWidget.GrabFocus ();
@@ -300,20 +308,11 @@ namespace R7.Webmaster
 			TextScrolledWindow = new Gtk.ScrolledWindow ();
 			TextScrolledWindow.Add (InputTextWidget);
 
-			TextScrolledWindow.ShadowType = Gtk.ShadowType.EtchedIn;
-			TextScrolledWindow.BorderWidth = 1;
+            TextScrolledWindow.ShadowType = Gtk.ShadowType.None;
+			TextScrolledWindow.BorderWidth = 0;
 
 			// wireup changed event handler
 			InputTextWidget.Buffer.Changed += OnInputTextChanged;
-
-			// place in vbox
-			vbox1.Add (TextScrolledWindow);
-
-			((Gtk.Box.BoxChild) vbox1 [TextScrolledWindow]).Position = 1; // below toolbar
-			((Gtk.Box.BoxChild) vbox1 [TextScrolledWindow]).Expand = true;
-			((Gtk.Box.BoxChild) vbox1 [TextScrolledWindow]).Fill = true;
-
-			vbox1.ShowAll ();
 		}
 
 		protected Gtk.ScrolledWindow TextScrolledWindow;
