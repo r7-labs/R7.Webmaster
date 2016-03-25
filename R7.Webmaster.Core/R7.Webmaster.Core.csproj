@@ -48,6 +48,7 @@
       <HintPath>lib\Nini.dll</HintPath>
     </Reference>
     <Reference Include="System.Xml" />
+    <Reference Include="Mono.Posix" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -55,13 +56,13 @@
     <Compile Include="Clipboard.cs" />
     <Compile Include="ISingleInstance.cs" />
     <Compile Include="SingleInstance.cs" />
-    <Compile Include="IInvocableSingleInstance.cs" />
-    <Compile Include="InvocableSingleInstance.cs" />
     <Compile Include="HtmlUtils.cs" />
     <Compile Include="HtmlHighlighter.cs" />
     <Compile Include="TextViewHighlighterBase.cs" />
     <Compile Include="ToggleButtonRadioGroup.cs" />
     <Compile Include="TextUtils.cs" />
+    <Compile Include="SemaphoreSingleInstance.cs" />
+    <Compile Include="UnixListenerSingleInstance.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>

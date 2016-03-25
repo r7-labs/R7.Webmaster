@@ -1,5 +1,5 @@
 ﻿//
-//  InvocableSingleInstance.cs
+//  SemaphoreSingleInstance.cs
 //
 //  Author:
 //       Roman M. Yagodin <roman.yagodin@gmail.com>
@@ -24,7 +24,7 @@ using System.Threading;
 
 namespace R7.Webmaster.Core
 {
-	public class InvocableSingleInstance: IInvocableSingleInstance
+	public class SemaphoreSingleInstance: ISingleInstance
 	{
 		protected readonly Semaphore WaitHandle;
 
@@ -32,7 +32,7 @@ namespace R7.Webmaster.Core
 
 		protected readonly EventHandler InvokeHandler;
 
-		public InvocableSingleInstance (string waitHandleName, EventHandler invokeHandler)
+        public SemaphoreSingleInstance (string waitHandleName, EventHandler invokeHandler)
 		{
 			WaitHandle = new Semaphore (1, 1, waitHandleName);
 			WatchThread = new Thread (new ThreadStart (WatchThreadRoutine));
@@ -51,10 +51,10 @@ namespace R7.Webmaster.Core
 			}
 			catch (ThreadAbortException)
 			{
-			}
+            }
 		}
 
-		#region IInvocableSingleInstance implementation
+		#region ISingleInstance implementation
 
 		public bool TryEnter ()
 		{
@@ -65,30 +65,24 @@ namespace R7.Webmaster.Core
 				return true;
 			}
 
+            // decrement semaphore counter to send signal 
+            // to the watch thread of the running instance
+            WaitHandle.Release ();
+
 			return false;
 		}
 
 		public void Leave ()
 		{
-			try
-			{
-				WatchThread.Abort ();
-				WaitHandle.Release ();
-			}
-			finally
-			{
-				WaitHandle.Close ();
-			}
+	        WatchThread.Abort ();
+            WatchThread.Join ();
+
+            // release & close semaphore handle
+            WaitHandle.Release ();
+            WaitHandle.Close ();
 		}
 
-		public void Invoke ()
-		{
-			// decrement semaphore counter to send signal 
-			// to the watch thread of the running instance
-			WaitHandle.Release ();
-		}
-
-		#endregion
+        #endregion
 	}
 }
 

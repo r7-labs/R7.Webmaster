@@ -28,7 +28,7 @@ namespace R7.Webmaster
 	{
 		public static readonly WebmasterConfig Config;
 
-		protected static readonly IInvocableSingleInstance AppInstance;
+		protected static readonly ISingleInstance AppInstance;
 
 		protected static MainWindow MainWindow;
 
@@ -44,7 +44,7 @@ namespace R7.Webmaster
 
 			// couldn't pass MainWindow.OnActionRestoreActivated directly,
 			// as MainWindow object doesn't exist at this point 
-			AppInstance = new InvocableSingleInstance ("R7.Webmaster", OnInvoke);
+			AppInstance = new UnixListenerSingleInstance ("R7.Webmaster", OnInvoke);
 		}
 
 		public static void Main (string[] args)
@@ -70,11 +70,6 @@ namespace R7.Webmaster
 					Console.WriteLine ("Exiting...");
 					#endif
 				}
-			}
-			else
-			{
-				// send signal to running instance
-				AppInstance.Invoke ();
 			}
 		}
 	}
