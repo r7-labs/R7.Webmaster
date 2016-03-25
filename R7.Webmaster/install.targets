@@ -17,8 +17,7 @@
   	<Target Name="Configure">
   		<PropertyGroup>
 			<StartScriptTemplate xml:space="preserve">#!/bin/bash
-
-export MONO_ENABLE_SHM=1
+            
 cd &quot;$(InstallBinaryFilesPath)&quot;
 mono R7.Webmaster.exe</StartScriptTemplate>
 			<DesktopFileTemplate xml:space="preserve">[Desktop Entry]
