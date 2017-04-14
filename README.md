@@ -1,5 +1,6 @@
 # R7.Webmaster
 
+[![BCH compliance](https://bettercodehub.com/edge/badge/roman-yagodin/R7.Webmaster)](https://bettercodehub.com/)
 [![Build Status](https://travis-ci.org/roman-yagodin/R7.Webmaster.svg?branch=master)](https://travis-ci.org/roman-yagodin/R7.Webmaster)
 
 *R7.Webmaster* project's main goal is to increase webmasters everyday productivity by providing a set
