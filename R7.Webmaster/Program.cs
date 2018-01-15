@@ -20,6 +20,7 @@
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 using System;
+using System.Linq;
 using R7.Webmaster.Core;
 
 namespace R7.Webmaster
@@ -49,13 +50,14 @@ namespace R7.Webmaster
 
 		public static void Main (string[] args)
 		{
+			var webmasterArgs = new WebmasterArgs (args);
+
 			if (AppInstance.TryEnter ())
 			{
 				try
 				{
 					Gtk.Application.Init ();
-					MainWindow = new MainWindow ();
-					MainWindow.Show ();
+					MainWindow = new MainWindow { Visible = !webmasterArgs.StartMinimized };
 					Gtk.Application.Run ();
 				}
 				catch (Exception ex)

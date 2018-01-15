@@ -16,10 +16,10 @@
   	</PropertyGroup>
   	<Target Name="Configure">
   		<PropertyGroup>
-			<StartScriptTemplate xml:space="preserve">#!/bin/bash
+			<StartScriptTemplate xml:space="preserve">#!/bin/sh
             
 cd &quot;$(InstallBinaryFilesPath)&quot;
-mono R7.Webmaster.exe</StartScriptTemplate>
+mono R7.Webmaster.exe --minimized</StartScriptTemplate>
 			<DesktopFileTemplate xml:space="preserve">[Desktop Entry]
 
 Encoding=UTF-8
