@@ -5,115 +5,122 @@ namespace R7.Webmaster
 	public partial class MainWindow
 	{
 		private global::Gtk.UIManager UIManager;
-		
+
 		private global::Gtk.Action undoAction;
-		
+
 		private global::Gtk.Action actionMenu;
-		
+
 		private global::Gtk.Action actionPaste;
-		
+
 		private global::Gtk.ToggleAction toggleAutoProcess;
-		
+
 		private global::Gtk.Action actionQuit;
-		
+
 		private global::Gtk.Action actionRestore;
-		
+
 		private global::Gtk.Action actionPasteHtml;
-		
+
+		private global::Gtk.Action actionOpenConfigFolder;
+
 		private global::Gtk.VBox vbox1;
-		
+
 		private global::Gtk.HBox hbox1;
-		
+
 		private global::Gtk.Toolbar toolbar1;
-		
+
 		private global::Gtk.Notebook notebook1;
-		
+
 		private global::Gtk.Label label1;
 
-		protected virtual void Build ()
+		protected virtual void Build()
 		{
-			global::Stetic.Gui.Initialize (this);
+			global::Stetic.Gui.Initialize(this);
 			// Widget R7.Webmaster.MainWindow
-			this.UIManager = new global::Gtk.UIManager ();
-			global::Gtk.ActionGroup w1 = new global::Gtk.ActionGroup ("Default");
-			this.undoAction = new global::Gtk.Action ("undoAction", null, null, "gtk-undo");
-			w1.Add (this.undoAction, null);
-			this.actionMenu = new global::Gtk.Action ("actionMenu", null, null, "gtk-execute");
-			w1.Add (this.actionMenu, null);
-			this.actionPaste = new global::Gtk.Action ("actionPaste", global::Mono.Unix.Catalog.GetString ("_Paste"), null, "gtk-paste");
+			this.UIManager = new global::Gtk.UIManager();
+			global::Gtk.ActionGroup w1 = new global::Gtk.ActionGroup("Default");
+			this.undoAction = new global::Gtk.Action("undoAction", null, null, "gtk-undo");
+			w1.Add(this.undoAction, null);
+			this.actionMenu = new global::Gtk.Action("actionMenu", null, null, "gtk-execute");
+			w1.Add(this.actionMenu, null);
+			this.actionPaste = new global::Gtk.Action("actionPaste", global::Mono.Unix.Catalog.GetString("_Paste"), null, "gtk-paste");
 			this.actionPaste.IsImportant = true;
-			this.actionPaste.ShortLabel = global::Mono.Unix.Catalog.GetString ("_Paste");
-			w1.Add (this.actionPaste, null);
-			this.toggleAutoProcess = new global::Gtk.ToggleAction ("toggleAutoProcess", global::Mono.Unix.Catalog.GetString ("Auto Process"), null, "gtk-media-forward");
+			this.actionPaste.ShortLabel = global::Mono.Unix.Catalog.GetString("_Paste");
+			w1.Add(this.actionPaste, null);
+			this.toggleAutoProcess = new global::Gtk.ToggleAction("toggleAutoProcess", global::Mono.Unix.Catalog.GetString("Auto Process"), null, "gtk-media-forward");
 			this.toggleAutoProcess.Active = true;
-			this.toggleAutoProcess.ShortLabel = global::Mono.Unix.Catalog.GetString ("Auto Process");
-			w1.Add (this.toggleAutoProcess, null);
-			this.actionQuit = new global::Gtk.Action ("actionQuit", global::Mono.Unix.Catalog.GetString ("_Quit"), null, "gtk-quit");
-			this.actionQuit.ShortLabel = global::Mono.Unix.Catalog.GetString ("_Quit");
-			w1.Add (this.actionQuit, null);
-			this.actionRestore = new global::Gtk.Action ("actionRestore", global::Mono.Unix.Catalog.GetString ("_Restore"), null, "gtk-goto-top");
-			this.actionRestore.ShortLabel = global::Mono.Unix.Catalog.GetString ("_Restore");
-			w1.Add (this.actionRestore, null);
-			this.actionPasteHtml = new global::Gtk.Action ("actionPasteHtml", global::Mono.Unix.Catalog.GetString ("Paste _HTML"), null, "gtk-paste");
+			this.toggleAutoProcess.ShortLabel = global::Mono.Unix.Catalog.GetString("Auto Process");
+			w1.Add(this.toggleAutoProcess, null);
+			this.actionQuit = new global::Gtk.Action("actionQuit", global::Mono.Unix.Catalog.GetString("_Quit"), null, "gtk-quit");
+			this.actionQuit.ShortLabel = global::Mono.Unix.Catalog.GetString("_Quit");
+			w1.Add(this.actionQuit, null);
+			this.actionRestore = new global::Gtk.Action("actionRestore", global::Mono.Unix.Catalog.GetString("_Restore"), null, "gtk-goto-top");
+			this.actionRestore.ShortLabel = global::Mono.Unix.Catalog.GetString("_Restore");
+			w1.Add(this.actionRestore, null);
+			this.actionPasteHtml = new global::Gtk.Action("actionPasteHtml", global::Mono.Unix.Catalog.GetString("Paste _HTML"), null, "gtk-paste");
 			this.actionPasteHtml.IsImportant = true;
-			this.actionPasteHtml.ShortLabel = global::Mono.Unix.Catalog.GetString ("Paste _HTML");
-			w1.Add (this.actionPasteHtml, null);
-			this.UIManager.InsertActionGroup (w1, 0);
-			this.AddAccelGroup (this.UIManager.AccelGroup);
+			this.actionPasteHtml.ShortLabel = global::Mono.Unix.Catalog.GetString("Paste _HTML");
+			w1.Add(this.actionPasteHtml, null);
+			this.actionOpenConfigFolder = new global::Gtk.Action("actionOpenConfigFolder", global::Mono.Unix.Catalog.GetString("Open _Config Folder"), null, "gtk-open");
+			this.actionOpenConfigFolder.ShortLabel = global::Mono.Unix.Catalog.GetString("Open _Config Folder");
+			w1.Add(this.actionOpenConfigFolder, null);
+			this.UIManager.InsertActionGroup(w1, 0);
+			this.AddAccelGroup(this.UIManager.AccelGroup);
 			this.Name = "R7.Webmaster.MainWindow";
-			this.Title = global::Mono.Unix.Catalog.GetString ("R7.Webmaster");
-			this.Icon = global::Gdk.Pixbuf.LoadFromResource ("R7.Webmaster.icons.webmaster_128.png");
+			this.Title = global::Mono.Unix.Catalog.GetString("R7.Webmaster");
+			this.Icon = global::Gdk.Pixbuf.LoadFromResource("R7.Webmaster.icons.webmaster_128.png");
 			this.WindowPosition = ((global::Gtk.WindowPosition)(4));
 			// Container child R7.Webmaster.MainWindow.Gtk.Container+ContainerChild
-			this.vbox1 = new global::Gtk.VBox ();
+			this.vbox1 = new global::Gtk.VBox();
 			this.vbox1.Name = "vbox1";
 			this.vbox1.Spacing = 6;
 			// Container child vbox1.Gtk.Box+BoxChild
-			this.hbox1 = new global::Gtk.HBox ();
+			this.hbox1 = new global::Gtk.HBox();
 			this.hbox1.Name = "hbox1";
 			this.hbox1.Spacing = 6;
 			// Container child hbox1.Gtk.Box+BoxChild
-			this.UIManager.AddUiFromString ("<ui><toolbar name='toolbar1'/></ui>");
-			this.toolbar1 = ((global::Gtk.Toolbar)(this.UIManager.GetWidget ("/toolbar1")));
+			this.UIManager.AddUiFromString("<ui><toolbar name=\'toolbar1\'/></ui>");
+			this.toolbar1 = ((global::Gtk.Toolbar)(this.UIManager.GetWidget("/toolbar1")));
 			this.toolbar1.Name = "toolbar1";
 			this.toolbar1.ShowArrow = false;
-			this.hbox1.Add (this.toolbar1);
-			global::Gtk.Box.BoxChild w2 = ((global::Gtk.Box.BoxChild)(this.hbox1 [this.toolbar1]));
+			this.hbox1.Add(this.toolbar1);
+			global::Gtk.Box.BoxChild w2 = ((global::Gtk.Box.BoxChild)(this.hbox1[this.toolbar1]));
 			w2.Position = 0;
-			this.vbox1.Add (this.hbox1);
-			global::Gtk.Box.BoxChild w3 = ((global::Gtk.Box.BoxChild)(this.vbox1 [this.hbox1]));
+			this.vbox1.Add(this.hbox1);
+			global::Gtk.Box.BoxChild w3 = ((global::Gtk.Box.BoxChild)(this.vbox1[this.hbox1]));
 			w3.Position = 0;
 			w3.Expand = false;
 			w3.Fill = false;
 			// Container child vbox1.Gtk.Box+BoxChild
-			this.notebook1 = new global::Gtk.Notebook ();
+			this.notebook1 = new global::Gtk.Notebook();
 			this.notebook1.CanFocus = true;
 			this.notebook1.Name = "notebook1";
 			this.notebook1.CurrentPage = 0;
 			// Notebook tab
-			global::Gtk.Label w4 = new global::Gtk.Label ();
+			global::Gtk.Label w4 = new global::Gtk.Label();
 			w4.Visible = true;
-			this.notebook1.Add (w4);
-			this.label1 = new global::Gtk.Label ();
+			this.notebook1.Add(w4);
+			this.label1 = new global::Gtk.Label();
 			this.label1.Name = "label1";
-			this.label1.LabelProp = global::Mono.Unix.Catalog.GetString ("page1");
-			this.notebook1.SetTabLabel (w4, this.label1);
-			this.label1.ShowAll ();
-			this.vbox1.Add (this.notebook1);
-			global::Gtk.Box.BoxChild w5 = ((global::Gtk.Box.BoxChild)(this.vbox1 [this.notebook1]));
+			this.label1.LabelProp = global::Mono.Unix.Catalog.GetString("page1");
+			this.notebook1.SetTabLabel(w4, this.label1);
+			this.label1.ShowAll();
+			this.vbox1.Add(this.notebook1);
+			global::Gtk.Box.BoxChild w5 = ((global::Gtk.Box.BoxChild)(this.vbox1[this.notebook1]));
 			w5.Position = 2;
-			this.Add (this.vbox1);
-			if ((this.Child != null)) {
-				this.Child.ShowAll ();
+			this.Add(this.vbox1);
+			if ((this.Child != null))
+			{
+				this.Child.ShowAll();
 			}
 			this.DefaultWidth = 400;
 			this.DefaultHeight = 296;
-			this.Show ();
-			this.DeleteEvent += new global::Gtk.DeleteEventHandler (this.OnDeleteEvent);
-			this.actionPaste.Activated += new global::System.EventHandler (this.OnActionPasteActivated);
-			this.actionQuit.Activated += new global::System.EventHandler (this.OnActionQuitActivated);
-			this.actionRestore.Activated += new global::System.EventHandler (this.OnActionRestoreActivated);
-			this.actionPasteHtml.Activated += new global::System.EventHandler (this.OnActionPasteHtmlActivated);
+			this.Show();
+			this.DeleteEvent += new global::Gtk.DeleteEventHandler(this.OnDeleteEvent);
+			this.actionPaste.Activated += new global::System.EventHandler(this.OnActionPasteActivated);
+			this.actionQuit.Activated += new global::System.EventHandler(this.OnActionQuitActivated);
+			this.actionRestore.Activated += new global::System.EventHandler(this.OnActionRestoreActivated);
+			this.actionPasteHtml.Activated += new global::System.EventHandler(this.OnActionPasteHtmlActivated);
+			this.actionOpenConfigFolder.Activated += new global::System.EventHandler(this.OnActionOpenConfigFolderActivated);
 		}
 	}
 }

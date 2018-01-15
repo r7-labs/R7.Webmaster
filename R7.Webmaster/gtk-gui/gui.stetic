@@ -73,6 +73,13 @@
         <property name="StockId">gtk-paste</property>
         <signal name="Activated" handler="OnActionPasteHtmlActivated" />
       </action>
+      <action id="actionOpenConfigFolder">
+        <property name="Type">Action</property>
+        <property name="Label" translatable="yes">Open _Config Folder</property>
+        <property name="ShortLabel" translatable="yes">Open _Config Folder</property>
+        <property name="StockId">gtk-open</property>
+        <signal name="Activated" handler="OnActionOpenConfigFolderActivated" />
+      </action>
     </action-group>
     <property name="MemberName" />
     <property name="Title" translatable="yes">R7.Webmaster</property>

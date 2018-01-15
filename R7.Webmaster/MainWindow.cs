@@ -21,6 +21,7 @@
 
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using R7.Webmaster.Addins.Root;
 using R7.Webmaster.Core;
 
@@ -329,6 +330,11 @@ namespace R7.Webmaster
 		protected void OnActionPasteHtmlActivated (object sender, EventArgs e)
 		{
 			InputTextWidget.Buffer.Text = HtmlUtils.GetHtmlBody (Clipboard.Html);
+		}
+
+		protected void OnActionOpenConfigFolderActivated(object sender, EventArgs e)
+		{
+			Process.Start (Program.Config.StartApp, Program.Config.ApplicationData);
 		}
 	}
 }

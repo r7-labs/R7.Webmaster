@@ -31,6 +31,12 @@ namespace R7.Webmaster
 		{
 		}
 
+		public string StartApp
+		{
+			get { return PlatformConfig.Get ("startApp"); }
+			set { PlatformConfig.Set ("startApp", value); }
+		}
+
 		public Gtk.PositionType TabsPosition
 		{
 			get { return (Gtk.PositionType) Enum.Parse (typeof (Gtk.PositionType), CommonConfig.Get ("tabsPosition", Gtk.PositionType.Top.ToString())); }
