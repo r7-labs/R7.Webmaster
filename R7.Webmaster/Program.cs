@@ -43,9 +43,8 @@ namespace R7.Webmaster
 		{
 			Config = new WebmasterConfig ();
 
-			// couldn't pass MainWindow.OnActionRestoreActivated directly,
-			// as MainWindow object doesn't exist at this point 
-			AppInstance = new UnixListenerSingleInstance ("R7.Webmaster", OnInvoke);
+			// couldn't pass MainWindow.OnActionRestoreActivated directly, as MainWindow object doesn't exist at this point 
+            AppInstance = new UnixListenerSingleInstance ("R7.Webmaster." + Environment.UserName, OnInvoke);
 		}
 
 		public static void Main (string[] args)
